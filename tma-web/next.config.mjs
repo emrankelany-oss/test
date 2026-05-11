@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
+// "standalone" output is required by the Coolify/Docker pipeline (Dockerfile +
+// .github/workflows/deploy.yml). Vercel ships its own optimized output and
+// breaks when standalone is forced, so we opt out when running on Vercel.
+const isVercel = !!process.env.VERCEL;
+
 const nextConfig = {
-  output: "standalone",
+  output: isVercel ? undefined : "standalone",
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
