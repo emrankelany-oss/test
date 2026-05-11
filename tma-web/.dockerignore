@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+*.log
+.env*
+!.env.example
+README.md
+AGENTS.md
+CLAUDE.md
+playwright
+playwright-report
+test-results
+.vscode
+.DS_Store
