@@ -1,4 +1,5 @@
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono, Caveat, Space_Grotesk } from "next/font/google";
+import MasksSprite from "@/components/portfolio/MasksSprite";
 import "./globals.css";
 
 const interTight = Inter_Tight({
@@ -13,6 +14,23 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
   display: "swap",
   variable: "--font-jetbrains-mono",
+});
+
+// Space Grotesk is the display voice for V12 (Launch Sequence). Scoped under
+// .v12 in CSS so it never leaks into other versions.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+// Caveat is the handwriting voice for V7 (Field Notebook). Scoped under
+// .v7-page in CSS so it never leaks into V1–V6.
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-caveat",
 });
 
 export const metadata = {
@@ -60,8 +78,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable} ${caveat.variable} ${spaceGrotesk.variable}`}>
+      <body>
+        <MasksSprite />
+        {children}
+      </body>
     </html>
   );
 }

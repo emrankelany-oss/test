@@ -1,39 +1,19 @@
-import Nav from "@/components/home/Nav";
-import Footer from "@/components/home/Footer";
-import ClientShell from "@/components/shell/ClientShell";
-import PortfolioHero from "@/components/portfolio/PortfolioHero";
-import PortfolioMotion from "@/components/portfolio/PortfolioMotion";
-import TrustBar from "@/components/portfolio/TrustBar";
-import FeaturedWorkGrid from "@/components/portfolio/FeaturedWorkGrid";
-import CaseSpotlightSection from "@/components/portfolio/CaseSpotlightSection";
-import WorkGallery from "@/components/portfolio/WorkGallery";
-import BigCTA from "@/components/portfolio/BigCTA";
+import V11ClientRoot from "@/components/portfolio-v11/V11ClientRoot";
 
 export const metadata = {
   title: "Portfolio — The Motion Agency",
   description:
-    "Building category leaders across the GCC. Foodics, Zid, InvoiceQ, Burger King, Salasa, LSC, Vodafone — explore our case studies, campaigns, brand systems, and production work.",
+    "A scroll-driven cinematic. Hero → Featured → 39 projects → Stats → Quotes → CTA, all under one continuous film. Built across Amman and Riyadh for category leaders across the GCC.",
   openGraph: {
     title: "Portfolio — The Motion Agency",
     description:
-      "Case studies, campaigns, brand systems and production work from across the GCC.",
-    images: [{ url: "/assets/case-foodics-boundless.png", width: 1600, height: 900 }],
+      "Scroll the booster. Foodics, Zid, InvoiceQ, Burger King, Salasa, LSC, Vodafone — six cases and 39 cuts from the studio floor.",
+    images: [
+      { url: "/assets/v11/poster.webp", width: 1920, height: 1080 },
+    ],
   },
 };
 
 export default function PortfolioPage() {
-  return (
-    <div className="pf-page">
-      <ClientShell enableScrolledNav />
-      <PortfolioMotion />
-      <Nav />
-      <PortfolioHero />
-      <TrustBar />
-      <FeaturedWorkGrid />
-      <CaseSpotlightSection />
-      <WorkGallery />
-      <BigCTA />
-      <Footer />
-    </div>
-  );
+  return <V11ClientRoot />;
 }
