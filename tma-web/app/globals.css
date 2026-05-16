@@ -5625,62 +5625,42 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
   font-size: clamp(22px, 2.8vw, 48px);
 }
 
-/* --- Editorial "feature-led" grid of card slots (Layout C) ------------- */
+/* --- ZoomParallax cluster (faithful port of the supplied component) ----
+   Each card is a full-viewport, flex-centred LAYER. Inside sits a per-index
+   positioned tile (the card). GSAP scales the LAYER on scroll (origin =
+   viewport centre) so the centre image fills the screen and the offset
+   tiles balloon past the edges — exactly like the source's
+   `style={{ scale }}` on the full-screen motion.div. */
 .v5-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.v5-zoom-layer {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
-  z-index: 2;
-  /* Top padding sits comfortably below the .section-head heading on
-     every viewport size, including wide ultra-HD where the italic
-     descenders of "ONE THROUGHLINE." would otherwise visually drift
-     into the card row. */
-  padding: clamp(260px, 36vh, 340px) 0 clamp(48px, 7vh, 88px);
-  pointer-events: none;
+  justify-content: center;
+  will-change: transform;
 }
-.v5-grid-inner {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: clamp(16px, 1.4vw, 28px);
-  width: 100%;
-  height: 100%;
-}
-.v5-grid-slot {
+/* Base tile = source `relative h-[25vh] w-[25vw]`. */
+.v5-zoom-slot {
   position: relative;
-  width: 100%;
-  height: 100%;
-  /* The slot is invisible — it's just a position anchor. The card inside
-     fills it absolutely so GSAP transforms move the card without resizing
-     the layout. */
+  height: 25vh;
+  width: 25vw;
+  pointer-events: auto;
 }
-/* Feature-led editorial composition (Layout C). data-slot-index N → card 0(N+1).
-   See docs/superpowers/specs/2026-05-16-v5-featured-layout-c-design.md */
-.v5-grid-inner .v5-grid-slot[data-slot-index="0"] { grid-column: 1 / 7;   grid-row: 1 / 5; }
-.v5-grid-inner .v5-grid-slot[data-slot-index="1"] { grid-column: 7 / 13;  grid-row: 1 / 3; }
-.v5-grid-inner .v5-grid-slot[data-slot-index="2"] { grid-column: 7 / 10;  grid-row: 3 / 7; }
-.v5-grid-inner .v5-grid-slot[data-slot-index="3"] { grid-column: 10 / 13; grid-row: 3 / 6; }
-.v5-grid-inner .v5-grid-slot[data-slot-index="4"] { grid-column: 1 / 7;   grid-row: 5 / 7; }
-/* Images only for now — hide the card text body (V5-scoped so the
-   shared V5Card text is untouched on any other route). */
+/* Per-index offsets/sizes — source's `[&>div]:!...` overrides (indices
+   1–4; index 0 is the centred hero tile, no override). */
+.v5-zoom-slot[data-slot-index="1"] { top: -30vh; left: 5vw;     height: 30vh; width: 35vw; }
+.v5-zoom-slot[data-slot-index="2"] { top: -10vh; left: -25vw;   height: 45vh; width: 20vw; }
+.v5-zoom-slot[data-slot-index="3"] {            left: 27.5vw;   height: 25vh; width: 25vw; }
+.v5-zoom-slot[data-slot-index="4"] { top: 27.5vh; left: 5vw;    height: 25vh; width: 20vw; }
+/* Pure images — hide the card text body (V5-scoped so the shared V5Card
+   text is untouched on any other route). */
 .v5-page .v5-card-body { display: none; }
-/* Mobile: collapse the editorial grid to a single stacked column,
-   source order preserved (01 → 05). */
-@media (max-width: 720px) {
-  .v5-grid-inner {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(16px, 4vw, 24px);
-  }
-  .v5-grid-inner .v5-grid-slot {
-    grid-column: auto;
-    grid-row: auto;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
-  }
-}
 
 /* --- The card itself --------------------------------------------------- */
 .v5-card {
