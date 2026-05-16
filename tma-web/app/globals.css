@@ -5665,6 +5665,22 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
 /* Images only for now — hide the card text body (V5-scoped so the
    shared V5Card text is untouched on any other route). */
 .v5-page .v5-card-body { display: none; }
+/* Mobile: collapse the editorial grid to a single stacked column,
+   source order preserved (01 → 05). */
+@media (max-width: 720px) {
+  .v5-grid-inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 4vw, 24px);
+  }
+  .v5-grid-inner .v5-grid-slot {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+}
 
 /* --- The card itself --------------------------------------------------- */
 .v5-card {
