@@ -5662,6 +5662,9 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
 .v5-grid-inner .v5-grid-slot[data-slot-index="2"] { grid-column: 7 / 10;  grid-row: 3 / 7; }
 .v5-grid-inner .v5-grid-slot[data-slot-index="3"] { grid-column: 10 / 13; grid-row: 3 / 6; }
 .v5-grid-inner .v5-grid-slot[data-slot-index="4"] { grid-column: 1 / 7;   grid-row: 5 / 7; }
+/* Images only for now — hide the card text body (V5-scoped so the
+   shared V5Card text is untouched on any other route). */
+.v5-page .v5-card-body { display: none; }
 
 /* --- The card itself --------------------------------------------------- */
 .v5-card {
