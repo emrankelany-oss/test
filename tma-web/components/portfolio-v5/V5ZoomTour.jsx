@@ -34,6 +34,80 @@ function panelAmt(lp) {
 }
 const localProgress = (v, i) => clamp((v - i / N) / (1 / N));
 
+const ACTIVE_SLOTS = new Set(featuredZoom.map((p) => p.slotIndex));
+const GRID_TILES = [0, 1, 2, 3, 4];
+
+function PanelInner({ p }) {
+  return (
+    <>
+      <span className="v5-zt-kicker">
+        {p.num} — {p.client} · {p.project}
+      </span>
+      <h2 className="v5-zt-headline">{p.headline}</h2>
+      <p className="v5-zt-intro">{p.intro}</p>
+      <div className="v5-zt-metrics">
+        {p.metrics.map((m) => (
+          <div className="v5-zt-metric" key={m.l}>
+            <em>{m.v}</em>
+            <span>{m.l}</span>
+          </div>
+        ))}
+      </div>
+      <blockquote className="v5-zt-quote">
+        "{p.quote}"<span>{p.quoteBy}</span>
+      </blockquote>
+      <a
+        className="v5-zt-cta"
+        href={p.href}
+        aria-label={`View full case: ${p.client} ${p.project}`}
+      >
+        View full case →
+      </a>
+    </>
+  );
+}
+
+function ZoomProject({ p, i, scrollYProgress, rectsRef, stageRef }) {
+  const stageW = () => (stageRef.current ? stageRef.current.clientWidth : 1);
+  const stageH = () => (stageRef.current ? stageRef.current.clientHeight : 1);
+  const compute = (key) => (v) => {
+    const rect = rectsRef.current[i];
+    if (!rect) return 0;
+    const a = liftAmt(localProgress(v, i));
+    if (key === "left") return lerp(rect.x, 0, a);
+    if (key === "top") return lerp(rect.y, 0, a);
+    if (key === "width") return lerp(rect.w, stageW(), a);
+    return lerp(rect.h, stageH(), a); // height
+  };
+  const left = useTransform(scrollYProgress, compute("left"));
+  const top = useTransform(scrollYProgress, compute("top"));
+  const width = useTransform(scrollYProgress, compute("width"));
+  const height = useTransform(scrollYProgress, compute("height"));
+  const pOpacity = useTransform(scrollYProgress, (v) =>
+    panelAmt(localProgress(v, i))
+  );
+  const pY = useTransform(scrollYProgress, (v) =>
+    lerp(24, 0, panelAmt(localProgress(v, i)))
+  );
+  return (
+    <>
+      <motion.div
+        className="v5-zt-focus"
+        style={{ left, top, width, height }}
+      >
+        <img src={p.image} alt={`${p.client} — ${p.project}`} />
+      </motion.div>
+      <motion.div
+        className="v5-zt-panel"
+        aria-hidden="true"
+        style={{ opacity: pOpacity, y: pY }}
+      >
+        <PanelInner p={p} />
+      </motion.div>
+    </>
+  );
+}
+
 export default function V5ZoomTour() {
   const containerRef = useRef(null);
   const stageRef = useRef(null);
@@ -42,7 +116,6 @@ export default function V5ZoomTour() {
   const [, force] = useState(0);
 
   useLayoutEffect(() => {
-    if (typeof window === "undefined") return;
     const measure = () => {
       const stage = stageRef.current;
       if (!stage) return;
@@ -70,56 +143,25 @@ export default function V5ZoomTour() {
     offset: ["start start", "end end"],
   });
 
-  const stageW = () => (stageRef.current ? stageRef.current.clientWidth : 1);
-  const stageH = () => (stageRef.current ? stageRef.current.clientHeight : 1);
-
-  const focus = featuredZoom.map((p, i) => {
-    const box = (key) =>
-      useTransform(scrollYProgress, (v) => {
-        const rect = rectsRef.current[i];
-        if (!rect) return 0;
-        const a = liftAmt(localProgress(v, i));
-        const full = { x: 0, y: 0, w: stageW(), h: stageH() };
-        if (key === "left") return lerp(rect.x, full.x, a);
-        if (key === "top") return lerp(rect.y, full.y, a);
-        if (key === "width") return lerp(rect.w, full.w, a);
-        return lerp(rect.h, full.h, a);
-      });
-    const pOpacity = useTransform(scrollYProgress, (v) =>
-      panelAmt(localProgress(v, i))
-    );
-    const pY = useTransform(scrollYProgress, (v) =>
-      lerp(24, 0, panelAmt(localProgress(v, i)))
-    );
-    return {
-      left: box("left"),
-      top: box("top"),
-      width: box("width"),
-      height: box("height"),
-      pOpacity,
-      pY,
-    };
-  });
-
   const dim = useTransform(scrollYProgress, (v) => {
     let m = 0;
     for (let i = 0; i < N; i++) m = Math.max(m, liftAmt(localProgress(v, i)));
     return 1 - 0.72 * m;
   });
 
-  const activeIdx = new Set(featuredZoom.map((p) => p.slotIndex));
-  const gridTiles = [0, 1, 2, 3, 4];
-
   return (
     <section className="v5-zt" ref={containerRef} data-section="v5-zoom-tour">
       <div className="v5-zt-stage" ref={stageRef}>
         <div className="v5-zt-grid" aria-hidden="true">
           <div className="container v5-grid-inner">
-            {gridTiles.map((slot) => {
-              const proj = featuredZoom.find((p) => p.slotIndex === slot);
-              const ref = proj
-                ? (el) => (slotRefs.current[featuredZoom.indexOf(proj)] = el)
-                : undefined;
+            {GRID_TILES.map((slot) => {
+              const projIdx = featuredZoom.findIndex(
+                (p) => p.slotIndex === slot
+              );
+              const ref =
+                projIdx >= 0
+                  ? (el) => (slotRefs.current[projIdx] = el)
+                  : undefined;
               return (
                 <div
                   key={slot}
@@ -127,7 +169,7 @@ export default function V5ZoomTour() {
                   data-slot-index={slot}
                   ref={ref}
                 >
-                  {!activeIdx.has(slot) && (
+                  {!ACTIVE_SLOTS.has(slot) && (
                     <motion.div className="v5-zt-tile" style={{ opacity: dim }} />
                   )}
                 </div>
@@ -137,44 +179,14 @@ export default function V5ZoomTour() {
         </div>
 
         {featuredZoom.map((p, i) => (
-          <div key={p.id}>
-            <motion.div
-              className="v5-zt-focus"
-              style={{
-                left: focus[i].left,
-                top: focus[i].top,
-                width: focus[i].width,
-                height: focus[i].height,
-              }}
-            >
-              <img src={p.image} alt={`${p.client} — ${p.project}`} />
-            </motion.div>
-
-            <motion.div
-              className="v5-zt-panel"
-              style={{ opacity: focus[i].pOpacity, y: focus[i].pY }}
-            >
-              <span className="v5-zt-kicker">
-                {p.num} — {p.client} · {p.project}
-              </span>
-              <h2 className="v5-zt-headline">{p.headline}</h2>
-              <p className="v5-zt-intro">{p.intro}</p>
-              <div className="v5-zt-metrics">
-                {p.metrics.map((m) => (
-                  <div className="v5-zt-metric" key={m.l}>
-                    <em>{m.v}</em>
-                    <span>{m.l}</span>
-                  </div>
-                ))}
-              </div>
-              <blockquote className="v5-zt-quote">
-                "{p.quote}"<span>{p.quoteBy}</span>
-              </blockquote>
-              <a className="v5-zt-cta" href={p.href}>
-                View full case →
-              </a>
-            </motion.div>
-          </div>
+          <ZoomProject
+            key={p.id}
+            p={p}
+            i={i}
+            scrollYProgress={scrollYProgress}
+            rectsRef={rectsRef}
+            stageRef={stageRef}
+          />
         ))}
       </div>
 
@@ -183,25 +195,7 @@ export default function V5ZoomTour() {
           <div className="v5-zt-rm-item" key={p.id}>
             <img src={p.image} alt={`${p.client} — ${p.project}`} />
             <div className="v5-zt-panel">
-              <span className="v5-zt-kicker">
-                {p.num} — {p.client} · {p.project}
-              </span>
-              <h2 className="v5-zt-headline">{p.headline}</h2>
-              <p className="v5-zt-intro">{p.intro}</p>
-              <div className="v5-zt-metrics">
-                {p.metrics.map((m) => (
-                  <div className="v5-zt-metric" key={m.l}>
-                    <em>{m.v}</em>
-                    <span>{m.l}</span>
-                  </div>
-                ))}
-              </div>
-              <blockquote className="v5-zt-quote">
-                "{p.quote}"<span>{p.quoteBy}</span>
-              </blockquote>
-              <a className="v5-zt-cta" href={p.href}>
-                View full case →
-              </a>
+              <PanelInner p={p} />
             </div>
           </div>
         ))}

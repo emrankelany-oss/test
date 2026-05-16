@@ -7789,6 +7789,7 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
   .v5-zt { height: auto; }
   .v5-zt-stage { position: static; height: auto; overflow: visible; }
   .v5-zt-grid, .v5-zt-focus { display: none; }
+  .v5-zt-stage .v5-zt-panel { display: none; }
   .v5-zt-rm { display: block; }
   .v5-zt-rm-item { padding: clamp(32px, 8vw, 80px) clamp(20px, 6vw, 64px); }
   .v5-zt-rm-item img {
