@@ -13,6 +13,7 @@ export function createFrameSequenceEngine(source, renderer) {
   const cache = createLruCache(CACHE_CAP, (_k, v) => {
     if (v && typeof v.close === "function") v.close(); // ImageBitmap
   });
+  const inflight = new Set();
   let targetProgress = 0;
   let lastDrawnIndex = -1;
   let lastGood = null;
@@ -22,7 +23,8 @@ export function createFrameSequenceEngine(source, renderer) {
   const debug = { drawCount: 0, frameIndex: 0, count: source.count };
 
   async function ensure(index) {
-    if (cache.has(index)) return;
+    if (cache.has(index) || inflight.has(index)) return;
+    inflight.add(index);
     try {
       if (source.drawProcedural) {
         cache.set(index, source.drawProcedural(index));
@@ -36,6 +38,8 @@ export function createFrameSequenceEngine(source, renderer) {
         console.warn("[v14] frame load failed; holding last frame", err);
         loggedError = true;
       }
+    } finally {
+      inflight.delete(index);
     }
   }
 
@@ -49,11 +53,18 @@ export function createFrameSequenceEngine(source, renderer) {
     if (index !== lastDrawnIndex) {
       const frame = cache.get(index) || lastGood;
       if (frame) {
-        renderer.draw(frame);
-        lastGood = frame;
-        lastDrawnIndex = index;
-        debug.drawCount += 1;
-        debug.frameIndex = index;
+        try {
+          renderer.draw(frame);
+          lastGood = frame;
+          lastDrawnIndex = index;
+          debug.drawCount += 1;
+          debug.frameIndex = index;
+        } catch (err) {
+          if (!loggedError) {
+            console.warn("[v14] frame draw failed; skipping frame", err);
+            loggedError = true;
+          }
+        }
       }
       preload(index);
     }
