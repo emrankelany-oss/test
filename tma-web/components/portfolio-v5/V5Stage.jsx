@@ -22,6 +22,16 @@ const CHOREO = [
   { tx: 6, ty: 8, rot: -2, depth: 0.04, delay: 0.03, ease: "back.out(1.5)", overshoot: 1 },
 ];
 
+// --- Zoom-parallax phase (runs AFTER the deck has landed in the grid) ---
+// Once the grid is settled, continued scroll scales every card up at its
+// own rate — the feature card (index 0) centres + fills the viewport so
+// the user ends up "inside" the image, while the others balloon and drift
+// off-screen. Pure images (the card text body is hidden by Layout-C CSS).
+// Index 0 is the feature; indices 1..4 use these scale targets.
+const ZOOM_OTHER_SCALE = [1, 5.5, 7, 6, 8];
+const ZOOM_START = 1.25; // timeline position — safely after the grid settles
+const ZOOM_DUR = 1.1;
+
 export default function V5Stage() {
   const sectionRef = useRef(null);
   const pinRef = useRef(null);
@@ -81,10 +91,32 @@ export default function V5Stage() {
           const deckX = deckAnchorX + stackJitterX - naturalCx;
           const deckY = deckAnchorY + stackJitterY - naturalCy;
 
+          // Zoom-parallax targets, measured from the card's grid slot.
+          // The slot rect is the card's resting position; while the stage
+          // is pinned these viewport coords stay valid. Function-based
+          // tween values + invalidateOnRefresh re-read these on resize.
+          let zTx, zTy, zScale;
+          if (i === 0) {
+            // Feature → translate its centre to the viewport centre and
+            // scale enough to fully cover the screen ("inside the image").
+            zScale =
+              Math.max(vw / sRect.width, vh / sRect.height) * 1.06;
+            zTx = vw / 2 - naturalCx;
+            zTy = vh / 2 - naturalCy;
+          } else {
+            // Others → balloon and drift outward off-screen.
+            zScale = ZOOM_OTHER_SCALE[i] || 6;
+            zTx = (naturalCx - vw / 2) * 1.9;
+            zTy = (naturalCy - vh / 2) * 1.9;
+          }
+
           return {
             deckX,
             deckY,
             cardWidth: cRect.width,
+            zTx,
+            zTy,
+            zScale,
           };
         });
       };
@@ -142,8 +174,12 @@ export default function V5Stage() {
 
       // Master scroll timeline. Pins the stage and drives every card from
       // deck-state to natural grid position over the full pin distance.
+      // Longer pin now: the original deck→grid budget PLUS the appended
+      // zoom-parallax phase. The deck→grid timeline positions are
+      // unchanged, so it still feels the same per-scroll; the extra
+      // length is the new zoom.
       const isMobile = window.matchMedia("(max-width: 720px)").matches;
-      const pinViewports = isMobile ? 2.5 : 4;
+      const pinViewports = isMobile ? 5 : 8;
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -227,6 +263,42 @@ export default function V5Stage() {
             overwrite: "auto",
           },
           0.05 + i * 0.045
+        );
+      });
+
+      // --- Zoom-parallax phase ---------------------------------------
+      // After the grid has settled, continued scroll scales every card up
+      // at its own rate: the feature centres + fills the viewport (user is
+      // "inside" the image) while the others balloon and drift off-screen.
+      // Fade the section label so the dive is pure image.
+      tl.to(
+        gridLabelRef.current,
+        { autoAlpha: 0, y: -20, ease: "power2.in", duration: 0.3 },
+        ZOOM_START
+      );
+
+      cards.forEach((card, i) => {
+        // Cards rest at x:0/y:0/scale:1 here, so switching transform-origin
+        // to centre and restacking the feature on top is seamless.
+        tl.set(
+          card,
+          { transformOrigin: "50% 50%", zIndex: i === 0 ? 60 : 20 },
+          ZOOM_START
+        );
+        // Function-based values + invalidateOnRefresh → re-read measured
+        // targets on resize.
+        tl.to(
+          card,
+          {
+            x: () => measurements[i].zTx,
+            y: () => measurements[i].zTy,
+            scale: () => measurements[i].zScale,
+            rotation: 0,
+            ease: i === 0 ? "power2.inOut" : "power2.in",
+            duration: ZOOM_DUR,
+            overwrite: "auto",
+          },
+          ZOOM_START
         );
       });
 

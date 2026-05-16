@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { featuredWork, galleryItems, manifestoQuotes } from "@/data/portfolio";
 import { useMaskedReveal } from "./MaskedReveal";
+import Placard from "./Placard";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -193,6 +194,10 @@ export function FeaturedGrid() {
                 <img src={w.image} alt="" loading="lazy" />
                 <div className="v11-card-frame" />
                 <div className="v11-card-glow" />
+                <Placard
+                  items={[w.client, w.project]}
+                  className="v11-card-placard"
+                />
                 <div className="v11-card-kpi">
                   <span className="v11-card-kpi-v">{w.kpi.v}</span>
                   <span className="v11-mono">{w.kpi.l}</span>
@@ -310,6 +315,10 @@ export function WorkRiver() {
             <div className="v11-tile-media">
               <img src={p.image} alt="" loading="lazy" />
               <div className="v11-tile-frame" />
+              <Placard
+                items={[p.client, p.category]}
+                className="v11-tile-placard"
+              />
             </div>
             <div className="v11-tile-meta">
               <span className="v11-mono v11-tile-num">

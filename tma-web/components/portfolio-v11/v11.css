@@ -913,6 +913,69 @@
 }
 
 /* =========================================================
+   PLACARD — museum-card label chip (on every image)
+   ========================================================= */
+.v11-placard {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--v11-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v11-ink-dim);
+  white-space: nowrap;
+}
+.v11-placard-sq {
+  width: 5px;
+  height: 5px;
+  background: var(--v11-cyan);
+  flex: none;
+}
+.v11-placard-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.v11-placard-dot { color: var(--v11-ink-soft); }
+
+.v11-card-media,
+.v11-tile-media { position: relative; }
+.v11-card-placard,
+.v11-tile-placard {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 3;
+  padding: 6px 9px;
+  background: rgba(4, 6, 10, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.v11-tile-placard { font-size: 8.5px; padding: 5px 7px; }
+
+/* =========================================================
+   POV ANCHOR — the recurring Director, head of the left rail
+   ========================================================= */
+.v11-pov {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.v11-pov-fig {
+  width: clamp(64px, 7vw, 104px);
+  height: auto;
+  color: var(--v11-ink);
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.55));
+  transition: opacity 0.45s ease;
+}
+.v11-pov-cap { font-size: 9px; }
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {

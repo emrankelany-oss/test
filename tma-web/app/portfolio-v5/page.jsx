@@ -7,7 +7,6 @@ import V5Background from "@/components/portfolio-v5/V5Background";
 import V5Stage from "@/components/portfolio-v5/V5Stage";
 import V5Preloader from "@/components/portfolio-v5/V5Preloader";
 import V5OurWork from "@/components/portfolio-v5/V5OurWork";
-import V5ZoomTour from "@/components/portfolio-v5/V5ZoomTour";
 import BigCTA from "@/components/portfolio/BigCTA";
 
 export const metadata = {
@@ -34,7 +33,6 @@ export default function PortfolioV5Page() {
       <V5Background />
       <Nav />
       <V5Stage />
-      <V5ZoomTour />
       <V5OurWork />
       <BigCTA />
       <Footer />

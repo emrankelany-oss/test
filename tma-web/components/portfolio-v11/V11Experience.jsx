@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useV11Scroll } from "./useV11Scroll";
 import FrameBackdrop from "./FrameBackdrop";
+import POVAnchor from "./POVAnchor";
 import {
   HeroPanel,
   FeaturedGrid,
@@ -22,6 +23,7 @@ export default function V11Experience() {
 
   const [ready, setReady] = useState(false);
   const [preload, setPreload] = useState(0);
+  const [activeChapter, setActiveChapter] = useState(0);
 
   useV11Scroll(progressRef);
 
@@ -70,6 +72,9 @@ export default function V11Experience() {
           chapterNumRef.current.textContent = String(idx + 1).padStart(2, "0");
         if (chapterLabelRef.current)
           chapterLabelRef.current.textContent = CHAPTERS[idx].label;
+        // Chapter changes ~6x total — cheap to drive the POV anchor via
+        // state (vs the 60fps refs the rest of this RAF uses).
+        setActiveChapter(idx);
       }
 
       // Fade the scroll hint after the user has scrolled past the cold-open
@@ -155,6 +160,7 @@ export default function V11Experience() {
 
       {/* Persistent left HUD — chapter number + label */}
       <aside className="v11-hud" aria-hidden="true">
+        <POVAnchor index={activeChapter} />
         <span className="v11-mono v11-hud-tag">CHAPTER</span>
         <span className="v11-hud-num" ref={chapterNumRef}>
           01

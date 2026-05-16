@@ -1,0 +1,17 @@
+
+> tma-web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.5:3000
+✓ Ready in 491ms
+
+ GET /portfolio-v12 200 in 780ms (next.js: 321ms, application-code: 459ms)
+ GET /portfolio-v12 200 in 117ms (next.js: 8ms, application-code: 109ms)
+ GET /portfolio-v12 200 in 169ms (next.js: 10ms, application-code: 159ms)
+ GET /portfolio-v12 200 in 378ms (next.js: 123ms, application-code: 255ms)
+ GET /portfolio-v12 200 in 148ms (next.js: 5ms, application-code: 143ms)
+ GET /portfolio-v12 200 in 322ms (next.js: 78ms, application-code: 244ms)
+ GET /portfolio-v12 200 in 146ms (next.js: 9ms, application-code: 137ms)
+[?25h

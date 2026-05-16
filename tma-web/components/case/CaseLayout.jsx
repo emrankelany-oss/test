@@ -9,6 +9,7 @@ export function CaseNav() {
       </Link>
       <div className="nav-links">
         <Link href="/portfolio">Portfolio</Link>
+        <Link href="/portfolio-v2" className="nav-v2-link">V2 Lab</Link>
         <Link href="/#proof">Case Studies</Link>
         <Link href="/#services">Services</Link>
         <Link href="/#about">About</Link>

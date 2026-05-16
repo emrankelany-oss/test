@@ -1,0 +1,70 @@
+.v12 {
+  --v12-black: #050506;
+  --v12-graphite: #111114;
+  --v12-silver: #9aa0a8;
+  --v12-white: #f4f5f7;
+  --v12-blue: #2e6bff;
+  --v12-glow: #ff6a1a;
+  --ease-launch: cubic-bezier(0.16, 1, 0.3, 1);
+
+  background: var(--v12-black);
+  color: var(--v12-white);
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.v12 section { position: relative; }
+
+.v12-h {
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 9vw, 11rem);
+  margin: 0;
+}
+
+.v12-sub {
+  color: var(--v12-silver);
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  max-width: 38ch;
+  line-height: 1.5;
+}
+
+.v12-fixed-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.v12-content { position: relative; z-index: 1; }
+
+.v12-pin {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6vw;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v12 * { animation: none !important; transition: none !important; }
+}
+
+.v12-skip {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.v12-skip:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+  background: var(--v12-black);
+  color: var(--v12-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  z-index: 999;
+  outline: 2px solid var(--v12-glow);
+}
