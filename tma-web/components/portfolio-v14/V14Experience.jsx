@@ -2,7 +2,7 @@
 import SmoothScroll from "@/components/portfolio/SmoothScroll";
 import { SceneControllerProvider } from "@/components/portfolio-v14/engine/SceneController";
 import ProbeSceneA from "@/components/portfolio-v14/scenes/ProbeSceneA";
-import PlaceholderFilmScene from "@/components/portfolio-v14/scenes/PlaceholderFilmScene";
+import IntroFilmScene from "@/components/portfolio-v14/scenes/IntroFilmScene";
 import ProbeSceneB from "@/components/portfolio-v14/scenes/ProbeSceneB";
 
 export default function V14Experience() {
@@ -10,7 +10,7 @@ export default function V14Experience() {
     <SceneControllerProvider>
       <SmoothScroll />
       <ProbeSceneA />
-      <PlaceholderFilmScene />
+      <IntroFilmScene />
       <ProbeSceneB />
     </SceneControllerProvider>
   );

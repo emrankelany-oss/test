@@ -4,8 +4,20 @@ import { useScene } from "@/components/portfolio-v14/engine/useScene";
 import { useFrameSequence } from "@/components/portfolio-v14/engine/useFrameSequence";
 import { createProceduralSource } from "@/components/portfolio-v14/dev/proceduralFrames";
 
-export default function PlaceholderFilmScene() {
-  const source = useMemo(() => createProceduralSource(180), []);
+const FRAME_COUNT = 180;
+
+export default function IntroFilmScene() {
+  const source = useMemo(() => {
+    const useProcedural =
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("frames") === "procedural";
+    if (useProcedural) return createProceduralSource(FRAME_COUNT);
+    return {
+      count: FRAME_COUNT,
+      getUrl: (i) =>
+        `/assets/v14/intro/frame-${String(i + 1).padStart(3, "0")}.webp`,
+    };
+  }, []);
   const { canvasRef, setProgress } = useFrameSequence(source);
   const ref = useScene({
     id: "film",
