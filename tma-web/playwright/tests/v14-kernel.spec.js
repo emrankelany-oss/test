@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("portfolio-v14 route renders the experience root", async ({ page }) => {
   const errors = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
-  await page.goto("/portfolio-v14");
+  await page.goto("/portfolio-v14?frames=procedural");
   await expect(page.locator('[data-v14-root]')).toBeVisible();
   expect(errors).toEqual([]);
 });
@@ -11,7 +11,7 @@ test("portfolio-v14 route renders the experience root", async ({ page }) => {
 test("frame advances monotonically and rAF-throttles draws", async ({ page }) => {
   const errors = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
-  await page.goto("/portfolio-v14");
+  await page.goto("/portfolio-v14?frames=procedural");
   await page.locator('[data-v14-canvas]').waitFor();
 
   const samples = [];
@@ -33,7 +33,7 @@ test("frame advances monotonically and rAF-throttles draws", async ({ page }) =>
 });
 
 test("sustains >=55fps during a fast programmatic scroll", async ({ page }) => {
-  await page.goto("/portfolio-v14");
+  await page.goto("/portfolio-v14?frames=procedural");
   await page.locator('[data-v14-canvas]').waitFor();
   const fps = await page.evaluate(async () => {
     let frames = 0;
