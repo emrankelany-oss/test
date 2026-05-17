@@ -41,12 +41,23 @@ test("overlay activates at >=2 seams and is inert most of the scroll", async ({ 
 });
 
 test("seam blur is velocity-coupled and bounded by the clamp ceiling", async ({ page }) => {
+  test.setTimeout(120_000);
   await page.goto("/portfolio-v14?frames=procedural");
   await page.locator(OVERLAY).waitFor({ state: "attached" });
+
+  // Geometry-independent: sweep the whole page (same robust scrollTo→settle→
+  // sample pattern as the test above) and capture the peak overlay blur at
+  // whatever seams exist. (Hardcoding a seam y is brittle — the scene layout
+  // changes across sub-projects; SP-2B replaced the probe scenes.) The intent
+  // is unchanged: some seam must produce a real, BOUNDED blur — strictly
+  // positive and never above the velocity-clamp ceiling
+  // (blurAmount(0.5)*maxVMul = 16*1.6 = 25.6, +rounding/raster headroom → ≤27).
+  const STEP = 280;
+  const SETTLE = 400;
   let peak = 0;
-  await page.evaluate(() => window.scrollTo(0, 1675));
-  for (let i = 0; i < 40; i++) {
-    await page.waitForTimeout(16);
+  for (let y = 0; y <= 14000; y += STEP) {
+    await page.evaluate((sy) => window.scrollTo(0, sy), y);
+    await page.waitForTimeout(SETTLE);
     peak = Math.max(peak, (await sampleOverlay(page)).blur);
   }
   expect(peak).toBeGreaterThan(0);
@@ -66,7 +77,7 @@ test("reduced motion: overlay stays inert, page fully scrollable", async ({ page
     maxOpacity = Math.max(maxOpacity, (await sampleOverlay(page)).opacity);
   }
   expect(maxOpacity).toBeLessThan(0.02);
-  await page.locator('[data-scene="probe-b"]').scrollIntoViewIfNeeded();
-  await expect(page.locator('[data-scene="probe-b"]')).toBeInViewport();
+  await page.locator('[data-scene="zid"]').scrollIntoViewIfNeeded();
+  await expect(page.locator('[data-scene="zid"]')).toBeInViewport();
   expect(errors).toEqual([]);
 });

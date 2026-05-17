@@ -20,7 +20,24 @@ test("manifesto → foodics → zid reveal in order with their acts", async ({ p
   let sawManifestoClose = false;
   for (let y = 0; y <= 30000; y += 280) {
     await page.evaluate((sy) => window.scrollTo(0, sy), y);
-    await page.waitForTimeout(140);
+    // Poll until Lenis has actually carried the scroll to (near) the target
+    // before sampling — a fixed settle is load-sensitive and lets a narrow
+    // act band slip between steps under cumulative dev-server load. Polling
+    // settles exactly as long as needed so no band can be skipped; cap +
+    // small post-arrival wait for the SceneController rAF to paint data-act.
+    for (let w = 0; w < 30; w++) {
+      const { sy, atBottom } = await page.evaluate(
+        () => ({
+          sy: window.scrollY,
+          atBottom:
+            window.scrollY + window.innerHeight >=
+            document.documentElement.scrollHeight - 2,
+        })
+      );
+      if (Math.abs(sy - y) <= 80 || atBottom) break;
+      await page.waitForTimeout(50);
+    }
+    await page.waitForTimeout(90);
     for (const sc of ["manifesto", "foodics", "zid"]) {
       const a = await actOf(page, sc);
       if (a) seenActs.add(`${sc}:${a}`);

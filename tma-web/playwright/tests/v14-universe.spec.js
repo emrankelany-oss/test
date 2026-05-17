@@ -34,7 +34,7 @@ test("reduced motion rests on the final settled frame, scrollable", async ({ pag
   await page.waitForTimeout(500);
   const dbg = await page.evaluate(() => ({ ...window.__v14Debug }));
   expect(dbg.frameIndex).toBe(179); // engine resolved to the last (settled) frame
-  await page.locator('[data-scene="probe-b"]').scrollIntoViewIfNeeded();
-  await expect(page.locator('[data-scene="probe-b"]')).toBeInViewport();
+  await page.locator('[data-scene="zid"]').scrollIntoViewIfNeeded();
+  await expect(page.locator('[data-scene="zid"]')).toBeInViewport();
   expect(errors).toEqual([]);
 });

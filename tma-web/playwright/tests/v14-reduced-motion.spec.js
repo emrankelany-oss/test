@@ -8,9 +8,9 @@ test("reduced motion: static, fully scrollable, all scenes reachable", async ({ 
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto("/portfolio-v14");
 
-  await expect(page.locator('[data-scene="probe-a"]')).toBeVisible();
-  await page.locator('[data-scene="probe-b"]').scrollIntoViewIfNeeded();
-  await expect(page.locator('[data-scene="probe-b"]')).toBeInViewport();
+  await expect(page.locator('[data-scene="film"]')).toBeVisible();
+  await page.locator('[data-scene="zid"]').scrollIntoViewIfNeeded();
+  await expect(page.locator('[data-scene="zid"]')).toBeInViewport();
 
   // No pin lock: document scrolls past the film without trapping.
   const scrolled = await page.evaluate(() => {
