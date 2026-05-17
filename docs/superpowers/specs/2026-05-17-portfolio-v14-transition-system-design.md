@@ -172,15 +172,16 @@ chapters will supply their own `bleed` when they replace the probes.
   the cases in §4. Existing 38 unit tests stay green (no change to pure SP-0/SP-1
   modules or `transitions.js`).
 - **Playwright `tma-web/playwright/tests/v14-transition.spec.js`** on `/portfolio-v14`:
-  1. A single continuous in-browser scroll sweep from top to bottom (sampling the
-     overlay opacity every rAF) shows: a peak opacity > 0.05 (the overlay genuinely
-     blends); **at least two distinct activation regions** (proving BOTH the
-     probe-a→film and film→probe-b seams fire — i.e. the completed-scene-skip works,
-     not just the first seam); and the overlay is inert (< 0.05) for the majority of
-     samples (no permanent veil — it's invisible inside scenes). A continuous sweep is
-     used rather than discrete `scrollTo`+settle because Lenis's ~1.1s easing makes
-     fixed-settle discrete sampling unable to reliably land inside a narrow (~324px)
-     seam.
+  1. A **Playwright-side** discrete scroll sweep top→bottom — `scrollTo`, then a
+     settle `waitForTimeout`, THEN sample (never sample in the same frame as the
+     scroll: the overlay is updated through an async pipeline — Lenis ease →
+     ScrollTrigger.onUpdate → reportProgress → SceneController's own rAF — so
+     same-frame reads always see 0). Step (≤280px) is narrower than the smallest seam
+     (~324px) so a sample is guaranteed to land inside every seam; settle (~400ms) is
+     long enough for Lenis to advance a step. Asserts: peak opacity > 0.05 (overlay
+     genuinely blends); **≥2 distinct activation regions** (proving BOTH probe-a→film
+     and film→probe-b fire — the completed-scene-skip works, not just the first
+     seam); overlay inert (< 0.05) for the majority of samples (no permanent veil).
   2. A fast traversal landing on the first seam drives a real, **bounded** overlay
      blur — strictly positive and never above the velocity-clamp ceiling
      (`blurAmount(0.5) * maxVMul = 16 * 1.6 = 25.6`, plus rounding/raster headroom →

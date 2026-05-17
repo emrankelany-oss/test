@@ -593,37 +593,34 @@ async function sampleOverlay(page) {
 }
 
 test("overlay activates at >=2 seams and is inert most of the scroll", async ({ page }) => {
+  test.setTimeout(120_000); // generous: a settle-based sweep of the full page
   const errors = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto("/portfolio-v14?frames=procedural");
   await page.locator(OVERLAY).waitFor({ state: "attached" });
 
-  // One continuous in-browser scroll sweep, sampling the overlay opacity every
-  // rAF. A continuous sweep (not discrete scrollTo+settle) is required because
-  // Lenis's ~1.1s easing makes fixed-settle discrete sampling unable to land
-  // inside a narrow (~324px) seam reliably.
-  const opacities = await page.evaluate(async (sel) => {
-    const el = document.querySelector(sel);
-    const out = [];
-    const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
-    let y = 0;
-    return await new Promise((resolve) => {
-      const step = () => {
-        window.scrollTo(0, y);
-        out.push(parseFloat(getComputedStyle(el).opacity) || 0);
-        y += 60;
-        if (y <= maxY()) requestAnimationFrame(step);
-        else resolve(out);
-      };
-      requestAnimationFrame(step);
-    });
-  }, OVERLAY);
+  // Playwright-side discrete sweep: scrollTo → settle → THEN sample. The overlay
+  // is driven through an async pipeline (Lenis ease → ScrollTrigger.onUpdate →
+  // reportProgress → SceneController's own rAF), so sampling must happen AFTER a
+  // settle on a later turn of the event loop — never in the same frame as the
+  // scroll (that always reads 0). STEP (280) < the narrowest seam (~324px at the
+  // laptop-1440 900px viewport for the 2-viewport probe-a scene) guarantees at
+  // least one sample lands inside every seam. SETTLE (400ms) lets Lenis advance
+  // a step and the SceneController rAF paint.
+  const STEP = 280;
+  const SETTLE = 400;
+  const opacities = [];
+  for (let y = 0; y <= 14000; y += STEP) {
+    await page.evaluate((sy) => window.scrollTo(0, sy), y);
+    await page.waitForTimeout(SETTLE);
+    opacities.push((await sampleOverlay(page)).opacity);
+  }
 
   const maxO = Math.max(...opacities);
   const activeFrac = opacities.filter((o) => o > 0.05).length / opacities.length;
-  // Count distinct activation regions (rising edges crossing 0.05). The
-  // film→probe-b seam only fires if boundaryState correctly skips the
-  // completed probe-a scene — so >=2 regions is the Bug-B-fix proof.
+  // Distinct activation regions (rising edges crossing 0.05). The film→probe-b
+  // seam fires only if boundaryState correctly skips the completed probe-a
+  // scene — so >=2 regions is the Bug-B-fix proof.
   let regions = 0;
   for (let i = 1; i < opacities.length; i++) {
     if (opacities[i] > 0.05 && opacities[i - 1] <= 0.05) regions++;
