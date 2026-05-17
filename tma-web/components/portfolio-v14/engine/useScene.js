@@ -8,11 +8,12 @@ if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Registers a pinned scene. `viewports` = scroll length in viewport-heights.
- * onProgress(p, velocity) is called on every ScrollTrigger update.
- * Reduced motion: no pin/scrub; fires onProgress(1) once so the scene paints
- * its static end state and the page stays a normal scroll document.
+ * `bleed` = the scene's dominant CSS color, used by the transition overlay to
+ * color-bleed across the seam (default "#000").
+ * onProgress(p, velocity) fires every ScrollTrigger update.
+ * Reduced motion: no pin/scrub; fires onProgress(1) and reports progress 1 once.
  */
-export function useScene({ id, order, viewports = 4, onProgress }) {
+export function useScene({ id, order, viewports = 4, onProgress, bleed = "#000" }) {
   const controller = useSceneController();
   const elRef = useRef(null);
   const cbRef = useRef(onProgress);
@@ -21,11 +22,12 @@ export function useScene({ id, order, viewports = 4, onProgress }) {
   useEffect(() => {
     const el = elRef.current;
     if (!el) return;
-    const unregister = controller.registry.register({ id, order, el, viewports });
+    const unregister = controller.registry.register({ id, order, el, viewports, bleed });
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       cbRef.current?.(1, 0);
+      controller.reportProgress(id, 1);
       return () => unregister();
     }
 
@@ -38,6 +40,7 @@ export function useScene({ id, order, viewports = 4, onProgress }) {
       onUpdate: (self) => {
         const v = self.getVelocity();
         controller.setVelocity(v);
+        controller.reportProgress(id, self.progress);
         cbRef.current?.(self.progress, v);
       },
     });
@@ -46,7 +49,7 @@ export function useScene({ id, order, viewports = 4, onProgress }) {
       st.kill();
       unregister();
     };
-  }, [id, order, viewports, controller]);
+  }, [id, order, viewports, bleed, controller]);
 
   return elRef;
 }
