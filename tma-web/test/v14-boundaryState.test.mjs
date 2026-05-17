@@ -9,13 +9,37 @@ test("scene inside its seam yields a from/to/t toward the next scene", () => {
   assert.ok(Math.abs(b.t - 0.4444444) < 1e-4, `t was ${b.t}`);
 });
 
-test("progress exactly at the seam start → t=0; at 1 → t=1", () => {
+test("progress exactly at the float-unsafe seam start → t=0", () => {
   assert.equal(boundaryState([{ id: "a", progress: 0.82 }, { id: "b", progress: 0 }], 0.18).t, 0);
-  assert.equal(boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0 }], 0.18).t, 1);
 });
 
-test("t is clamped to [0,1] for out-of-range progress", () => {
-  assert.equal(boundaryState([{ id: "a", progress: 1.5 }, { id: "b", progress: 0 }], 0.18).t, 1);
+test("a completed from-scene (progress 1) in a 2-scene array → null (pair done, no later seam)", () => {
+  assert.equal(boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0 }], 0.18), null);
+  assert.equal(boundaryState([{ id: "a", progress: 1.5 }, { id: "b", progress: 0 }], 0.18), null);
+});
+
+test("a completed earlier scene does NOT mask a later in-seam scene", () => {
+  const b = boundaryState(
+    [{ id: "a", progress: 1 }, { id: "b", progress: 0.9 }, { id: "c", progress: 0 }],
+    0.18
+  );
+  assert.equal(b.fromId, "b");
+  assert.equal(b.toId, "c");
+  assert.ok(Math.abs(b.t - 0.4444444) < 1e-4, `t was ${b.t}`);
+});
+
+test("completed earlier scene + next scene not yet in its seam → null", () => {
+  assert.equal(
+    boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0.5 }, { id: "c", progress: 0 }], 0.18),
+    null
+  );
+});
+
+test("all scenes complete → null", () => {
+  assert.equal(
+    boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 1 }, { id: "c", progress: 0 }], 0.18),
+    null
+  );
 });
 
 test("before any seam → null", () => {
@@ -33,7 +57,7 @@ test("fewer than two scenes, empty, or non-positive seam → null", () => {
   assert.equal(boundaryState([{ id: "a", progress: 0.95 }, { id: "b", progress: 0 }], 0), null);
 });
 
-test("first in-seam scene wins when several qualify", () => {
+test("first NON-COMPLETE in-seam scene wins when several qualify", () => {
   const b = boundaryState(
     [{ id: "a", progress: 0.99 }, { id: "b", progress: 0.99 }, { id: "c", progress: 0 }],
     0.18
