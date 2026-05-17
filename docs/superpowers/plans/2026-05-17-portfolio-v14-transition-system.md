@@ -118,7 +118,13 @@ export function boundaryState(sceneProgresses, seam = 0.18) {
     // The clamp below absorbs the resulting tiny-negative t to 0.
     if (p >= start - EPS) {
       const next = sceneProgresses[i + 1];
-      const t = Math.min(1, Math.max(0, (p - start) / seam));
+      let t = (p - start) / seam;
+      // `start` and the division carry IEEE-754 error (e.g. progress 1, seam
+      // 0.18 → t = 0.9999999999999997, not 1). Snap to the exact boundaries
+      // within EPS, then clamp the remaining range.
+      if (t >= 1 - EPS) t = 1;
+      if (t <= EPS) t = 0;
+      t = Math.min(1, Math.max(0, t));
       return { fromId: cur.id, toId: next.id, t };
     }
   }

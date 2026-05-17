@@ -63,10 +63,13 @@ dependency on new content**.
 
 - Finds the first scene whose `progress >= (1 - seam) - EPS` (with `EPS = 1e-9`) AND
   that has a successor in the array; returns `{ fromId, toId, t }` where
-  `t = clamp((progress - (1 - seam)) / seam, 0, 1)`. The `EPS` is required because
-  `1 - seam` is not exact in IEEE-754 (e.g. `1 - 0.18 === 0.8200000000000001`), so a
-  scene whose progress is exactly the nominal seam start would otherwise be missed;
-  the `clamp(...,0,1)` absorbs the resulting tiny-negative `t` to `0`.
+  `t = (progress - (1 - seam)) / seam`, then **snap to the exact boundaries within
+  `EPS`** (`t >= 1-EPS → 1`, `t <= EPS → 0`) and finally `clamp(t, 0, 1)`. The `EPS`
+  is required in two places because `1 - seam` is not exact in IEEE-754 (e.g.
+  `1 - 0.18 === 0.8200000000000001`): (a) the boundary guard so a scene exactly at
+  the nominal seam start is not missed, and (b) the `t` snap so `progress` exactly `1`
+  yields exactly `1` (the raw division gives `0.9999999999999997`) and the seam start
+  yields exactly `0`.
 - Returns `null` when: array length < 2; no scene is within its seam; or the only
   in-seam scene is the last (no successor).
 - Pure, deterministic. Unit tests: two scenes mid-seam → correct `t`; `progress`
