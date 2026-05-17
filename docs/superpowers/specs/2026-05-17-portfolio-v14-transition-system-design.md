@@ -61,14 +61,18 @@ dependency on new content**.
 `boundaryState(sceneProgresses, seam = 0.18)` where `sceneProgresses` is an
 **order-sorted** array `[{ id, progress }]`.
 
-- Finds the first scene whose `progress >= 1 - seam` AND that has a successor in the
-  array; returns `{ fromId, toId, t }` where
-  `t = clamp((progress - (1 - seam)) / seam, 0, 1)`.
+- Finds the first scene whose `progress >= (1 - seam) - EPS` (with `EPS = 1e-9`) AND
+  that has a successor in the array; returns `{ fromId, toId, t }` where
+  `t = clamp((progress - (1 - seam)) / seam, 0, 1)`. The `EPS` is required because
+  `1 - seam` is not exact in IEEE-754 (e.g. `1 - 0.18 === 0.8200000000000001`), so a
+  scene whose progress is exactly the nominal seam start would otherwise be missed;
+  the `clamp(...,0,1)` absorbs the resulting tiny-negative `t` to `0`.
 - Returns `null` when: array length < 2; no scene is within its seam; or the only
   in-seam scene is the last (no successor).
 - Pure, deterministic. Unit tests: two scenes mid-seam → correct `t`; `progress`
-  exactly `1-seam` → `t=0`; `progress` 1 → `t=1`; before seam → `null`; last scene in
-  seam → `null`; single scene → `null`; empty → `null`; `t` clamped to `[0,1]`.
+  exactly `1-seam` (float-unsafe literal, e.g. `0.82` with `seam 0.18`) → `t=0`;
+  `progress` 1 → `t=1`; before seam → `null`; last scene in seam → `null`; single
+  scene → `null`; empty → `null`; `t` clamped to `[0,1]`.
 
 ### 4.2 `tma-web/components/portfolio-v14/engine/overlayStyle.js`
 
