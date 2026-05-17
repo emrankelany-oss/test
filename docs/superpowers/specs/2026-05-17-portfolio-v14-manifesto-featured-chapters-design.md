@@ -43,11 +43,16 @@ sum). Returns `{ index, id, local, phase, opacity }`:
 - `index`/`id` — the act whose band contains `clamp(progress,0,1)` (the **last** act
   for `progress >= 1`).
 - `local` — progress within that act's band, `0→1`.
-- `phase` — `"in"` while `local < inFrac`, `"out"` while `local > 1 - outFrac`, else
-  `"hold"`.
+- `phase` — `"in"` while `local < inFrac`; `"out"` while `local > 1 - outFrac` **and
+  the act has a successor**; else `"hold"`.
 - `opacity` — eased reveal envelope: ramps `0→1` over the `in` window, `1` during
-  `hold`, ramps `1→0` over the `out` window. This makes adjacent acts cross-fade at
-  their shared band edge (no pop / no hard cut between acts).
+  `hold`, ramps `1→0` over the `out` window. Adjacent acts cross-fade at their shared
+  band edge (no pop / no hard cut). **The final act has no successor to hand off to,
+  so it does NOT out-fade — it holds at `opacity:1` through its out window.** This is
+  what lets a chapter rest fully resolved at its end and, critically, makes the
+  reduced-motion path (`progress` forced to `1`) render the last act at full opacity
+  with metrics at their final values (§6). (The first act still fades in over its
+  `in` window — a deliberate entrance; the SP-2A overlay covers the seam before it.)
 
 Edge handling: empty or missing `acts` → a safe `{ index:0, id:null, local:0,
 phase:"hold", opacity:1 }`; single act → always that act; `progress` clamped to
@@ -60,6 +65,17 @@ that act's `local` (0→1). `local <= 0 → from`, `local >= 1 → to`, eased be
 numerals climb **as the viewer scrolls** the Results act, not on a timer. Pure;
 `easeOutCubic` is a module-private default. Unit-tested at endpoints + midpoint +
 clamp + descending ranges.
+
+### 2.3 `formatMetric(value, format)`
+
+Pure formatter, also exported from `chapterActs.js` (moved into the pure core rather
+than living inside `ChapterScene` so the exact final deck strings are locked by
+node:test, not only by e2e). `%s` in the `format` template is replaced by `value`
+rendered as: comma-grouped integer when `|value| >= 1000`; otherwise an integer if
+integral, else one decimal. So `formatMetric(20.8,"$%sM") → "$20.8M"`,
+`formatMetric(32000,"%s+") → "32,000+"`, `formatMetric(1,"$%sB") → "$1B"`,
+`formatMetric(200,"%s%") → "200%"`, `formatMetric(50,"+%s%") → "+50%"`. Unit-tested
+against every final Foodics/Zid metric string and a mid-scroll value.
 
 ## 3. Components
 
@@ -147,10 +163,10 @@ metrics. Lines (verbatim Slide-3 phrases):
     `{ label:"Basket & conversion", from:0, to:50, format:"+%s%", note:"both up" }`,
     `{ label:"GMV", from:0, to:25, format:"+%s%", note:"YoY" }`.
 
-(Number formatting: `format` is a template where `%s` is the `metricValue` output
-rounded — integers comma-grouped for ≥1000, one decimal for the revenue figures. The
-formatting helper is part of `ChapterScene` and is exercised by the e2e final-value
-assertions.)
+(Number formatting is done by the pure `formatMetric(value, format)` from
+`chapterActs.js` — see §2.3 — so the exact final strings are locked by node:test as
+well as the e2e final-value assertions. `ChapterScene` just calls
+`formatMetric(metricValue(s.local, m.from, m.to), m.format)`.)
 
 ## 4. Chapter data shape
 
