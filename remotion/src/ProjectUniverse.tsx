@@ -1,7 +1,8 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
-import { Suspense } from "react";
+import { Suspense, useMemo } from "react";
 import * as THREE from "three";
+import { useThree } from "@react-three/fiber";
 import { ASSET_MANIFEST } from "./universe/assetManifest.js";
 import { buildPanelField } from "./universe/panelLayout.js";
 import { cameraForFrame } from "./universe/cameraArc.js";
@@ -43,17 +44,20 @@ function Panel({ panel, frame }: { panel: any; frame: number }) {
 }
 
 function Particles() {
-  const geo = new THREE.BufferGeometry();
-  const N = 600;
-  const pos = new Float32Array(N * 3);
-  let s = 999983;
-  const r = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
-  for (let i = 0; i < N; i++) {
-    pos[i * 3] = (r() - 0.5) * 60;
-    pos[i * 3 + 1] = (r() - 0.5) * 40;
-    pos[i * 3 + 2] = 8 - r() * 75;
-  }
-  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  const geo = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    const N = 600;
+    const pos = new Float32Array(N * 3);
+    let s = 999983;
+    const r = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+    for (let i = 0; i < N; i++) {
+      pos[i * 3] = (r() - 0.5) * 60;
+      pos[i * 3 + 1] = (r() - 0.5) * 40;
+      pos[i * 3 + 2] = 8 - r() * 75;
+    }
+    g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    return g;
+  }, []);
   return (
     <points geometry={geo}>
       <pointsMaterial size={0.06} color="#9a7bd0" transparent opacity={0.55} />
@@ -63,16 +67,18 @@ function Particles() {
 
 function Scene({ frame, duration }: { frame: number; duration: number }) {
   const cam = cameraForFrame(frame, duration);
+  const { camera } = useThree();
+  // Drive r3f's actual render camera (state.camera) imperatively each frame.
+  // A declarative <perspectiveCamera> is NOT the render camera without
+  // makeDefault — see MMonument.tsx's camera= prop convention.
+  camera.position.set(cam.position[0], cam.position[1], cam.position[2]);
+  if (camera instanceof THREE.PerspectiveCamera) {
+    camera.fov = cam.fov;
+  }
+  camera.lookAt(cam.lookAt[0], cam.lookAt[1], cam.lookAt[2]);
+  camera.updateProjectionMatrix();
   return (
     <>
-      <perspectiveCamera
-        position={cam.position as any}
-        fov={cam.fov}
-        onUpdate={(c: THREE.PerspectiveCamera) => {
-          c.lookAt(cam.lookAt[0], cam.lookAt[1], cam.lookAt[2]);
-          c.updateProjectionMatrix();
-        }}
-      />
       <ambientLight intensity={0.45} />
       <pointLight position={[12, 8, 6]} intensity={120} color="#ff5cae" />
       <pointLight position={[-12, -4, -10]} intensity={140} color="#3fd0ff" />
@@ -98,6 +104,7 @@ export const ProjectUniverse = () => {
       <ThreeCanvas
         width={width}
         height={height}
+        camera={{ position: [0, 1.55, 8], fov: 38 }}
         gl={{
           antialias: true,
           toneMapping: THREE.NeutralToneMapping,
