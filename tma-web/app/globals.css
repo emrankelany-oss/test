@@ -5652,12 +5652,15 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
   width: 25vw;
   pointer-events: auto;
 }
-/* Per-index offsets/sizes — source's `[&>div]:!...` overrides (indices
-   1–4; index 0 is the centred hero tile, no override). */
-.v5-zoom-slot[data-slot-index="1"] { top: -30vh; left: 5vw;     height: 30vh; width: 35vw; }
-.v5-zoom-slot[data-slot-index="2"] { top: -10vh; left: -25vw;   height: 45vh; width: 20vw; }
-.v5-zoom-slot[data-slot-index="3"] {            left: 27.5vw;   height: 25vh; width: 25vw; }
-.v5-zoom-slot[data-slot-index="4"] { top: 27.5vh; left: 5vw;    height: 25vh; width: 20vw; }
+/* Clean balanced cluster (option C): index 0 is the dominant centred hero
+   tile (base 25vw×25vh, no override — scales ×4 to fill the screen). The
+   other four are symmetric flanking pairs around it: wide thin tiles
+   top/bottom, tall tiles left/right. Symmetric offsets → they fly out
+   evenly on zoom. */
+.v5-zoom-slot[data-slot-index="1"] { top: -30vh; left: 0;       height: 13vh; width: 24vw; }
+.v5-zoom-slot[data-slot-index="2"] { top: 0;     left: 34vw;    height: 34vh; width: 17vw; }
+.v5-zoom-slot[data-slot-index="3"] { top: 30vh;  left: 0;       height: 13vh; width: 24vw; }
+.v5-zoom-slot[data-slot-index="4"] { top: 0;     left: -34vw;   height: 34vh; width: 17vw; }
 /* Pure images — hide the card text body (V5-scoped so the shared V5Card
    text is untouched on any other route). */
 .v5-page .v5-card-body { display: none; }
@@ -7619,4 +7622,102 @@ body[data-v2-theme="light"] .v2-page { color: #0a0a0a; }
 @media (prefers-reduced-motion: reduce) {
   .v7-artefact { will-change: auto; }
   .v7-sticker { will-change: auto; }
+}
+
+/* --- V13 ------------------------------------------------------------- */
+.v13-page {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- V13 opening preloader ------------------------------------------
+   Reuses the V5 slide-8 clip but the JS keeps only the black section
+   looping (luminance loop-gate). No flight — it just fades out. */
+.v13-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.v13-preloader.is-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* The loader panel — no frame, no background. Its black is blend-keyed
+   out by the video so only the mark reads on the page's black. */
+.v13-preloader-box {
+  position: relative;
+  width: clamp(96px, 13vw, 160px);
+  height: clamp(54px, 7.31vw, 90px);
+  background: transparent;
+}
+.v13-preloader-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  /* Object-only key: contrast crushes the clip's compressed near-black
+     to true black, then `screen` against the black backdrop drops it
+     entirely — so only the wordmark shows, no rectangle at all. */
+  filter: brightness(1.05) contrast(1.6);
+  mix-blend-mode: screen;
+  /* Hidden until the black-only loop is armed (duration known, predictive
+     wrap active) so the white tail can never paint — even on loop one. */
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.v13-preloader.is-armed .v13-preloader-video {
+  opacity: 1;
+}
+
+/* Progress hint — pinned to the bottom so it never shifts the box. */
+.v13-preloader-progress {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(40px, 9vh, 84px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: clamp(180px, 26vw, 320px);
+}
+.v13-preloader-bar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+.v13-preloader-bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  background: #fff;
+  transition: width 140ms linear;
+}
+.v13-preloader-pct {
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v13-preloader { transition: opacity 200ms linear; }
 }

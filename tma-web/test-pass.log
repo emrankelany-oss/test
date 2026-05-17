@@ -1,0 +1,61 @@
+
+> tma-web@0.1.0 test
+> node --test test/**/*.test.mjs
+
+(node:5192) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/components/portfolio-v12/phase.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ phase boundaries (1.5242ms)
+✔ clamps out-of-range input (0.2507ms)
+✔ PHASES ordered list exported (1.0643ms)
+(node:23960) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/data/portfolio-v12.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ opening + manifesto copy present (1.8015ms)
+✔ 8 real services (0.6648ms)
+✔ Foodics deep case exact numbers (1.5756ms)
+✔ Zid deep case exact numbers (0.3355ms)
+✔ 4 mid chapters, no invented challenge/impact (0.4852ms)
+✔ stats use safe 'years combined experience' phrasing (0.3682ms)
+✔ contact is the real deck contact (0.4011ms)
+✔ no placeholder strings anywhere (0.8223ms)
+✔ every referenced asset exists on disk (6.3958ms)
+(node:3416) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/components/portfolio-v14/engine/frameMath.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ frameIndexFor maps progress to clamped rounded index (1.795ms)
+✔ preloadWindow returns ahead/behind band clamped to bounds (1.8509ms)
+✔ coverFit centers and scales to cover the destination (0.6232ms)
+(node:2304) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/components/portfolio-v14/engine/lruCache.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ evicts least-recently-used and reports evictions (3.0518ms)
+✔ re-setting an existing key refreshes recency, not size (0.8059ms)
+✔ clear() calls onEvict for every entry (0.5985ms)
+(node:29416) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/components/portfolio-v14/engine/sceneRegistry.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ keeps scenes sorted by order and exposes adjacent pairs (2.6746ms)
+✔ unregister removes the scene (0.6264ms)
+✔ duplicate id throws (0.7041ms)
+(node:16320) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/Pc/Downloads/the-motion-agency-web-main/tma-web/components/portfolio-v14/engine/transitions.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ blur peaks at the boundary midpoint, sharp at both ends (1.8339ms)
+✔ zoom is 1 at the ends and > 1 mid (0.6287ms)
+✔ color-bleed alpha peaks mid and clamps to maxAlpha (0.2422ms)
+✔ crossfade hands opacity from A to B (1.1592ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.9859
