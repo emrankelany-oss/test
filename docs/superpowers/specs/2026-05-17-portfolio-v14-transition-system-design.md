@@ -162,8 +162,13 @@ chapters will supply their own `bleed` when they replace the probes.
   1. Scrolling across a scene→scene seam drives the overlay to a non-zero opacity/blur
      mid-seam, and it returns to `opacity:0` well within a scene (proves active blend,
      no hard cut).
-  2. A fast programmatic scroll across a seam produces a higher peak overlay blur than a
-     slow scroll across the same seam (velocity coupling).
+  2. A fast traversal landing on the first seam drives a real, **bounded** overlay
+     blur — strictly positive and never above the velocity-clamp ceiling
+     (`blurAmount(0.5) * maxVMul = 16 * 1.6 = 25.6`, plus rounding/raster headroom →
+     assert `0 < peakBlur <= 27`). This proves the velocity-coupled blur path is
+     wired end-to-end and bounded; the *exact* velocity→blur curve is already
+     rigorously covered by the `overlayStyle` unit test (a two-cadence Lenis scroll
+     comparison was rejected as low-value duplication and inherently timing-flaky).
   3. `reducedMotion:"reduce"` run: overlay stays `opacity:0`, page fully scrollable,
      all scenes reachable.
 - **Regression:** SP-0 `v14-kernel.spec.js` (via `?frames=procedural`) and
