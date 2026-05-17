@@ -1,0 +1,33 @@
+{
+  "name": "tma-remotion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render MMonument out/m-render.mp4 --codec=h264 --frames-format=webp",
+    "render-frames": "node render-frames.mjs",
+    "render-v3-frames": "node render-v3-frames.mjs",
+    "render-universe": "node render-universe.mjs",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.10",
+    "@remotion/bundler": "^4.0.460",
+    "@remotion/cli": "^4.0.255",
+    "@remotion/renderer": "^4.0.460",
+    "@remotion/studio": "^4.0.460",
+    "@remotion/three": "^4.0.255",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.255",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/three": "^0.169.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.6.3"
+  }
+}
