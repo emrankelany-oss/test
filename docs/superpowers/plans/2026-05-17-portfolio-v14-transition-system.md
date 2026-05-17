@@ -57,13 +57,37 @@ test("scene inside its seam yields a from/to/t toward the next scene", () => {
   assert.ok(Math.abs(b.t - 0.4444444) < 1e-4, `t was ${b.t}`);
 });
 
-test("progress exactly at the seam start → t=0; at 1 → t=1", () => {
+test("progress exactly at the float-unsafe seam start → t=0", () => {
   assert.equal(boundaryState([{ id: "a", progress: 0.82 }, { id: "b", progress: 0 }], 0.18).t, 0);
-  assert.equal(boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0 }], 0.18).t, 1);
 });
 
-test("t is clamped to [0,1] for out-of-range progress", () => {
-  assert.equal(boundaryState([{ id: "a", progress: 1.5 }, { id: "b", progress: 0 }], 0.18).t, 1);
+test("a completed from-scene (progress 1) in a 2-scene array → null (pair done, no later seam)", () => {
+  assert.equal(boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0 }], 0.18), null);
+  assert.equal(boundaryState([{ id: "a", progress: 1.5 }, { id: "b", progress: 0 }], 0.18), null);
+});
+
+test("a completed earlier scene does NOT mask a later in-seam scene", () => {
+  const b = boundaryState(
+    [{ id: "a", progress: 1 }, { id: "b", progress: 0.9 }, { id: "c", progress: 0 }],
+    0.18
+  );
+  assert.equal(b.fromId, "b");
+  assert.equal(b.toId, "c");
+  assert.ok(Math.abs(b.t - 0.4444444) < 1e-4, `t was ${b.t}`);
+});
+
+test("completed earlier scene + next scene not yet in its seam → null", () => {
+  assert.equal(
+    boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 0.5 }, { id: "c", progress: 0 }], 0.18),
+    null
+  );
+});
+
+test("all scenes complete → null", () => {
+  assert.equal(
+    boundaryState([{ id: "a", progress: 1 }, { id: "b", progress: 1 }, { id: "c", progress: 0 }], 0.18),
+    null
+  );
 });
 
 test("before any seam → null", () => {
@@ -81,7 +105,7 @@ test("fewer than two scenes, empty, or non-positive seam → null", () => {
   assert.equal(boundaryState([{ id: "a", progress: 0.95 }, { id: "b", progress: 0 }], 0), null);
 });
 
-test("first in-seam scene wins when several qualify", () => {
+test("first NON-COMPLETE in-seam scene wins when several qualify", () => {
   const b = boundaryState(
     [{ id: "a", progress: 0.99 }, { id: "b", progress: 0.99 }, { id: "c", progress: 0 }],
     0.18
@@ -117,7 +141,6 @@ export function boundaryState(sceneProgresses, seam = 0.18) {
     // scene exactly at the nominal seam start must still match — hence -EPS.
     // The clamp below absorbs the resulting tiny-negative t to 0.
     if (p >= start - EPS) {
-      const next = sceneProgresses[i + 1];
       let t = (p - start) / seam;
       // `start` and the division carry IEEE-754 error (e.g. progress 1, seam
       // 0.18 → t = 0.9999999999999997, not 1). Snap to the exact boundaries
@@ -125,6 +148,12 @@ export function boundaryState(sceneProgresses, seam = 0.18) {
       if (t >= 1 - EPS) t = 1;
       if (t <= EPS) t = 0;
       t = Math.min(1, Math.max(0, t));
+      // A pinned scene's progress sticks at 1 after the viewer passes it. A
+      // completed scene (t === 1) must NOT keep matching as the active seam —
+      // that would permanently mask every later seam (e.g. film→probe-b would
+      // never fire). Skip it and scan onward to the next genuinely-active pair.
+      if (t >= 1) continue;
+      const next = sceneProgresses[i + 1];
       return { fromId: cur.id, toId: next.id, t };
     }
   }
@@ -135,7 +164,7 @@ export function boundaryState(sceneProgresses, seam = 0.18) {
 - [ ] **Step 4: Run to verify it passes**
 
 Run: `cd tma-web && npm test`
-Expected: PASS — the 7 new `v14-boundaryState` tests; all pre-existing (38) still green.
+Expected: PASS — all `v14-boundaryState` tests (incl. the completed-scene-skip / masking cases); all pre-existing tests still green.
 
 - [ ] **Step 5: Commit**
 
@@ -563,25 +592,45 @@ async function sampleOverlay(page) {
   }, OVERLAY);
 }
 
-test("overlay activates at a scene seam and is inert inside scenes", async ({ page }) => {
+test("overlay activates at >=2 seams and is inert most of the scroll", async ({ page }) => {
   const errors = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto("/portfolio-v14?frames=procedural");
   await page.locator(OVERLAY).waitFor({ state: "attached" });
 
-  let maxOpacity = 0;
-  let insideMax = 0; // overlay opacity sampled away from any seam
-  for (let y = 0; y <= 14000; y += 500) {
-    await page.evaluate((sy) => window.scrollTo(0, sy), y);
-    await page.waitForTimeout(200);
-    const s = await sampleOverlay(page);
-    maxOpacity = Math.max(maxOpacity, s.opacity);
-    // y=3000 sits deep inside the first pinned scene (probe-a, 2 viewports),
-    // well before its 18% seam — overlay must be invisible there.
-    if (y === 3000) insideMax = s.opacity;
+  // One continuous in-browser scroll sweep, sampling the overlay opacity every
+  // rAF. A continuous sweep (not discrete scrollTo+settle) is required because
+  // Lenis's ~1.1s easing makes fixed-settle discrete sampling unable to land
+  // inside a narrow (~324px) seam reliably.
+  const opacities = await page.evaluate(async (sel) => {
+    const el = document.querySelector(sel);
+    const out = [];
+    const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
+    let y = 0;
+    return await new Promise((resolve) => {
+      const step = () => {
+        window.scrollTo(0, y);
+        out.push(parseFloat(getComputedStyle(el).opacity) || 0);
+        y += 60;
+        if (y <= maxY()) requestAnimationFrame(step);
+        else resolve(out);
+      };
+      requestAnimationFrame(step);
+    });
+  }, OVERLAY);
+
+  const maxO = Math.max(...opacities);
+  const activeFrac = opacities.filter((o) => o > 0.05).length / opacities.length;
+  // Count distinct activation regions (rising edges crossing 0.05). The
+  // film→probe-b seam only fires if boundaryState correctly skips the
+  // completed probe-a scene — so >=2 regions is the Bug-B-fix proof.
+  let regions = 0;
+  for (let i = 1; i < opacities.length; i++) {
+    if (opacities[i] > 0.05 && opacities[i - 1] <= 0.05) regions++;
   }
-  expect(maxOpacity).toBeGreaterThan(0.05); // it genuinely blends somewhere
-  expect(insideMax).toBeLessThan(0.02); // and is invisible mid-scene (no hard veil)
+  expect(maxO).toBeGreaterThan(0.05); // overlay genuinely blends
+  expect(regions).toBeGreaterThanOrEqual(2); // probe-a→film AND film→probe-b both fire
+  expect(activeFrac).toBeLessThan(0.5); // inert for most of the scroll (no permanent veil)
   expect(errors).toEqual([]);
 });
 

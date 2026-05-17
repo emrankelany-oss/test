@@ -61,21 +61,34 @@ dependency on new content**.
 `boundaryState(sceneProgresses, seam = 0.18)` where `sceneProgresses` is an
 **order-sorted** array `[{ id, progress }]`.
 
-- Finds the first scene whose `progress >= (1 - seam) - EPS` (with `EPS = 1e-9`) AND
-  that has a successor in the array; returns `{ fromId, toId, t }` where
+- Scans scenes in order. For each scene `i` (that has a successor) whose
+  `progress >= (1 - seam) - EPS` (with `EPS = 1e-9`), compute
   `t = (progress - (1 - seam)) / seam`, then **snap to the exact boundaries within
-  `EPS`** (`t >= 1-EPS → 1`, `t <= EPS → 0`) and finally `clamp(t, 0, 1)`. The `EPS`
-  is required in two places because `1 - seam` is not exact in IEEE-754 (e.g.
+  `EPS`** (`t >= 1-EPS → 1`, `t <= EPS → 0`) and `clamp(t, 0, 1)`. **If the snapped
+  `t >= 1` the scene's outgoing transition is already complete — `continue` scanning
+  the next scene rather than returning it.** Return `{ fromId, toId, t }` for the
+  first scene that is in its seam AND not yet complete (`t < 1`).
+- **Why the completed-scene skip is required:** scenes are pinned ScrollTriggers; a
+  scene's `progress` sticks at `1.0` after the viewer scrolls past it. Without the
+  `t >= 1 → continue`, the first scene permanently matches (at `t=1`) once complete
+  and masks every later seam — so e.g. the film→probe-b transition would never
+  activate. The skip lets the detector advance to the next genuinely-active seam.
+- The `EPS` is required because `1 - seam` is not exact in IEEE-754 (e.g.
   `1 - 0.18 === 0.8200000000000001`): (a) the boundary guard so a scene exactly at
   the nominal seam start is not missed, and (b) the `t` snap so `progress` exactly `1`
-  yields exactly `1` (the raw division gives `0.9999999999999997`) and the seam start
-  yields exactly `0`.
-- Returns `null` when: array length < 2; no scene is within its seam; or the only
-  in-seam scene is the last (no successor).
+  snaps to exactly `1` (the raw division gives `0.9999999999999997`) — which is also
+  precisely what the completed-scene skip then keys off — and the seam start to `0`.
+- Returns `null` when: array length < 2; no scene is within its seam; every in-seam
+  scene is already complete (`t >= 1`); or the only in-seam scene is the last (no
+  successor).
 - Pure, deterministic. Unit tests: two scenes mid-seam → correct `t`; `progress`
   exactly `1-seam` (float-unsafe literal, e.g. `0.82` with `seam 0.18`) → `t=0`;
-  `progress` 1 → `t=1`; before seam → `null`; last scene in seam → `null`; single
-  scene → `null`; empty → `null`; `t` clamped to `[0,1]`.
+  before seam → `null`; last scene in seam → `null`; single scene → `null`; empty →
+  `null`; `t` clamped to `[0,1]`; **a completed earlier scene (`progress 1`) does NOT
+  mask a later in-seam scene — it is skipped and the later active pair is returned**;
+  a completed earlier scene with the next scene only mid-way (not in its seam) →
+  `null`; all scenes complete → `null`. (The old "`progress` 1 → `t=1` returned"
+  expectation is replaced: `progress 1` now means that pair is complete and skipped.)
 
 ### 4.2 `tma-web/components/portfolio-v14/engine/overlayStyle.js`
 
@@ -159,9 +172,15 @@ chapters will supply their own `bleed` when they replace the probes.
   the cases in §4. Existing 38 unit tests stay green (no change to pure SP-0/SP-1
   modules or `transitions.js`).
 - **Playwright `tma-web/playwright/tests/v14-transition.spec.js`** on `/portfolio-v14`:
-  1. Scrolling across a scene→scene seam drives the overlay to a non-zero opacity/blur
-     mid-seam, and it returns to `opacity:0` well within a scene (proves active blend,
-     no hard cut).
+  1. A single continuous in-browser scroll sweep from top to bottom (sampling the
+     overlay opacity every rAF) shows: a peak opacity > 0.05 (the overlay genuinely
+     blends); **at least two distinct activation regions** (proving BOTH the
+     probe-a→film and film→probe-b seams fire — i.e. the completed-scene-skip works,
+     not just the first seam); and the overlay is inert (< 0.05) for the majority of
+     samples (no permanent veil — it's invisible inside scenes). A continuous sweep is
+     used rather than discrete `scrollTo`+settle because Lenis's ~1.1s easing makes
+     fixed-settle discrete sampling unable to reliably land inside a narrow (~324px)
+     seam.
   2. A fast traversal landing on the first seam drives a real, **bounded** overlay
      blur — strictly positive and never above the velocity-clamp ceiling
      (`blurAmount(0.5) * maxVMul = 16 * 1.6 = 25.6`, plus rounding/raster headroom →
