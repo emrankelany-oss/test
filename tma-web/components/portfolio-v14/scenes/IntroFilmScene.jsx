@@ -23,6 +23,7 @@ export default function IntroFilmScene() {
     id: "film",
     order: 20,
     viewports: 8,
+    bleed: "#000",
     onProgress: (p) => setProgress(p),
   });
   return (
