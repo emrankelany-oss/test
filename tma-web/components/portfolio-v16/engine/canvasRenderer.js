@@ -23,6 +23,7 @@ export function createCanvasRenderer() {
     },
     draw(source) {
       if (!ctx || !canvas || !source) return;
+      if (!source.width || !source.height) return;
       const dw = canvas.width;
       const dh = canvas.height;
       const f = coverFit(source.width, source.height, dw, dh);

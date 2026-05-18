@@ -1,7 +1,8 @@
+import { TOTAL_FRAMES } from "../engine/frameSequence.js";
 // Deterministic offscreen "film" for e2e: a frame-index counter + a dot that
 // travels left→right, so Playwright can assert that frames advance with scroll.
 // Mirrors the v14 procedural-source pattern.
-export function createV16ProceduralSource(count = 192) {
+export function createV16ProceduralSource(count = TOTAL_FRAMES) {
   const W = 1280;
   const H = 720;
   const cache = new Map();
