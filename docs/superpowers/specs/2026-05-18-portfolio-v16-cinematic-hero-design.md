@@ -26,10 +26,13 @@ like the user is controlling a cinematic explosion through scrolling.
   JPEG, 6.6 MB) are converted once to optimized WebP at
   `tma-web/public/assets/v16/frames/frame-001.webp` … `frame-192.webp`.
 - **Route:** `/portfolio-v16` (matches the existing portfolio-vN convention).
-- **Particles:** Lightweight Canvas2D particle/debris layer driven by scroll
-  progress — NOT Three.js / react-three-fiber. Rationale: avoids running the r3f
-  reconciler during high-frequency scrub, keeps the engine self-contained and
-  scrub-smooth. Three.js remains an unused, available option.
+- **Particles:** Three.js GPU particle/debris field (the `three` +
+  `@react-three/fiber` deps are already installed). Particles only — no 3D
+  models, no post-processing stack. Isolation rule: the r3f `<Canvas>` is a
+  sibling overlay with its own render loop; particle motion is driven by a
+  shared `progressRef` read inside `useFrame` — **no React state and no
+  reconciler work per scroll tick**, so scrub stays smooth. Reduced-motion
+  unmounts the r3f canvas entirely.
 - **Explosion band (0.62):** Implemented as a progress *band* centered on 0.62
   (configurable `EXPLOSION_RANGE = [0.58, 0.70]`), not a single instant, so the
   glow + screen-shake + particle burst ramp in and decay rather than snap.
@@ -62,7 +65,7 @@ All new, isolated under `components/portfolio-v16/`.
 | `components/portfolio-v16/overlays/GradientVignette.jsx` | Dark gradient + vignette (CSS, static) | none |
 | `components/portfolio-v16/overlays/GrainLayer.jsx` | Tiling noise grain, `mix-blend`, subtle | none |
 | `components/portfolio-v16/overlays/BlueGlow.jsx` | Soft electric-blue radial glow; optional mouse parallax | none |
-| `components/portfolio-v16/overlays/ParticleField.jsx` | Canvas2D debris/particles driven by scroll progress | frameSequence progress |
+| `components/portfolio-v16/overlays/ParticleField.jsx` | r3f `<Canvas>` overlay; GPU `THREE.Points` debris field; `useFrame` reads shared `progressRef`; burst response in the explosion band | three, @react-three/fiber, frameSequence progressRef |
 | `components/portfolio-v16/V16FeaturedPlaceholder.jsx` | `FeaturedProjectScaleGallery` placeholder section | none |
 
 Design principle: each engine module has one purpose, a small interface, and is
@@ -155,9 +158,10 @@ export const TEXT_BEATS = {
 
 ## 10. Overlay stack (z-order, all `pointer-events:none` except where noted)
 
-Canvas (base) → dark gradient → vignette → blue radial glow → grain
-(`mix-blend`) → Canvas2D particle field → text layer (top). Tuning is restrained
-matte-black + electric-blue; never game-like or cartoonish.
+Frame canvas (base) → dark gradient → vignette → blue radial glow → grain
+(`mix-blend`) → Three.js particle `<Canvas>` (transparent, `pointer-events:none`)
+→ text layer (top). Tuning is restrained matte-black + electric-blue; never
+game-like or cartoonish.
 
 ## 11. Accessibility / reduced motion
 
@@ -189,8 +193,10 @@ and reveals all hero text immediately; the featured section is plainly visible.
   between progress 0 / 0.5 / 1).
 - Text beats appear at their expected scroll depths; `ENTER THE ARCHIVE`
   appears near the end.
-- Reduced-motion path: static frame + all hero text visible, no pin scrub.
-- No console errors; featured placeholder reachable after the hero unpins.
+- Reduced-motion path: static frame + all hero text visible, no pin scrub,
+  the r3f particle `<Canvas>` is not mounted.
+- The r3f particle canvas mounts (non reduced-motion) without WebGL/console
+  errors; featured placeholder reachable after the hero unpins.
 
 ## 14. Out of scope (YAGNI)
 
@@ -206,5 +212,8 @@ interpolation between source frames; a separate lower-res mobile frame set
   render cadence from scroll event cadence.
 - **Memory from 192 ImageBitmaps** → acceptable at 1280×720; bitmaps closed on
   unmount; revisit only if profiling shows pressure.
+- **r3f reconciler stealing scrub frames** → particle `<Canvas>` is a separate
+  sibling tree with no per-tick React state; motion read from `progressRef` in
+  `useFrame`; particle count kept modest (single `THREE.Points`, ~1–3k points).
 - **WebP build step forgotten** → script is idempotent and its output is
   committed; e2e fails fast if frames are missing (canvas blank assertion).
