@@ -21,7 +21,7 @@ const ROOT = path.resolve(
 const SRC_DIR = path.join(ROOT, "..", "frames");
 const OUT_DIR = path.join(ROOT, "public", "assets", "v16", "frames");
 const TOTAL = 192;
-const QUALITY = 82;
+const QUALITY = 50;
 
 function pad3(n) {
   return String(n).padStart(3, "0");
@@ -41,7 +41,7 @@ async function main() {
     } catch {
       /* not present — convert */
     }
-    await sharp(src).webp({ quality: QUALITY }).toFile(out);
+    await sharp(src).webp({ quality: QUALITY, effort: 6 }).toFile(out);
     converted++;
   }
   console.log(`[v16] frames: ${converted} converted, ${skipped} skipped, ${TOTAL} total → ${OUT_DIR}`);
