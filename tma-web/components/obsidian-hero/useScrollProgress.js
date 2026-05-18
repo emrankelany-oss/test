@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { parallaxOffset, transform3d } from "./relief/parallax.js";
 
 // One RAF owner. sectionRef = the hero section (defines progress range:
@@ -7,7 +7,14 @@ import { parallaxOffset, transform3d } from "./relief/parallax.js";
 // captionRef = element that receives the parallax transform.
 // onScroll(y) = forward smoothed scroll to the engine.
 export function useScrollProgress({ sectionRef, captionRef, onScroll, factor = 0.1, disabled }) {
+  const onScrollRef = useRef(onScroll);
+
   useEffect(() => {
+    onScrollRef.current = onScroll;
+  }, [onScroll]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
     if (disabled) return;
     let raf = 0;
     let lastY = -1;
@@ -17,7 +24,7 @@ export function useScrollProgress({ sectionRef, captionRef, onScroll, factor = 0
       const y = window.scrollY || 0;
       if (y !== lastY) {
         lastY = y;
-        if (onScroll) onScroll(y);
+        if (onScrollRef.current) onScrollRef.current(y);
         const section = sectionRef.current;
         const cap = captionRef.current;
         if (section && cap) {
@@ -37,5 +44,5 @@ export function useScrollProgress({ sectionRef, captionRef, onScroll, factor = 0
     };
     raf = requestAnimationFrame(frame);
     return () => cancelAnimationFrame(raf);
-  }, [sectionRef, captionRef, onScroll, factor, disabled]);
+  }, [sectionRef, captionRef, factor, disabled]);
 }
