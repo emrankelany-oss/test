@@ -7,7 +7,7 @@ const BlueGlow = forwardRef(function BlueGlow(_props, ref) {
     <div
       ref={ref}
       aria-hidden
-      className="v16-loader-glow"
+      className="v16-blue-glow"
       style={{
         position: "absolute",
         inset: 0,
