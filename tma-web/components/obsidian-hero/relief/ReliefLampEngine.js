@@ -25,7 +25,7 @@ export class ReliefLampEngine {
     this.ping = 0;
     this.heightTex = []; this.heightFbo = [];
     this.imageTexture = null; this.imgRes = [1, 1]; this.hasImage = false;
-    this.raf = 0; this.isPaused = false;
+    this.raf = 0; this.isPaused = false; this._destroyed = false;
     this.loopTick = () => this.loop();
 
     const gl = canvas.getContext("webgl", {
@@ -138,6 +138,7 @@ export class ReliefLampEngine {
     for (let i = 0; i < 2; i++) {
       const { tex, fbo } = this.createHeightTarget(this.simW, this.simH);
       this.heightTex.push(tex); this.heightFbo.push(fbo);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
       gl.clear(gl.COLOR_BUFFER_BIT);
     }
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
@@ -160,6 +161,7 @@ export class ReliefLampEngine {
     img.crossOrigin = "anonymous";
     img.decoding = "async";
     img.onload = () => {
+      if (this._destroyed) return;
       const gl = this.gl;
       if (this.imageTexture) gl.deleteTexture(this.imageTexture);
       this.imageTexture = gl.createTexture();
@@ -181,7 +183,7 @@ export class ReliefLampEngine {
   setMouse(x, y) { this.mouse.x = x; this.mouse.y = y; }
   clearMouse() { this.mouse.x = -9999; this.mouse.y = -9999; }
 
-  start() { if (!this.raf) this.raf = requestAnimationFrame(this.loopTick); }
+  start() { this.isPaused = false; if (!this.raf) this.raf = requestAnimationFrame(this.loopTick); }
   pause() { this.isPaused = true; if (this.raf) { cancelAnimationFrame(this.raf); this.raf = 0; } }
   resume() { if (this.isPaused) { this.isPaused = false; if (!this.raf) this.raf = requestAnimationFrame(this.loopTick); } }
 
@@ -219,7 +221,7 @@ export class ReliefLampEngine {
     gl.uniform1f(this.uUpdate.tbp, o.textureBrightnessPower);
     gl.uniform1f(this.uUpdate.tbmin, o.textureBrightnessMin);
     gl.uniform1f(this.uUpdate.tbmax, o.textureBrightnessMax);
-    this.drawQuad(this.progUpdate);
+    this.drawQuad();
 
     // --- Lighting pass ---
     gl.useProgram(this.progRender);
@@ -255,22 +257,22 @@ export class ReliefLampEngine {
     gl.uniform1f(this.uRender.mli, o.mouseLightIntensity);
     gl.uniform1f(this.uRender.shadow, o.shadowStrength);
     gl.uniform1i(this.uRender.hasImage, this.hasImage ? 1 : 0);
-    this.drawQuad(this.progRender);
+    this.drawQuad();
 
     this.ping = t;
     this.raf = requestAnimationFrame(this.loopTick);
   }
 
-  drawQuad(prog) {
+  drawQuad() {
     const gl = this.gl;
     gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
-    const loc = gl.getAttribLocation(prog, "a_position");
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
 
   destroy() {
+    this._destroyed = true;
     this.pause();
     const gl = this.gl;
     if (this.imageTexture) gl.deleteTexture(this.imageTexture);
