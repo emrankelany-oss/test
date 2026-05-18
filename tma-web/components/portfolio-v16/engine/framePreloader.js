@@ -32,16 +32,24 @@ export function createFramePreloader(opts = {}) {
   const bitmaps = new Map();
   const failed = new Set();
   let warned = false;
+  let destroyed = false;
+  let started = false;
   let resolvePriority;
   const priorityReady = new Promise((r) => {
     resolvePriority = r;
   });
 
   async function loadOne(i) {
-    if (bitmaps.has(i) || failed.has(i)) return;
+    if (destroyed || bitmaps.has(i) || failed.has(i)) return;
     try {
-      bitmaps.set(i, await load(i));
+      const bitmap = await load(i);
+      if (destroyed) {
+        if (bitmap && typeof bitmap.close === "function") bitmap.close();
+        return;
+      }
+      bitmaps.set(i, bitmap);
     } catch (err) {
+      if (destroyed) return;
       failed.add(i);
       if (!warned) {
         console.warn("[v16] frame load failed; skipping", err);
@@ -63,6 +71,8 @@ export function createFramePreloader(opts = {}) {
   }
 
   async function start() {
+    if (started) return;
+    started = true;
     const pri = Math.min(priority, total);
     await runQueue(Array.from({ length: pri }, (_, i) => i));
     resolvePriority();
@@ -78,6 +88,7 @@ export function createFramePreloader(opts = {}) {
     has: (i) => bitmaps.has(i),
     stats: () => ({ loaded: bitmaps.size, failed: failed.size, total }),
     destroy() {
+      destroyed = true;
       for (const b of bitmaps.values()) {
         if (b && typeof b.close === "function") b.close();
       }

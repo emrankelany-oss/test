@@ -52,3 +52,29 @@ test("a failing frame is skipped, warns once, others still load", async () => {
     console.warn = origWarn;
   }
 });
+
+test("destroy() mid-flight closes any raced bitmap and stops writing into a cleared map", async () => {
+  let release;
+  const gate = new Promise((r) => {
+    release = r;
+  });
+  let closed = 0;
+  const pre = createFramePreloader({
+    total: 4,
+    priority: 2,
+    concurrency: 2,
+    load: async (i) => {
+      if (i >= 2) await gate; // background frames hang until released
+      return { id: i, width: 1, height: 1, close: () => { closed++; } };
+    },
+  });
+  pre.start();
+  await pre.whenPriorityReady();
+  assert.equal(pre.stats().loaded, 2); // priority block in
+  pre.destroy(); // clears map; background frames still hanging
+  release(); // background frames resolve AFTER destroy
+  for (let k = 0; k < 20; k++) await tick();
+  assert.equal(pre.has(0), false); // map stayed cleared
+  assert.equal(pre.stats().loaded, 0);
+  assert.equal(closed >= 1, true); // raced background bitmap(s) were closed
+});
