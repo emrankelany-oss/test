@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parallaxOffset, clamp01 } from "../components/obsidian-hero/relief/parallax.js";
+import { parallaxOffset, clamp01, transform3d } from "../components/obsidian-hero/relief/parallax.js";
 
 test("clamp01 clamps to [0,1]", () => {
   assert.equal(clamp01(-0.3), 0);
@@ -44,4 +44,10 @@ test("disabled (returns 0) when viewport width <= 1024", () => {
     parallaxOffset({ progress: 1, factor: 0.1, vh: 678, sign: 1, viewportWidth: 1280 }),
     0
   );
+});
+
+test("transform3d builds the translate3d string", () => {
+  assert.equal(transform3d(33.9), "translate3d(0, 33.9px, 0)");
+  assert.equal(transform3d(0), "translate3d(0, 0px, 0)");
+  assert.equal(transform3d(-12.5), "translate3d(0, -12.5px, 0)");
 });
