@@ -93,7 +93,11 @@ export function useV16FrameSequence({ onReady } = {}) {
       }
       debug.ready = true;
       setReady(true);
-      onReady?.();
+      // Defer onReady (ScrollTrigger.refresh) one frame so React has committed
+      // the post-`ready` DOM before pin start/end are measured; re-check alive.
+      requestAnimationFrame(() => {
+        if (alive) onReady?.();
+      });
     });
     rafId = requestAnimationFrame(tick);
 

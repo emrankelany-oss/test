@@ -49,6 +49,7 @@ export default function V16Hero() {
   // ScrollTrigger pin + scrub. Reduced motion: no pin, static last frame.
   useEffect(() => {
     if (reduced || typeof window === "undefined") return;
+    if (!sectionRef.current || !stickyRef.current) return;
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -153,6 +154,7 @@ export default function V16Hero() {
           {!ready && (
             <div
               data-v16-loading
+              aria-hidden
               style={{
                 position: "absolute",
                 inset: 0,
