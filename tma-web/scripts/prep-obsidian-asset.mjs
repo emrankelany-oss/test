@@ -12,7 +12,7 @@ await sharp(SRC)
   .toFile(path.join(OUT, "obsidian-engine.webp"));
 
 await sharp(SRC)
-  .resize({ width: 24 })
+  .resize({ width: 24, withoutEnlargement: true })
   .blur(8)
   .webp({ quality: 50 })
   .toFile(path.join(OUT, "obsidian-engine-lqip.webp"));
