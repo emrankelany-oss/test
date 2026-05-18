@@ -43,8 +43,13 @@ Script: `tma-web/scripts/build-v16-frames.mjs` using the installed `sharp`
 devDependency.
 
 - Input: `<repoRoot>/frames/ezgif-frame-${NNN}.jpg`, NNN = 001..192.
-- Output: `tma-web/public/assets/v16/frames/frame-${NNN}.webp`, quality ≈ 82,
-  no resize (source is already 1280×720). Expected total ≈ 3–4 MB.
+- Output: `tma-web/public/assets/v16/frames/frame-${NNN}.webp`, quality 50,
+  `effort: 6`, no resize (source is already 1280×720). Actual total ≈ 7.6 MB.
+  NOTE: the original "~3–4 MB / smaller than source" estimate was wrong — the
+  source JPGs are already aggressively ezgif-compressed (6.6 MB), so WebP
+  re-encoding cannot beat them at acceptable cinematic quality. 7.6 MB is
+  accepted: tiered preload makes only frame 1 + first ~30 (~1.2 MB) blocking,
+  the rest stream in the background, and graceful-skip covers slow networks.
 - Idempotent: skips frames whose output already exists; logs a summary.
 - Output WebP files are committed so production/CI never need the raw `frames/`
   source directory. The script is run manually once during implementation.
