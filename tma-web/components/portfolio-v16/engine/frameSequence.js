@@ -22,9 +22,11 @@ export const TEXT_BEATS = {
 };
 
 export function clamp(v, lo, hi) {
+  if (v !== v) return lo; // NaN guard — keep frame index finite
   return v < lo ? lo : v > hi ? hi : v;
 }
 
+// t is unclamped — extrapolation is intentional for smooth animation overshoot.
 export function lerp(a, b, t) {
   return a + (b - a) * t;
 }
@@ -44,7 +46,7 @@ export function indexToUrl(
 
 // object-fit: cover for canvas drawImage. Returns the dest rect.
 export function coverFit(sw, sh, dw, dh) {
-  if (!sw || !sh) return { dx: 0, dy: 0, dw, dh };
+  if (!sw || !sh || !dw || !dh) return { dx: 0, dy: 0, dw, dh };
   const scale = Math.max(dw / sw, dh / sh);
   const w = sw * scale;
   const h = sh * scale;
