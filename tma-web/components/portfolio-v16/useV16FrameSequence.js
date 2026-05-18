@@ -5,7 +5,6 @@ import {
   SCRUB_EASE,
   progressToIndex,
   lerp,
-  indexToUrl,
 } from "./engine/frameSequence.js";
 import { createCanvasRenderer } from "./engine/canvasRenderer.js";
 import { createFramePreloader } from "./engine/framePreloader.js";
@@ -26,6 +25,9 @@ export function useV16FrameSequence({ onReady } = {}) {
   const canvasRef = useRef(null);
   const targetRef = useRef(0);
   const displayedRef = useRef(0);
+  const setTargetProgressRef = useRef((p) => {
+    targetRef.current = p;
+  });
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -40,7 +42,9 @@ export function useV16FrameSequence({ onReady } = {}) {
     renderer.mount(canvas);
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const sizeToParent = () => {
-      const r = canvas.parentElement.getBoundingClientRect();
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const r = parent.getBoundingClientRect();
       renderer.resize(r.width, r.height, dpr);
     };
     sizeToParent();
@@ -85,6 +89,7 @@ export function useV16FrameSequence({ onReady } = {}) {
       if (first) {
         renderer.draw(first);
         lastGood = first;
+        lastDrawn = 0;
       }
       debug.ready = true;
       setReady(true);
@@ -117,8 +122,6 @@ export function useV16FrameSequence({ onReady } = {}) {
   return {
     canvasRef,
     ready,
-    setTargetProgress: (p) => {
-      targetRef.current = p;
-    },
+    setTargetProgress: setTargetProgressRef.current,
   };
 }
