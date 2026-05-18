@@ -7,8 +7,15 @@ import { ReliefLampEngine } from "./relief/ReliefLampEngine.js";
 export function useReliefLamp({ imageSrc, disabled, onFail }) {
   const canvasRef = useRef(null);
   const engineRef = useRef(null);
+  const onFailRef = useRef(onFail);
+  const roRafRef = useRef(0);
 
   useEffect(() => {
+    onFailRef.current = onFail;
+  }, [onFail]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
     if (disabled) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -18,7 +25,7 @@ export function useReliefLamp({ imageSrc, disabled, onFail }) {
       engine = new ReliefLampEngine(canvas);
     } catch (e) {
       console.warn("[ObsidianHero] WebGL unavailable:", e.message);
-      onFail && onFail();
+      onFailRef.current && onFailRef.current();
       return;
     }
     engineRef.current = engine;
@@ -32,10 +39,9 @@ export function useReliefLamp({ imageSrc, disabled, onFail }) {
     engine.setImage(imageSrc);
     engine.start();
 
-    let roRaf = 0;
     const ro = new ResizeObserver(() => {
-      cancelAnimationFrame(roRaf);
-      roRaf = requestAnimationFrame(measure);
+      cancelAnimationFrame(roRafRef.current);
+      roRafRef.current = requestAnimationFrame(measure);
     });
     ro.observe(wrap);
 
@@ -55,6 +61,7 @@ export function useReliefLamp({ imageSrc, disabled, onFail }) {
       if (ev.touches && ev.touches.length) engine.setMouse(ev.touches[0].clientX, ev.touches[0].clientY);
     };
     window.addEventListener("mousemove", onMove, { passive: true });
+    // 'mouseleave' on window fires when the pointer exits the viewport — intentional
     window.addEventListener("mouseleave", onLeave, { passive: true });
     window.addEventListener("touchmove", onTouch, { passive: true });
     window.addEventListener("touchend", onLeave, { passive: true });
@@ -66,11 +73,11 @@ export function useReliefLamp({ imageSrc, disabled, onFail }) {
       window.removeEventListener("touchend", onLeave);
       io.disconnect();
       ro.disconnect();
-      cancelAnimationFrame(roRaf);
+      cancelAnimationFrame(roRafRef.current);
       engine.destroy();
       engineRef.current = null;
     };
-  }, [imageSrc, disabled, onFail]);
+  }, [imageSrc, disabled]);
 
   return { canvasRef, engineRef };
 }
