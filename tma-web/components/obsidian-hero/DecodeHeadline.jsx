@@ -25,8 +25,7 @@ export default function DecodeHeadline({ text, className = "", reducedMotion = f
           delay,
           ease: "none",
           onUpdate: () => {
-            span.textContent =
-              obj.t >= 1 ? finalCh : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+            span.textContent = GLYPHS[(Math.random() * GLYPHS.length) | 0];
           },
           onComplete: () => { span.textContent = finalCh; },
         });
@@ -39,7 +38,7 @@ export default function DecodeHeadline({ text, className = "", reducedMotion = f
     <h1 ref={rootRef} className={className} aria-label={text}>
       {text.split("").map((ch, i) => (
         <span key={i} data-ch={ch} aria-hidden="true">
-          {reducedMotion ? ch : ch === " " ? " " : ch}
+          {reducedMotion ? ch : ch === " " ? " " : ""}
         </span>
       ))}
     </h1>
