@@ -204,3 +204,29 @@ Module at `tma-web/components/obsidian-hero/`. Usage:
 `import ObsidianHero from "@/components/obsidian-hero/ObsidianHero"` then
 `<ObsidianHero headline="…" caption="…" />`. Demo: `/obsidian-hero`.
 For inertial scroll, render `<SmoothScroll/>` (from `@/components/portfolio/SmoothScroll`) on the host page.
+
+## Redesign (2026-05-19, post-review)
+
+The first build was visually dead (relief-only render → black void at rest, generic
+sans, no composition). Reworked to OA-grade after a visual-mockup approval loop
+(screenshots verified against the reference, not just structural tests):
+
+- **Cut-out engine.** A new alpha-transparent artifact `obsidian-engine-cut.webp`
+  (background flood-filled + feathered from a Gemini render on a flat backdrop). The
+  engine is a real DOM element, **always visible**, floating — not gated behind the
+  shader. Rendered as two layers (`.oh-engine--back` z2, `.oh-engine--front` z4 clipped
+  to top 44%) so the headline crosses it: **top half in front of the text, bottom half
+  behind** — OA's stone-through-type interleave.
+- **Composition.** Editorial serif (`next/font/google` Fraunces) 2-line headline
+  ("Motion" / "in every frame"), lockup, nav, menu, side captions, corner case-image
+  frames, orbit arc, scroll cue, blue bloom, grain, vignette — dark+blue field.
+- **Relief-lamp engine** is retained as the atmospheric full-bleed background canvas
+  (`.oh-canvas-wrap` z0, fed `obsidian-engine.webp`), behind the cut-out.
+- **Motion.** GSAP entrance (serif clip-reveal, engine float-in, scaffolding fade);
+  scroll drives engine push/scale (`--eng-y`/`--eng-s`) + caption parallax via the
+  existing `useScrollProgress`. Reduced-motion → no canvas/entrance/parallax, static
+  cut-out engine still reads (a real improvement over the old black-void fallback).
+- `DecodeHeadline` removed (superseded by the serif clip-reveal). Props now
+  `headlineTop`/`headlineMain`/`footLeft`/`engineSrc`/`reliefSrc`/`parallaxFactor`.
+- Verified: 79/79 unit, 30/30 Playwright (6 device profiles), Next 16 build clean,
+  screenshot-matched to the user-approved mockup.
