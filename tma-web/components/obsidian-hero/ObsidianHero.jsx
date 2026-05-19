@@ -11,7 +11,6 @@ export default function ObsidianHero({
   caption = "The Motion Agency — Reel 2026",
   eyebrow = "The Motion Agency",
   imageSrc = "/assets/obsidian-engine.webp",
-  fallbackSrc = "/assets/obsidian-engine-lqip.webp",
   parallaxFactor = 0.1,
   className = "",
 }) {
