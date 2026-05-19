@@ -1,5 +1,10 @@
 import { test, expect } from "@playwright/test";
 
+// Run against a local dev server (the /obsidian-hero route is unmerged):
+//   cd tma-web && npm run dev
+//   PLAYWRIGHT_BASE_URL=http://localhost:3000 npx playwright test obsidian-hero.spec.js
+// All page.goto() calls are relative and resolve against the configured baseURL.
+
 const SETTLE_MS = 150; // allow a few RAF frames for the scroll→transform loop to settle
 
 test("canvas mounts and acquires a WebGL context", async ({ page }) => {
