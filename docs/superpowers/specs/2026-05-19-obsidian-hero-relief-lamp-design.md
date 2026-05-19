@@ -197,3 +197,10 @@ Playwright (project already uses it) on the demo route `app/obsidian-hero/page.j
 
 Pinned scroll-scrubbed case-study sequence, additional sections, full new
 `portfolio-v18` page, CMS-driven content, real 3D mesh variant.
+
+## Implemented
+
+Module at `tma-web/components/obsidian-hero/`. Usage:
+`import ObsidianHero from "@/components/obsidian-hero/ObsidianHero"` then
+`<ObsidianHero headline="…" caption="…" />`. Demo: `/obsidian-hero`.
+For inertial scroll, render `<SmoothScroll/>` (from `@/components/portfolio/SmoothScroll`) on the host page.
