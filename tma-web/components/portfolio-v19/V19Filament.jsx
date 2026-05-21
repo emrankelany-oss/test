@@ -9,20 +9,18 @@ if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const MOBILE_MAX = 820; // matches the .v19fw-grid single-column breakpoint
 
-/* Build a cubic-bezier path string for the measured section size.
-   Starts at the section's top-left corner, sweeps into the "Featured" word
-   (word/narr are boxes in section coords, or null pre-measure), crosses it
-   horizontally (the straight L segment that the wipe tracks), then exits to
-   the right of the "narratives" word and weaves down through the grid. */
+/* FEATURED segment — starts at the section's top-left corner (the seam where
+   the hero "lead" segment hands off), sweeps into the "Featured" word, crosses
+   it horizontally (the straight L the wipe tracks), then exits to the right of
+   "narratives" and weaves down through the grid. word/narr are section-coord
+   boxes, or null pre-measure. */
 function buildPath(w, h, word, narr) {
   const cx = w / 2;
 
   if (!word) {
-    // graceful fallback before the title is measured
     return `M 0 0 C ${w * 0.1} ${h * 0.2}, ${w * 0.4} ${h * 0.3}, ${cx} ${h}`;
   }
 
-  // drop the line down to the right of "narratives" so it never overlaps it
   const guard = narr ? Math.max(narr.r, word.r) : word.r;
   const rightEdge = Math.min(w - w * 0.04, guard + w * 0.05);
   const dropY = (narr ? narr.b : word.cy) + h * 0.03;
@@ -50,7 +48,32 @@ function buildPath(w, h, word, narr) {
   );
 }
 
-export default function V19Filament() {
+/* LEAD segment (hero) — begins at the lower-left, just above the "Scroll"
+   word, rises up toward a point just below the "DESIGN" headline line, then
+   descends to the hero's bottom-left corner (0, h) — the seam where the
+   featured segment's "M 0 0" picks up, so the two read as one line.
+   design/scroll are hero-coord boxes, or null pre-measure. */
+function buildLeadPath(w, h, design, scroll) {
+  if (!design) {
+    return (
+      `M ${w * 0.015} ${h * 0.78} ` +
+      `C ${w * 0.06} ${h * 0.62}, ${w * 0.16} ${h * 0.6}, ${w * 0.2} ${h * 0.55} ` +
+      `C ${w * 0.08} ${h * 0.72}, ${w * 0.04} ${h * 0.9}, 0 ${h}`
+    );
+  }
+  const sx = w * 0.015; // left border
+  const sy = (scroll ? scroll.t : h * 0.9) - h * 0.02; // just above the Scroll word
+  const ax = design.l + (design.r - design.l) * 0.5; // apex centred under DESIGN
+  const ay = Math.min(design.b + h * 0.022, sy - h * 0.04); // just below DESIGN
+  return (
+    `M ${sx} ${sy} ` +
+    `C ${sx + w * 0.04} ${(sy + ay) / 2}, ${ax - w * 0.04} ${ay + h * 0.04}, ${ax} ${ay} ` +
+    `C ${ax - w * 0.06} ${ay + h * 0.06}, ${w * 0.04} ${(ay + h) / 2}, 0 ${h}`
+  );
+}
+
+export default function V19Filament({ variant = "featured" }) {
+  const isLead = variant === "lead";
   const rootRef = useRef(null);
   const svgRef = useRef(null);
   const pathRef = useRef(null);
@@ -63,11 +86,13 @@ export default function V19Filament() {
     const path = pathRef.current;
     if (!root || !svg || !path) return;
 
-    const section = root.closest(".v19fw") || root.parentElement;
+    const sectionSel = isLead ? ".v19-hero" : ".v19fw";
+    const section = root.closest(sectionSel) || root.parentElement;
     if (!section) return;
 
-    const wordEl = section.querySelector(".v19fw-title-word");
-    const narrEl = section.querySelector(".v19fw-title em");
+    // featured-only: the "Featured" word that fills with the line colour
+    const wordEl = isLead ? null : section.querySelector(".v19fw-title-word");
+    const narrEl = isLead ? null : section.querySelector(".v19fw-title em");
 
     const setWipe = (frac) => {
       if (wordEl) {
@@ -75,7 +100,6 @@ export default function V19Filament() {
       }
     };
 
-    // shared geometry, updated on (re)measure and read by the scroll tween
     const geom = { len: 0, p1: 0, p2: 1, ready: false };
 
     const boxIn = (el) => {
@@ -98,37 +122,58 @@ export default function V19Filament() {
       const h = section.clientHeight;
       if (!w || !h) return;
 
-      const word = boxIn(wordEl);
-      const narr = boxIn(narrEl);
+      if (isLead) {
+        // horizontal position from the inner text span (its X is correct even
+        // mid entrance-animation, which only translates Y); vertical from the
+        // stable line block.
+        const dBlock = boxIn(section.querySelector(".v19-line-4"));
+        const dSpan = boxIn(section.querySelector(".v19-line-4 span"));
+        const design = dBlock
+          ? {
+              l: (dSpan || dBlock).l,
+              r: (dSpan || dBlock).r,
+              t: dBlock.t,
+              b: dBlock.b,
+              cy: dBlock.cy,
+            }
+          : null;
+        const scroll = boxIn(section.querySelector(".v19-scroll"));
+        svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+        path.setAttribute("d", buildLeadPath(w, h, design, scroll));
+      } else {
+        const word = boxIn(wordEl);
+        const narr = boxIn(narrEl);
+        svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+        path.setAttribute("d", buildPath(w, h, word, narr));
 
-      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      path.setAttribute("d", buildPath(w, h, word, narr));
-      const len = path.getTotalLength();
-      geom.len = len;
-
-      // arc-length window where the drawn tip is over the "Featured" box —
-      // this maps the eased scroll progress to the left-to-right wipe.
-      geom.ready = false;
-      if (word && len) {
-        const N = 360;
-        let s1 = -1;
-        let s2 = -1;
-        for (let i = 0; i <= N; i++) {
-          const s = (len * i) / N;
-          const pt = path.getPointAtLength(s);
-          const inX = pt.x >= word.l - 1 && pt.x <= word.r + 1;
-          const inY = pt.y >= word.t - 2 && pt.y <= word.b + 2;
-          if (inX && inY) {
-            if (s1 < 0) s1 = s;
-            s2 = s;
+        // arc-length window where the drawn tip is over the "Featured" box —
+        // maps the eased scroll progress to the left-to-right wipe.
+        const len0 = path.getTotalLength();
+        geom.ready = false;
+        if (word && len0) {
+          const N = 360;
+          let s1 = -1;
+          let s2 = -1;
+          for (let i = 0; i <= N; i++) {
+            const s = (len0 * i) / N;
+            const pt = path.getPointAtLength(s);
+            const inX = pt.x >= word.l - 1 && pt.x <= word.r + 1;
+            const inY = pt.y >= word.t - 2 && pt.y <= word.b + 2;
+            if (inX && inY) {
+              if (s1 < 0) s1 = s;
+              s2 = s;
+            }
+          }
+          if (s1 >= 0 && s2 > s1) {
+            geom.p1 = s1 / len0;
+            geom.p2 = s2 / len0;
+            geom.ready = true;
           }
         }
-        if (s1 >= 0 && s2 > s1) {
-          geom.p1 = s1 / len;
-          geom.p2 = s2 / len;
-          geom.ready = true;
-        }
       }
+
+      const len = path.getTotalLength();
+      geom.len = len;
 
       if (resetOffset) {
         gsap.set(path, {
@@ -139,24 +184,32 @@ export default function V19Filament() {
         gsap.set(path, { strokeDasharray: len });
       }
 
-      if (reduced) setWipe(1); // static end-state: full line, word fully lit
+      if (reduced && !isLead) setWipe(1); // static end-state: word fully lit
     };
 
     const ctx = gsap.context(() => {
       measure();
       if (!reduced) {
-        // one eased value drives BOTH the dash draw and the word wipe, so the
-        // colour fill stays locked to the (scrub-lagged) visible line tip.
+        // one eased value drives the dash draw (and, for featured, the wipe),
+        // so colour fill stays locked to the scrub-lagged visible line tip.
         const state = { p: 0 };
         gsap.to(state, {
           p: 1,
           ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom bottom",
-            scrub: 2.5,
-          },
+          scrollTrigger: isLead
+            ? {
+                // hero: draws ~2x faster (completes by ~half the hero scroll)
+                trigger: section,
+                start: "top top",
+                end: "center top",
+                scrub: 1.2,
+              }
+            : {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom bottom",
+                scrub: 2.5,
+              },
           onUpdate: () => {
             const p = state.p;
             path.style.strokeDashoffset = String(geom.len * (1 - p));
@@ -188,10 +241,14 @@ export default function V19Filament() {
       ctx.revert();
       if (wordEl) wordEl.style.removeProperty("--v19-wipe");
     };
-  }, [reduced]);
+  }, [reduced, isLead]);
 
   return (
-    <div ref={rootRef} className="v19-filament" aria-hidden="true">
+    <div
+      ref={rootRef}
+      className={`v19-filament${isLead ? " v19-filament--lead" : ""}`}
+      aria-hidden="true"
+    >
       <svg
         ref={svgRef}
         preserveAspectRatio="none"
@@ -199,10 +256,20 @@ export default function V19Filament() {
       >
         <defs>
           <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#6fd3ff" stopOpacity="0.0" />
-            <stop offset="12%" stopColor="#6fd3ff" stopOpacity="0.9" />
-            <stop offset="55%" stopColor="#bfe9ff" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.85" />
+            {isLead ? (
+              <>
+                <stop offset="0%" stopColor="#8fe0ff" stopOpacity="0.95" />
+                <stop offset="70%" stopColor="#6fd3ff" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#6fd3ff" stopOpacity="0.45" />
+              </>
+            ) : (
+              <>
+                <stop offset="0%" stopColor="#6fd3ff" stopOpacity="0.0" />
+                <stop offset="12%" stopColor="#6fd3ff" stopOpacity="0.9" />
+                <stop offset="55%" stopColor="#bfe9ff" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="0.85" />
+              </>
+            )}
           </linearGradient>
         </defs>
         <path
