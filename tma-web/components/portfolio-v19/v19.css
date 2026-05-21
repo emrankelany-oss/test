@@ -1,5 +1,5 @@
-/* =====================================================================
-   V19 — Narrative Meets Design
+﻿/* =====================================================================
+   V19 â€” Narrative Meets Design
    Theme inherited from the homepage hero (black canvas, Inter Tight,
    animated prism). Layout follows the v19 reference frame.
    ===================================================================== */
@@ -211,7 +211,13 @@
   text-transform: uppercase;
   margin: 0;
   color: #fff;
-  display: block;
+  /* Fill the full column height and distribute the four lines top→bottom
+     so the headline block spans the same vertical extent as the right
+     side (big video + Let's Talk). */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   min-width: 0;
 }
 
@@ -232,7 +238,7 @@
   to { transform: translateY(0); }
 }
 
-/* Italic line — same size, same line-height, second font (serif fallback
+/* Italic line â€” same size, same line-height, second font (serif fallback
    from "Inter Tight", serif because next/font doesn't load Inter Tight
    italic). Mirrors .hero-title .ital on the homepage. */
 .v19-line-italic em {
@@ -241,25 +247,25 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   color: rgba(255, 255, 255, 0.94);
-  white-space: nowrap;     /* keep WHERE VISION on one line — at narrow viewports it would otherwise overflow by a few pixels and wrap, pushing MEETS into the card */
+  white-space: nowrap;     /* keep WHERE VISION on one line â€” at narrow viewports it would otherwise overflow by a few pixels and wrap, pushing MEETS into the card */
 }
 
-/* MEETS + DESIGN — in natural flow directly under WHERE VISION, with a
+/* MEETS + DESIGN â€” in natural flow directly under WHERE VISION, with a
    left indent that lets the showreel card slot in alongside them. The
    four lines now read as one tight, gap-less block. */
 .v19-line-3,
 .v19-line-4 {
-  padding-left: clamp(160px, 23vw, 358px);  /* card width + gap */
+  padding-left: 0;   /* showreel card removed — all four lines left-aligned */
 }
 
-/* SHOWREEL CARD — absolute on the left, slotted next to MEETS+DESIGN.
+/* SHOWREEL CARD â€” absolute on the left, slotted next to MEETS+DESIGN.
    Top = end of NARRATIVE+WHERE VISION (= 2 line-heights from the
-   headline top). Width is derived from height × 16/10 so its bottom
+   headline top). Width is derived from height Ã— 16/10 so its bottom
    edge lands exactly at DESIGN's baseline. */
 .v19-showreel {
   position: absolute;
   left: 0;
-  top: clamp(81px, 13.11vw, 232px);    /* 2 × 0.88em of headline font */
+  top: clamp(81px, 13.11vw, 232px);    /* 2 Ã— 0.88em of headline font */
   bottom: auto;
   width: clamp(130px, 21vw, 371px);
   aspect-ratio: 16 / 10;
@@ -558,15 +564,23 @@
 }
 
 /* =====================================================================
-   V19 — Featured Work
+   V19 â€” Featured Work
    Hover-media interaction modelled on ref.digital /work grid: a poster
    image with a cursor-trailing <video> tile that fades in while the
    card is hovered. The tile's translation is updated each rAF by JS,
    so CSS only handles the opacity/scale transitions.
    ===================================================================== */
-.v19fw {
+/* Work lane: one black canvas hosting the single continuous filament
+   behind both work sections (which are transparent so it shows through). */
+.v19-worklane {
   position: relative;
   background: #000;
+}
+
+.v19fw {
+  position: relative;
+  z-index: 1;
+  background: transparent;
   color: #fff;
   padding-top: clamp(72px, 9vw, 132px);
   padding-bottom: clamp(96px, 12vw, 168px);
@@ -660,7 +674,7 @@
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(18px, 2vw, 32px);
+  gap: clamp(8px, 1vw, 12px);   /* tight seam so the split videos nearly meet */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -674,19 +688,15 @@
   }
 }
 
-/* ---------- CARD ---------- */
+/* ---------- CARD ----------
+   Reveal is driven by scroll, not a one-shot entrance. JS sets two custom
+   props per card every frame:
+     --reveal : 100% (closed) -> 0% (open), used as a top clip-inset so the
+                media opens bottom->up and closes top->down as you scroll.
+     --p      : 0 -> 1 progress, used to fade/rise the caption in sync. */
 .v19fw-card {
-  /* scroll-in entrance — staggered by index via --i */
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.8s cubic-bezier(.2, .8, .2, 1),
-    transform 0.8s cubic-bezier(.2, .8, .2, 1);
-  transition-delay: calc(var(--i, 0) * 0.1s);
-}
-.v19fw-grid.is-inview .v19fw-card {
-  opacity: 1;
-  transform: translateY(0);
+  --reveal: 0%;
+  --p: 1;
 }
 
 .v19fw-card-link {
@@ -701,12 +711,14 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;          /* identical proportion for all three */
-  border-radius: 18px;
+  border-radius: 0;             /* sharp corners */
   overflow: hidden;
   background: #0a0a0d;
   box-shadow:
     0 32px 70px rgba(0, 0, 0, 0.55),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  /* scroll-linked open/close — clip the top edge by --reveal */
+  clip-path: inset(var(--reveal, 0%) 0 0 0);
   transform: translateY(0);
   transition:
     transform 0.6s cubic-bezier(.2, .8, .2, 1),
@@ -720,7 +732,7 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
-/* Poster — base layer, gently zooms on hover */
+/* Poster â€” base layer, gently zooms on hover */
 .v19fw-card-poster {
   position: absolute;
   inset: 0;
@@ -770,7 +782,7 @@
   z-index: 4;
   width: clamp(150px, 16vw, 260px);
   aspect-ratio: 16 / 9;
-  border-radius: 10px;
+  border-radius: 0;             /* sharp corners */
   overflow: hidden;
   background: #000;
   box-shadow:
@@ -795,7 +807,7 @@
 }
 .v19fw-hover-tile.is-active video { transform: scale(1); }
 
-/* Four corner ticks — same flourish as ref.digital's .squares overlay */
+/* Four corner ticks â€” same flourish as ref.digital's .squares overlay */
 .v19fw-hover-corner {
   position: absolute;
   width: 7px;
@@ -808,7 +820,7 @@
 .v19fw-hover-corner--br { right: -2px; bottom: -2px; }
 .v19fw-hover-corner--bl { left: -2px; bottom: -2px; }
 
-/* Hover-tile relies on a pointer device — hide it on touch */
+/* Hover-tile relies on a pointer device â€” hide it on touch */
 @media (hover: none), (pointer: coarse) {
   .v19fw-hover-tile { display: none; }
 }
@@ -821,6 +833,10 @@
   gap: 14px;
   margin-top: clamp(14px, 1.2vw, 20px);
   padding: 0 2px;
+  /* fade + rise in sync with the media reveal */
+  opacity: var(--p, 1);
+  transform: translateY(calc((1 - var(--p, 1)) * 14px));
+  will-change: opacity, transform;
 }
 
 .v19fw-card-titles {
@@ -876,7 +892,9 @@
   .v19fw-card-poster,
   .v19fw-hover-tile,
   .v19fw-hover-tile video { transition: none; }
-  .v19fw-card { opacity: 1; transform: none; }
+  /* fully open, no scroll-reveal clip */
+  .v19fw-card-media { clip-path: none; }
+  .v19fw-card-info { opacity: 1; transform: none; }
   .v19fw-card-link:hover .v19fw-card-poster { transform: scale(1.02); }
   .v19fw-card-link:hover .v19fw-card-media { transform: none; }
 }
@@ -884,7 +902,7 @@
 .v19-filament {
   position: absolute;
   inset: 0;
-  z-index: 1;            /* above section bg, below header/grid (z:2) */
+  z-index: 0;            /* behind the (transparent) work sections */
   pointer-events: none;
 }
 .v19-filament svg {
@@ -898,8 +916,8 @@
   filter: drop-shadow(0 0 10px rgba(111, 211, 255, 0.45));
 }
 
-/* "Featured" word — fills with the filament colour left-to-right as the drawn
-   line crosses it. JS drives --v19-wipe (0%→100%) from the same eased value
+/* "Featured" word â€” fills with the filament colour left-to-right as the drawn
+   line crosses it. JS drives --v19-wipe (0%â†’100%) from the same eased value
    as the line, so the fill stays locked to the visible line tip. */
 .v19fw-title-word {
   --v19-wipe: 0%;
@@ -923,4 +941,510 @@
     opacity: 0.5;
     filter: none;
   }
+}
+
+/* =====================================================================
+   V19 — Cinematic Preloader  ("Monogram Assembly → Cinemascope Split")
+   The overlay BECOMES the page reveal: two black panels split apart to
+   open onto the hero, whose own staggered entrance is released through
+   the opening (see .v19-intro-hold below). Driven by GSAP in
+   V19Preloader.jsx — CSS only declares the static look + reduced-motion.
+   ===================================================================== */
+.v19pl {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  overflow: hidden;
+  background: transparent;     /* the two panels supply the black */
+  /* avoid a flash before GSAP sets autoAlpha: hidden until JS takes over */
+}
+
+/* Two black cinemascope panels meeting at the vertical centre. The 0.5%
+   overlap guarantees a seamless join before they part. */
+.v19pl-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50.5%;
+  background: #000;
+  z-index: 2;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+.v19pl-panel--top { top: 0; transform-origin: top center; }
+.v19pl-panel--bot { bottom: 0; transform-origin: bottom center; }
+
+/* Faint inner shading so the black reads as depth, not a flat fill. */
+.v19pl-panel--top::after,
+.v19pl-panel--bot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 90% at 50% 100%,
+    rgba(255, 255, 255, 0.05), transparent 60%);
+  opacity: 0.6;
+}
+.v19pl-panel--bot::after {
+  background: radial-gradient(ellipse 70% 90% at 50% 0%,
+    rgba(255, 255, 255, 0.05), transparent 60%);
+}
+
+/* Prism-tinted glow — the depth layer the monogram floats over. Colours
+   pulled straight from the hero prism so the reveal feels continuous. */
+.v19pl-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(120vw, 1100px);
+  height: min(120vw, 1100px);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(0, 132, 255, 0.55) 0%,
+      rgba(0, 70, 216, 0.32) 26%,
+      rgba(214, 0, 90, 0.22) 48%,
+      transparent 70%);
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+/* Hairline seam running along the split line. */
+.v19pl-seam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 640px);
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  z-index: 4;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(111, 211, 255, 0.9) 22%,
+    #ffffff 50%,
+    rgba(111, 211, 255, 0.9) 78%,
+    transparent 100%);
+  box-shadow: 0 0 18px rgba(111, 211, 255, 0.7);
+  will-change: transform, opacity;
+}
+
+/* Centred core — fades + lifts away at the burst. */
+.v19pl-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  will-change: transform, opacity;
+}
+
+.v19pl-mark {
+  display: block;
+  width: clamp(72px, 11vw, 120px);
+  height: auto;
+  filter: drop-shadow(0 0 22px rgba(111, 211, 255, 0.45));
+}
+/* hidden start state declared in CSS so the first paint (before GSAP's set()
+   in the effect) never flashes the fully-drawn mark / open word. */
+.v19pl-mark path { stroke-dashoffset: 1; }
+
+.v19pl-word {
+  font-family: var(--mono);
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  text-indent: 0.42em;             /* compensate trailing letter-spacing */
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);    /* wipes open under GSAP */
+}
+
+.v19pl-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+}
+.v19pl-bar {
+  position: relative;
+  width: clamp(120px, 16vw, 200px);
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  border-radius: 1px;
+}
+.v19pl-bar-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #6fd3ff, #ffffff);
+  box-shadow: 0 0 10px rgba(111, 211, 255, 0.6);
+}
+.v19pl-count {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .v19pl-core { gap: 20px; }
+  .v19pl-word { font-size: 11px; letter-spacing: 0.34em; text-indent: 0.34em; }
+}
+
+/* prefers-reduced-motion: GSAP runs the calm cross-fade variant; soften the
+   glow so the brief still-frame reads quietly. */
+@media (prefers-reduced-motion: reduce) {
+  .v19pl-glow { filter: blur(80px); opacity: 0.4; }
+  .v19pl-seam { box-shadow: none; }
+}
+
+/* ---------- HERO ENTRANCE HOLD ----------
+   While the preloader is on screen it adds .v19-intro-hold to .v19-page,
+   freezing the hero's CSS entrance near t=0 (behind the opaque panels).
+   Removing the class at the cinemascope split lets the rise/scale-in play
+   out THROUGH the opening — the same motion language, continued. */
+.v19-page.v19-intro-hold .v19-line > span,
+.v19-page.v19-intro-hold .v19-showreel,
+.v19-page.v19-intro-hold .v19-big-video,
+.v19-page.v19-intro-hold .v19-contact-card {
+  animation-play-state: paused;
+}
+
+/* Reduced motion: the hero never animates in — show its final state at once
+   (the preloader can't "release" an entrance that should not run). */
+@media (prefers-reduced-motion: reduce) {
+  .v19-line > span,
+  .v19-showreel,
+  .v19-big-video,
+  .v19-contact-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* =====================================================================
+   V19 — Our Work
+   Part 1 looping/draggable reel + Part 2 scroll-revealed grid. Filament
+   continues here in a darker blue, wiping the "Our" word.
+   ===================================================================== */
+.v19ow {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: #fff;
+  padding-top: clamp(72px, 9vw, 140px);
+  padding-bottom: clamp(80px, 10vw, 150px);
+  overflow: hidden;
+}
+
+/* darker-blue filament variant */
+.v19-filament.-ow .v19-filament-path {
+  filter: drop-shadow(0 0 9px rgba(40, 120, 210, 0.42));
+}
+
+/* ---------- HEADER ---------- */
+.v19ow-header {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.v19ow-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  align-self: start;
+  padding-top: 12px;
+}
+.v19ow-eyebrow-tick {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #3f93d8;
+  box-shadow: 0 0 12px rgba(63, 147, 216, 0.7);
+}
+.v19ow-title {
+  grid-column: 2;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+/* darker blue fill for the wiped word (vs the brighter Featured cyan) */
+.v19ow-title-word {
+  --v19-wipe: 0%;
+  --v19-lit: #2f86d8;
+  background-image: linear-gradient(
+    90deg,
+    var(--v19-lit) 0%,
+    var(--v19-lit) var(--v19-wipe),
+    currentColor var(--v19-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* "work" wipes the same way as "OUR" — both fill as the line crosses them */
+.v19ow-title em {
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: rgba(255, 255, 255, 0.92);
+  --v19-wipe: 0%;
+  --v19-lit: #2f86d8;
+  background-image: linear-gradient(
+    90deg,
+    var(--v19-lit) 0%,
+    var(--v19-lit) var(--v19-wipe),
+    currentColor var(--v19-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.v19ow-lede {
+  grid-column: 2;
+  margin: clamp(14px, 1.4vw, 22px) 0 0;
+  max-width: 46ch;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 820px) {
+  .v19ow-header { grid-template-columns: 1fr; gap: 14px; }
+  .v19ow-title,
+  .v19ow-lede { grid-column: 1; }
+}
+
+/* ---------- PART 1: looping draggable reel ---------- */
+.v19ow-slider {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  margin-bottom: clamp(72px, 9vw, 132px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.v19ow-slider.is-dragging { cursor: grabbing; }
+
+.v19ow-track {
+  display: flex;
+  gap: clamp(14px, 1.6vw, 26px);
+  width: max-content;
+  list-style: none;
+  margin: 0;
+  padding: 0 clamp(14px, 1.6vw, 26px);
+  will-change: transform;
+}
+.v19ow-slide {
+  flex: 0 0 auto;
+  width: clamp(248px, 26vw, 420px);
+  user-select: none;
+}
+.v19ow-slide-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0a0a0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.v19ow-slide-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(.2, .8, .2, 1);
+}
+.v19ow-slide:hover .v19ow-slide-media img { transform: scale(1.07); }
+.v19ow-slide-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
+}
+.v19ow-slide-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 12px;
+}
+.v19ow-slide-client {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.v19ow-slide-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.v19ow-slide-tag {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(63, 147, 216, 0.9);
+}
+.v19ow-slide img { pointer-events: none; }
+
+.v19ow-drag-hint {
+  display: block;
+  text-align: center;
+  margin-top: clamp(22px, 3vw, 40px);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- PART 2: scroll-revealed grid ---------- */
+.v19ow-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 30px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 900px) { .v19ow-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .v19ow-grid { grid-template-columns: 1fr; max-width: 460px; } }
+
+.v19ow-card {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.7s cubic-bezier(.2, .8, .2, 1),
+    transform 0.7s cubic-bezier(.2, .8, .2, 1);
+  transition-delay: calc(var(--i, 0) * 0.08s);
+}
+.v19ow-card.is-in { opacity: 1; transform: translateY(0); }
+
+.v19ow-card-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+.v19ow-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0a0a0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  /* clip-rise reveal, released with .is-in */
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.8s cubic-bezier(.2, .8, .2, 1);
+  transition-delay: calc(var(--i, 0) * 0.08s + 0.05s);
+}
+.v19ow-card.is-in .v19ow-card-media { clip-path: inset(0 0 0 0); }
+.v19ow-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  transition: transform 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+.v19ow-card-link:hover .v19ow-card-media img { transform: scale(1.08); }
+.v19ow-card-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%);
+}
+.v19ow-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.v19ow-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 12px;
+}
+.v19ow-card-client {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v19ow-card-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(18px, 1.7vw, 26px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v19ow-card { opacity: 1; transform: none; transition: none; }
+  .v19ow-card-media { clip-path: none; transition: none; }
+}
+
+/* "Design" fills with the filament colour as the line tip crosses it,
+   driven by --v19-wipe (0%→100%) — same technique as .v19fw-title-word. */
+.v19-line-word {
+  --v19-wipe: 0%;
+  --v19-lit: #6fd3ff;
+  background-image: linear-gradient(
+    90deg,
+    var(--v19-lit) 0%,
+    var(--v19-lit) var(--v19-wipe),
+    currentColor var(--v19-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
