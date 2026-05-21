@@ -41,8 +41,28 @@ test("flight path lands at the Design word border", async ({ page }) => {
     return { endX: end.x, endY: end.y, target };
   });
   expect(r.target).toBeTruthy();
-  if (r.endX !== undefined) {
-    expect(Math.abs(r.endX - r.target.x)).toBeLessThan(6);
-    expect(Math.abs(r.endY - r.target.y)).toBeLessThan(6);
-  }
+  // the poll above guarantees the flight path was drawn, so this must run
+  // (guarding it behind a conditional would let a missing-flight regression pass)
+  expect(r.endX).toBeDefined();
+  expect(Math.abs(r.endX - r.target.x)).toBeLessThan(6);
+  expect(Math.abs(r.endY - r.target.y)).toBeLessThan(6);
+});
+
+test("reduced motion: wordmark shown, no flight, hero lead rests static at Design", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v19");
+  // intro completes quickly under reduced motion; wait for the overlay to unmount
+  await page.waitForFunction(() => !document.querySelector(".v19pl"), null, {
+    timeout: 12000,
+  });
+  // the hero lead renders fully drawn (static full path) under reduced motion
+  const off = await page.evaluate(() => {
+    const p = document.querySelector(".v19-hero .v19-filament-path");
+    return p ? parseFloat(getComputedStyle(p).strokeDashoffset) || 0 : -1;
+  });
+  expect(off).toBeGreaterThanOrEqual(0);
+  expect(off).toBeLessThan(2); // static full path under reduced motion
 });
