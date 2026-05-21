@@ -206,3 +206,28 @@ test("hero lead mounts, starts at the Design word, ends at the seam", async ({ p
   expect(r.endX).toBeLessThan(2);
   expect(Math.abs(r.endY - r.heroH)).toBeLessThan(2);
 });
+
+test('"Design" wipes its colour as the line is scrolled past it', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v19");
+
+  // wait out the intro: the preloader unmounts when it finishes (scroll release)
+  await page.waitForFunction(() => !document.querySelector(".v19pl"), null, { timeout: 12000 });
+
+  const readDesignWipe = () =>
+    page.evaluate(() => {
+      const w = document.querySelector(".v19-line-4 .v19-line-word");
+      return w ? parseFloat(getComputedStyle(w).getPropertyValue("--v19-wipe")) || 0 : -1;
+    });
+
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await page.waitForTimeout(SCRUB_SETTLE_MS);
+  const atTop = await readDesignWipe();
+
+  await page.evaluate(() => window.scrollTo({ top: Math.round(window.innerHeight * 0.6), behavior: "instant" }));
+  await page.waitForTimeout(SCRUB_SETTLE_MS);
+  const past = await readDesignWipe();
+
+  expect(atTop).toBeLessThan(40);       // not yet fully crossed at rest
+  expect(past).toBeGreaterThan(atTop);  // wipes further as the tip crosses
+});
