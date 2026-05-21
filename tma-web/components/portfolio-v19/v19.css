@@ -1045,25 +1045,18 @@
   will-change: transform, opacity;
 }
 
-.v19pl-mark {
+.v19pl-wordmark {
   display: block;
-  width: clamp(72px, 11vw, 120px);
+  width: clamp(280px, 52vw, 680px);
   height: auto;
-  filter: drop-shadow(0 0 22px rgba(111, 211, 255, 0.45));
+  filter: drop-shadow(0 0 18px rgba(111, 211, 255, 0.45));
 }
-/* hidden start state declared in CSS so the first paint (before GSAP's set()
-   in the effect) never flashes the fully-drawn mark / open word. */
-.v19pl-mark path { stroke-dashoffset: 1; }
-
-.v19pl-word {
-  font-family: var(--mono);
-  font-size: clamp(11px, 1.4vw, 14px);
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
-  text-indent: 0.42em;             /* compensate trailing letter-spacing */
-  white-space: nowrap;
-  clip-path: inset(0 100% 0 0);    /* wipes open under GSAP */
+.v19pl-wordmark text {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 96px;
+  letter-spacing: -0.02em;
+  paint-order: stroke;
 }
 
 .v19pl-meta {
@@ -1099,7 +1092,7 @@
 
 @media (max-width: 600px) {
   .v19pl-core { gap: 20px; }
-  .v19pl-word { font-size: 11px; letter-spacing: 0.34em; text-indent: 0.34em; }
+  .v19pl-wordmark { width: 84vw; }
 }
 
 /* prefers-reduced-motion: GSAP runs the calm cross-fade variant; soften the
