@@ -176,10 +176,8 @@ export default function V19Preloader() {
         onComplete: () => finish(),
       });
 
-      // 1 — calm hold, then the monogram draws itself in.
-      // wordmark writes itself: a left→right reveal rect uncovers the stroked
-      // glyph outlines like a pen moving across the page.
-      gsap.set(wordRef.current, { strokeDashoffset: 0 });
+      // 1 — calm hold, then the wordmark writes itself: a left→right reveal
+      // rect uncovers the stroked glyph outlines like a pen moving across.
       gsap.set(revealRef.current, { attr: { width: 0 } });
       tl.to(revealRef.current, { attr: { width: 1000 }, duration: 1.25, ease: "power2.inOut" }, 0.3);
       tl.fromTo(seamRef.current, { scaleX: 0 }, { scaleX: 1, duration: 0.95, ease: "power2.inOut" }, 0.55);
@@ -272,7 +270,6 @@ export default function V19Preloader() {
             fill="none"
             stroke="url(#v19pl-ink)"
             strokeWidth="2"
-            strokeDasharray="2000"
           >
             The Motion Agency
           </text>
