@@ -1445,3 +1445,13 @@
 /* hero lead segment — same base .v19-filament (absolute, inset:0, z-index:1,
    pointer-events:none); explicit rule kept for clarity/overrides. */
 .v19-filament--lead { z-index: 1; }
+
+.v19pl-flight {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(111, 211, 255, 0.5));
+}

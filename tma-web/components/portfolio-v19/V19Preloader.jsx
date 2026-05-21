@@ -61,6 +61,8 @@ export default function V19Preloader() {
   const counterRef = useRef(null);
   const barRef = useRef(null);
   const metaRef = useRef(null);
+  const flightSvgRef = useRef(null);
+  const flightRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -129,6 +131,35 @@ export default function V19Preloader() {
     const counterEl = counterRef.current;
     const setCount = (v) => {
       if (counterEl) counterEl.textContent = String(Math.round(v)).padStart(2, "0");
+    };
+
+    const buildFlight = () => {
+      const svg = flightSvgRef.current;
+      const path = flightRef.current;
+      const design = document.querySelector(".v19-line-4 .v19-line-word");
+      if (!svg || !path || !design) return 0;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      svg.setAttribute("viewBox", `0 0 ${vw} ${vh}`);
+      const d = design.getBoundingClientRect();
+      // The hero word's span is mid-rise (translateY) when this runs, so its
+      // own box sits below where it will settle. Its parent .v19-line-4 line
+      // box is NOT transformed, so it gives the stable RESTING vertical centre;
+      // the word's X is unaffected by the vertical transform.
+      const lineEl = design.closest(".v19-line-4") || design.parentElement;
+      const line = lineEl.getBoundingClientRect();
+      const tx = d.left;             // left border of "Design" (viewport coords)
+      const ty = line.top + line.height / 2;
+      const sx = vw / 2;             // wordmark centre
+      const sy = vh / 2;
+      path.setAttribute(
+        "d",
+        `M ${sx} ${sy} C ${sx - vw * 0.12} ${sy + vh * 0.06}, ` +
+          `${tx + (sx - tx) * 0.4} ${ty - vh * 0.04}, ${tx} ${ty}`
+      );
+      const len = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+      return len;
     };
 
     let tl;
@@ -205,8 +236,12 @@ export default function V19Preloader() {
       }, null, BURST - 0.05);
       // glow flares outward (light through the opening).
       tl.to(glowRef.current, { opacity: 0.95, scale: 1.7, duration: 0.55, ease: "power3.out" }, BURST);
-      // monogram + word dissolve upward.
-      tl.to(coreRef.current, { opacity: 0, y: -34, scale: 1.05, duration: 0.5, ease: "power2.in" }, BURST);
+      // flight: wordmark fades, a tip draws from centre to Design's border,
+      // then the trail fades — leaving the seeded hero lead at Design.
+      tl.add(() => { buildFlight(); }, BURST - 0.02);
+      tl.to(coreRef.current, { opacity: 0, duration: 0.45, ease: "power2.in" }, BURST + 0.05);
+      tl.to(flightRef.current, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, BURST + 0.1);
+      tl.to(flightSvgRef.current, { opacity: 0, duration: 0.4, ease: "power1.out" }, BURST + 1.05);
       // seam flashes bright then thins away.
       tl.to(seamRef.current, { opacity: 1, scaleY: 2.4, duration: 0.18, ease: "power2.out" }, BURST);
       tl.to(seamRef.current, { opacity: 0, duration: 0.45, ease: "power2.in" }, BURST + 0.18);
@@ -282,6 +317,23 @@ export default function V19Preloader() {
           <span ref={counterRef} className="v19pl-count">00</span>
         </div>
       </div>
+
+      {/* full-viewport flight layer — a tip draws from the wordmark centre to
+          the measured left border of the hero's "Design" word at the burst */}
+      <svg
+        ref={flightSvgRef}
+        className="v19pl-flight"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          ref={flightRef}
+          fill="none"
+          stroke="url(#v19pl-ink)"
+          strokeWidth="4.5"
+          strokeLinecap="round"
+        />
+      </svg>
     </div>
   );
 }
