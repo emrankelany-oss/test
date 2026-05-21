@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import V19Filament from "./V19Filament";
 
 /**
  * V19Hero — "Narrative Meets Design"
@@ -35,6 +36,8 @@ export default function V19Hero() {
         </div>
         <div className="v19-bg-grid" />
       </div>
+
+      <V19Filament variant="lead" />
 
       <div className="v19-hero-inner container">
         <div className="v19-hero-meta">

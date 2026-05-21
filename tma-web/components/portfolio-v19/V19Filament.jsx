@@ -7,50 +7,97 @@ import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-const MOBILE_MAX = 820; // matches the .v19fw-grid single-column breakpoint
+const MOBILE_MAX = 820;
 
-/* Build a cubic-bezier path string for the measured section size.
-   Starts at the section's top-left corner, sweeps into the "Featured" word
-   (word/narr are boxes in section coords, or null pre-measure), crosses it
-   horizontally (the straight L segment that the wipe tracks), then exits to
-   the right of the "narratives" word and weaves down through the grid. */
-function buildPath(w, h, word, narr) {
+/* ONE continuous path spanning the whole work lane (Featured + Our Work).
+   It sweeps into "Featured" and crosses it, weaves down through the
+   featured cards, continues into Our Work, crosses "OUR WORK", then
+   weaves on to the bottom of the lane. Coordinates are in lane space. */
+function buildLanePath(w, h, fw, ourW, workE) {
   const cx = w / 2;
-
-  if (!word) {
-    // graceful fallback before the title is measured
-    return `M 0 0 C ${w * 0.1} ${h * 0.2}, ${w * 0.4} ${h * 0.3}, ${cx} ${h}`;
+  if (!fw || !ourW) {
+    return `M 0 0 C ${w * 0.12} ${h * 0.1}, ${cx} ${h * 0.4}, ${cx} ${h}`;
   }
 
-  // drop the line down to the right of "narratives" so it never overlaps it
-  const guard = narr ? Math.max(narr.r, word.r) : word.r;
-  const rightEdge = Math.min(w - w * 0.04, guard + w * 0.05);
-  const dropY = (narr ? narr.b : word.cy) + h * 0.03;
+  const fy = fw.cy;
+  const oy = ourW.cy;
+  const ourL = ourW.l;
+  const workR = workE ? workE.r : ourW.r;
+  const fRight = Math.min(w - w * 0.04, fw.r + w * 0.05);
+  const owRight = Math.min(w - w * 0.04, Math.max(workR, ourL) + w * 0.04);
+  const span = oy - fy; // vertical gap between the two titles
 
   if (w <= MOBILE_MAX) {
     return (
       `M 0 0 ` +
-      `C ${word.l * 0.4} ${word.cy * 0.5}, ${word.l * 0.75} ${word.cy}, ${word.l} ${word.cy} ` +
-      `L ${word.r} ${word.cy} ` +
-      `C ${rightEdge} ${word.cy + h * 0.03}, ${cx} ${dropY}, ${cx} ${h * 0.55} ` +
-      `S ${cx} ${h * 0.85}, ${cx} ${h}`
+      `C ${fw.l * 0.4} ${fy * 0.5}, ${fw.l * 0.75} ${fy}, ${fw.l} ${fy} ` +
+      `L ${fw.r} ${fy} ` +
+      `C ${fRight} ${fy + span * 0.2}, ${cx} ${fy + span * 0.5}, ${cx} ${fy + span * 0.72} ` +
+      `C ${cx} ${oy - h * 0.015}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} ` +
+      `L ${workR} ${oy} ` +
+      `C ${owRight} ${oy}, ${cx} ${oy + (h - oy) * 0.5}, ${cx} ${oy + (h - oy) * 0.75} ` +
+      `S ${cx} ${h * 0.92}, ${cx} ${h}`
     );
   }
 
-  const g1 = w * 0.34;
-  const g2 = w * 0.66;
   return (
     `M 0 0 ` +
-    `C ${word.l * 0.3} ${word.cy * 0.45}, ${word.l * 0.72} ${word.cy}, ${word.l} ${word.cy} ` +
-    `L ${word.r} ${word.cy} ` +
-    `C ${rightEdge} ${word.cy}, ${rightEdge} ${word.cy + (dropY - word.cy) * 0.5}, ${rightEdge} ${dropY} ` +
-    `C ${rightEdge} ${h * 0.5}, ${g2} ${h * 0.5}, ${g2} ${h * 0.58} ` +
-    `C ${g2} ${h * 0.72}, ${g1} ${h * 0.74}, ${g1} ${h * 0.86} ` +
-    `C ${g1} ${h * 0.94}, ${cx} ${h * 0.96}, ${cx} ${h}`
+    // sweep into "Featured" and cross it
+    `C ${fw.l * 0.3} ${fy * 0.45}, ${fw.l * 0.72} ${fy}, ${fw.l} ${fy} ` +
+    `L ${fw.r} ${fy} ` +
+    // drop off the right, weave down through the featured cards
+    `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.22}, ${fRight} ${fy + span * 0.38} ` +
+    `C ${fRight} ${fy + span * 0.58}, ${w * 0.3} ${fy + span * 0.52}, ${w * 0.3} ${fy + span * 0.74} ` +
+    // continue into Our Work and sweep into "OUR"
+    `C ${w * 0.3} ${oy - h * 0.02}, ${ourL * 0.72} ${oy}, ${ourL} ${oy} ` +
+    // cross BOTH "OUR" and "WORK"
+    `L ${workR} ${oy} ` +
+    // exit right and weave down to the bottom of Our Work
+    `C ${owRight} ${oy}, ${owRight} ${oy + (h - oy) * 0.28}, ${owRight} ${oy + (h - oy) * 0.48} ` +
+    `C ${owRight} ${h * 0.82}, ${cx} ${h * 0.9}, ${cx} ${h}`
   );
 }
 
-export default function V19Filament() {
+const LEAD_SEED_PX = 10; // always-drawn nub at Design so the start stays visible
+
+/* LEAD segment (hero): starts at the left border of "Design", crosses it
+   horizontally (wipe), then descends to the hero bottom-left seam (0,h)
+   where the work-lane path's "M 0 0" picks up. design = hero-coord box. */
+function buildLeadPath(w, h, design) {
+  if (!design) {
+    return `M ${w * 0.04} ${h * 0.5} C ${w * 0.04} ${h * 0.7}, 0 ${h * 0.85}, 0 ${h}`;
+  }
+  const dl = design.l;
+  const dr = design.r;
+  const cy = design.cy;
+  return (
+    `M ${dl} ${cy} ` +
+    `L ${dr} ${cy} ` +
+    `C ${dr} ${cy + (h - cy) * 0.25}, ${w * 0.18} ${cy + (h - cy) * 0.45}, ${w * 0.12} ${cy + (h - cy) * 0.62} ` +
+    `C ${w * 0.06} ${cy + (h - cy) * 0.8}, 0 ${h * 0.92}, 0 ${h}`
+  );
+}
+
+const DEFAULT_STOPS = [
+  { offset: "0%", color: "#6fd3ff", opacity: 0.0 },
+  { offset: "5%", color: "#9fe0ff", opacity: 0.9 },
+  { offset: "33%", color: "#bfe9ff", opacity: 0.95 },
+  { offset: "52%", color: "#7fd0ff", opacity: 0.95 },
+  { offset: "74%", color: "#3f93d8", opacity: 0.95 },
+  { offset: "100%", color: "#1f6fc0", opacity: 0.92 },
+];
+
+export default function V19Filament({
+  variant = "lane",
+  laneSelector = ".v19-worklane",
+  featuredWordSel = ".v19fw-title-word",
+  ourWordSel = ".v19ow-title-word",
+  workSel = ".v19ow-title em",
+  designSel = ".v19-line-4 .v19-line-word",
+  heroSelector = ".v19-hero",
+  stops = DEFAULT_STOPS,
+} = {}) {
+  const isLead = variant === "lead";
   const rootRef = useRef(null);
   const svgRef = useRef(null);
   const pathRef = useRef(null);
@@ -63,24 +110,14 @@ export default function V19Filament() {
     const path = pathRef.current;
     if (!root || !svg || !path) return;
 
-    const section = root.closest(".v19fw") || root.parentElement;
-    if (!section) return;
-
-    const wordEl = section.querySelector(".v19fw-title-word");
-    const narrEl = section.querySelector(".v19fw-title em");
-
-    const setWipe = (frac) => {
-      if (wordEl) {
-        wordEl.style.setProperty("--v19-wipe", (frac * 100).toFixed(2) + "%");
-      }
-    };
-
-    // shared geometry, updated on (re)measure and read by the scroll tween
-    const geom = { len: 0, p1: 0, p2: 1, ready: false };
+    const container = isLead
+      ? root.closest(heroSelector) || root.parentElement
+      : root.closest(laneSelector) || root.parentElement;
+    if (!container) return;
 
     const boxIn = (el) => {
       if (!el) return null;
-      const s = section.getBoundingClientRect();
+      const s = container.getBoundingClientRect();
       const r = el.getBoundingClientRect();
       return {
         l: r.left - s.left,
@@ -91,43 +128,155 @@ export default function V19Filament() {
       };
     };
 
-    // resetOffset=true on first measure; false on resize so an already-drawn
-    // line is not snapped back to hidden (scrub re-drives it from scroll pos).
-    const measure = (resetOffset = true) => {
-      const w = section.clientWidth;
-      const h = section.clientHeight;
-      if (!w || !h) return;
+    if (isLead) {
+      const designEl = container.querySelector(designSel);
+      const wipe = { el: designEl, s1: -1, s2: -1, ready: false };
+      const geom = { len: 0 };
+      const setWipe = (frac) =>
+        wipe.el && wipe.el.style.setProperty("--v19-wipe", (frac * 100).toFixed(2) + "%");
 
-      const word = boxIn(wordEl);
-      const narr = boxIn(narrEl);
-
-      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      path.setAttribute("d", buildPath(w, h, word, narr));
-      const len = path.getTotalLength();
-      geom.len = len;
-
-      // arc-length window where the drawn tip is over the "Featured" box —
-      // this maps the eased scroll progress to the left-to-right wipe.
-      geom.ready = false;
-      if (word && len) {
-        const N = 360;
-        let s1 = -1;
-        let s2 = -1;
+      const measure = (resetOffset = true) => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        if (!w || !h) return;
+        const dBox = boxIn(designEl);
+        if (!dBox) return;
+        svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+        path.setAttribute("d", buildLeadPath(w, h, dBox));
+        const len = path.getTotalLength();
+        geom.len = len;
+        wipe.s1 = -1; wipe.s2 = -1; wipe.ready = false;
+        const N = 320;
         for (let i = 0; i <= N; i++) {
           const s = (len * i) / N;
           const pt = path.getPointAtLength(s);
-          const inX = pt.x >= word.l - 1 && pt.x <= word.r + 1;
-          const inY = pt.y >= word.t - 2 && pt.y <= word.b + 2;
-          if (inX && inY) {
-            if (s1 < 0) s1 = s;
-            s2 = s;
+          if (pt.x >= dBox.l - 1 && pt.x <= dBox.r + 1 && pt.y >= dBox.t - 2 && pt.y <= dBox.b + 2) {
+            if (wipe.s1 < 0) wipe.s1 = s;
+            wipe.s2 = s;
           }
         }
-        if (s1 >= 0 && s2 > s1) {
-          geom.p1 = s1 / len;
-          geom.p2 = s2 / len;
-          geom.ready = true;
+        if (wipe.s1 >= 0 && wipe.s2 > wipe.s1) wipe.ready = true;
+        const drawable = Math.max(0, len - LEAD_SEED_PX);
+        if (resetOffset) {
+          gsap.set(path, {
+            strokeDasharray: len,
+            strokeDashoffset: reduced ? 0 : drawable,
+          });
+        } else {
+          gsap.set(path, { strokeDasharray: len });
         }
+        if (reduced) setWipe(1);
+      };
+
+      const applyWipe = (p) => {
+        if (!wipe.ready || !geom.len) return;
+        const a = wipe.s1 / geom.len;
+        const b = wipe.s2 / geom.len;
+        setWipe(Math.min(1, Math.max(0, (p - a) / (b - a))));
+      };
+
+      const ctx = gsap.context(() => {
+        measure();
+        if (!reduced) {
+          const state = { p: 0 };
+          gsap.to(state, {
+            p: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: container,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1.6,
+            },
+            onUpdate: () => {
+              const p = state.p;
+              const drawable = Math.max(0, geom.len - LEAD_SEED_PX);
+              path.style.strokeDashoffset = String(drawable * (1 - p));
+              applyWipe(p);
+            },
+          });
+        }
+      }, root);
+
+      let rafId = 0;
+      const ro = new ResizeObserver(() => {
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          measure(false);
+          if (!reduced) ScrollTrigger.refresh();
+        });
+      });
+      ro.observe(container);
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        ro.disconnect();
+        ctx.revert();
+        if (wipe.el) wipe.el.style.removeProperty("--v19-wipe");
+      };
+    }
+
+    // ----- variant === "lane" (existing behaviour) -----
+    const lane = container;
+    if (!lane) return;
+
+    const fwEl = lane.querySelector(featuredWordSel);
+    const ourEl = lane.querySelector(ourWordSel);
+    const workEl = lane.querySelector(workSel);
+
+    // wipe targets: each fills with its --v19-lit colour as the line tip
+    // crosses it. window = arc-length range where the path is inside its box.
+    const targets = [fwEl, ourEl, workEl]
+      .filter(Boolean)
+      .map((el) => ({ el, s1: -1, s2: -1, ready: false }));
+
+    const clearWipes = () =>
+      targets.forEach((t) => t.el.style.removeProperty("--v19-wipe"));
+    const setWipe = (t, frac) =>
+      t.el.style.setProperty("--v19-wipe", (frac * 100).toFixed(2) + "%");
+
+    const geom = { len: 0 };
+
+    const measure = (resetOffset = true) => {
+      const w = lane.clientWidth;
+      const h = lane.scrollHeight || lane.clientHeight;
+      if (!w || !h) return;
+
+      const fw = boxIn(fwEl);
+      const ourW = boxIn(ourEl);
+      const workE = boxIn(workEl);
+
+      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      path.setAttribute("d", buildLanePath(w, h, fw, ourW, workE));
+      const len = path.getTotalLength();
+      geom.len = len;
+
+      // find the arc-length window each word occupies along the path
+      const boxes = [fw, ourW, workE].filter(Boolean);
+      targets.forEach((t, ti) => {
+        t.ready = false;
+        t.s1 = -1;
+        t.s2 = -1;
+      });
+      if (len) {
+        const N = 520;
+        for (let i = 0; i <= N; i++) {
+          const s = (len * i) / N;
+          const pt = path.getPointAtLength(s);
+          targets.forEach((t, ti) => {
+            const b = boxes[ti];
+            if (!b) return;
+            const inX = pt.x >= b.l - 1 && pt.x <= b.r + 1;
+            const inY = pt.y >= b.t - 2 && pt.y <= b.b + 2;
+            if (inX && inY) {
+              if (t.s1 < 0) t.s1 = s;
+              t.s2 = s;
+            }
+          });
+        }
+        targets.forEach((t) => {
+          if (t.s1 >= 0 && t.s2 > t.s1) t.ready = true;
+        });
       }
 
       if (resetOffset) {
@@ -139,20 +288,30 @@ export default function V19Filament() {
         gsap.set(path, { strokeDasharray: len });
       }
 
-      if (reduced) setWipe(1); // static end-state: full line, word fully lit
+      if (reduced) targets.forEach((t) => setWipe(t, 1));
+    };
+
+    const applyWipes = (p) => {
+      const len = geom.len;
+      if (!len) return;
+      targets.forEach((t) => {
+        if (!t.ready) return;
+        const a = t.s1 / len;
+        const b = t.s2 / len;
+        const frac = Math.min(1, Math.max(0, (p - a) / (b - a)));
+        setWipe(t, frac);
+      });
     };
 
     const ctx = gsap.context(() => {
       measure();
       if (!reduced) {
-        // one eased value drives BOTH the dash draw and the word wipe, so the
-        // colour fill stays locked to the (scrub-lagged) visible line tip.
         const state = { p: 0 };
         gsap.to(state, {
           p: 1,
           ease: "none",
           scrollTrigger: {
-            trigger: section,
+            trigger: lane,
             start: "top 80%",
             end: "bottom bottom",
             scrub: 2.5,
@@ -160,13 +319,7 @@ export default function V19Filament() {
           onUpdate: () => {
             const p = state.p;
             path.style.strokeDashoffset = String(geom.len * (1 - p));
-            if (geom.ready) {
-              const frac = Math.min(
-                1,
-                Math.max(0, (p - geom.p1) / (geom.p2 - geom.p1))
-              );
-              setWipe(frac);
-            }
+            applyWipes(p);
           },
         });
       }
@@ -180,18 +333,22 @@ export default function V19Filament() {
         if (!reduced) ScrollTrigger.refresh();
       });
     });
-    ro.observe(section);
+    ro.observe(lane);
 
     return () => {
       cancelAnimationFrame(rafId);
       ro.disconnect();
       ctx.revert();
-      if (wordEl) wordEl.style.removeProperty("--v19-wipe");
+      clearWipes();
     };
-  }, [reduced]);
+  }, [reduced, variant, laneSelector, featuredWordSel, ourWordSel, workSel, designSel, heroSelector]);
 
   return (
-    <div ref={rootRef} className="v19-filament" aria-hidden="true">
+    <div
+      ref={rootRef}
+      className={`v19-filament${isLead ? " v19-filament--lead" : ""}`}
+      aria-hidden="true"
+    >
       <svg
         ref={svgRef}
         preserveAspectRatio="none"
@@ -199,10 +356,14 @@ export default function V19Filament() {
       >
         <defs>
           <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#6fd3ff" stopOpacity="0.0" />
-            <stop offset="12%" stopColor="#6fd3ff" stopOpacity="0.9" />
-            <stop offset="55%" stopColor="#bfe9ff" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.85" />
+            {stops.map((s, i) => (
+              <stop
+                key={i}
+                offset={s.offset}
+                stopColor={s.color}
+                stopOpacity={s.opacity}
+              />
+            ))}
           </linearGradient>
         </defs>
         <path

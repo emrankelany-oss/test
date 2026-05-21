@@ -1448,3 +1448,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* hero lead segment — same base .v19-filament (absolute, inset:0, z-index:1,
+   pointer-events:none); explicit rule kept for clarity/overrides. */
+.v19-filament--lead { z-index: 1; }

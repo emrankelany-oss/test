@@ -174,7 +174,35 @@ test("no console errors during mount + scroll", async ({ page }) => {
 
 test("unmount removes the filament (navigation away)", async ({ page }) => {
   await page.goto("/portfolio-v19");
-  await expect(page.locator(".v19-filament")).toBeVisible();
+  // two filaments now mount on v19 (work-lane + hero lead); scope the
+  // visibility check to the lane one, then assert both clear on navigate-away.
+  await expect(page.locator(".v19-worklane .v19-filament")).toBeVisible();
   await page.goto("/");
   await expect(page.locator(".v19-filament")).toHaveCount(0);
+});
+
+test("hero lead mounts, starts at the Design word, ends at the seam", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v19");
+  await page.waitForTimeout(SETTLE_MS);
+  const r = await page.evaluate(() => {
+    const hero = document.querySelector(".v19-hero");
+    const path = document.querySelector(".v19-hero .v19-filament-path");
+    const word = document.querySelector(".v19-line-4 .v19-line-word");
+    if (!hero || !path || !word) return null;
+    const s = hero.getBoundingClientRect();
+    const wb = word.getBoundingClientRect();
+    const start = path.getPointAtLength(0);
+    const end = path.getPointAtLength(path.getTotalLength());
+    return {
+      startX: start.x, startY: start.y,
+      wordL: wb.left - s.left, wordCy: wb.top - s.top + wb.height / 2,
+      endX: end.x, endY: end.y, heroH: hero.clientHeight,
+    };
+  });
+  expect(r).not.toBeNull();
+  expect(Math.abs(r.startX - r.wordL)).toBeLessThan(8);
+  expect(Math.abs(r.startY - r.wordCy)).toBeLessThan(8);
+  expect(r.endX).toBeLessThan(2);
+  expect(Math.abs(r.endY - r.heroH)).toBeLessThan(2);
 });
