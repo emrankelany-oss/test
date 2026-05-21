@@ -70,7 +70,7 @@ export default function V19FeaturedWork() {
           Selected work · 2024–25
         </span>
         <h2 className="v19fw-title">
-          Featured <em>narratives</em>
+          <span className="v19fw-title-word">Featured</span> <em>narratives</em>
         </h2>
         <p className="v19fw-lede">
           Three chapters from this year's reel. Hover to play the cut.

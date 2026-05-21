@@ -895,7 +895,25 @@
   display: block;
 }
 .v19-filament-path {
-  filter: drop-shadow(0 0 6px rgba(111, 211, 255, 0.35));
+  filter: drop-shadow(0 0 10px rgba(111, 211, 255, 0.45));
+}
+
+/* "Featured" word — fills with the filament colour left-to-right as the drawn
+   line crosses it. JS drives --v19-wipe (0%→100%) from the same eased value
+   as the line, so the fill stays locked to the visible line tip. */
+.v19fw-title-word {
+  --v19-wipe: 0%;
+  --v19-lit: #6fd3ff;
+  background-image: linear-gradient(
+    90deg,
+    var(--v19-lit) 0%,
+    var(--v19-lit) var(--v19-wipe),
+    currentColor var(--v19-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
