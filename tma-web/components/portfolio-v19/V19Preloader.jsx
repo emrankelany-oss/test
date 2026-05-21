@@ -326,10 +326,18 @@ export default function V19Preloader() {
         preserveAspectRatio="none"
         aria-hidden="true"
       >
+        {/* own gradient — cross-SVG url(#…) paint refs fail in Firefox/Safari */}
+        <defs>
+          <linearGradient id="v19pl-flight-ink" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#9fe0ff" />
+            <stop offset="60%" stopColor="#6fd3ff" />
+            <stop offset="100%" stopColor="#bfe9ff" />
+          </linearGradient>
+        </defs>
         <path
           ref={flightRef}
           fill="none"
-          stroke="url(#v19pl-ink)"
+          stroke="url(#v19pl-flight-ink)"
           strokeWidth="4.5"
           strokeLinecap="round"
         />
