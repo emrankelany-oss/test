@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
@@ -40,6 +40,7 @@ export default function V19Filament() {
   const svgRef = useRef(null);
   const pathRef = useRef(null);
   const reduced = usePrefersReducedMotion();
+  const gradId = "v19-filament-grad-" + useId().replace(/:/g, "");
 
   useEffect(() => {
     const root = rootRef.current;
@@ -50,26 +51,29 @@ export default function V19Filament() {
     const section = root.closest(".v19fw") || root.parentElement;
     if (!section) return;
 
-    let st = null;
-
-    const measure = () => {
+    // resetOffset=true on first measure; false on resize so an already-drawn
+    // line is not snapped back to hidden (scrub re-drives it from scroll pos).
+    const measure = (resetOffset = true) => {
       const w = section.clientWidth;
       const h = section.clientHeight;
       if (!w || !h) return;
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
       path.setAttribute("d", buildPath(w, h));
       const len = path.getTotalLength();
-      gsap.set(path, {
-        strokeDasharray: len,
-        strokeDashoffset: reduced ? 0 : len,
-      });
-      return len;
+      if (resetOffset) {
+        gsap.set(path, {
+          strokeDasharray: len,
+          strokeDashoffset: reduced ? 0 : len,
+        });
+      } else {
+        gsap.set(path, { strokeDasharray: len });
+      }
     };
 
     const ctx = gsap.context(() => {
       measure();
       if (!reduced) {
-        const tween = gsap.to(path, {
+        gsap.to(path, {
           strokeDashoffset: 0,
           ease: "none",
           scrollTrigger: {
@@ -79,22 +83,21 @@ export default function V19Filament() {
             scrub: 0.6,
           },
         });
-        st = tween.scrollTrigger;
       }
     }, root);
 
+    let rafId = 0;
     const ro = new ResizeObserver(() => {
-      measure();
-      // re-pin the draw to current scroll after a layout change
-      if (st) {
-        const len = path.getTotalLength();
-        gsap.set(path, { strokeDasharray: len });
-      }
-      ScrollTrigger.refresh();
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        measure(false);
+        if (!reduced) ScrollTrigger.refresh();
+      });
     });
     ro.observe(section);
 
     return () => {
+      cancelAnimationFrame(rafId);
       ro.disconnect();
       ctx.revert();
     };
@@ -108,7 +111,7 @@ export default function V19Filament() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="v19-filament-grad" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#6fd3ff" stopOpacity="0.0" />
             <stop offset="12%" stopColor="#6fd3ff" stopOpacity="0.9" />
             <stop offset="55%" stopColor="#bfe9ff" stopOpacity="0.95" />
@@ -119,7 +122,7 @@ export default function V19Filament() {
           ref={pathRef}
           className="v19-filament-path"
           fill="none"
-          stroke="url(#v19-filament-grad)"
+          stroke={`url(#${gradId})`}
           strokeWidth="1.5"
           strokeLinecap="round"
         />
