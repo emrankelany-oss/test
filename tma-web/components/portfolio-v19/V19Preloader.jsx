@@ -42,7 +42,8 @@ let hasPlayedThisLoad = false;
 
 const HOLD_CLASS = "v19-intro-hold"; // pauses the hero's CSS entrance
 const FALLBACK_MS = 6000; // hard cap before forcing the reveal
-const TAIL_MS = 1100; // panel-split duration + buffer before unmount
+const TAIL_MS = 1100; // buffer in the hardRelease safety cap only (NOT the
+// unmount gate — normal unmount is driven by the timeline's onComplete)
 
 export default function V19Preloader() {
   // SSR + first client render both render the overlay → no hero flash and no
@@ -238,7 +239,7 @@ export default function V19Preloader() {
       tl.to(glowRef.current, { opacity: 0.95, scale: 1.7, duration: 0.55, ease: "power3.out" }, BURST);
       // flight: wordmark fades, a tip draws from centre to Design's border,
       // then the trail fades — leaving the seeded hero lead at Design.
-      tl.add(() => { buildFlight(); }, BURST - 0.02);
+      tl.call(() => { buildFlight(); }, null, BURST - 0.02);
       tl.to(coreRef.current, { opacity: 0, duration: 0.45, ease: "power2.in" }, BURST + 0.05);
       tl.to(flightRef.current, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, BURST + 0.1);
       tl.to(flightSvgRef.current, { opacity: 0, duration: 0.4, ease: "power1.out" }, BURST + 1.05);
