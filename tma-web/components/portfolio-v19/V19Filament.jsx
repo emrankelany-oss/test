@@ -13,7 +13,7 @@ const MOBILE_MAX = 820;
    It sweeps into "Featured" and crosses it, weaves down through the
    featured cards, continues into Our Work, crosses "OUR WORK", then
    weaves on to the bottom of the lane. Coordinates are in lane space. */
-function buildLanePath(w, h, fw, ourW, workE) {
+function buildLanePath(w, h, fw, ourW, workE, fNarr) {
   const cx = w / 2;
   if (!fw || !ourW) {
     return `M 0 0 C ${w * 0.12} ${h * 0.1}, ${cx} ${h * 0.4}, ${cx} ${h}`;
@@ -23,7 +23,10 @@ function buildLanePath(w, h, fw, ourW, workE) {
   const oy = ourW.cy;
   const ourL = ourW.l;
   const workR = workE ? workE.r : ourW.r;
-  const fRight = Math.min(w - w * 0.04, fw.r + w * 0.05);
+  // drop the line to the right of BOTH "Featured" and the wider "narratives"
+  // line below it, so the descent never cuts through "narratives".
+  const fGuard = Math.max(fw.r, fNarr ? fNarr.r : fw.r);
+  const fRight = Math.min(w - w * 0.04, fGuard + w * 0.05);
   const owRight = Math.min(w - w * 0.04, Math.max(workR, ourL) + w * 0.04);
   const span = oy - fy; // vertical gap between the two titles
 
@@ -70,6 +73,7 @@ const DEFAULT_STOPS = [
 export default function V19Filament({
   laneSelector = ".v19-worklane",
   featuredWordSel = ".v19fw-title-word",
+  featuredEmSel = ".v19fw-title em",
   ourWordSel = ".v19ow-title-word",
   workSel = ".v19ow-title em",
   stops = DEFAULT_STOPS,
@@ -90,6 +94,7 @@ export default function V19Filament({
     if (!lane) return;
 
     const fwEl = lane.querySelector(featuredWordSel);
+    const fNarrEl = lane.querySelector(featuredEmSel); // for avoidance, not a wipe
     const ourEl = lane.querySelector(ourWordSel);
     const workEl = lane.querySelector(workSel);
 
@@ -125,11 +130,12 @@ export default function V19Filament({
       if (!w || !h) return;
 
       const fw = boxIn(fwEl);
+      const fNarr = boxIn(fNarrEl);
       const ourW = boxIn(ourEl);
       const workE = boxIn(workEl);
 
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      path.setAttribute("d", buildLanePath(w, h, fw, ourW, workE));
+      path.setAttribute("d", buildLanePath(w, h, fw, ourW, workE, fNarr));
       const len = path.getTotalLength();
       geom.len = len;
 
@@ -228,7 +234,7 @@ export default function V19Filament({
       ctx.revert();
       clearWipes();
     };
-  }, [reduced, laneSelector, featuredWordSel, ourWordSel, workSel]);
+  }, [reduced, laneSelector, featuredWordSel, featuredEmSel, ourWordSel, workSel]);
 
   return (
     <div ref={rootRef} className="v19-filament" aria-hidden="true">
