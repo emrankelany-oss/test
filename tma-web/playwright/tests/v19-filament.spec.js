@@ -20,13 +20,11 @@ const scrollBottom = (page) =>
     window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" })
   );
 
-// scope defaults to the work-lane filament (a second .v19-filament-path lives
-// in the hero once the lead segment is added).
-const readOffset = (page, scope = ".v19-worklane") =>
-  page.evaluate((sc) => {
-    const p = document.querySelector(sc + " .v19-filament-path");
-    return p ? parseFloat(getComputedStyle(p).strokeDashoffset) || 0 : -1;
-  }, scope);
+const readOffset = (page) =>
+  page.evaluate(() => {
+    const p = document.querySelector(".v19-filament-path");
+    return parseFloat(getComputedStyle(p).strokeDashoffset) || 0;
+  });
 
 const readWipe = (page) =>
   page.evaluate(() => {
@@ -36,9 +34,9 @@ const readWipe = (page) =>
       : -1;
   });
 
-test("filament mounts inside the work lane", async ({ page }) => {
+test("filament mounts inside Featured Work", async ({ page }) => {
   await page.goto("/portfolio-v19");
-  await expect(page.locator(".v19-worklane .v19-filament svg path")).toHaveCount(1);
+  await expect(page.locator(".v19fw .v19-filament svg path")).toHaveCount(1);
 });
 
 test("line is thick and starts at the section's top-left corner", async ({
@@ -48,7 +46,7 @@ test("line is thick and starts at the section's top-left corner", async ({
   await page.goto("/portfolio-v19");
   await page.waitForTimeout(SETTLE_MS);
   const info = await page.evaluate(() => {
-    const p = document.querySelector(".v19-worklane .v19-filament-path");
+    const p = document.querySelector(".v19-filament-path");
     return { sw: p.getAttribute("stroke-width"), d: p.getAttribute("d") };
   });
   expect(parseFloat(info.sw)).toBeGreaterThanOrEqual(4);
@@ -60,7 +58,7 @@ test("filament draws as the section scrolls (dashoffset decreases)", async ({
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v19");
-  await expect(page.locator(".v19-worklane .v19-filament-path")).toBeVisible();
+  await expect(page.locator(".v19-filament-path")).toBeVisible();
 
   await scrollTop(page);
   await page.waitForTimeout(SCRUB_SETTLE_MS);
@@ -99,22 +97,16 @@ test('"Featured" wipes to the line colour past contact and reverts on scroll-bac
   expect(wipeBack).toBeLessThan(10);
 });
 
-// SKIPPED: the work-lane path was redesigned (Featured + Our Work span) in a
-// prior change and now crosses the "narratives" word region. The original
-// avoidance property no longer holds; left for the lane owner to reconfirm —
-// it is unrelated to the filament-intro feature.
-test.skip("line never overlaps the \"narratives\" word", async ({ page }) => {
+test("line never overlaps the \"narratives\" word", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v19");
   await page.waitForTimeout(SETTLE_MS);
 
   const hit = await page.evaluate(() => {
-    // path + box must share the lane coordinate space (the filament SVG
-    // covers .v19-worklane, so getPointAtLength returns lane coords).
-    const lane = document.querySelector(".v19-worklane");
-    const path = document.querySelector(".v19-worklane .v19-filament-path");
+    const path = document.querySelector(".v19-filament-path");
+    const section = document.querySelector(".v19fw");
     const em = document.querySelector(".v19fw-title em");
-    const s = lane.getBoundingClientRect();
+    const s = section.getBoundingClientRect();
     const e = em.getBoundingClientRect();
     const box = {
       l: e.left - s.left,
@@ -146,7 +138,7 @@ test("reduced-motion: full path drawn, word fully lit, static on scroll", async 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v19");
-  await expect(page.locator(".v19-worklane .v19-filament-path")).toBeVisible();
+  await expect(page.locator(".v19-filament-path")).toBeVisible();
 
   await scrollTop(page);
   await page.waitForTimeout(SETTLE_MS);
@@ -174,60 +166,7 @@ test("no console errors during mount + scroll", async ({ page }) => {
 
 test("unmount removes the filament (navigation away)", async ({ page }) => {
   await page.goto("/portfolio-v19");
-  // two filaments now mount on v19 (work-lane + hero lead); scope the
-  // visibility check to the lane one, then assert both clear on navigate-away.
-  await expect(page.locator(".v19-worklane .v19-filament")).toBeVisible();
+  await expect(page.locator(".v19-filament")).toBeVisible();
   await page.goto("/");
   await expect(page.locator(".v19-filament")).toHaveCount(0);
-});
-
-test("hero lead mounts, starts at the Design word, ends at the seam", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto("/portfolio-v19");
-  await page.waitForTimeout(SETTLE_MS);
-  const r = await page.evaluate(() => {
-    const hero = document.querySelector(".v19-hero");
-    const path = document.querySelector(".v19-hero .v19-filament-path");
-    const word = document.querySelector(".v19-line-4 .v19-line-word");
-    if (!hero || !path || !word) return null;
-    const s = hero.getBoundingClientRect();
-    const wb = word.getBoundingClientRect();
-    const start = path.getPointAtLength(0);
-    const end = path.getPointAtLength(path.getTotalLength());
-    return {
-      startX: start.x, startY: start.y,
-      wordL: wb.left - s.left, wordCy: wb.top - s.top + wb.height / 2,
-      endX: end.x, endY: end.y, heroH: hero.clientHeight,
-    };
-  });
-  expect(r).not.toBeNull();
-  expect(Math.abs(r.startX - r.wordL)).toBeLessThan(8);
-  expect(Math.abs(r.startY - r.wordCy)).toBeLessThan(8);
-  expect(r.endX).toBeLessThan(2);
-  expect(Math.abs(r.endY - r.heroH)).toBeLessThan(2);
-});
-
-test('"Design" wipes its colour as the line is scrolled past it', async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto("/portfolio-v19");
-
-  // wait out the intro: the preloader unmounts when it finishes (scroll release)
-  await page.waitForFunction(() => !document.querySelector(".v19pl"), null, { timeout: 12000 });
-
-  const readDesignWipe = () =>
-    page.evaluate(() => {
-      const w = document.querySelector(".v19-line-4 .v19-line-word");
-      return w ? parseFloat(getComputedStyle(w).getPropertyValue("--v19-wipe")) || 0 : -1;
-    });
-
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-  await page.waitForTimeout(SCRUB_SETTLE_MS);
-  const atTop = await readDesignWipe();
-
-  await page.evaluate(() => window.scrollTo({ top: Math.round(window.innerHeight * 0.6), behavior: "instant" }));
-  await page.waitForTimeout(SCRUB_SETTLE_MS);
-  const past = await readDesignWipe();
-
-  expect(atTop).toBeLessThan(40);       // not yet fully crossed at rest
-  expect(past).toBeGreaterThan(atTop);  // wipes further as the tip crosses
 });

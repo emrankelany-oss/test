@@ -1045,18 +1045,25 @@
   will-change: transform, opacity;
 }
 
-.v19pl-wordmark {
+.v19pl-mark {
   display: block;
-  width: clamp(280px, 52vw, 680px);
+  width: clamp(72px, 11vw, 120px);
   height: auto;
-  filter: drop-shadow(0 0 18px rgba(111, 211, 255, 0.45));
+  filter: drop-shadow(0 0 22px rgba(111, 211, 255, 0.45));
 }
-.v19pl-wordmark text {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 96px;
-  letter-spacing: -0.02em;
-  paint-order: stroke;
+/* hidden start state declared in CSS so the first paint (before GSAP's set()
+   in the effect) never flashes the fully-drawn mark / open word. */
+.v19pl-mark path { stroke-dashoffset: 1; }
+
+.v19pl-word {
+  font-family: var(--mono);
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  text-indent: 0.42em;             /* compensate trailing letter-spacing */
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);    /* wipes open under GSAP */
 }
 
 .v19pl-meta {
@@ -1092,7 +1099,7 @@
 
 @media (max-width: 600px) {
   .v19pl-core { gap: 20px; }
-  .v19pl-wordmark { width: 84vw; }
+  .v19pl-word { font-size: 11px; letter-spacing: 0.34em; text-indent: 0.34em; }
 }
 
 /* prefers-reduced-motion: GSAP runs the calm cross-fade variant; soften the
@@ -1423,35 +1430,4 @@
 @media (prefers-reduced-motion: reduce) {
   .v19ow-card { opacity: 1; transform: none; transition: none; }
   .v19ow-card-media { clip-path: none; transition: none; }
-}
-
-/* "Design" fills with the filament colour as the line tip crosses it,
-   driven by --v19-wipe (0%→100%) — same technique as .v19fw-title-word. */
-.v19-line-word {
-  --v19-wipe: 0%;
-  --v19-lit: #6fd3ff;
-  background-image: linear-gradient(
-    90deg,
-    var(--v19-lit) 0%,
-    var(--v19-lit) var(--v19-wipe),
-    currentColor var(--v19-wipe),
-    currentColor 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* hero lead segment — same base .v19-filament (absolute, inset:0, z-index:1,
-   pointer-events:none); explicit rule kept for clarity/overrides. */
-.v19-filament--lead { z-index: 1; }
-
-.v19pl-flight {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 6;
-  pointer-events: none;
-  filter: drop-shadow(0 0 8px rgba(111, 211, 255, 0.5));
 }

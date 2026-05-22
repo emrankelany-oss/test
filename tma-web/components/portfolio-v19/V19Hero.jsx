@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import V19Filament from "./V19Filament";
 
 /**
  * V19Hero — "Narrative Meets Design"
@@ -17,12 +16,14 @@ import V19Filament from "./V19Filament";
  */
 export default function V19Hero() {
   const bigVideoRef = useRef(null);
+  const showreelVideoRef = useRef(null);
 
   useEffect(() => {
-    const v = bigVideoRef.current;
-    if (!v) return;
-    const tryPlay = v.play();
-    if (tryPlay && typeof tryPlay.catch === "function") tryPlay.catch(() => {});
+    [bigVideoRef.current, showreelVideoRef.current].forEach((v) => {
+      if (!v) return;
+      const tryPlay = v.play();
+      if (tryPlay && typeof tryPlay.catch === "function") tryPlay.catch(() => {});
+    });
   }, []);
 
   return (
@@ -36,8 +37,6 @@ export default function V19Hero() {
         </div>
         <div className="v19-bg-grid" />
       </div>
-
-      <V19Filament variant="lead" />
 
       <div className="v19-hero-inner container">
         <div className="v19-hero-meta">
@@ -74,9 +73,30 @@ export default function V19Hero() {
                 <span>Meets</span>
               </span>
               <span className="v19-line v19-line-4">
-                <span className="v19-line-word">Design</span>
+                <span>Design</span>
               </span>
             </h1>
+
+            <a
+              className="v19-showreel"
+              href="#showreel"
+              aria-label="Play showreel — 2 minutes 58 seconds"
+            >
+              <video
+                ref={showreelVideoRef}
+                src="/assets/hero1.mp4"
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+              />
+              <span className="v19-showreel-tint" aria-hidden="true" />
+              <div className="v19-showreel-meta">
+                <span>Play showreel</span>
+                <span>02:58</span>
+              </div>
+            </a>
           </div>
 
           <div className="v19-hero-right">

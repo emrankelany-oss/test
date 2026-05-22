@@ -42,8 +42,7 @@ let hasPlayedThisLoad = false;
 
 const HOLD_CLASS = "v19-intro-hold"; // pauses the hero's CSS entrance
 const FALLBACK_MS = 6000; // hard cap before forcing the reveal
-const TAIL_MS = 1100; // buffer in the hardRelease safety cap only (NOT the
-// unmount gate — normal unmount is driven by the timeline's onComplete)
+const TAIL_MS = 1100; // panel-split duration + buffer before unmount
 
 export default function V19Preloader() {
   // SSR + first client render both render the overlay → no hero flash and no
@@ -57,13 +56,10 @@ export default function V19Preloader() {
   const glowRef = useRef(null);
   const markRef = useRef(null);
   const wordRef = useRef(null);
-  const revealRef = useRef(null);
   const seamRef = useRef(null);
   const counterRef = useRef(null);
   const barRef = useRef(null);
   const metaRef = useRef(null);
-  const flightSvgRef = useRef(null);
-  const flightRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -134,35 +130,6 @@ export default function V19Preloader() {
       if (counterEl) counterEl.textContent = String(Math.round(v)).padStart(2, "0");
     };
 
-    const buildFlight = () => {
-      const svg = flightSvgRef.current;
-      const path = flightRef.current;
-      const design = document.querySelector(".v19-line-4 .v19-line-word");
-      if (!svg || !path || !design) return 0;
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      svg.setAttribute("viewBox", `0 0 ${vw} ${vh}`);
-      const d = design.getBoundingClientRect();
-      // The hero word's span is mid-rise (translateY) when this runs, so its
-      // own box sits below where it will settle. Its parent .v19-line-4 line
-      // box is NOT transformed, so it gives the stable RESTING vertical centre;
-      // the word's X is unaffected by the vertical transform.
-      const lineEl = design.closest(".v19-line-4") || design.parentElement;
-      const line = lineEl.getBoundingClientRect();
-      const tx = d.left;             // left border of "Design" (viewport coords)
-      const ty = line.top + line.height / 2;
-      const sx = vw / 2;             // wordmark centre
-      const sy = vh / 2;
-      path.setAttribute(
-        "d",
-        `M ${sx} ${sy} C ${sx - vw * 0.12} ${sy + vh * 0.06}, ` +
-          `${tx + (sx - tx) * 0.4} ${ty - vh * 0.04}, ${tx} ${ty}`
-      );
-      const len = path.getTotalLength();
-      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
-      return len;
-    };
-
     let tl;
     const ctx = gsap.context(() => {
       if (reduced) {
@@ -172,8 +139,8 @@ export default function V19Preloader() {
           opacity: 1,
         });
         // clear the CSS hidden start states so the still-frame reads complete.
-        gsap.set(revealRef.current, { attr: { width: 1000 } });
-        gsap.set(wordRef.current, { strokeDashoffset: 0 });
+        gsap.set(markRef.current, { strokeDashoffset: 0 });
+        gsap.set(wordRef.current, { clipPath: "inset(0 0% 0 0)" });
         gsap.set(barRef.current, { scaleX: 1 });
         gsap.set(seamRef.current, { scaleX: 1 });
         tl = gsap.timeline({
@@ -194,8 +161,8 @@ export default function V19Preloader() {
 
       // Initial (pre-animation) states.
       gsap.set(rootRef.current, { autoAlpha: 1 });
-      gsap.set(markRef.current, { opacity: 1 });
-      gsap.set(wordRef.current, { strokeDashoffset: 0 });
+      gsap.set(markRef.current, { strokeDashoffset: 1, opacity: 1 });
+      gsap.set(wordRef.current, { clipPath: "inset(0 100% 0 0)" });
       gsap.set(metaRef.current, { opacity: 0, y: 8 });
       gsap.set(glowRef.current, { opacity: 0, scale: 0.55 });
       gsap.set(seamRef.current, { scaleX: 0, opacity: 0.85 });
@@ -208,11 +175,12 @@ export default function V19Preloader() {
         onComplete: () => finish(),
       });
 
-      // 1 — calm hold, then the wordmark writes itself: a left→right reveal
-      // rect uncovers the stroked glyph outlines like a pen moving across.
-      gsap.set(revealRef.current, { attr: { width: 0 } });
-      tl.to(revealRef.current, { attr: { width: 1000 }, duration: 1.25, ease: "power2.inOut" }, 0.3);
+      // 1 — calm hold, then the monogram draws itself in.
+      tl.to(markRef.current, { strokeDashoffset: 0, duration: 1.05, ease: "power2.inOut" }, 0.3);
+      // hairline seam grows outward from the centre.
       tl.fromTo(seamRef.current, { scaleX: 0 }, { scaleX: 1, duration: 0.95, ease: "power2.inOut" }, 0.55);
+      // wordmark wipes open left→right.
+      tl.to(wordRef.current, { clipPath: "inset(0 0% 0 0)", duration: 0.8, ease: "power3.out" }, 0.85);
       tl.to(metaRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.95);
 
       // 2 — energy sweep: glow blooms (layered scale = depth), counter ticks.
@@ -237,12 +205,8 @@ export default function V19Preloader() {
       }, null, BURST - 0.05);
       // glow flares outward (light through the opening).
       tl.to(glowRef.current, { opacity: 0.95, scale: 1.7, duration: 0.55, ease: "power3.out" }, BURST);
-      // flight: wordmark fades, a tip draws from centre to Design's border,
-      // then the trail fades — leaving the seeded hero lead at Design.
-      tl.call(() => { buildFlight(); }, null, BURST - 0.02);
-      tl.to(coreRef.current, { opacity: 0, duration: 0.45, ease: "power2.in" }, BURST + 0.05);
-      tl.to(flightRef.current, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, BURST + 0.1);
-      tl.to(flightSvgRef.current, { opacity: 0, duration: 0.4, ease: "power1.out" }, BURST + 1.05);
+      // monogram + word dissolve upward.
+      tl.to(coreRef.current, { opacity: 0, y: -34, scale: 1.05, duration: 0.5, ease: "power2.in" }, BURST);
       // seam flashes bright then thins away.
       tl.to(seamRef.current, { opacity: 1, scaleY: 2.4, duration: 0.18, ease: "power2.out" }, BURST);
       tl.to(seamRef.current, { opacity: 0, duration: 0.45, ease: "power2.in" }, BURST + 0.18);
@@ -283,33 +247,29 @@ export default function V19Preloader() {
       {/* centred core: monogram, wordmark, counter — fades out at the burst */}
       <div ref={coreRef} className="v19pl-core">
         <svg
-          ref={markRef}
-          className="v19pl-wordmark"
-          viewBox="0 0 1000 160"
-          preserveAspectRatio="xMidYMid meet"
+          className="v19pl-mark"
+          viewBox="0 0 120 120"
+          width="120"
+          height="120"
           aria-hidden="true"
         >
-          <defs>
-            <clipPath id="v19pl-reveal">
-              <rect ref={revealRef} x="0" y="0" width="0" height="160" />
-            </clipPath>
-            <linearGradient id="v19pl-ink" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#9fe0ff" />
-              <stop offset="60%" stopColor="#6fd3ff" />
-              <stop offset="100%" stopColor="#bfe9ff" />
-            </linearGradient>
-          </defs>
-          <text
-            ref={wordRef}
-            x="500" y="112" textAnchor="middle"
-            clipPath="url(#v19pl-reveal)"
+          {/* single-stroke "M" — pathLength=1 lets the dash draw without JS measuring */}
+          <path
+            ref={markRef}
+            d="M22 98 L22 26 L60 80 L98 26 L98 98"
+            pathLength="1"
             fill="none"
-            stroke="url(#v19pl-ink)"
-            strokeWidth="2"
-          >
-            The Motion Agency
-          </text>
+            stroke="#ffffff"
+            strokeWidth="6.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="1"
+          />
         </svg>
+
+        <div ref={wordRef} className="v19pl-word" aria-hidden="true">
+          The Motion Agency
+        </div>
 
         <div ref={metaRef} className="v19pl-meta" aria-hidden="true">
           <span className="v19pl-bar">
@@ -318,31 +278,6 @@ export default function V19Preloader() {
           <span ref={counterRef} className="v19pl-count">00</span>
         </div>
       </div>
-
-      {/* full-viewport flight layer — a tip draws from the wordmark centre to
-          the measured left border of the hero's "Design" word at the burst */}
-      <svg
-        ref={flightSvgRef}
-        className="v19pl-flight"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        {/* own gradient — cross-SVG url(#…) paint refs fail in Firefox/Safari */}
-        <defs>
-          <linearGradient id="v19pl-flight-ink" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#9fe0ff" />
-            <stop offset="60%" stopColor="#6fd3ff" />
-            <stop offset="100%" stopColor="#bfe9ff" />
-          </linearGradient>
-        </defs>
-        <path
-          ref={flightRef}
-          fill="none"
-          stroke="url(#v19pl-flight-ink)"
-          strokeWidth="4.5"
-          strokeLinecap="round"
-        />
-      </svg>
     </div>
   );
 }

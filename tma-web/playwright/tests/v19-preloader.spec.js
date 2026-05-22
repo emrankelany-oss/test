@@ -7,7 +7,7 @@ import { test, expect } from "@playwright/test";
 // preloader plays — except the explicit "session skip" test, which reloads
 // inside the SAME page so the flag persists.
 
-const DONE_TIMEOUT = 12000; // timeline ≈4.2s (wordmark draw + split + flight) + load + safety
+const DONE_TIMEOUT = 9000; // generous: timeline ≈3.7s + load + safety
 
 const heroLineState = (page) =>
   page.evaluate(() => {
@@ -25,7 +25,7 @@ test("preloader is present on initial load (server-rendered, no hero flash)", as
   await page.goto("/portfolio-v19", { waitUntil: "domcontentloaded" });
   // SSR renders the overlay so it exists from the very first paint.
   await expect(page.locator(".v19pl")).toBeAttached();
-  await expect(page.locator(".v19pl-wordmark")).toBeAttached();
+  await expect(page.locator(".v19pl-mark")).toBeAttached();
 });
 
 test("hero entrance is held while the preloader runs", async ({ page }) => {
