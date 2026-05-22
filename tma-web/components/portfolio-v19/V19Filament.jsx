@@ -153,9 +153,11 @@ export default function V19Filament() {
           ease: "none",
           scrollTrigger: {
             trigger: section,
-            // begin the moment the work lane first peeks into view (was
-            // "top 80%", which left a dead zone before the line responded).
-            start: "top bottom",
+            // head-start the draw so the line has already filled ~75% of the
+            // "Featured" word by the time the section lands in view (the word
+            // crossing sits early in the path; "top 130%" begins the draw
+            // ~0.3vh before the lane enters, advancing the tip to the word).
+            start: "top 130%",
             end: "bottom bottom",
             // scrub:true links the draw DIRECTLY to the scrollbar (no catch-up
             // lag), so the tip is always at the scroll position even on fast
