@@ -155,7 +155,10 @@ export default function V19Filament() {
             trigger: section,
             start: "top 80%",
             end: "bottom bottom",
-            scrub: 2.5,
+            // low scrub = the line tracks the scroll closely, so it stays
+            // visible crossing the text even during fast scrolls (was 2.5,
+            // which lagged so far behind you'd scroll past before it drew).
+            scrub: 0.5,
           },
           onUpdate: () => {
             const p = state.p;
