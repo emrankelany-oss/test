@@ -153,7 +153,9 @@ export default function V19Filament() {
           ease: "none",
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            // begin the moment the work lane first peeks into view (was
+            // "top 80%", which left a dead zone before the line responded).
+            start: "top bottom",
             end: "bottom bottom",
             // low scrub = the line tracks the scroll closely, so it stays
             // visible crossing the text even during fast scrolls (was 2.5,
