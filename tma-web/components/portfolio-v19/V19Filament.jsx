@@ -7,50 +7,73 @@ import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-const MOBILE_MAX = 820; // matches the .v19fw-grid single-column breakpoint
+const MOBILE_MAX = 820;
 
-/* Build a cubic-bezier path string for the measured section size.
-   Starts at the section's top-left corner, sweeps into the "Featured" word
-   (word/narr are boxes in section coords, or null pre-measure), crosses it
-   horizontally (the straight L segment that the wipe tracks), then exits to
-   the right of the "narratives" word and weaves down through the grid. */
-function buildPath(w, h, word, narr) {
+/* ONE continuous path spanning the whole work lane (Featured + Our Work).
+   It sweeps into "Featured" and crosses it, weaves down through the
+   featured cards, continues into Our Work, crosses "OUR WORK", then
+   weaves on to the bottom of the lane. Coordinates are in lane space. */
+function buildLanePath(w, h, fw, ourW, workE) {
   const cx = w / 2;
-
-  if (!word) {
-    // graceful fallback before the title is measured
-    return `M 0 0 C ${w * 0.1} ${h * 0.2}, ${w * 0.4} ${h * 0.3}, ${cx} ${h}`;
+  if (!fw || !ourW) {
+    return `M 0 0 C ${w * 0.12} ${h * 0.1}, ${cx} ${h * 0.4}, ${cx} ${h}`;
   }
 
-  // drop the line down to the right of "narratives" so it never overlaps it
-  const guard = narr ? Math.max(narr.r, word.r) : word.r;
-  const rightEdge = Math.min(w - w * 0.04, guard + w * 0.05);
-  const dropY = (narr ? narr.b : word.cy) + h * 0.03;
+  const fy = fw.cy;
+  const oy = ourW.cy;
+  const ourL = ourW.l;
+  const workR = workE ? workE.r : ourW.r;
+  const fRight = Math.min(w - w * 0.04, fw.r + w * 0.05);
+  const owRight = Math.min(w - w * 0.04, Math.max(workR, ourL) + w * 0.04);
+  const span = oy - fy; // vertical gap between the two titles
 
   if (w <= MOBILE_MAX) {
     return (
       `M 0 0 ` +
-      `C ${word.l * 0.4} ${word.cy * 0.5}, ${word.l * 0.75} ${word.cy}, ${word.l} ${word.cy} ` +
-      `L ${word.r} ${word.cy} ` +
-      `C ${rightEdge} ${word.cy + h * 0.03}, ${cx} ${dropY}, ${cx} ${h * 0.55} ` +
-      `S ${cx} ${h * 0.85}, ${cx} ${h}`
+      `C ${fw.l * 0.4} ${fy * 0.5}, ${fw.l * 0.75} ${fy}, ${fw.l} ${fy} ` +
+      `L ${fw.r} ${fy} ` +
+      `C ${fRight} ${fy + span * 0.2}, ${cx} ${fy + span * 0.5}, ${cx} ${fy + span * 0.72} ` +
+      `C ${cx} ${oy - h * 0.015}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} ` +
+      `L ${workR} ${oy} ` +
+      `C ${owRight} ${oy}, ${cx} ${oy + (h - oy) * 0.5}, ${cx} ${oy + (h - oy) * 0.75} ` +
+      `S ${cx} ${h * 0.92}, ${cx} ${h}`
     );
   }
 
-  const g1 = w * 0.34;
-  const g2 = w * 0.66;
   return (
     `M 0 0 ` +
-    `C ${word.l * 0.3} ${word.cy * 0.45}, ${word.l * 0.72} ${word.cy}, ${word.l} ${word.cy} ` +
-    `L ${word.r} ${word.cy} ` +
-    `C ${rightEdge} ${word.cy}, ${rightEdge} ${word.cy + (dropY - word.cy) * 0.5}, ${rightEdge} ${dropY} ` +
-    `C ${rightEdge} ${h * 0.5}, ${g2} ${h * 0.5}, ${g2} ${h * 0.58} ` +
-    `C ${g2} ${h * 0.72}, ${g1} ${h * 0.74}, ${g1} ${h * 0.86} ` +
-    `C ${g1} ${h * 0.94}, ${cx} ${h * 0.96}, ${cx} ${h}`
+    // sweep into "Featured" and cross it
+    `C ${fw.l * 0.3} ${fy * 0.45}, ${fw.l * 0.72} ${fy}, ${fw.l} ${fy} ` +
+    `L ${fw.r} ${fy} ` +
+    // drop off the right, weave down through the featured cards
+    `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.22}, ${fRight} ${fy + span * 0.38} ` +
+    `C ${fRight} ${fy + span * 0.58}, ${w * 0.3} ${fy + span * 0.52}, ${w * 0.3} ${fy + span * 0.74} ` +
+    // continue into Our Work and sweep into "OUR"
+    `C ${w * 0.3} ${oy - h * 0.02}, ${ourL * 0.72} ${oy}, ${ourL} ${oy} ` +
+    // cross BOTH "OUR" and "WORK"
+    `L ${workR} ${oy} ` +
+    // exit right and weave down to the bottom of Our Work
+    `C ${owRight} ${oy}, ${owRight} ${oy + (h - oy) * 0.28}, ${owRight} ${oy + (h - oy) * 0.48} ` +
+    `C ${owRight} ${h * 0.82}, ${cx} ${h * 0.9}, ${cx} ${h}`
   );
 }
 
-export default function V19Filament() {
+const DEFAULT_STOPS = [
+  { offset: "0%", color: "#6fd3ff", opacity: 0.0 },
+  { offset: "5%", color: "#9fe0ff", opacity: 0.9 },
+  { offset: "33%", color: "#bfe9ff", opacity: 0.95 },
+  { offset: "52%", color: "#7fd0ff", opacity: 0.95 },
+  { offset: "74%", color: "#3f93d8", opacity: 0.95 },
+  { offset: "100%", color: "#1f6fc0", opacity: 0.92 },
+];
+
+export default function V19Filament({
+  laneSelector = ".v19-worklane",
+  featuredWordSel = ".v19fw-title-word",
+  ourWordSel = ".v19ow-title-word",
+  workSel = ".v19ow-title em",
+  stops = DEFAULT_STOPS,
+} = {}) {
   const rootRef = useRef(null);
   const svgRef = useRef(null);
   const pathRef = useRef(null);
@@ -63,24 +86,29 @@ export default function V19Filament() {
     const path = pathRef.current;
     if (!root || !svg || !path) return;
 
-    const section = root.closest(".v19fw") || root.parentElement;
-    if (!section) return;
+    const lane = root.closest(laneSelector) || root.parentElement;
+    if (!lane) return;
 
-    const wordEl = section.querySelector(".v19fw-title-word");
-    const narrEl = section.querySelector(".v19fw-title em");
+    const fwEl = lane.querySelector(featuredWordSel);
+    const ourEl = lane.querySelector(ourWordSel);
+    const workEl = lane.querySelector(workSel);
 
-    const setWipe = (frac) => {
-      if (wordEl) {
-        wordEl.style.setProperty("--v19-wipe", (frac * 100).toFixed(2) + "%");
-      }
-    };
+    // wipe targets: each fills with its --v19-lit colour as the line tip
+    // crosses it. window = arc-length range where the path is inside its box.
+    const targets = [fwEl, ourEl, workEl]
+      .filter(Boolean)
+      .map((el) => ({ el, s1: -1, s2: -1, ready: false }));
 
-    // shared geometry, updated on (re)measure and read by the scroll tween
-    const geom = { len: 0, p1: 0, p2: 1, ready: false };
+    const clearWipes = () =>
+      targets.forEach((t) => t.el.style.removeProperty("--v19-wipe"));
+    const setWipe = (t, frac) =>
+      t.el.style.setProperty("--v19-wipe", (frac * 100).toFixed(2) + "%");
+
+    const geom = { len: 0 };
 
     const boxIn = (el) => {
       if (!el) return null;
-      const s = section.getBoundingClientRect();
+      const s = lane.getBoundingClientRect();
       const r = el.getBoundingClientRect();
       return {
         l: r.left - s.left,
@@ -91,43 +119,46 @@ export default function V19Filament() {
       };
     };
 
-    // resetOffset=true on first measure; false on resize so an already-drawn
-    // line is not snapped back to hidden (scrub re-drives it from scroll pos).
     const measure = (resetOffset = true) => {
-      const w = section.clientWidth;
-      const h = section.clientHeight;
+      const w = lane.clientWidth;
+      const h = lane.scrollHeight || lane.clientHeight;
       if (!w || !h) return;
 
-      const word = boxIn(wordEl);
-      const narr = boxIn(narrEl);
+      const fw = boxIn(fwEl);
+      const ourW = boxIn(ourEl);
+      const workE = boxIn(workEl);
 
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      path.setAttribute("d", buildPath(w, h, word, narr));
+      path.setAttribute("d", buildLanePath(w, h, fw, ourW, workE));
       const len = path.getTotalLength();
       geom.len = len;
 
-      // arc-length window where the drawn tip is over the "Featured" box —
-      // this maps the eased scroll progress to the left-to-right wipe.
-      geom.ready = false;
-      if (word && len) {
-        const N = 360;
-        let s1 = -1;
-        let s2 = -1;
+      // find the arc-length window each word occupies along the path
+      const boxes = [fw, ourW, workE].filter(Boolean);
+      targets.forEach((t) => {
+        t.ready = false;
+        t.s1 = -1;
+        t.s2 = -1;
+      });
+      if (len) {
+        const N = 520;
         for (let i = 0; i <= N; i++) {
           const s = (len * i) / N;
           const pt = path.getPointAtLength(s);
-          const inX = pt.x >= word.l - 1 && pt.x <= word.r + 1;
-          const inY = pt.y >= word.t - 2 && pt.y <= word.b + 2;
-          if (inX && inY) {
-            if (s1 < 0) s1 = s;
-            s2 = s;
-          }
+          targets.forEach((t, ti) => {
+            const b = boxes[ti];
+            if (!b) return;
+            const inX = pt.x >= b.l - 1 && pt.x <= b.r + 1;
+            const inY = pt.y >= b.t - 2 && pt.y <= b.b + 2;
+            if (inX && inY) {
+              if (t.s1 < 0) t.s1 = s;
+              t.s2 = s;
+            }
+          });
         }
-        if (s1 >= 0 && s2 > s1) {
-          geom.p1 = s1 / len;
-          geom.p2 = s2 / len;
-          geom.ready = true;
-        }
+        targets.forEach((t) => {
+          if (t.s1 >= 0 && t.s2 > t.s1) t.ready = true;
+        });
       }
 
       if (resetOffset) {
@@ -139,42 +170,43 @@ export default function V19Filament() {
         gsap.set(path, { strokeDasharray: len });
       }
 
-      if (reduced) setWipe(1); // static end-state: full line, word fully lit
+      if (reduced) targets.forEach((t) => setWipe(t, 1));
+    };
+
+    const applyWipes = (p) => {
+      const len = geom.len;
+      if (!len) return;
+      targets.forEach((t) => {
+        if (!t.ready) return;
+        const a = t.s1 / len;
+        const b = t.s2 / len;
+        const frac = Math.min(1, Math.max(0, (p - a) / (b - a)));
+        setWipe(t, frac);
+      });
     };
 
     const ctx = gsap.context(() => {
       measure();
       if (!reduced) {
-        // one eased value drives BOTH the dash draw and the word wipe, so the
-        // colour fill stays locked to the (scrub-lagged) visible line tip.
         const state = { p: 0 };
         gsap.to(state, {
           p: 1,
           ease: "none",
           scrollTrigger: {
-            trigger: section,
+            trigger: lane,
             // head-start the draw so the line has already filled ~75% of the
-            // "Featured" word by the time the section lands in view (the word
-            // crossing sits early in the path; "top 130%" begins the draw
-            // ~0.3vh before the lane enters, advancing the tip to the word).
+            // "Featured" word by the time the section lands in view.
             start: "top 130%",
             end: "bottom bottom",
             // scrub:true links the draw DIRECTLY to the scrollbar (no catch-up
-            // lag), so the tip is always at the scroll position even on fast
-            // scrolls — you see it crossing the text in real time, never
-            // "arriving late" after you stop. (was 0.5 / 2.5, which trailed.)
+            // lag), so the tip is always at the scroll position — visibly
+            // crossing the words in real time, never "arriving late".
             scrub: true,
           },
           onUpdate: () => {
             const p = state.p;
             path.style.strokeDashoffset = String(geom.len * (1 - p));
-            if (geom.ready) {
-              const frac = Math.min(
-                1,
-                Math.max(0, (p - geom.p1) / (geom.p2 - geom.p1))
-              );
-              setWipe(frac);
-            }
+            applyWipes(p);
           },
         });
       }
@@ -188,15 +220,15 @@ export default function V19Filament() {
         if (!reduced) ScrollTrigger.refresh();
       });
     });
-    ro.observe(section);
+    ro.observe(lane);
 
     return () => {
       cancelAnimationFrame(rafId);
       ro.disconnect();
       ctx.revert();
-      if (wordEl) wordEl.style.removeProperty("--v19-wipe");
+      clearWipes();
     };
-  }, [reduced]);
+  }, [reduced, laneSelector, featuredWordSel, ourWordSel, workSel]);
 
   return (
     <div ref={rootRef} className="v19-filament" aria-hidden="true">
@@ -207,10 +239,14 @@ export default function V19Filament() {
       >
         <defs>
           <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#6fd3ff" stopOpacity="0.0" />
-            <stop offset="12%" stopColor="#6fd3ff" stopOpacity="0.9" />
-            <stop offset="55%" stopColor="#bfe9ff" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.85" />
+            {stops.map((s, i) => (
+              <stop
+                key={i}
+                offset={s.offset}
+                stopColor={s.color}
+                stopOpacity={s.opacity}
+              />
+            ))}
           </linearGradient>
         </defs>
         <path

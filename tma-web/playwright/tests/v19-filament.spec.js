@@ -34,9 +34,9 @@ const readWipe = (page) =>
       : -1;
   });
 
-test("filament mounts inside Featured Work", async ({ page }) => {
+test("filament mounts inside the work lane", async ({ page }) => {
   await page.goto("/portfolio-v19");
-  await expect(page.locator(".v19fw .v19-filament svg path")).toHaveCount(1);
+  await expect(page.locator(".v19-worklane .v19-filament svg path")).toHaveCount(1);
 });
 
 test("line is thick and starts at the section's top-left corner", async ({
@@ -97,7 +97,10 @@ test('"Featured" wipes to the line colour past contact and reverts on scroll-bac
   expect(wipeBack).toBeLessThan(10);
 });
 
-test("line never overlaps the \"narratives\" word", async ({ page }) => {
+// SKIPPED: the lane filament (Featured + Our Work) deliberately crosses the
+// title line — the old Featured-only "avoid narratives" property no longer
+// applies. Left for reference.
+test.skip("line never overlaps the \"narratives\" word", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v19");
   await page.waitForTimeout(SETTLE_MS);
@@ -169,4 +172,49 @@ test("unmount removes the filament (navigation away)", async ({ page }) => {
   await expect(page.locator(".v19-filament")).toBeVisible();
   await page.goto("/");
   await expect(page.locator(".v19-filament")).toHaveCount(0);
+});
+
+const readOwWorkWipe = (page) =>
+  page.evaluate(() => {
+    const w = document.querySelector(".v19ow-title em");
+    return w
+      ? parseFloat(getComputedStyle(w).getPropertyValue("--v19-wipe")) || 0
+      : -1;
+  });
+
+test('"WORK" (Our Work) wipes to the line colour as the line crosses it', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v19");
+  await page.waitForFunction(() => !document.querySelector(".v19pl"), null, {
+    timeout: 12000,
+  });
+  const owDoc = await page.evaluate(
+    () =>
+      Math.round(
+        window.scrollY +
+          document.querySelector(".v19ow-title").getBoundingClientRect().top
+      )
+  );
+
+  // before the line reaches Our Work
+  await page.evaluate(
+    (y) => window.scrollTo({ top: y, behavior: "instant" }),
+    Math.max(0, owDoc - 1100)
+  );
+  await page.waitForTimeout(SCRUB_SETTLE_MS);
+  const before = await readOwWorkWipe(page);
+
+  // scrolled so the line has crossed the "Our Work" title
+  await page.evaluate(
+    (y) => window.scrollTo({ top: y, behavior: "instant" }),
+    owDoc - 200
+  );
+  await page.waitForTimeout(SCRUB_SETTLE_MS);
+  const after = await readOwWorkWipe(page);
+
+  expect(before).toBeLessThan(50);
+  expect(after).toBeGreaterThan(before);
+  expect(after).toBeGreaterThan(80);
 });
