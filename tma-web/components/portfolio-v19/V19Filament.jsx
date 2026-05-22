@@ -157,10 +157,11 @@ export default function V19Filament() {
             // "top 80%", which left a dead zone before the line responded).
             start: "top bottom",
             end: "bottom bottom",
-            // low scrub = the line tracks the scroll closely, so it stays
-            // visible crossing the text even during fast scrolls (was 2.5,
-            // which lagged so far behind you'd scroll past before it drew).
-            scrub: 0.5,
+            // scrub:true links the draw DIRECTLY to the scrollbar (no catch-up
+            // lag), so the tip is always at the scroll position even on fast
+            // scrolls — you see it crossing the text in real time, never
+            // "arriving late" after you stop. (was 0.5 / 2.5, which trailed.)
+            scrub: true,
           },
           onUpdate: () => {
             const p = state.p;
