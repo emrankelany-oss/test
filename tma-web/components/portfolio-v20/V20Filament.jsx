@@ -217,6 +217,28 @@ export default function V20Filament({
       });
     };
 
+    // Lightweight per-scroll rebuild: re-queries lane elements (including
+    // the MOTION MATTERS text-box, whose visual position changes during
+    // pin) and rebuilds the path's `d`. Does NOT re-sample wipe windows
+    // (Featured + Our Work are at fixed lane positions; their cached s1/s2
+    // remain accurate against their cached len at sample time, and they're
+    // only "active" outside the MM pin window anyway).
+    const refreshPath = () => {
+      const w2 = lane.clientWidth;
+      const h2 = lane.scrollHeight || lane.clientHeight;
+      if (!w2 || !h2) return;
+      const fw2 = boxIn(fwEl);
+      const fNarr2 = boxIn(fNarrEl);
+      const ourW2 = boxIn(ourEl);
+      const workE2 = boxIn(workEl);
+      const mmEl2 = lane.querySelector("[data-v20-mm-box]");
+      const mm2 = boxIn(mmEl2);
+      path.setAttribute("d", buildLanePath(w2, h2, fw2, ourW2, workE2, fNarr2, mm2));
+      const len2 = path.getTotalLength();
+      geom.len = len2;
+      path.style.strokeDasharray = String(len2);
+    };
+
     const ctx = gsap.context(() => {
       measure();
       if (!reduced) {
@@ -236,6 +258,10 @@ export default function V20Filament({
             scrub: true,
           },
           onUpdate: () => {
+            // Rebuild the path each tick so the MOTION MATTERS letters
+            // track the visually-pinned text-box. Without this, letters
+            // would scroll off the top while the panel sat empty.
+            refreshPath();
             const p = state.p;
             path.style.strokeDashoffset = String(geom.len * (1 - p));
             applyWipes(p);
@@ -286,7 +312,7 @@ export default function V20Filament({
           className="v20-filament-path"
           fill="none"
           stroke={`url(#${gradId})`}
-          strokeWidth="4.5"
+          strokeWidth="8"
           strokeLinecap="round"
         />
       </svg>
