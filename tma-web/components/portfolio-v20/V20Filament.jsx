@@ -69,7 +69,7 @@ function buildLanePath(w, h, fw, ourW, workE, fNarr, mm) {
   let tail;
   if (w <= MOBILE_MAX) {
     tail =
-      ` C ${cx} ${oy - h * 0.015}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} ` +
+      ` C ${penX} ${(penY + oy) * 0.5}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} ` +
       `L ${workR} ${oy} ` +
       `C ${owRight} ${oy}, ${cx} ${oy + (h - oy) * 0.5}, ${cx} ${oy + (h - oy) * 0.75} ` +
       `S ${cx} ${h * 0.92}, ${cx} ${h}`;
