@@ -12,8 +12,28 @@ export default function V20MotionMatters() {
   const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
-    // Pin behaviour added in Task 6. Intentional no-op for now.
-    return () => {};
+    const el = sectionRef.current;
+    if (!el || reduced) return;
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+      });
+    }, el);
+
+    // Refresh ScrollTrigger after pin registration so the lane filament's
+    // existing trigger picks up the new scroll length.
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+
+    return () => {
+      cancelAnimationFrame(id);
+      ctx.revert();
+    };
   }, [reduced]);
 
   return (
