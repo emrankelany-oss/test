@@ -60,7 +60,7 @@ export function buildMotionMattersPath(panel, entry) {
   const panelW = panel.r - panel.l;
   const panelH = panel.b - panel.t;
   const panelCx = panel.l + panelW / 2;
-  const panelCy = panel.cy; // existing boxIn helper provides cy
+  const panelCy = panel.cy ?? (panel.t + panel.b) / 2;
 
   // Target on-screen width = 80% of panel, capped by panel height.
   const totalUnits = wordWidth(word);
