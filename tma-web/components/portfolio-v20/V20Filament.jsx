@@ -29,6 +29,16 @@ function buildLanePath(w, h, fw, ourW, workE, fNarr, mm) {
   const owRight = Math.min(w - w * 0.04, Math.max(workR, ourL) + w * 0.04);
   const span = oy - fy;
 
+  // The MM panel's lane-coordinate position SHIFTS during the pin window
+  // (the pinned text-box stays at viewport top while the lane scrolls past,
+  // so its offset from lane.top grows). Both the descent-into-panel AND
+  // the approach must end at points that track this moving panel — otherwise
+  // the fixed-lane head leaves the path stretching back to where the panel
+  // used to be, which reads as a "broken" or doubled line.
+  const mmCx = mm ? mm.l + (mm.r - mm.l) / 2 : null;
+  const headEndX = mm ? mmCx : (w <= MOBILE_MAX ? cx : w * 0.3);
+  const headEndY = mm ? mm.t - 60 : (w <= MOBILE_MAX ? fy + span * 0.72 : fy + span * 0.74);
+
   // ---- Pre-Featured + Featured crossing + descent through cards ----
   let head;
   if (w <= MOBILE_MAX) {
@@ -36,29 +46,30 @@ function buildLanePath(w, h, fw, ourW, workE, fNarr, mm) {
       `M 0 0 ` +
       `C ${fw.l * 0.4} ${fy * 0.5}, ${fw.l * 0.75} ${fy}, ${fw.l} ${fy} ` +
       `L ${fw.r} ${fy} ` +
-      `C ${fRight} ${fy + span * 0.2}, ${cx} ${fy + span * 0.5}, ${cx} ${fy + span * 0.72}`;
+      // Final descent: cp2 directly above headEnd so the tangent at headEnd
+      // is straight-down — the approach can continue without a kink.
+      `C ${fRight} ${fy + span * 0.2}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`;
   } else {
     head =
       `M 0 0 ` +
       `C ${fw.l * 0.3} ${fy * 0.45}, ${fw.l * 0.72} ${fy}, ${fw.l} ${fy} ` +
       `L ${fw.r} ${fy} ` +
       `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.22}, ${fRight} ${fy + span * 0.38} ` +
-      `C ${fRight} ${fy + span * 0.58}, ${w * 0.3} ${fy + span * 0.52}, ${w * 0.3} ${fy + span * 0.74}`;
+      // Final descent: cp2 directly above headEnd so the tangent at headEnd
+      // is straight-down — the approach can continue without a kink.
+      `C ${fRight} ${fy + span * 0.58}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`;
   }
 
-  // Pen position at end of `head` for both branches:
-  let penX = w <= MOBILE_MAX ? cx : w * 0.3;
-  let penY = w <= MOBILE_MAX ? fy + span * 0.72 : fy + span * 0.74;
+  let penX = headEndX;
+  let penY = headEndY;
 
   // ---- MOTION MATTERS letter strokes (optional) ----
   let mmPart = "";
   if (mm) {
-    // Approach the panel from above: smooth curve from current pen to
-    // the top-center of the panel, then drop into the assembler.
-    const mmCx = mm.l + (mm.r - mm.l) / 2;
+    // Head already ended right above the panel at (mmCx, mm.t - 60), so
+    // the approach is just a short straight-down line into the panel.
     const approachY = mm.t + (mm.b - mm.t) * 0.15;
-    mmPart =
-      ` C ${penX} ${penY + (mm.t - penY) * 0.5}, ${mmCx} ${mm.t}, ${mmCx} ${approachY}`;
+    mmPart = ` L ${mmCx} ${approachY}`;
     const built = buildMotionMattersPath(mm, { x: mmCx, y: approachY });
     mmPart += built.d;
     penX = built.exit.x;
@@ -248,9 +259,11 @@ export default function V20Filament({
           ease: "none",
           scrollTrigger: {
             trigger: lane,
-            // head-start the draw so the line has already filled ~75% of the
-            // "Featured" word by the time the section lands in view.
-            start: "top 130%",
+            // Start the draw when the lane reaches the top of the viewport
+            // (no head-start). With the longer MOTION-MATTERS path, the old
+            // "top 130%" head-start revealed too much line before the user
+            // had even scrolled past the hero.
+            start: "top top",
             end: "bottom bottom",
             // scrub:true links the draw DIRECTLY to the scrollbar (no catch-up
             // lag), so the tip is always at the scroll position — visibly

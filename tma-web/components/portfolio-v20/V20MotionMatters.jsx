@@ -19,7 +19,10 @@ export default function V20MotionMatters() {
       ScrollTrigger.create({
         trigger: el,
         start: "top top",
-        end: "+=100%",
+        // Pin for 2 viewports so the user has time to see the entire
+        // "MOTION MATTERS" word drawn AND the line continue smoothly past
+        // the last letter before the panel releases.
+        end: "+=200%",
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
