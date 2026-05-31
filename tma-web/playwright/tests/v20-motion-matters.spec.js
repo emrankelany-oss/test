@@ -23,8 +23,13 @@ const readOffset = (page) =>
 
 const readPathLength = (page) =>
   page.evaluate(() => {
-    const p = document.querySelector(".v20-filament-path");
-    return p ? p.getTotalLength() : 0;
+    // Multi-path filament: head + letters + connectors + tail. The "letter
+    // strokes are spliced in" check is the SUM of all filament path lengths
+    // so it stays meaningful regardless of single vs multi-path architecture.
+    const ps = document.querySelectorAll(".v20-filament-path");
+    let total = 0;
+    ps.forEach((p) => (total += p.getTotalLength()));
+    return total;
   });
 
 test("MOTION MATTERS section is mounted inside the work lane", async ({ page }) => {
@@ -128,6 +133,29 @@ test("reduced-motion: no pin, full path drawn statically", async ({ page }) => {
 
   // Without pin, the panel moves up by ~500px as the user scrolls 500px.
   expect(topAtStart - topAfter).toBeGreaterThan(400);
+});
+
+test("flow-field canvas mounts inside the MOTION MATTERS section", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v20");
+  await page.waitForTimeout(SETTLE_MS);
+
+  const canvas = page.locator(".v20-mm canvas.v20-mm-flow");
+  await expect(canvas).toHaveCount(1);
+
+  const styles = await canvas.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    return { blend: cs.mixBlendMode, pe: cs.pointerEvents, z: cs.zIndex };
+  });
+  expect(styles.blend).toBe("screen");
+  expect(styles.pe).toBe("none");
+
+  const textZ = await page
+    .locator(".v20-mm-text-box")
+    .evaluate((el) => getComputedStyle(el).zIndex);
+  expect(Number(textZ)).toBeGreaterThan(Number(styles.z));
 });
 
 test("no console errors during mount + scroll", async ({ page }) => {
