@@ -61,20 +61,11 @@ export default function V20FlowField() {
 
     // Our OWN trigger — independent of the filament. No scrub, no tween;
     // it only records progress + velocity into refs.
-    const gsapCtx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: ".v20-mm",
-        start: "top bottom",
-        end: "bottom top",
-        onUpdate: (self) => {
-          progressRef.current = self.progress;
-          velocityRef.current = Math.min(1, Math.abs(self.getVelocity()) / 3000);
-        },
-      });
-    });
-
+    let active = false;
     let rafId = 0;
-    const render = () => {
+
+    // Define render before gsap.context so onToggle / st.isActive can reference it.
+    function render() {
       // Targets derived from scroll, clamped to whisper bounds.
       const speedTarget = 0.4 + velocityRef.current * 0.9; // 0.4 .. 1.3
       const glowTarget = 0.05 + progressRef.current * 0.04; // 0.05 .. 0.09
@@ -87,11 +78,11 @@ export default function V20FlowField() {
 
       ctx2d.lineWidth = 1.1;
       ctx2d.lineCap = "round";
+      ctx2d.strokeStyle = `rgba(95, 185, 255, ${glow})`;
       for (const p of particles) {
         const a = field(p.x, p.y);
         const nx = p.x + Math.cos(a) * 1.6 * flowSpeed;
         const ny = p.y + Math.sin(a) * 1.6 * flowSpeed;
-        ctx2d.strokeStyle = `rgba(95, 185, 255, ${glow})`;
         ctx2d.beginPath();
         ctx2d.moveTo(p.x, p.y);
         ctx2d.lineTo(nx, ny);
@@ -103,9 +94,33 @@ export default function V20FlowField() {
           Object.assign(p, spawn());
         }
       }
-      rafId = requestAnimationFrame(render);
-    };
-    rafId = requestAnimationFrame(render);
+      if (active) rafId = requestAnimationFrame(render);
+    }
+
+    const gsapCtx = gsap.context(() => {
+      const st = ScrollTrigger.create({
+        trigger: ".v20-mm",
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: (self) => {
+          progressRef.current = self.progress;
+          velocityRef.current = Math.min(1, Math.abs(self.getVelocity()) / 3000);
+        },
+        onToggle: (self) => {
+          if (self.isActive && !active) {
+            active = true;
+            rafId = requestAnimationFrame(render);
+          } else if (!self.isActive) {
+            active = false;
+          }
+        },
+      });
+      // Kick off immediately if already in view at mount.
+      if (st.isActive) {
+        active = true;
+        rafId = requestAnimationFrame(render);
+      }
+    });
 
     return () => {
       cancelAnimationFrame(rafId);
