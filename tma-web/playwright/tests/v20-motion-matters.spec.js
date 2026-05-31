@@ -187,3 +187,17 @@ test("flow-field does not regress the filament or log errors", async ({
   await page.waitForTimeout(SETTLE_MS);
   expect(errors).toEqual([]);
 });
+
+test("reduced-motion: static wash instead of animated canvas", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v20");
+  await page.waitForTimeout(SETTLE_MS);
+
+  // No animated canvas under reduced motion...
+  await expect(page.locator(".v20-mm canvas.v20-mm-flow")).toHaveCount(0);
+  // ...a single static wash layer instead.
+  await expect(page.locator(".v20-mm .v20-mm-flow--static")).toHaveCount(1);
+});
