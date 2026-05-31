@@ -7,16 +7,22 @@ import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-const PARTICLE_COUNT = 60;
+const PARTICLE_COUNT = 220;
 const DPR_CAP = 2;
+// Per-frame fade. The canvas is mix-blend-mode: screen, so a BLACK fade
+// contributes zero light (screen with 0 = backdrop unchanged) — it only
+// fades this layer's own trail pixels, never darkening the filament/page.
+const TRAIL_FADE = 0.06;
 
 /**
- * Whisper-subtle "flow current" behind the MOTION MATTERS section.
+ * "Flow current" behind the MOTION MATTERS section.
  *
  * Hard rule: this layer must never alter the filament. It uses
- * mix-blend-mode: screen (can only add light) and clears to full
- * transparency each frame (no dark trail fill). It owns its OWN
- * ScrollTrigger — it never reads or writes the filament's trigger.
+ * mix-blend-mode: screen (can only add light). Trails are built with a
+ * per-frame BLACK fade-fill (safe under screen — black adds nothing), so
+ * the dim-blue streaklines accumulate into visible flowing lines without
+ * ever darkening the filament. It owns its OWN ScrollTrigger — it never
+ * reads or writes the filament's trigger.
  */
 export default function V20FlowField() {
   const canvasRef = useRef(null);
@@ -54,7 +60,7 @@ export default function V20FlowField() {
 
     const lerp = (a, b, n) => a + (b - a) * n;
     let flowSpeed = 0.5; // multiplier on time advance
-    let glow = 0.05; // stroke alpha
+    let glow = 0.2; // stroke alpha
     let t = 0;
     const field = (x, y) =>
       Math.sin(y * 0.012 + t * 0.6) * 0.8 + Math.cos(x * 0.008 - t * 0.3) * 0.5;
@@ -66,17 +72,21 @@ export default function V20FlowField() {
 
     // Define render before gsap.context so onToggle / st.isActive can reference it.
     function render() {
-      // Targets derived from scroll, clamped to whisper bounds.
-      const speedTarget = 0.4 + velocityRef.current * 0.9; // 0.4 .. 1.3
-      const glowTarget = 0.05 + progressRef.current * 0.04; // 0.05 .. 0.09
+      // Targets derived from scroll. Brighter/faster while scrolling, calmer
+      // when still — but always visible (never the old "whisper" invisibility).
+      const speedTarget = 0.45 + velocityRef.current * 0.95; // 0.45 .. 1.4
+      const glowTarget = 0.18 + progressRef.current * 0.16; // 0.18 .. 0.34
       flowSpeed = lerp(flowSpeed, speedTarget, 0.04);
       glow = lerp(glow, glowTarget, 0.04);
       velocityRef.current *= 0.92; // decay toward calm when not scrolling
 
       t += 0.006 * flowSpeed;
-      ctx2d.clearRect(0, 0, width, height); // full transparency — never darkens
+      // Fade prior frame toward black to build flowing trails. Black is a
+      // no-op under screen blend, so this never darkens the filament/page.
+      ctx2d.fillStyle = `rgba(0, 0, 0, ${TRAIL_FADE})`;
+      ctx2d.fillRect(0, 0, width, height);
 
-      ctx2d.lineWidth = 1.1;
+      ctx2d.lineWidth = 1.3;
       ctx2d.lineCap = "round";
       ctx2d.strokeStyle = `rgba(95, 185, 255, ${glow})`;
       for (const p of particles) {
