@@ -135,27 +135,39 @@ test("reduced-motion: no pin, full path drawn statically", async ({ page }) => {
   expect(topAtStart - topAfter).toBeGreaterThan(400);
 });
 
-test("flow-field canvas mounts inside the MOTION MATTERS section", async ({
+test("flow-field canvas mounts behind the filament in the work lane", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v20");
   await page.waitForTimeout(SETTLE_MS);
 
-  const canvas = page.locator(".v20-mm canvas.v20-mm-flow");
+  // The background lives at the work-lane level (NOT inside .v20-mm) so it
+  // can paint behind the filament.
+  const canvas = page.locator(".v20-worklane > canvas.v20-mm-flow");
   await expect(canvas).toHaveCount(1);
 
   const styles = await canvas.evaluate((el) => {
     const cs = getComputedStyle(el);
-    return { blend: cs.mixBlendMode, pe: cs.pointerEvents, z: cs.zIndex };
+    return { blend: cs.mixBlendMode, pe: cs.pointerEvents, pos: cs.position };
   });
   expect(styles.blend).toBe("screen");
   expect(styles.pe).toBe("none");
+  expect(styles.pos).toBe("fixed");
 
-  const textZ = await page
-    .locator(".v20-mm-text-box")
-    .evaluate((el) => getComputedStyle(el).zIndex);
-  expect(Number(textZ)).toBeGreaterThan(Number(styles.z));
+  // Paint order: the canvas must come BEFORE .v20-filament among the lane's
+  // direct children (equal z-index:0 ⇒ later sibling paints on top), so the
+  // drawn line renders over the background.
+  const order = await page.evaluate(() => {
+    const lane = document.querySelector(".v20-worklane");
+    const kids = Array.from(lane.children);
+    const canvasIdx = kids.findIndex((n) => n.matches("canvas.v20-mm-flow"));
+    const filamentIdx = kids.findIndex((n) => n.classList.contains("v20-filament"));
+    return { canvasIdx, filamentIdx };
+  });
+  expect(order.canvasIdx).toBeGreaterThanOrEqual(0);
+  expect(order.filamentIdx).toBeGreaterThanOrEqual(0);
+  expect(order.canvasIdx).toBeLessThan(order.filamentIdx);
 });
 
 test("no console errors during mount + scroll", async ({ page }) => {
@@ -197,7 +209,7 @@ test("reduced-motion: static wash instead of animated canvas", async ({
   await page.waitForTimeout(SETTLE_MS);
 
   // No animated canvas under reduced motion...
-  await expect(page.locator(".v20-mm canvas.v20-mm-flow")).toHaveCount(0);
-  // ...a single static wash layer instead.
-  await expect(page.locator(".v20-mm .v20-mm-flow--static")).toHaveCount(1);
+  await expect(page.locator(".v20-worklane canvas.v20-mm-flow")).toHaveCount(0);
+  // ...a single static wash layer instead (at the work-lane level).
+  await expect(page.locator(".v20-worklane .v20-mm-flow--static")).toHaveCount(1);
 });

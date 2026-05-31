@@ -4,7 +4,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
-import V20FlowField from "./V20FlowField";
+// NOTE: the flow-current background (V20FlowField) is mounted at the
+// work-lane level in app/portfolio-v20/page.jsx — BEFORE <V20Filament/> — so
+// it paints BEHIND the filament and the drawn line stays clearly on top.
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -47,9 +49,6 @@ export default function V20MotionMatters() {
       aria-label="Motion matters"
       data-v20-mm
     >
-      {/* Whisper-subtle flow-current background. Screen-blended; cannot
-          darken the filament that threads through this transparent section. */}
-      <V20FlowField />
       {/* The filament uses this box's geometry to compute where to
           place the drawn letters. The box is invisible but layout-bearing. */}
       <div className="v20-mm-text-box" data-v20-mm-box />

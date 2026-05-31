@@ -7,6 +7,7 @@ import V20FeaturedWork from "@/components/portfolio-v20/V20FeaturedWork";
 import V20MotionMatters from "@/components/portfolio-v20/V20MotionMatters";
 import V20OurWork from "@/components/portfolio-v20/V20OurWork";
 import V20Filament from "@/components/portfolio-v20/V20Filament";
+import V20FlowField from "@/components/portfolio-v20/V20FlowField";
 import V20Cursor from "@/components/portfolio-v20/V20Cursor";
 import V20ProjectDrawer from "@/components/portfolio-v20/V20ProjectDrawer";
 import Contact from "@/components/home/Contact";
@@ -31,6 +32,9 @@ export default function PortfolioV20Page() {
       <V20Hero />
       {/* One filament threads continuously down through both work sections */}
       <div className="v20-worklane">
+        {/* Flow-current background sits BEFORE the filament so it paints
+            behind it; it fades in only over the MOTION MATTERS section. */}
+        <V20FlowField />
         <V20Filament />
         <V20FeaturedWork />
         <V20MotionMatters />
