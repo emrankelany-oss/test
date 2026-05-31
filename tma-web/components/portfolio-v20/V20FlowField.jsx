@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
-
-if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const PARTICLE_COUNT = 220;
 const DPR_CAP = 2;
@@ -17,33 +13,37 @@ const TRAIL_FADE = 0.06;
 /**
  * "Flow current" background for the MOTION MATTERS section.
  *
- * It is mounted at the WORK-LANE level (before <V20Filament/>) as a
- * viewport-fixed layer, so it paints BEHIND the filament: the scroll-drawn
- * line and the "MOTION MATTERS" tracing always sit clearly on TOP of it.
- * It fades in only while the .v20-mm section is in view.
+ * Mounted at the WORK-LANE level (before <V20Filament/>) as a viewport-fixed
+ * layer, so it paints BEHIND the filament: the scroll-drawn line and the
+ * "MOTION MATTERS" tracing always sit clearly on TOP of it.
  *
- * Hard rule: this layer must never alter the filament. It uses
- * mix-blend-mode: screen (can only add light) and builds trails with a
- * per-frame BLACK fade-fill (a no-op under screen). It owns its OWN
- * ScrollTrigger — it never reads or writes the filament's trigger.
+ * Visibility is driven by the section's on-screen rect each frame (NOT a
+ * ScrollTrigger). The section is pinned for +=200%, and a ScrollTrigger keyed
+ * to its natural height would flip inactive ~one viewport before the pin
+ * actually releases — which made the background vanish mid-draw. Reading the
+ * live rect keeps it visible for the entire time the section is on screen.
+ *
+ * Hard rule: this layer never alters the filament — mix-blend-mode: screen
+ * (adds light only) plus a black trail-fade (a no-op under screen).
  */
 export default function V20FlowField() {
   const elRef = useRef(null);
   const reduced = usePrefersReducedMotion();
 
-  // Scroll signals written by our own ScrollTrigger, read by the rAF loop.
-  const progressRef = useRef(0);
-  const velocityRef = useRef(0);
-
   useEffect(() => {
     const el = elRef.current;
     if (!el) return;
+    const section = document.querySelector(".v20-mm");
+    if (!section) return;
 
-    let active = false;
     let rafId = 0;
-    let render = () => {};
     let ro = null;
+    let lastY = window.scrollY;
+    let lastVisible = null;
 
+    // Particle/canvas drawing is only set up for the animated (non-reduced)
+    // path. `drawFrame(velocity)` advances and renders one frame.
+    let drawFrame = null;
     if (!reduced) {
       const ctx2d = el.getContext("2d");
       const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
@@ -74,14 +74,12 @@ export default function V20FlowField() {
       const field = (x, y) =>
         Math.sin(y * 0.012 + t * 0.6) * 0.8 + Math.cos(x * 0.008 - t * 0.3) * 0.5;
 
-      render = function render() {
-        // Targets derived from scroll. Brighter/faster while scrolling, calmer
-        // when still — but always visible.
-        const speedTarget = 0.45 + velocityRef.current * 0.95; // 0.45 .. 1.4
-        const glowTarget = 0.18 + progressRef.current * 0.16; // 0.18 .. 0.34
-        flowSpeed = lerp(flowSpeed, speedTarget, 0.04);
-        glow = lerp(glow, glowTarget, 0.04);
-        velocityRef.current *= 0.92; // decay toward calm when not scrolling
+      drawFrame = (velocity) => {
+        // Always-visible base, brighter/faster while scrolling.
+        const speedTarget = 0.45 + velocity * 0.95; // 0.45 .. 1.4
+        const glowTarget = 0.2 + velocity * 0.14; // 0.20 .. 0.34
+        flowSpeed = lerp(flowSpeed, speedTarget, 0.05);
+        glow = lerp(glow, glowTarget, 0.05);
 
         t += 0.006 * flowSpeed;
         // Fade prior frame toward black to build flowing trails. Black is a
@@ -107,45 +105,32 @@ export default function V20FlowField() {
             Object.assign(p, spawn());
           }
         }
-        if (active) rafId = requestAnimationFrame(render);
       };
     }
 
-    // Fade the layer in only while the MOTION MATTERS section is in view,
-    // and start/stop the rAF with it.
-    const setActive = (on) => {
-      el.style.opacity = on ? "1" : "0";
-      if (reduced) return;
-      if (on && !active) {
-        active = true;
-        rafId = requestAnimationFrame(render);
-      } else if (!on) {
-        active = false;
-      }
-    };
+    const tick = () => {
+      const y = window.scrollY;
+      const velocity = Math.min(1, Math.abs(y - lastY) / 45);
+      lastY = y;
 
-    // Our OWN trigger — independent of the filament. No scrub, no tween.
-    const gsapCtx = gsap.context(() => {
-      const st = ScrollTrigger.create({
-        trigger: ".v20-mm",
-        start: "top bottom",
-        end: "bottom top",
-        onUpdate: reduced
-          ? undefined
-          : (self) => {
-              progressRef.current = self.progress;
-              velocityRef.current = Math.min(1, Math.abs(self.getVelocity()) / 3000);
-            },
-        onToggle: (self) => setActive(self.isActive),
-      });
-      // Reflect current state at mount (e.g. reload while section is in view).
-      if (st.isActive) setActive(true);
-    });
+      // Visible whenever the section overlaps the viewport — true for the
+      // entire pin (rect stays top:0..bottom:vh while pinned). CSS opacity
+      // transition smooths the fade at the edges.
+      const r = section.getBoundingClientRect();
+      const visible = r.top < window.innerHeight && r.bottom > 0;
+      if (visible !== lastVisible) {
+        el.style.opacity = visible ? "1" : "0";
+        lastVisible = visible;
+      }
+
+      if (visible && drawFrame) drawFrame(velocity);
+      rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
 
     return () => {
       cancelAnimationFrame(rafId);
       if (ro) ro.disconnect();
-      gsapCtx.revert();
     };
   }, [reduced]);
 
