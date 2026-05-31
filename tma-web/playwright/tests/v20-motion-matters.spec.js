@@ -166,3 +166,24 @@ test("no console errors during mount + scroll", async ({ page }) => {
   await page.waitForTimeout(SETTLE_MS);
   expect(errors).toEqual([]);
 });
+
+test("flow-field does not regress the filament or log errors", async ({
+  page,
+}) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v20");
+  await page.waitForTimeout(SETTLE_MS);
+
+  // Filament still includes the spliced letter strokes (same floor as the
+  // existing "letter strokes" test — the background must not change this).
+  const len = await readPathLength(page);
+  expect(len).toBeGreaterThan(8000);
+
+  // Scroll all the way through; no errors from the canvas loop or trigger.
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
+});
