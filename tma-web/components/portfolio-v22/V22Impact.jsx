@@ -8,7 +8,10 @@ if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const fmt = (n, item) => {
   const rounded = item.value % 1 === 0 ? Math.round(n) : n.toFixed(1);
-  const withThousands = Number(rounded).toLocaleString("en-US");
+  const withThousands = Number(rounded).toLocaleString(
+    "en-US",
+    item.value % 1 !== 0 ? { minimumFractionDigits: 1, maximumFractionDigits: 1 } : undefined
+  );
   return `${item.prefix}${withThousands}${item.suffix}`;
 };
 

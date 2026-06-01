@@ -33,6 +33,7 @@ export default function V22WorkArchive() {
       const min = Math.min(0, rail.clientWidth - track.scrollWidth);
       return { minX: min, maxX: 0 };
     };
+    gsap.set(track, { x: 0 });
     const drag = Draggable.create(track, {
       type: "x", inertia: false, bounds: bounds(),
       cursor: "grab", activeCursor: "grabbing",
