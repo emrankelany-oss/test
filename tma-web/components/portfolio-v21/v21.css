@@ -3100,3 +3100,23 @@ html.v21-has-cursor [data-cursor="play"] { cursor: none; }
 @media (prefers-reduced-motion: reduce) {
   .v21h-line > span { transform: none; opacity: 1; animation: none; }
 }
+
+/* ---- Featured · editorial cinematic bands (Continuum Phase 2) ------------- */
+.v21fw-bands { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: var(--space-block); }
+.v21fw-band { position: relative; }
+.v21fw-band-link { display:block; position:relative; text-decoration:none; color: var(--v21-ink, #f3f5f8); }
+.v21fw-band-media { position:relative; width:100%; aspect-ratio:16/9; border-radius:16px; overflow:hidden; background:#0b0e13; border:1px solid rgba(111,211,255,.10); }
+.v21fw-band-poster, .v21fw-band-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.v21fw-band-poster { transform:scale(1.04); transition: transform 1.1s cubic-bezier(.2,.8,.2,1), opacity .8s ease; will-change:transform; }
+.v21fw-band-video { opacity:0; transition: opacity .8s ease; }
+.v21fw-band-link:hover .v21fw-band-poster { transform:scale(1.0); }
+.v21fw-band-link:hover .v21fw-band-video { opacity:1; }
+.v21fw-band-scrim { position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,7,8,0) 45%, rgba(6,7,8,0.72) 100%); }
+.v21fw-band-cap { display:block; margin-top: clamp(14px,1.4vw,22px); font-family: var(--font-mono, ui-monospace, monospace); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color: var(--v21-mut,#8b93a0); }
+.v21fw-band-title { position:absolute; left:clamp(20px,3vw,48px); bottom:clamp(20px,3vw,44px); right:clamp(20px,3vw,48px); margin:0; font-family: var(--v21-serif, Georgia, serif); font-weight:400; font-size:clamp(30px,5vw,76px); line-height:.98; letter-spacing:-.01em; color:#fff; pointer-events:none; }
+.v21fw-band { opacity:0; transform:translateY(40px); filter:blur(8px); }
+.v21fw-band.is-revealed { opacity:1; transform:none; filter:none; transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1), filter .9s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .v21fw-band { opacity:1; transform:none; filter:none; }
+  .v21fw-band-poster { transform:none; }
+}
