@@ -28,3 +28,22 @@
   font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--v22-lit);
 }
+
+/* ---- magnetic cursor ---- */
+.v22-cursor {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  width: 14px; height: 14px; border-radius: 999px;
+  background: var(--v22-lit, #6fd3ff);
+  mix-blend-mode: difference; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  transition: width .25s ease, height .25s ease, background .25s ease;
+}
+.v22-cursor-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; color: #04121f; opacity: 0; white-space: nowrap;
+}
+.v22-cursor.is-active { width: 92px; height: 92px; background: #fff; }
+.v22-cursor.is-active .v22-cursor-label { opacity: 1; }
+.v22-cursor[data-kind="drag"] { width: 76px; height: 76px; }
+body.v22-has-cursor [data-cursor] { cursor: none; }
+@media (pointer: coarse) { .v22-cursor { display: none; } }
