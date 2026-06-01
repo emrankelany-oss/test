@@ -5,6 +5,7 @@ import Contact from "@/components/home/Contact";
 import Footer from "@/components/home/Footer";
 import V22Cursor from "@/components/portfolio-v22/V22Cursor";
 import V22ProjectModal from "@/components/portfolio-v22/V22ProjectModal";
+import V22FilmLightbox from "@/components/portfolio-v22/V22FilmLightbox";
 import V22Hero from "@/components/portfolio-v22/V22Hero";
 import V22Marquee from "@/components/portfolio-v22/V22Marquee";
 import V22FeaturedWork from "@/components/portfolio-v22/V22FeaturedWork";
@@ -27,6 +28,7 @@ export default function PortfolioV22Page() {
       <SmoothScroll />
       <V22Cursor />
       <V22ProjectModal />
+      <V22FilmLightbox />
       <ClientShell enableScrolledNav />
       <Nav />
       <V22Hero />
