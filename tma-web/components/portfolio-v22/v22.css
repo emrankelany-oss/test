@@ -74,3 +74,21 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
   font-size: clamp(20px, 3vw, 40px); font-weight: 600; letter-spacing: -0.01em; color: var(--v22-dim);
 }
 .v22-marquee-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--v22-lit); }
+
+/* ---- project modal ---- */
+.v22-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; }
+.v22-modal-scrim { position: absolute; inset: 0; border: 0; background: rgba(2,8,15,.72); backdrop-filter: blur(6px); cursor: pointer; }
+.v22-modal-card {
+  position: relative; z-index: 1; width: min(720px, 92vw); max-height: 88vh; overflow: auto;
+  background: var(--v22-panel); border: 1px solid var(--v22-line); border-radius: 18px;
+  padding: clamp(24px, 4vw, 48px); color: var(--v22-ink);
+}
+.v22-modal-close { position: absolute; top: 16px; right: 16px; background: transparent; border: 0; color: var(--v22-dim); font-size: 18px; cursor: pointer; }
+.v22-modal-title { font-size: clamp(28px, 5vw, 52px); line-height: 1; letter-spacing: -0.02em; margin: 8px 0 0; }
+.v22-modal-tagline { color: var(--v22-lit); font-family: var(--font-label); margin: 10px 0 0; }
+.v22-modal-intro { color: var(--v22-dim); line-height: 1.6; margin: 18px 0 0; }
+.v22-modal-services { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 22px 0 0; }
+.v22-modal-services li { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border: 1px solid var(--v22-line); border-radius: 999px; color: var(--v22-dim); }
+.v22-modal-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin: 26px 0 0; }
+.v22-modal-metric { display: block; font-size: clamp(24px, 4vw, 40px); font-weight: 600; color: var(--v22-lit); }
+.v22-modal-metric-label { display: block; font-size: 13px; color: var(--v22-dim); margin-top: 4px; }
