@@ -136,3 +136,11 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-arch-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .v22-arch-card-title { font-size: 18px; font-weight: 600; }
 @media (pointer: coarse) { .v22-arch-rail { overflow-x: auto; } }
+
+/* ---- impact ---- */
+.v22-impact { border-top: 1px solid var(--v22-line); }
+.v22-stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 28px; }
+.v22-stat { display: flex; flex-direction: column; gap: 8px; }
+.v22-stat-value { font-size: clamp(40px, 7vw, 96px); line-height: 1; font-weight: 600; letter-spacing: -0.03em; color: var(--v22-lit); font-variant-numeric: tabular-nums; }
+.v22-stat-label { color: var(--v22-dim); font-size: 14px; max-width: 22ch; }
+@media (max-width: 860px) { .v22-stat-grid { grid-template-columns: repeat(2, 1fr); } }
