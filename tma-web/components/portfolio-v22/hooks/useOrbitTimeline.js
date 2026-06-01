@@ -25,15 +25,14 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
 
     const ctx = gsap.context(() => {
       const vw = window.innerWidth, vh = window.innerHeight;
-      // Ring is a touch narrower than tall so the FOODICS / GALLERY words have
-      // room at the left/right edges.
-      const rx = Math.min(vw * 0.27, 400);
-      const ry = Math.min(vh * 0.33, 300);
-      // Big, prominent cards.
+      // Big, breathing ring that fills the section; words live in the corners.
+      const rx = Math.min(vw * 0.37, 560);
+      const ry = Math.min(vh * 0.34, 312);
+      // Big, prominent intro cards.
       const portraitW = Math.min(vw * 0.3, 460), portraitH = Math.min(vh * 0.8, 720);
-      const landW = Math.min(vw * 0.46, 700), landH = Math.min(vh * 0.46, 420);
-      const gap = Math.min(vw * 0.17, 300);
-      const cardScale = 0.64; // centred card size while the ring is shown
+      const landW = Math.min(vw * 0.44, 660), landH = Math.min(vh * 0.44, 400);
+      const gap = Math.min(vw * 0.18, 320);
+      const cardScale = 0.4; // small focal anchor while the films ring around it
       const EASE = "power3.inOut";
       const FAN = "power3.out";
 
@@ -45,8 +44,10 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         gsap.set(tiles, { ...center, x: 0, y: 0, scale: 0.5, autoAlpha: 0, filter: "blur(16px)", zIndex: 3 })
       );
       // flanking gallery words: vertically centred at the edges, hidden + nudged outward
-      gsap.set([foodics.wordL, zid.wordL], { top: "50%", yPercent: -50, x: -40, autoAlpha: 0, zIndex: 6 });
-      gsap.set([foodics.wordR, zid.wordR], { top: "50%", yPercent: -50, x: 40, autoAlpha: 0, zIndex: 6 });
+      // words are corner-positioned via CSS (FOODICS top-left, GALLERY bottom-right);
+      // GSAP only fades + nudges them in.
+      gsap.set([foodics.wordL, zid.wordL], { x: -50, autoAlpha: 0, zIndex: 6 });
+      gsap.set([foodics.wordR, zid.wordR], { x: 50, autoAlpha: 0, zIndex: 6 });
 
       const fanGroup = (d, label) => {
         const pos = ringPositions(d.tiles.length, { rx, ry });
@@ -80,7 +81,10 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         },
       });
 
-      // P1 — morph to landscape; Zid hides fully behind Foodics
+      // P0 — intro beat: both cards held side by side so they're clearly seen
+      hold();
+
+      // P1 — morph to landscape; Zid slides behind Foodics and hides
       tl.to([foodics.card, zid.card], { width: landW, height: landH, duration: 1.2 }, "morph")
         .to(foodics.card, { x: 0, duration: 1.2 }, "morph")
         .to(zid.card, { x: 0, scale: 0.9, autoAlpha: 0, duration: 1.2 }, "morph");
@@ -98,7 +102,9 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       tl.fromTo(
         zid.card,
         { y: -0.22 * vh, autoAlpha: 0, scale: 0.9, zIndex: 4 },
-        { y: 0, autoAlpha: 1, scale: 1, duration: 1.4, ease: "power3.out" },
+        // immediateRender:false — otherwise the "from" state stamps at build time
+        // and hides Zid during the intro (it must stay visible beside Foodics first).
+        { y: 0, autoAlpha: 1, scale: 1, duration: 1.4, ease: "power3.out", immediateRender: false },
         "collapseF+=0.9"
       );
       fanGroup(zid, "fanZ");
