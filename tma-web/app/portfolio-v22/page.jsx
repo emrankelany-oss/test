@@ -8,7 +8,7 @@ import V22ProjectModal from "@/components/portfolio-v22/V22ProjectModal";
 import V22FilmLightbox from "@/components/portfolio-v22/V22FilmLightbox";
 import V22Hero from "@/components/portfolio-v22/V22Hero";
 import V22Marquee from "@/components/portfolio-v22/V22Marquee";
-import V22FeaturedWork from "@/components/portfolio-v22/V22FeaturedWork";
+import V22Showreel from "@/components/portfolio-v22/V22Showreel";
 import V22Capabilities from "@/components/portfolio-v22/V22Capabilities";
 import V22WorkArchive from "@/components/portfolio-v22/V22WorkArchive";
 import V22Impact from "@/components/portfolio-v22/V22Impact";
@@ -33,7 +33,7 @@ export default function PortfolioV22Page() {
       <Nav />
       <V22Hero />
       <V22Marquee />
-      <V22FeaturedWork />
+      <V22Showreel />
       <V22Capabilities />
       <V22WorkArchive />
       <V22Impact />

@@ -20,7 +20,7 @@ export default function V22Hero() {
         <a
           ref={ctaRef}
           href="#v22-featured"
-          className="v22-showreel"
+          className="v22-hero-reel"
           data-magnetic
           data-cursor="view"
           data-cursor-label="Showreel"

@@ -12,3 +12,19 @@ test("film lightbox opens from a programmatic open and closes on Escape", async 
   await page.keyboard.press("Escape");
   await expect(dialog).toHaveCount(0);
 });
+
+test("showreel section mounts with both cards and all films as tiles", async ({ page }) => {
+  await page.goto("/portfolio-v22");
+  const section = page.locator("#v22-featured.v22-showreel");
+  await expect(section).toHaveCount(1);
+  await expect(section.locator(".v22-sr-card")).toHaveCount(2);
+  await expect(section.locator(".v22-sr-tile")).toHaveCount(9);
+  await expect(section.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile")).toHaveCount(7);
+});
+
+test("clicking a film tile opens the lightbox", async ({ page }) => {
+  await page.goto("/portfolio-v22");
+  await page.locator(".v22-sr-tile").first().scrollIntoViewIfNeeded();
+  await page.locator(".v22-sr-tile").first().click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+});
