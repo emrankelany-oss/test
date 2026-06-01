@@ -23,6 +23,7 @@ export function useMagnetic(ref, { strength = 0.4 } = {}) {
     el.addEventListener("pointermove", onMove);
     el.addEventListener("pointerleave", onLeave);
     return () => {
+      gsap.killTweensOf(el, "x,y");
       el.removeEventListener("pointermove", onMove);
       el.removeEventListener("pointerleave", onLeave);
     };

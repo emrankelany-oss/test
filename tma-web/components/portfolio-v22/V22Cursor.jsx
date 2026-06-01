@@ -19,6 +19,7 @@ export default function V22Cursor() {
     if (!enabled) return;
     document.body.classList.add("v22-has-cursor");
     const dot = dotRef.current, label = labelRef.current;
+    if (!dot) return;
     const st = s.current;
     st.tx = st.x = window.innerWidth / 2;
     st.ty = st.y = window.innerHeight / 2;

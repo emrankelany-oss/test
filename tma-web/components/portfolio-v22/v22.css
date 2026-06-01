@@ -44,6 +44,6 @@
 }
 .v22-cursor.is-active { width: 92px; height: 92px; background: #fff; }
 .v22-cursor.is-active .v22-cursor-label { opacity: 1; }
-.v22-cursor[data-kind="drag"] { width: 76px; height: 76px; }
+.v22-cursor.is-active[data-kind="drag"] { width: 76px; height: 76px; }
 body.v22-has-cursor [data-cursor] { cursor: none; }
 @media (pointer: coarse) { .v22-cursor { display: none; } }
