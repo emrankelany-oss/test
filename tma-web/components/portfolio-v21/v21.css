@@ -1,0 +1,2909 @@
+/* =====================================================================
+   V21 â€” Narrative Meets Design
+   Theme inherited from the homepage hero (black canvas, Inter Tight,
+   animated prism). Layout follows the v21 reference frame.
+   ===================================================================== */
+
+.v21-page {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ---------- HERO SHELL ---------- */
+.v21-hero {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  padding-top: clamp(88px, 8vw, 116px);
+  padding-bottom: clamp(28px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- BACKGROUND ---------- */
+.v21-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.v21-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgba(255, 255, 255, 0.06), transparent 50%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.65) 100%);
+  z-index: 2;
+}
+
+.v21-prism {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v21-prism::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.4) 75%,
+    #000 100%
+  );
+  z-index: 3;
+}
+.v21-prism-cone {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform, opacity, filter;
+  transform-origin: center;
+}
+.v21-prism-cone--blue {
+  top: -22%;
+  left: -8%;
+  width: 70vw;
+  height: 95vh;
+  background:
+    radial-gradient(ellipse 55% 80% at 48% 28%,
+      #00b3ff 0%, #0084ff 18%, #0046d8 38%,
+      rgba(0, 40, 140, 0.45) 60%, transparent 78%);
+  filter: blur(72px) saturate(1.25);
+  opacity: 0.7;
+  transform: rotate(-12deg);
+  animation: v21-prism-blue 18s ease-in-out infinite;
+}
+.v21-prism-cone--warm {
+  bottom: -18%;
+  left: -14%;
+  width: 65vw;
+  height: 80vh;
+  background:
+    radial-gradient(ellipse 45% 65% at 38% 75%,
+      #ffffff 0%, #ffe070 8%, #ff9a1f 18%, #ff3b1f 32%,
+      #d6005a 48%, rgba(140, 0, 180, 0.5) 65%, transparent 82%);
+  filter: blur(64px) saturate(1.35);
+  opacity: 0.7;
+  transform: rotate(8deg);
+  animation: v21-prism-warm 22s ease-in-out infinite;
+}
+.v21-prism-cone--rim {
+  top: 28%;
+  left: -2%;
+  width: 35vw;
+  height: 45vh;
+  background: radial-gradient(ellipse 50% 70% at 50% 50%,
+    rgba(255, 40, 140, 0.5) 0%, rgba(180, 40, 255, 0.28) 30%, transparent 65%);
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: v21-prism-rim 14s ease-in-out infinite;
+}
+.v21-prism-grain {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  z-index: 2;
+}
+
+@keyframes v21-prism-blue {
+  0%, 100% { transform: rotate(-12deg) translate3d(0, 0, 0) scale(1); opacity: 0.72; }
+  35%      { transform: rotate(-9deg)  translate3d(2%, -1.5%, 0) scale(1.06); opacity: 0.82; }
+  65%      { transform: rotate(-15deg) translate3d(-1.5%, 1%, 0) scale(0.97); opacity: 0.66; }
+}
+@keyframes v21-prism-warm {
+  0%, 100% { transform: rotate(8deg)  translate3d(0, 0, 0) scale(1); opacity: 0.72; }
+  30%      { transform: rotate(11deg) translate3d(1.5%, -2%, 0) scale(1.08); opacity: 0.85; }
+  60%      { transform: rotate(5deg)  translate3d(-1%, 1.5%, 0) scale(0.96); opacity: 0.66; }
+}
+@keyframes v21-prism-rim {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.5; }
+  50%      { transform: translate3d(2%, -2%, 0) scale(1.15); opacity: 0.72; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v21-prism-cone { animation: none; }
+}
+
+.v21-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: 1;
+  opacity: 0.4;
+  animation: v21-grid-drift 40s linear infinite;
+}
+@keyframes v21-grid-drift {
+  to { background-position: 80px 80px; }
+}
+
+/* ---------- INNER ---------- */
+.v21-hero-inner {
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* META row */
+.v21-hero-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: clamp(20px, 3vw, 36px);
+}
+.v21-meta-block {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.v21-meta-block .v {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---------- GRID ---------- */
+.v21-hero-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.32fr) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: stretch;        /* both columns fill the full hero height */
+}
+
+/* ---------- LEFT: headline + showreel ---------- */
+.v21-hero-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ---------- HEADLINE ----------
+   One sentence, four stacked lines, all sharing the same font-size and
+   line-height for perfectly consistent vertical rhythm. Line 2 swaps
+   in the serif-italic voice (same fallback chain as the homepage hero)
+   so the composition reads as one continuous heading. */
+.v21-headline {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(46px, 7.45vw, 132px);   /* shared by all four lines */
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+  /* Fill the full column height and distribute the four lines top→bottom
+     so the headline block spans the same vertical extent as the right
+     side (big video + Let's Talk). */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 0;
+}
+
+.v21-line {
+  display: block;
+  overflow: hidden;
+}
+.v21-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: v21-rise 0.95s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+.v21-line-1 > span      { animation-delay: 0.08s; }
+.v21-line-italic > span { animation-delay: 0.22s; }
+.v21-line-3 > span      { animation-delay: 0.36s; }
+.v21-line-4 > span      { animation-delay: 0.50s; }
+@keyframes v21-rise {
+  to { transform: translateY(0); }
+}
+
+/* Italic line â€” same size, same line-height, second font (serif fallback
+   from "Inter Tight", serif because next/font doesn't load Inter Tight
+   italic). Mirrors .hero-title .ital on the homepage. */
+.v21-line-italic em {
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.94);
+  white-space: nowrap;     /* keep WHERE VISION on one line â€” at narrow viewports it would otherwise overflow by a few pixels and wrap, pushing MEETS into the card */
+}
+
+/* MEETS + DESIGN â€” in natural flow directly under WHERE VISION, with a
+   left indent that lets the showreel card slot in alongside them. The
+   four lines now read as one tight, gap-less block. */
+.v21-line-3,
+.v21-line-4 {
+  padding-left: 0;   /* showreel card removed — all four lines left-aligned */
+}
+
+/* SHOWREEL CARD â€” absolute on the left, slotted next to MEETS+DESIGN.
+   Top = end of NARRATIVE+WHERE VISION (= 2 line-heights from the
+   headline top). Width is derived from height Ã— 16/10 so its bottom
+   edge lands exactly at DESIGN's baseline. */
+.v21-showreel {
+  position: absolute;
+  left: 0;
+  top: clamp(81px, 13.11vw, 232px);    /* 2 Ã— 0.88em of headline font */
+  bottom: auto;
+  width: clamp(130px, 21vw, 371px);
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  background: #110a14;
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+  transition: transform 0.45s cubic-bezier(.2, .8, .2, 1),
+              box-shadow 0.45s cubic-bezier(.2, .8, .2, 1);
+  z-index: 6;
+  opacity: 0;
+  animation: v21-card-in 0.9s cubic-bezier(.2, .8, .2, 1) 0.6s forwards;
+}
+@keyframes v21-card-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.v21-showreel:hover {
+  transform: translateY(-3px) scale(1.025);
+  box-shadow:
+    0 36px 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.v21-showreel video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v21-showreel-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+.v21-showreel-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, background 0.3s;
+}
+.v21-showreel:hover .v21-showreel-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #fff;
+}
+.v21-showreel-play svg { transform: translateX(1px); }
+.v21-showreel-meta {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- RIGHT: big video stacked above the Let's Talk card ---------- */
+.v21-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.6vw, 24px);
+  height: 100%;                /* fill the full hero column */
+  min-height: 0;
+}
+.v21-big-video {
+  position: relative;
+  flex: 1;                     /* fills remaining column height above Let's Talk */
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a0f12;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  animation: v21-card-in 1s cubic-bezier(.2, .8, .2, 1) 0.5s forwards;
+}
+.v21-big-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v21-big-video-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+/* Let's Talk card */
+.v21-contact-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 10px;
+  border-radius: 14px;
+  background: rgba(14, 14, 16, 0.78);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: transform 0.3s ease, background 0.3s;
+  opacity: 0;
+  animation: v21-card-in 0.9s cubic-bezier(.2, .8, .2, 1) 0.75s forwards;
+}
+.v21-contact-card:hover {
+  background: rgba(24, 24, 26, 0.86);
+  transform: translateY(-2px);
+}
+.v21-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #222;
+  flex: 0 0 auto;
+}
+.v21-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.15;
+}
+.v21-contact-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 2px;
+}
+.v21-contact-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  color: #fff;
+}
+.v21-contact-role {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v21-contact-bars {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+.v21-contact-bars i {
+  display: block;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 1px;
+  transform-origin: bottom;
+  animation: v21-bars 1.4s ease-in-out infinite;
+}
+.v21-contact-bars i:nth-child(1) { height: 30%; animation-delay: 0s; }
+.v21-contact-bars i:nth-child(2) { height: 60%; animation-delay: 0.12s; }
+.v21-contact-bars i:nth-child(3) { height: 90%; animation-delay: 0.24s; }
+.v21-contact-bars i:nth-child(4) { height: 50%; animation-delay: 0.36s; }
+.v21-contact-bars i:nth-child(5) { height: 75%; animation-delay: 0.48s; }
+@keyframes v21-bars {
+  0%, 100% { transform: scaleY(0.55); }
+  50%      { transform: scaleY(1); }
+}
+
+.v21-contact-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  transition: transform 0.3s ease;
+}
+.v21-contact-card:hover .v21-contact-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- SCROLL CUE ---------- */
+.v21-scroll {
+  position: absolute;
+  left: var(--pad);
+  bottom: 18px;
+  z-index: 5;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.v21-scroll .line {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.v21-scroll .line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: v21-tick 2s ease-in-out infinite;
+}
+@keyframes v21-tick {
+  0%        { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+
+/* ---------- RESPONSIVE ----------
+   Single .v21-headline font-size cascades to all four lines, so each
+   breakpoint just adjusts the parent. */
+@media (max-width: 1100px) {
+  .v21-headline { font-size: clamp(44px, 7.2vw, 108px); }
+  .v21-showreel { width: clamp(180px, 22vw, 260px); }
+}
+@media (max-width: 820px) {
+  .v21-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .v21-hero-left { min-height: auto; }
+  .v21-headline { font-size: clamp(48px, 11vw, 96px); }
+  .v21-showreel {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    top: auto;
+    width: min(260px, 60vw);
+    margin: 20px 0 0;
+  }
+  .v21-hero-meta {
+    flex-wrap: wrap;
+    gap: 14px 24px;
+  }
+}
+@media (max-width: 500px) {
+  .v21-hero-meta-block:nth-child(3) { display: none; }
+  .v21-headline { font-size: clamp(40px, 12vw, 76px); }
+  .v21-showreel {
+    width: min(240px, 70vw);
+  }
+  .v21-contact-card { padding: 8px 10px; gap: 10px; }
+  .v21-contact-name { font-size: 14px; }
+  .v21-avatar { width: 38px; height: 38px; }
+  .v21-contact-bars { display: none; }
+  .v21-contact-arrow { width: 36px; height: 36px; }
+}
+
+/* =====================================================================
+   V21 â€” Featured Work
+   Premium hover model: hovering a card crossfades its project video in
+   over the WHOLE card and plays it, the two sibling cards dim + desaturate
+   (:has()), and a glassy "VIEW VIDEO" badge follows the cursor (the native
+   cursor is hidden over the cards). JS only plays the video + moves the
+   badge; CSS handles every transition.
+   ===================================================================== */
+/* Work lane: one black canvas hosting the single continuous filament
+   behind both work sections (which are transparent so it shows through). */
+.v21-worklane {
+  position: relative;
+  background: #000;
+}
+
+.v21fw {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: #fff;
+  padding-top: clamp(72px, 9vw, 132px);
+  padding-bottom: clamp(96px, 12vw, 168px);
+  overflow: hidden;
+}
+
+.v21fw::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 280px;
+  background: radial-gradient(ellipse at 50% 0%,
+    rgba(255, 255, 255, 0.045) 0%,
+    transparent 65%);
+  pointer-events: none;
+}
+
+/* ---------- HEADER ---------- */
+.v21fw-header {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+
+.v21fw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  align-self: start;
+  padding-top: 12px;
+}
+.v21fw-eyebrow-tick {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.v21fw-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+  grid-column: 2;
+}
+.v21fw-title em {
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.v21fw-lede {
+  grid-column: 2;
+  margin: clamp(14px, 1.4vw, 22px) 0 0;
+  max-width: 44ch;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 820px) {
+  .v21fw-header {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .v21fw-title,
+  .v21fw-lede { grid-column: 1; }
+}
+
+/* ---------- GRID (3 equal columns) ---------- */
+.v21fw-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1vw, 12px);   /* tight seam so the split videos nearly meet */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 820px) {
+  .v21fw-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(40px, 7vw, 64px);
+    max-width: 520px;
+  }
+}
+
+/* ---------- CARD ----------
+   Reveal is driven by scroll, not a one-shot entrance. JS sets two custom
+   props per card every frame:
+     --reveal : 100% (closed) -> 0% (open), used as a top clip-inset so the
+                media opens bottom->up and closes top->down as you scroll.
+     --p      : 0 -> 1 progress, used to fade/rise the caption in sync. */
+.v21fw-card {
+  --reveal: 0%;
+  --p: 1;
+}
+
+.v21fw-card-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  isolation: isolate;
+}
+
+.v21fw-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;          /* identical proportion for all three */
+  border-radius: 0;             /* sharp corners */
+  overflow: hidden;
+  background: #0a0a0d;
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  /* scroll-linked open/close — clip the top edge by --reveal */
+  clip-path: inset(var(--reveal, 0%) 0 0 0);
+  transform: translateY(0);
+  transition:
+    transform 0.6s cubic-bezier(.2, .8, .2, 1),
+    box-shadow 0.6s cubic-bezier(.2, .8, .2, 1);
+}
+
+.v21fw-card-link:hover .v21fw-card-media {
+  transform: translateY(-6px);
+  box-shadow:
+    0 44px 90px rgba(0, 0, 0, 0.62),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+/* Poster â€” base layer, gently zooms on hover */
+.v21fw-card-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+.v21fw-card-link:hover .v21fw-card-poster {
+  transform: scale(1.06);
+}
+
+.v21fw-card-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.v21fw-card-index {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* ---------- FULL-CARD HOVER VIDEO ----------
+   Layered above the poster, fills the whole card. Crossfades + settles its
+   scale in on hover (CSS); JS plays/pauses the element. */
+.v21fw-card-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;                 /* above poster (0), below tint (2) */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity 0.5s cubic-bezier(.2, .8, .2, 1),
+    transform 0.7s cubic-bezier(.2, .8, .2, 1);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+.v21fw-card-link:hover .v21fw-card-video {
+  opacity: 1;
+  transform: scale(1);
+}
+/* keep the poster's hover-zoom from fighting the video underneath it */
+.v21fw-card-link:hover .v21fw-card-poster { transform: scale(1.08); }
+
+/* ---------- SPOTLIGHT: dim + desaturate the non-hovered siblings ----------
+   Pure CSS via :has(). Only on pointer-fine devices so touch is unaffected. */
+@media (hover: hover) and (pointer: fine) {
+  .v21fw-grid:has(.v21fw-card-link:hover)
+    .v21fw-card:not(:has(.v21fw-card-link:hover)) {
+    opacity: 0.42;
+    filter: grayscale(0.55) brightness(0.78);
+  }
+  .v21fw-card {
+    transition:
+      opacity 0.5s cubic-bezier(.2, .8, .2, 1),
+      filter 0.5s cubic-bezier(.2, .8, .2, 1);
+  }
+  /* the badge IS the cursor over the cards — hide the native one */
+  .v21fw-card-link,
+  .v21fw-card-link * {
+    cursor: none;
+  }
+}
+
+/* ---------- "VIEW VIDEO" CURSOR BADGE ----------
+   Fixed glassy circle that follows the pointer (transform set by JS).
+   Hidden until activated (pointer over the grid). */
+.v21fw-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  pointer-events: none;
+  color: #fff;
+  background: rgba(18, 20, 28, 0.42);
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  opacity: 0;
+  scale: 0.55;          /* animate scale independently of the JS translate */
+  transition:
+    opacity 0.32s cubic-bezier(.2, .8, .2, 1),
+    scale 0.42s cubic-bezier(.34, 1.56, .64, 1);  /* gentle overshoot */
+  will-change: transform, opacity, scale;
+}
+.v21fw-cursor.is-active {
+  opacity: 1;
+  scale: 1;
+}
+.v21fw-cursor-ring {
+  position: absolute;
+  inset: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+.v21fw-cursor-play {
+  color: #fff;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+  margin-left: 2px;     /* optically centre the play triangle */
+}
+.v21fw-cursor-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Touch / coarse pointers: no badge, native behaviour, poster only */
+@media (hover: none), (pointer: coarse) {
+  .v21fw-cursor { display: none; }
+}
+
+/* ---------- FULL-VIDEO MODAL ----------
+   Centred 16:9 player over a blurred backdrop. Opened on card click. */
+/* Hide the global nav while the video lightbox owns the screen. */
+body.v21fw-modal-open .nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.v21fw-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;            /* portaled to <body>, sits above the nav (100) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 56px);
+  cursor: auto;             /* native cursor returns inside the modal */
+  animation: v21fw-modal-in 0.3s cubic-bezier(.2, .8, .2, 1) both;
+}
+@keyframes v21fw-modal-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.v21fw-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(4, 5, 8, 0.72);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  cursor: pointer;
+}
+
+.v21fw-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: v21fw-dialog-in 0.42s cubic-bezier(.2, .8, .2, 1) both;
+}
+@keyframes v21fw-dialog-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.975); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.v21fw-modal-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.v21fw-modal-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.v21fw-modal-client {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.v21fw-modal-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+.v21fw-modal-close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.25s cubic-bezier(.2, .8, .2, 1),
+    transform 0.25s cubic-bezier(.2, .8, .2, 1),
+    border-color 0.25s cubic-bezier(.2, .8, .2, 1);
+}
+.v21fw-modal-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.06);
+}
+.v21fw-modal-close:focus-visible {
+  outline: 2px solid #6fd3ff;
+  outline-offset: 3px;
+}
+
+.v21fw-modal-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* never taller than the viewport (minus head + padding); the contained
+     video letterboxes if the cap forces a non-16:9 box on short screens. */
+  max-height: calc(100dvh - 9rem);
+  min-height: 0;
+  background: #000;
+  overflow: hidden;
+  box-shadow:
+    0 50px 120px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.v21fw-modal-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* letterbox rather than crop the full cut */
+  background: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v21fw-modal,
+  .v21fw-modal-dialog { animation: none; }
+}
+
+/* ---------- CARD INFO ---------- */
+.v21fw-card-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: clamp(14px, 1.2vw, 20px);
+  padding: 0 2px;
+  /* fade + rise in sync with the media reveal */
+  opacity: var(--p, 1);
+  transform: translateY(calc((1 - var(--p, 1)) * 14px));
+  will-change: opacity, transform;
+}
+
+.v21fw-card-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.v21fw-card-client {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.v21fw-card-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(20px, 1.9vw, 30px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0;
+}
+
+.v21fw-card-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.v21fw-card-year { color: rgba(255, 255, 255, 0.82); }
+
+@media (max-width: 600px) {
+  .v21fw-card-title { font-size: clamp(24px, 7vw, 32px); }
+  .v21fw-card-client { font-size: 11px; }
+  .v21fw-card-tags { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v21fw-card,
+  .v21fw-card-media,
+  .v21fw-card-poster,
+  .v21fw-card-video,
+  .v21fw-cursor { transition: none; }
+  /* fully open, no scroll-reveal clip */
+  .v21fw-card-media { clip-path: none; }
+  .v21fw-card-info { opacity: 1; transform: none; }
+  .v21fw-card-link:hover .v21fw-card-poster { transform: scale(1.02); }
+  .v21fw-card-link:hover .v21fw-card-media { transform: none; }
+  /* video still appears on hover, just without the scale settle */
+  .v21fw-card-video { transform: none; }
+  .v21fw-card-link:hover .v21fw-card-video { transform: none; }
+}
+/* ---------- SCROLL-DRAWN FILAMENT ---------- */
+.v21-filament {
+  position: absolute;
+  inset: 0;
+  z-index: 0;            /* behind the (transparent) work sections */
+  pointer-events: none;
+}
+.v21-filament svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.v21-filament-path {
+  filter: drop-shadow(0 0 10px rgba(111, 211, 255, 0.45));
+}
+
+/* "Featured" word â€” fills with the filament colour left-to-right as the drawn
+   line crosses it. JS drives --v21-wipe (0%â†’100%) from the same eased value
+   as the line, so the fill stays locked to the visible line tip. */
+.v21fw-title-word {
+  --v21-wipe: 0%;
+  --v21-lit: #6fd3ff;
+  background-image: linear-gradient(
+    90deg,
+    var(--v21-lit) 0%,
+    var(--v21-lit) var(--v21-wipe),
+    currentColor var(--v21-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* JS already renders the full path (dashoffset 0); soften it so the
+     static line reads as a quiet background mark. */
+  .v21-filament-path {
+    opacity: 0.5;
+    filter: none;
+  }
+}
+
+/* =====================================================================
+   V21 — Cinematic Preloader  ("Monogram Assembly → Cinemascope Split")
+   The overlay BECOMES the page reveal: two black panels split apart to
+   open onto the hero, whose own staggered entrance is released through
+   the opening (see .v21-intro-hold below). Driven by GSAP in
+   V21Preloader.jsx — CSS only declares the static look + reduced-motion.
+   ===================================================================== */
+.v21pl {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  overflow: hidden;
+  background: transparent;     /* the two panels supply the black */
+  /* avoid a flash before GSAP sets autoAlpha: hidden until JS takes over */
+}
+
+/* Two black cinemascope panels meeting at the vertical centre. The 0.5%
+   overlap guarantees a seamless join before they part. */
+.v21pl-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50.5%;
+  background: #000;
+  z-index: 2;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+.v21pl-panel--top { top: 0; transform-origin: top center; }
+.v21pl-panel--bot { bottom: 0; transform-origin: bottom center; }
+
+/* Faint inner shading so the black reads as depth, not a flat fill. */
+.v21pl-panel--top::after,
+.v21pl-panel--bot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 90% at 50% 100%,
+    rgba(255, 255, 255, 0.05), transparent 60%);
+  opacity: 0.6;
+}
+.v21pl-panel--bot::after {
+  background: radial-gradient(ellipse 70% 90% at 50% 0%,
+    rgba(255, 255, 255, 0.05), transparent 60%);
+}
+
+/* Prism-tinted glow — the depth layer the monogram floats over. Colours
+   pulled straight from the hero prism so the reveal feels continuous. */
+.v21pl-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(120vw, 1100px);
+  height: min(120vw, 1100px);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(0, 132, 255, 0.55) 0%,
+      rgba(0, 70, 216, 0.32) 26%,
+      rgba(214, 0, 90, 0.22) 48%,
+      transparent 70%);
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+/* Hairline seam running along the split line. */
+.v21pl-seam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 640px);
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  z-index: 4;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(111, 211, 255, 0.9) 22%,
+    #ffffff 50%,
+    rgba(111, 211, 255, 0.9) 78%,
+    transparent 100%);
+  box-shadow: 0 0 18px rgba(111, 211, 255, 0.7);
+  will-change: transform, opacity;
+}
+
+/* Centred core — fades + lifts away at the burst. */
+.v21pl-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  will-change: transform, opacity;
+}
+
+.v21pl-mark {
+  display: block;
+  width: clamp(72px, 11vw, 120px);
+  height: auto;
+  filter: drop-shadow(0 0 22px rgba(111, 211, 255, 0.45));
+}
+/* hidden start state declared in CSS so the first paint (before GSAP's set()
+   in the effect) never flashes the fully-drawn mark / open word. */
+.v21pl-mark path { stroke-dashoffset: 1; }
+
+.v21pl-word {
+  font-family: var(--mono);
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  text-indent: 0.42em;             /* compensate trailing letter-spacing */
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);    /* wipes open under GSAP */
+}
+
+.v21pl-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+}
+.v21pl-bar {
+  position: relative;
+  width: clamp(120px, 16vw, 200px);
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  border-radius: 1px;
+}
+.v21pl-bar-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #6fd3ff, #ffffff);
+  box-shadow: 0 0 10px rgba(111, 211, 255, 0.6);
+}
+.v21pl-count {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .v21pl-core { gap: 20px; }
+  .v21pl-word { font-size: 11px; letter-spacing: 0.34em; text-indent: 0.34em; }
+}
+
+/* prefers-reduced-motion: GSAP runs the calm cross-fade variant; soften the
+   glow so the brief still-frame reads quietly. */
+@media (prefers-reduced-motion: reduce) {
+  .v21pl-glow { filter: blur(80px); opacity: 0.4; }
+  .v21pl-seam { box-shadow: none; }
+}
+
+/* ---------- HERO ENTRANCE HOLD ----------
+   While the preloader is on screen it adds .v21-intro-hold to .v21-page,
+   freezing the hero's CSS entrance near t=0 (behind the opaque panels).
+   Removing the class at the cinemascope split lets the rise/scale-in play
+   out THROUGH the opening — the same motion language, continued. */
+.v21-page.v21-intro-hold .v21-line > span,
+.v21-page.v21-intro-hold .v21-showreel,
+.v21-page.v21-intro-hold .v21-big-video,
+.v21-page.v21-intro-hold .v21-contact-card {
+  animation-play-state: paused;
+}
+
+/* Reduced motion: the hero never animates in — show its final state at once
+   (the preloader can't "release" an entrance that should not run). */
+@media (prefers-reduced-motion: reduce) {
+  .v21-line > span,
+  .v21-showreel,
+  .v21-big-video,
+  .v21-contact-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* =====================================================================
+   V21 — Our Work
+   Part 1 looping/draggable reel + Part 2 scroll-revealed grid. Filament
+   continues here in a darker blue, wiping the "Our" word.
+   ===================================================================== */
+.v21ow {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: #fff;
+  padding-top: clamp(72px, 9vw, 140px);
+  padding-bottom: clamp(80px, 10vw, 150px);
+  overflow: hidden;
+}
+
+/* darker-blue filament variant */
+.v21-filament.-ow .v21-filament-path {
+  filter: drop-shadow(0 0 9px rgba(40, 120, 210, 0.42));
+}
+
+/* ---------- HEADER ---------- */
+.v21ow-header {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.v21ow-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  align-self: start;
+  padding-top: 12px;
+}
+.v21ow-eyebrow-tick {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #3f93d8;
+  box-shadow: 0 0 12px rgba(63, 147, 216, 0.7);
+}
+.v21ow-title {
+  grid-column: 2;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+/* darker blue fill for the wiped word (vs the brighter Featured cyan) */
+.v21ow-title-word {
+  --v21-wipe: 0%;
+  --v21-lit: #2f86d8;
+  background-image: linear-gradient(
+    90deg,
+    var(--v21-lit) 0%,
+    var(--v21-lit) var(--v21-wipe),
+    currentColor var(--v21-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* "work" wipes the same way as "OUR" — both fill as the line crosses them */
+.v21ow-title em {
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: rgba(255, 255, 255, 0.92);
+  --v21-wipe: 0%;
+  --v21-lit: #2f86d8;
+  background-image: linear-gradient(
+    90deg,
+    var(--v21-lit) 0%,
+    var(--v21-lit) var(--v21-wipe),
+    currentColor var(--v21-wipe),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.v21ow-lede {
+  grid-column: 2;
+  margin: clamp(14px, 1.4vw, 22px) 0 0;
+  max-width: 46ch;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 820px) {
+  .v21ow-header { grid-template-columns: 1fr; gap: 14px; }
+  .v21ow-title,
+  .v21ow-lede { grid-column: 1; }
+}
+
+/* ---------- PART 1: looping draggable reel ---------- */
+.v21ow-slider {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  margin-bottom: clamp(72px, 9vw, 132px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+/* when two reels stack, keep the first one tight against the reverse row */
+.v21ow-slider + .v21ow-slider {
+  margin-top: clamp(18px, 2.2vw, 34px);
+}
+.v21ow-slider:has(+ .v21ow-slider) {
+  margin-bottom: 0;
+}
+.v21ow-slider.is-dragging { cursor: grabbing; }
+
+.v21ow-track {
+  display: flex;
+  gap: clamp(14px, 1.6vw, 26px);
+  width: max-content;
+  list-style: none;
+  margin: 0;
+  padding: 0 clamp(14px, 1.6vw, 26px);
+  will-change: transform;
+}
+.v21ow-slide {
+  flex: 0 0 auto;
+  width: clamp(248px, 26vw, 420px);
+  user-select: none;
+}
+.v21ow-slide-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0a0a0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+/* Direct-child fallback (single-img tiles). Scoped with `>` so we don't
+   collide with the dual-layer .v21ow-im-h / .v21ow-im-hv img rules below. */
+.v21ow-slide-media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(.2, .8, .2, 1);
+}
+.v21ow-slide:hover .v21ow-slide-media > img { transform: scale(1.07); }
+.v21ow-slide-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
+}
+.v21ow-slide-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 12px;
+}
+.v21ow-slide-client {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.v21ow-slide-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.v21ow-slide-tag {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(63, 147, 216, 0.9);
+}
+.v21ow-slide img { pointer-events: none; }
+
+.v21ow-drag-hint {
+  display: block;
+  text-align: center;
+  margin-top: clamp(22px, 3vw, 40px);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- PART 2: scroll-parallax archive (Skiper30-style) ----------
+   Four columns translate vertically at different rates as the section
+   scrolls through the viewport. Mirrors the source layout: 175vh frame,
+   2vw padding/gap, columns at 25% width with a 250px minimum, each column
+   sitting at a different negative top so the parallax always has runway.
+   Background stays transparent so the filament still threads through. */
+.v21ow-parallax {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  height: 175vh;
+  gap: 2vw;
+  padding: 2vw;
+  overflow: hidden;
+  background: transparent;
+  /* Isolate paint so column translations don't invalidate the rest of the page. */
+  contain: layout paint;
+}
+.v21ow-pcol {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  /* Force a dedicated compositor layer from frame 0 so framer's translateY
+     is a GPU transform from the very first scroll event, not a paint. */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+/* base GPU-layer hint comes from the tilt transform below */
+.v21ow-pcol--1 { top: -45%; }
+.v21ow-pcol--2 { top: -95%; }
+.v21ow-pcol--3 { top: -45%; }
+.v21ow-pcol--4 { top: -75%; }
+
+.v21ow-ptile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+.v21ow-ptile img {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* On narrow screens the 4× min-width(250px) row overflows. Drop the parallax
+   runway and fall back to a clean stacked archive so phones get something
+   coherent rather than a sideways-scrollable scene. */
+@media (max-width: 900px) {
+  .v21ow-parallax {
+    height: auto;
+    flex-direction: column;
+    overflow: visible;
+    padding: 4vw 0;
+    gap: 14px;
+  }
+  .v21ow-pcol,
+  .v21ow-pcol--1,
+  .v21ow-pcol--2,
+  .v21ow-pcol--3,
+  .v21ow-pcol--4 {
+    top: 0;
+    transform: none !important;
+    min-width: 0;
+    width: 100%;
+    gap: 14px;
+  }
+  .v21ow-ptile { aspect-ratio: 4 / 3; height: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v21ow-parallax { height: auto; flex-direction: column; overflow: visible; padding: 4vw 0; gap: 14px; }
+  .v21ow-pcol { top: 0; transform: none !important; min-width: 0; width: 100%; }
+  .v21ow-ptile { aspect-ratio: 4 / 3; height: auto; }
+}
+
+/* =====================================================================
+   V21 — Magnetic "READ MORE" cursor
+   ===================================================================== */
+body.has-magnetic-cursor [data-cursor="read-more"] { cursor: none; }
+body.has-magnetic-cursor [data-cursor="read-more"] * { cursor: none; }
+
+/* lock page scroll while drawer is open; restored by component */
+html.is-drawer-open,
+html.is-drawer-open body { overflow: hidden !important; }
+
+.v21cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #0c0c10;
+  color: #fff;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transform set by JS — only animate size + color */
+  transition:
+    width 0.32s cubic-bezier(.2, .8, .2, 1),
+    height 0.32s cubic-bezier(.2, .8, .2, 1),
+    background 0.32s ease;
+  will-change: transform, width, height;
+}
+.v21cursor.is-active {
+  width: 96px;
+  height: 96px;
+  background: #0c0c10;
+}
+.v21cursor-label {
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(2px);
+  transition:
+    opacity 0.22s ease 0.12s,
+    transform 0.32s cubic-bezier(.2, .8, .2, 1) 0.05s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.v21cursor.is-active .v21cursor-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================================
+   V21 — Project drawer (right-side slide-in)
+   ===================================================================== */
+.v21pd-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9000;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+.v21pd-backdrop.is-open { opacity: 1; }
+
+.v21pd-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(820px, 80vw);
+  background: #0c0c10;
+  color: #fff;
+  z-index: 9001;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.48s cubic-bezier(.2, .8, .2, 1);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+}
+.v21pd-panel.is-open {
+  transform: translate3d(0, 0, 0);
+}
+@media (max-width: 760px) {
+  .v21pd-panel { width: 100vw; }
+}
+
+.v21pd-head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px clamp(20px, 3vw, 36px);
+  background: rgba(12, 12, 16, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 2;
+}
+.v21pd-eyebrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v21pd-eyebrow strong {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+.v21pd-close {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.v21pd-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.v21pd-hero {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #050507;
+  overflow: hidden;
+}
+.v21pd-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.v21pd-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+
+.v21pd-body {
+  padding: clamp(28px, 4vw, 56px) clamp(24px, 4vw, 56px) 80px;
+  max-width: 760px;
+}
+.v21pd-title {
+  font-family: var(--display, "Space Grotesk", sans-serif);
+  font-weight: 800;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 12px;
+}
+.v21pd-tagline {
+  font-family: var(--display, "Space Grotesk", sans-serif);
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0 0 26px;
+}
+.v21pd-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 30px;
+}
+.v21pd-services li {
+  list-style: none;
+  font-family: var(--mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+.v21pd-intro {
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.84);
+  margin: 0 0 36px;
+}
+.v21pd-section {
+  margin: 28px 0;
+}
+.v21pd-section h3 {
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(127, 208, 255, 0.85);
+  margin: 0 0 12px;
+}
+.v21pd-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.v21pd-section li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 10px;
+}
+.v21pd-section li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #6fd3ff, #3f93d8);
+}
+.v21pd-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+.v21pd-result {
+  list-style: none;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+.v21pd-result-metric {
+  display: block;
+  font-family: var(--display, "Space Grotesk", sans-serif);
+  font-weight: 800;
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.v21pd-result-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.62);
+}
+.v21pd-gallery {
+  margin-top: 40px;
+  display: grid;
+  gap: 14px;
+}
+.v21pd-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.v21pd-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 48px;
+  padding: 16px 22px;
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.v21pd-next:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.v21pd-next em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* tile interactive affordance — the parallax tile is now a <button>; strip
+   browser chrome but inherit the .v21ow-ptile background (don't override it). */
+.v21ow-ptile-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+.v21ow-ptile-link:focus-visible {
+  outline: 2px solid #6fd3ff;
+  outline-offset: 2px;
+}
+.v21ow-ptile,
+.v21ow-slide { cursor: pointer; }
+body.has-magnetic-cursor .v21ow-ptile,
+body.has-magnetic-cursor .v21ow-slide,
+body.has-magnetic-cursor .v21ow-ptile *,
+body.has-magnetic-cursor .v21ow-slide * { cursor: none; }
+
+/* =====================================================================
+   V21 — cursor-driven 3D tilt on Our Work tiles
+   ---------------------------------------------------------------------
+   useTileTilt writes --tilt-rx / --tilt-ry / --tilt-s on the hovered
+   tile; this rule composes them into a perspective+rotate+scale.
+   .is-tilting → fast transition for snappy follow.
+   No class      → long ease so the tile glides back flat on leave.
+   ===================================================================== */
+.v21ow-ptile,
+.v21ow-slide {
+  --tilt-rx: 0deg;
+  --tilt-ry: 0deg;
+  --tilt-s: 1;
+  transform:
+    perspective(900px)
+    rotateX(var(--tilt-rx))
+    rotateY(var(--tilt-ry))
+    scale(var(--tilt-s));
+  transform-origin: center center;
+  transition: transform 0.55s cubic-bezier(.2, .8, .2, 1);
+  will-change: transform;
+}
+.v21ow-ptile.is-tilting,
+.v21ow-slide.is-tilting {
+  transition: transform 0.12s linear;
+  z-index: 3; /* lift above neighbours while tilting so edges aren't clipped */
+}
+
+/* =====================================================================
+   V21 — Frosted-glass pill (slides up on tile hover)
+   ---------------------------------------------------------------------
+   A pill-shaped piece of frosted glass anchored to the bottom-centre of
+   each card. Hidden below the tile's overflow:hidden edge when idle;
+   slides up + fades in on hover. backdrop-filter blurs the image behind
+   it so the pill genuinely reads as glass, not opaque paint.
+   ===================================================================== */
+.v21ow-glass-pill {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(14px, 1.8vw, 22px);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px 11px 20px;
+  border-radius: 999px;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  /* glass surface */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 55%,
+      rgba(255, 255, 255, 0.10) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.42),
+    0 0 22px rgba(111, 211, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  /* idle: hidden below the tile edge */
+  opacity: 0;
+  transform: translate3d(-50%, calc(100% + 24px), 0) scale(0.94);
+  transition:
+    opacity 0.34s cubic-bezier(.2, .8, .2, 1),
+    transform 0.52s cubic-bezier(.2, .8, .2, 1);
+  will-change: transform, opacity;
+}
+.v21ow-glass-pill-arrow {
+  flex: 0 0 auto;
+  transform: translate3d(-4px, 0, 0);
+  opacity: 0.75;
+  transition: transform 0.35s cubic-bezier(.2, .8, .2, 1) 0.08s,
+              opacity 0.25s ease 0.1s;
+}
+
+/* Hover state — pill rises into view, arrow nudges right */
+.v21ow-ptile:hover .v21ow-glass-pill,
+.v21ow-ptile:focus-visible .v21ow-glass-pill,
+.v21ow-slide:hover .v21ow-glass-pill,
+.v21ow-slide:focus-visible .v21ow-glass-pill {
+  opacity: 1;
+  transform: translate3d(-50%, 0, 0) scale(1);
+}
+.v21ow-ptile:hover .v21ow-glass-pill-arrow,
+.v21ow-slide:hover .v21ow-glass-pill-arrow {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/* Reel slide variant — the pill sits inside .v21ow-slide-media (4/3 box) */
+.v21ow-slide-media .v21ow-glass-pill {
+  bottom: 14px;
+  padding: 9px 14px 9px 16px;
+  font-size: 10px;
+}
+
+/* Reduced-motion: just fade, no slide */
+@media (prefers-reduced-motion: reduce) {
+  .v21ow-glass-pill {
+    transform: translate3d(-50%, 0, 0) scale(1);
+    transition: opacity 0.25s ease;
+  }
+}
+
+/* =====================================================================
+   V21 — Studio-Clim-style dual-layer card hover
+   ---------------------------------------------------------------------
+   Two stacked image layers per tile:
+     .v21ow-im-h   = base. Idle visible, blurs + scales up on hover.
+     .v21ow-im-hv  = overlay. Hidden by an ellipse(0% 0% …) clip-path at
+                     rest; on hover the ellipse expands while the layer
+                     rotates 150°. The inner <img> counter-rotates -150°
+                     so the picture stays upright but the *portal* spins
+                     into place. Pure CSS, no JS.
+
+   Easing token: --ease-clim (matches Studio Clim's signature).
+   Durations: blur 0.6s · clip-path 1s · scale + rotation 1.4s.
+   ===================================================================== */
+.v21ow-parallax,
+.v21ow-slider { --ease-clim: cubic-bezier(.55, 0, .1, 1); }
+
+.v21ow-im-h,
+.v21ow-im-hv {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+}
+.v21ow-im-h {
+  z-index: 1;
+  transition: filter 0.6s var(--ease-clim);
+}
+.v21ow-im-h img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 1.4s var(--ease-clim);
+  pointer-events: none;
+  user-select: none;
+}
+
+.v21ow-im-hv {
+  z-index: 2;
+  clip-path: ellipse(0% 0% at 50% 50%);
+  transform: rotate(0deg);
+  transition:
+    clip-path 1s var(--ease-clim),
+    transform 1.4s var(--ease-clim);
+}
+.v21ow-im-hv img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(0deg);
+  transition: transform 1.4s var(--ease-clim);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* keep the existing tint + glass pill above both image layers */
+.v21ow-slide-tint { z-index: 3; }
+.v21ow-glass-pill { z-index: 5; }
+
+/* ── hover (works on both reel slides and parallax tiles) ── */
+.v21ow-ptile:hover .v21ow-im-h,
+.v21ow-ptile:focus-visible .v21ow-im-h,
+.v21ow-slide:hover .v21ow-im-h,
+.v21ow-slide:focus-visible .v21ow-im-h {
+  filter: blur(14px);
+}
+.v21ow-ptile:hover .v21ow-im-h img,
+.v21ow-ptile:focus-visible .v21ow-im-h img,
+.v21ow-slide:hover .v21ow-im-h img,
+.v21ow-slide:focus-visible .v21ow-im-h img {
+  transform: scale(1.2);
+}
+.v21ow-ptile:hover .v21ow-im-hv,
+.v21ow-ptile:focus-visible .v21ow-im-hv,
+.v21ow-slide:hover .v21ow-im-hv,
+.v21ow-slide:focus-visible .v21ow-im-hv {
+  clip-path: ellipse(50% 35% at 50% 50%);
+  transform: rotate(150deg);
+}
+.v21ow-ptile:hover .v21ow-im-hv img,
+.v21ow-ptile:focus-visible .v21ow-im-hv img,
+.v21ow-slide:hover .v21ow-im-hv img,
+.v21ow-slide:focus-visible .v21ow-im-hv img {
+  transform: rotate(-150deg);
+}
+
+/* on reel slides the media box is smaller — tighten the ellipse so it
+   still reads as a portal instead of bleeding past the tile edges */
+.v21ow-slide-media .v21ow-im-h,
+.v21ow-slide-media .v21ow-im-hv { inset: 0; }
+.v21ow-slide:hover .v21ow-im-hv,
+.v21ow-slide:focus-visible .v21ow-im-hv {
+  clip-path: ellipse(42% 30% at 50% 50%);
+}
+
+/* touch + reduced motion fallbacks */
+@media (hover: none) {
+  .v21ow-im-hv { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v21ow-im-h,
+  .v21ow-im-h img,
+  .v21ow-im-hv,
+  .v21ow-im-hv img { transition: none !important; }
+  .v21ow-im-hv { display: none; }
+}
+
+/* CTA headline italic — override the global .ital serif fallback so
+   "bold stories" stays in the same Inter Tight italic voice the V21 hero
+   uses, matching the design reference instead of falling back to a serif. */
+.v21-page .contact-headline .ital {
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-weight: 800;
+}
+
+/* =================================================================
+   MOTION MATTERS — pinned reveal section between Featured & Our Work
+   ================================================================= */
+.v21-mm {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: #fff;
+  padding: clamp(64px, 8vw, 120px) 0;
+  overflow: hidden;
+}
+
+.v21-mm-text-box {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1280px);
+  aspect-ratio: 5 / 1;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+@media (max-width: 820px) {
+  .v21-mm-text-box {
+    aspect-ratio: 3 / 1;
+    width: 94vw;
+  }
+}
+
+/* Flow-current background. Mounted at the work-lane level BEFORE the
+   filament, so it paints behind it (the drawn line stays on top). Fixed to
+   the viewport and faded in only over the MOTION MATTERS section. Screen
+   blend means it can only add light — it never darkens the filament. */
+.v21-mm-flow {
+  position: fixed;
+  inset: 0;
+  /* <canvas> is a replaced element: with inset:0 alone it falls back to its
+     intrinsic 300x150. Force it to fill the viewport. */
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.v21-mm-flow--static {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 45%,
+    rgba(95, 185, 255, 0.06),
+    transparent 70%
+  );
+}
+
+/* =====================================================================
+   V21 — Featured Work · "See all N films" affordance + reel gallery
+   The pill sits on cards that own a multi-film reel; a click expands the
+   card in place (FLIP) into the .v21pg gallery — a featured player plus
+   the project's films grouped by type.
+   ===================================================================== */
+
+/* ---------- "See all N films" pill on the card ---------- */
+.v21fw-card-more {
+  position: absolute;
+  z-index: 3;
+  left: 18px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(16, 18, 26, 0.5);
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  /* hidden until the card is hovered — keeps the resting card clean */
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s cubic-bezier(.2, .8, .2, 1),
+    transform 0.4s cubic-bezier(.2, .8, .2, 1);
+  pointer-events: none;
+}
+.v21fw-card-link:hover .v21fw-card-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+.v21fw-card-more svg {
+  opacity: 0.85;
+}
+/* Touch / coarse pointers can't hover — always show the pill there. */
+@media (hover: none), (pointer: coarse) {
+  .v21fw-card-more {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- reel gallery overlay ---------- */
+.v21pg {
+  position: fixed;
+  inset: 0;
+  z-index: 9990; /* above nav (100), level with the single-video modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 3vw, 44px);
+  cursor: auto;
+}
+.v21pg-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(4, 5, 8, 0.74);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  cursor: pointer;
+  animation: v21pg-fade 0.3s ease both;
+}
+.v21pg.is-closing .v21pg-backdrop {
+  animation: v21pg-fade 0.4s ease reverse both;
+}
+@keyframes v21pg-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.v21pg-panel {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0b0c10;
+  box-shadow:
+    0 60px 140px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.v21pg-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(16px, 2vw, 24px) clamp(18px, 2.4vw, 32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.v21pg-titles {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-width: 0;
+}
+.v21pg-client {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.v21pg-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v21pg-close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.25s cubic-bezier(.2, .8, .2, 1),
+    transform 0.25s cubic-bezier(.2, .8, .2, 1),
+    border-color 0.25s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pg-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.06);
+}
+.v21pg-close:focus-visible {
+  outline: 2px solid #6fd3ff;
+  outline-offset: 3px;
+}
+
+.v21pg-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(16px, 2vw, 28px) clamp(18px, 2.4vw, 32px)
+    clamp(24px, 3vw, 40px);
+  /* the inner content fades up once the FLIP morph has begun */
+  animation: v21pg-rise 0.5s 0.08s cubic-bezier(.2, .8, .2, 1) both;
+}
+@keyframes v21pg-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* featured player */
+.v21pg-stage {
+  margin-bottom: clamp(22px, 3vw, 36px);
+}
+.v21pg-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: min(58vh, 620px);
+  background: #000;
+  overflow: hidden;
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.v21pg-frame video,
+.v21pg-frame .v21pg-yt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.v21pg-frame video {
+  object-fit: contain;
+  background: #000;
+}
+.v21pg-now {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 14px;
+}
+.v21pg-now-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(16px, 1.7vw, 22px);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.v21pg-now-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* film groups */
+.v21pg-group {
+  margin-top: clamp(20px, 2.4vw, 30px);
+}
+.v21pg-group-title {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+.v21pg-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: clamp(10px, 1.2vw, 16px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.v21pg-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.v21pg-tile-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #050608;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition:
+    box-shadow 0.3s cubic-bezier(.2, .8, .2, 1),
+    transform 0.4s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pg-tile:hover .v21pg-tile-media {
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.v21pg-tile.is-active .v21pg-tile-media {
+  box-shadow:
+    0 0 0 2px #6fd3ff,
+    0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.v21pg-tile-poster,
+.v21pg-tile-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v21pg-tile-video {
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pg-tile:hover .v21pg-tile-video {
+  opacity: 1;
+}
+.v21pg-tile-play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(16, 18, 26, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  padding-left: 2px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.3s cubic-bezier(.2, .8, .2, 1),
+    transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+.v21pg-tile:hover .v21pg-tile-play,
+.v21pg-tile.is-active .v21pg-tile-play {
+  opacity: 1;
+  transform: scale(1);
+}
+.v21pg-tile-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.v21pg-tile-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.v21pg-tile.is-active .v21pg-tile-title {
+  color: #9fe0ff;
+}
+.v21pg-tile-meta {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 560px) {
+  .v21pg-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .v21pg { padding: 0; }
+  .v21pg-panel { max-height: 100%; height: 100%; width: 100%; }
+}
+
+/* honour reduced-motion: no FLIP morph, no rise — just a clean fade */
+@media (prefers-reduced-motion: reduce) {
+  .v21pg-panel { transition: none !important; transform: none !important; }
+  .v21pg-scroll { animation: none; }
+  .v21pg-backdrop { animation: none; }
+}
+
+/* =====================================================================
+   V21ProjectModal — centred case-study modal (replaces the side drawer).
+   Opens in the middle of the screen, matching the Featured-Work lightbox:
+   blurred backdrop + a scrollable dialog with a film/hero on top.
+   ===================================================================== */
+.v21pm {
+  position: fixed;
+  inset: 0;
+  z-index: 9990; /* above nav; level with the featured lightbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 3vw, 48px);
+  cursor: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.v21pm.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+.v21pm-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(4, 5, 8, 0.74);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  cursor: pointer;
+}
+
+.v21pm-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(960px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0b0c10;
+  box-shadow:
+    0 60px 140px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  transform: translateY(18px) scale(0.98);
+  opacity: 0;
+  transition:
+    transform 0.42s cubic-bezier(.2, .8, .2, 1),
+    opacity 0.42s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pm.is-open .v21pm-dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.v21pm-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(14px, 1.8vw, 22px) clamp(18px, 2.4vw, 30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.v21pm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 0;
+}
+.v21pm-eyebrow strong {
+  color: #fff;
+  font-weight: 600;
+}
+.v21pm-close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.25s cubic-bezier(.2, .8, .2, 1),
+    transform 0.25s cubic-bezier(.2, .8, .2, 1),
+    border-color 0.25s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pm-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.06);
+}
+.v21pm-close:focus-visible {
+  outline: 2px solid #6fd3ff;
+  outline-offset: 3px;
+}
+
+.v21pm-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.v21pm-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+.v21pm-video,
+.v21pm-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.v21pm-video {
+  object-fit: contain;
+  background: #000;
+}
+.v21pm-hero {
+  object-fit: cover;
+}
+
+.v21pm-body {
+  padding: clamp(20px, 2.6vw, 34px) clamp(18px, 2.6vw, 36px)
+    clamp(28px, 3.4vw, 44px);
+}
+.v21pm-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.v21pm-tagline {
+  margin: 10px 0 0;
+  font-family: "Inter Tight", serif;
+  font-style: italic;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: rgba(255, 255, 255, 0.7);
+}
+.v21pm-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.v21pm-services li {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.v21pm-intro {
+  margin: clamp(18px, 2vw, 26px) 0 0;
+  max-width: 64ch;
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.v21pm-section {
+  margin-top: clamp(22px, 2.6vw, 34px);
+}
+.v21pm-section h3 {
+  margin: 0 0 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v21pm-section ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 9px;
+}
+.v21pm-section li {
+  font-size: clamp(14px, 1.45vw, 16px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+.v21pm-results {
+  list-style: none;
+  padding: 0 !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px !important;
+}
+.v21pm-result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.v21pm-result-metric {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: -0.03em;
+  color: #9fe0ff;
+}
+.v21pm-result-label {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.v21pm-gallery {
+  margin-top: clamp(22px, 2.6vw, 34px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.v21pm-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #050608;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.v21pm-next {
+  margin-top: clamp(26px, 3vw, 40px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s cubic-bezier(.2, .8, .2, 1);
+}
+.v21pm-next:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.v21pm-next em {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v21pm-next span {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 19px);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 560px) {
+  .v21pm { padding: 0; }
+  .v21pm-dialog { width: 100%; height: 100%; max-height: 100%; }
+  .v21pm-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v21pm,
+  .v21pm-dialog { transition: opacity 0.2s ease; }
+  .v21pm-dialog { transform: none; }
+}
+
+/* =====================================================================
+   V21 — Continuous atmosphere bloom  (palette C: near-black + 1 bloom)
+   ONE persistent cyan glow behind the work lane. Opacity rides
+   --atmo-bloom (peaks over MOTION MATTERS) + a faint --atmo-vel sparkle;
+   a slow scale swell "breathes" as you approach. Screen blend = light
+   only, never darkens. Vars are published by V21Atmosphere on <html>.
+   ===================================================================== */
+.v21-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* base of the lane: below flow-field + filament (both z-index:0, later siblings) */
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(60% 50% at 50% 50%, #6fd3ff, transparent 70%);
+  opacity: clamp(
+    0,
+    calc(0.04 + var(--atmo-bloom, 0) * 0.14 + var(--atmo-vel, 0) * 0.05),
+    0.22
+  );
+  transform: scale(calc(1 + var(--atmo-bloom, 0) * 0.08));
+  transform-origin: 50% 50%;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v21-atmosphere {
+    opacity: 0.06;
+    transform: none;
+  }
+}
