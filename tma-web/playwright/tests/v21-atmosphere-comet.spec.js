@@ -102,3 +102,51 @@ test("--atmo-vel rises while scrolling and decays to ~0 at rest", async ({ page 
   expect(moving).toBeGreaterThan(0.2);
   expect(resting).toBeLessThan(0.08);
 });
+
+const SCRUB_SETTLE_MS = 3200;
+
+test("comet head exists and stays within the filament bounds while drawing", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+
+  // Scroll into the head-draw region (just inside the work lane) where the
+  // line tip is mid-draw, so the comet is visible.
+  const lane = await laneTopDoc(page);
+  await scrollTo(page, lane + 400);
+  await page.waitForTimeout(SCRUB_SETTLE_MS);
+
+  const comet = page.locator(".v21-comet");
+  await expect(comet).toHaveCount(1);
+
+  const display = await comet.evaluate((el) => getComputedStyle(el).display);
+  expect(display).not.toBe("none");
+
+  const fil = await page.locator(".v21-filament").boundingBox();
+  const com = await comet.boundingBox();
+  expect(com).not.toBeNull();
+  const cx = com.x + com.width / 2;
+  const cy = com.y + com.height / 2;
+  expect(cx).toBeGreaterThanOrEqual(fil.x - 10);
+  expect(cx).toBeLessThanOrEqual(fil.x + fil.width + 10);
+  expect(cy).toBeGreaterThanOrEqual(fil.y - 10);
+  expect(cy).toBeLessThanOrEqual(fil.y + fil.height + 10);
+});
+
+test("reduced-motion: comet is not rendered", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+
+  const display = await page
+    .locator(".v21-comet")
+    .evaluate((el) => getComputedStyle(el).display)
+    .catch(() => "none");
+  expect(display).toBe("none");
+
+  const op = await page
+    .locator(".v21-atmosphere")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+  expect(op).toBeGreaterThan(0.03);
+  expect(op).toBeLessThan(0.12);
+});

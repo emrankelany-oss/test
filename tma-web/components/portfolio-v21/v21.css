@@ -2907,3 +2907,28 @@ body.has-magnetic-cursor .v21ow-slide * { cursor: none; }
     transform: none;
   }
 }
+
+/* =====================================================================
+   V21 — Comet head  (spark / lens-flare riding the filament draw tip)
+   White core + thin cross-flare + cyan glow. Glow blur and flare opacity
+   ride --atmo-vel (faster scroll = brighter). Positioned by V21Filament.
+   ===================================================================== */
+.v21-comet {
+  filter: drop-shadow(0 0 calc(6px + var(--atmo-vel, 0) * 10px) #6fd3ff);
+}
+.v21-comet-core {
+  fill: #eaf8ff;
+}
+.v21-comet-flare {
+  stroke: #cdeeff;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: calc(0.4 + var(--atmo-vel, 0) * 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Filament is static/fully-drawn in reduced motion; no moving focal point. */
+  .v21-comet {
+    display: none !important;
+  }
+}
