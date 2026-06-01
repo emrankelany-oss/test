@@ -82,7 +82,7 @@ export default function V21OurWork() {
                 </div>
                 <div className="v21ow-gitem-cap">
                   <span className="v21ow-gitem-client">{p.client}</span>
-                  <span className="v21ow-gitem-meta">{`${p.category} · ${p.year}`}</span>
+                  <span className="v21ow-gitem-meta">{p.year ? `${p.category} · ${p.year}` : p.category}</span>
                 </div>
               </a>
             </li>

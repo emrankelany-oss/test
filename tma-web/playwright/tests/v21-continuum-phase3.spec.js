@@ -40,7 +40,7 @@ test("gallery items reveal on scroll and open the project drawer on click", asyn
   expect(op).toBeGreaterThan(0.9);
   await page.locator(".v21ow-gitem-link").first().click();
   await page.waitForTimeout(SETTLE_MS);
-  await expect(page.locator(".v21pm")).toHaveCount(1);
+  await expect(page.locator(".v21pm")).toHaveClass(/is-open/);
 });
 
 test("reduced-motion: gallery items visible without animation", async ({ page }) => {
