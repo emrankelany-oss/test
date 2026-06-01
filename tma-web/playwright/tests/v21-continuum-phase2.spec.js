@@ -62,3 +62,16 @@ test("reduced-motion: bands are visible without animation", async ({ page }) => 
   const op = await page.locator(".v21fw-band").first().evaluate((el) => parseFloat(getComputedStyle(el).opacity));
   expect(op).toBeGreaterThan(0.95);
 });
+
+test("filament still draws across featured + no console errors on full scroll", async ({ page }) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+  const paths = await page.locator(".v21-filament-path").count();
+  expect(paths).toBeGreaterThan(0);
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
+});
