@@ -48,3 +48,25 @@ test("reduced-motion: custom cursor is not rendered", async ({ page }) => {
   await page.waitForTimeout(SETTLE_MS);
   await expect(page.locator(".v21-cursor")).toHaveCount(0);
 });
+
+test("hero is type-first: serif headline lines + framed reel inset, generous top space", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+
+  await expect(page.locator(".v21-hero .v21h-line")).toHaveCount(4);
+  await expect(page.locator(".v21-hero .v21h-reel")).toHaveCount(1);
+  const padTop = await page.locator(".v21-hero").evaluate((el) => parseFloat(getComputedStyle(el).paddingTop));
+  expect(padTop).toBeGreaterThan(90);
+  const fam = await page.locator(".v21-hero .v21h-headline").evaluate((el) => getComputedStyle(el).fontFamily.toLowerCase());
+  expect(fam).toContain("fraunces");
+});
+
+test("reduced-motion: hero headline lines are fully visible (no entrance animation)", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+  const op = await page.locator(".v21-hero .v21h-line span").first().evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+  expect(op).toBeGreaterThan(0.95);
+});
