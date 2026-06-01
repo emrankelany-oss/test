@@ -1,0 +1,30 @@
+.v22-page {
+  --v22-bg: #050d16;
+  --v22-ink: #eaf4ff;
+  --v22-lit: #6fd3ff;
+  --v22-dim: #9fc6ee;
+  --v22-line: #14324f;
+  --v22-panel: #0b2742;
+  --font-display: var(--font-inter-tight), system-ui, sans-serif;
+  --font-label: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 80% at 72% 6%, #0b2742 0%, var(--v22-bg) 62%);
+  color: var(--v22-ink);
+  font-family: var(--font-display);
+  overflow-x: clip;
+}
+
+/* split-reveal unit (used by useSplitReveal) */
+.v22-page .rv-u { display: inline-block; will-change: transform, filter, opacity; }
+
+/* section rhythm */
+.v22-section { position: relative; padding: clamp(72px, 10vw, 160px) clamp(20px, 5vw, 80px); }
+.v22-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--v22-lit);
+}
