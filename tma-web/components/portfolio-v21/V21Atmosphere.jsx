@@ -9,8 +9,8 @@ import { atmoSignal } from "./atmoSignal";
  * whole work lane that swells to its peak over MOTION MATTERS, plus a smoothed
  * scroll-velocity signal. ONE writer: each frame it computes --atmo-bloom and
  * --atmo-vel, writes them to <html> (CSS readers: the bloom layer + the comet
- * glow) and to the shared atmoSignal object (JS readers: the flow-field + the
- * filament comet).
+ * glow) and mirrors them on the shared atmoSignal object (its JS reader, the
+ * flow-field, is wired up in Task 3).
  *
  * Velocity: attack on scroll events (Lenis fires many per frame while moving,
  * so it builds toward 1 quickly), then a smooth per-frame decay back to rest
@@ -37,6 +37,9 @@ export default function V21Atmosphere() {
     let vel = 0;
 
     // Attack: each scroll event eases vel toward 1; the rAF decays it back.
+    // NOTE: depends on Lenis (SmoothScroll) re-emitting native window "scroll"
+    // events, which it does by default. If that changes, --atmo-vel flatlines
+    // to 0 (graceful — bloom/comet just stop reacting to speed).
     const onScroll = () => {
       vel = clamp01(vel + (1 - vel) * 0.4);
     };
