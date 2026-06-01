@@ -78,6 +78,9 @@ test("--atmo-bloom peaks near MOTION MATTERS and is low far away", async ({ page
 });
 
 test("--atmo-vel rises while scrolling and decays to ~0 at rest", async ({ page }) => {
+  // Two rAF-loop evaluate() calls (14 + 60 iterations) can push this past the
+  // default 30 s when all 4 workers run in parallel. Bumped to 60 s.
+  test.setTimeout(60_000);
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v21");
   await page.waitForTimeout(SETTLE_MS);
@@ -198,4 +201,34 @@ test("flow-field canvas is visible over MOTION MATTERS and hidden at the top", a
 
   expect(opMM).toBeGreaterThan(0.5);
   expect(opTop).toBeLessThan(0.5);
+});
+
+const scrollBottom = (page) =>
+  page.evaluate(() =>
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" })
+  );
+
+test("no console errors across a full scroll (mount + atmosphere + comet)", async ({ page }) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.goto("/portfolio-v21");
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
+});
+
+test("reduced-motion: no console errors, static atmosphere, no comet, no canvas", async ({ page }) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+
+  await expect(page.locator(".v21-worklane canvas.v21-mm-flow")).toHaveCount(0);
+  await expect(page.locator(".v21-worklane .v21-mm-flow--static")).toHaveCount(1);
+
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
 });
