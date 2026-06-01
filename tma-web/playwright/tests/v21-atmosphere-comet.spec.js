@@ -51,6 +51,8 @@ test("atmosphere bloom layer mounts as the first lane child (fixed, screen blend
     };
   });
   expect(order.atmoIdx).toBe(0);
+  expect(order.flowIdx).toBeGreaterThanOrEqual(1);
+  expect(order.filIdx).toBeGreaterThan(order.flowIdx);
   expect(order.atmoIdx).toBeLessThan(order.flowIdx);
   expect(order.flowIdx).toBeLessThan(order.filIdx);
 });
@@ -89,7 +91,12 @@ test("--atmo-vel rises while scrolling and decays to ~0 at rest", async ({ page 
     return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--atmo-vel")) || 0;
   });
 
-  await page.waitForTimeout(800); // rest
+  // Pump rAF frames so the per-frame decay can run, then read the value.
+  await page.evaluate(async () => {
+    for (let i = 0; i < 60; i++) {
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+  });
   const resting = await readVar(page, "--atmo-vel");
 
   expect(moving).toBeGreaterThan(0.2);
