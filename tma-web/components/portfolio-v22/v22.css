@@ -47,3 +47,21 @@
 .v22-cursor.is-active[data-kind="drag"] { width: 76px; height: 76px; }
 body.v22-has-cursor [data-cursor] { cursor: none; }
 @media (pointer: coarse) { .v22-cursor { display: none; } }
+
+/* ---- hero ---- */
+.v22-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; min-height: 92vh; }
+.v22-hero-title {
+  font-size: clamp(40px, 8.5vw, 124px); line-height: 0.95; letter-spacing: -0.025em;
+  font-weight: 600; margin: 14px 0 0; max-width: 14ch;
+}
+.v22-showreel {
+  display: inline-block; margin-top: 34px; padding: 14px 26px; border-radius: 999px;
+  background: var(--v22-lit); color: #04121f; font-family: var(--font-label);
+  font-weight: 600; text-decoration: none; letter-spacing: .01em;
+}
+.v22-dotfield { position: relative; height: min(46vh, 420px); }
+.v22-dot { position: absolute; width: 16px; height: 16px; border-radius: 999px; transform: translate3d(0,0,0); will-change: transform; }
+@media (max-width: 860px) {
+  .v22-hero { grid-template-columns: 1fr; min-height: auto; }
+  .v22-dotfield { height: 240px; }
+}
