@@ -3137,3 +3137,8 @@ html.v21-has-cursor [data-cursor="play"] { cursor: none; }
 .v21ow-gitem.is-revealed { opacity:1; transform:none; transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
 @media (max-width:760px) { .v21ow-gal { grid-template-columns:1fr; } .v21ow-gitem--offset { margin-top:0; } }
 @media (prefers-reduced-motion: reduce) { .v21ow-gitem { opacity:1; transform:none; } .v21ow-gitem-img { transform:none; } }
+
+/* Alias so v21 components referencing --font-mono resolve to the design mono. */
+.v21-page { --font-mono: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace); }
+/* Calm the inherited Contact section to the Continuum rhythm. */
+.v21-page .contact { padding-top: var(--space-act); }

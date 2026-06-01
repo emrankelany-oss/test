@@ -35,6 +35,9 @@ export default function V21OurWork() {
           onEnter: () => it.classList.add("is-revealed"),
         });
       });
+      /* Refresh so any items already in-viewport at mount-time are
+         revealed immediately (fixes headless-Playwright timing). */
+      ScrollTrigger.refresh();
     }, rootRef);
     return () => ctx.revert();
   }, [reduced]);

@@ -1,20 +1,27 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 /**
  * V21Cursor — a small lerp-followed dot that replaces the native cursor on
  * fine-pointer devices. Grows + shows a "play" glyph over [data-cursor="play"]
- * elements. Disabled entirely on touch and reduced-motion (native cursor used).
+ * elements. Disabled entirely on coarse/touch and reduced-motion (native cursor used).
  */
 export default function V21Cursor() {
   const dotRef = useRef(null);
   const reduced = usePrefersReducedMotion();
+  const [fine, setFine] = useState(false);
 
+  /* Gate 1: detect pointer capability; drives both the render and effect below. */
   useEffect(() => {
-    if (reduced) return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const isFine = !reduced && typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
+    setFine(isFine);
+  }, [reduced]);
+
+  /* Gate 2: set up rAF + listener only when the cursor div is mounted (fine=true). */
+  useEffect(() => {
+    if (!fine) return;
     const dot = dotRef.current;
     if (!dot) return;
 
@@ -46,9 +53,9 @@ export default function V21Cursor() {
       window.removeEventListener("pointermove", onMove);
       document.documentElement.classList.remove("v21-has-cursor");
     };
-  }, [reduced]);
+  }, [fine]);
 
-  if (reduced) return null;
+  if (!fine) return null;
   return (
     <div ref={dotRef} className="v21-cursor" aria-hidden="true">
       <span className="v21-cursor-label">▶</span>
