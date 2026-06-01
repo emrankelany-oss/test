@@ -450,12 +450,13 @@ export default function V21Filament({
       paintWipes(headProg * geom.headLen, tailProg * geom.tailLen);
 
       // Comet rides the furthest-drawn frontier: tail → letters (during the
-      // pin) → head. Reads the ACTUAL drawn length so the head→letters→tail
-      // handoff has no jump.
+      // pin) → head → parked at head end (head done, pin not yet begun). Reads
+      // the ACTUAL drawn length so the head→letters→tail handoff has no jump.
+      // (The slot math here mirrors the LETTERS loop above; keep them in sync.)
       let tip = null;
       if (tailProg > 0 && tailProg < 0.999) {
         tip = ptOf(tailEl, geom.tailLen, tailProg);
-      } else if (scroll >= aPinStart && scroll < aPinEnd && N > 0) {
+      } else if (scroll >= aPinStart && scroll <= aPinEnd && N > 0) {
         const cSlotW = (aPinEnd - aPinStart) / N;
         let idx = Math.floor((scroll - aPinStart) / cSlotW);
         if (idx < 0) idx = 0;
@@ -471,10 +472,13 @@ export default function V21Filament({
           const lProg = clamp01((scroll - lStart) / (slotEnd - lStart));
           tip = ptOf(letterEls[idx], geom.letterLens[idx], lProg);
         }
+        // Seam guard: at a slot/connector start the sub-progress is 0 (→ null);
+        // park the spark at the head end (= where the first letter begins) so
+        // the head→letters seam stays continuous.
+        if (!tip) tip = ptOf(headEl, geom.headLen, 1);
       } else if (headProg > 0 && headProg < 1) {
         tip = ptOf(headEl, geom.headLen, headProg);
       } else if (headProg >= 1 && scroll < aPinStart) {
-        // Head finished, letters not begun: park the spark at the head end.
         tip = ptOf(headEl, geom.headLen, 1);
       }
       placeComet(tip);

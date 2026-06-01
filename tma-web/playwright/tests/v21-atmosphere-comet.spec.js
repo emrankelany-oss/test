@@ -150,3 +150,31 @@ test("reduced-motion: comet is not rendered", async ({ page }) => {
   expect(op).toBeGreaterThan(0.03);
   expect(op).toBeLessThan(0.12);
 });
+
+test("comet rides the draw tip downward as you scroll deeper", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  const lane = await laneTopDoc(page);
+  const mm = await mmTopDoc(page);
+
+  // Comet centre measured RELATIVE to the filament/lane top, so it reflects
+  // how far the line has drawn (not just page scroll).
+  const offsetAt = async (top) => {
+    await scrollTo(page, top);
+    await page.waitForTimeout(SCRUB_SETTLE_MS);
+    return page.evaluate(() => {
+      const c = document.querySelector(".v21-comet");
+      const f = document.querySelector(".v21-filament");
+      if (!c || !f || getComputedStyle(c).display === "none") return null;
+      const cb = c.getBoundingClientRect();
+      const fb = f.getBoundingClientRect();
+      return cb.top + cb.height / 2 - fb.top;
+    });
+  };
+
+  const near = await offsetAt(lane + 200);
+  const far = await offsetAt(Math.max(lane + 1200, mm - 500));
+  expect(near).not.toBeNull();
+  expect(far).not.toBeNull();
+  expect(far).toBeGreaterThan(near + 30); // tip descended along the line
+});
