@@ -8,20 +8,25 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function SmoothScroll() {
+// Defaults preserve the original behavior so existing pages (V20/V22) are
+// unaffected. V21 passes calmer values for a weighted, premium feel.
+export default function SmoothScroll({ duration = 1.1, lerp } = {}) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
-    const lenis = new Lenis({
-      duration: 1.1,
+    const opts = {
+      duration,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       smoothTouch: false,
       touchMultiplier: 1.2,
-    });
+    };
+    if (typeof lerp === "number") opts.lerp = lerp;
+
+    const lenis = new Lenis(opts);
 
     const onScroll = () => ScrollTrigger.update();
     lenis.on("scroll", onScroll);
@@ -37,7 +42,7 @@ export default function SmoothScroll() {
       gsap.ticker.remove(tick);
       lenis.destroy();
     };
-  }, []);
+  }, [duration, lerp]);
 
   return null;
 }
