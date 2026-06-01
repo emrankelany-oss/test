@@ -178,3 +178,24 @@ test("comet rides the draw tip downward as you scroll deeper", async ({ page }) 
   expect(far).not.toBeNull();
   expect(far).toBeGreaterThan(near + 30); // tip descended along the line
 });
+
+test("flow-field canvas is visible over MOTION MATTERS and hidden at the top", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+
+  await scrollTo(page, 0);
+  await page.waitForTimeout(SETTLE_MS + 500);
+  const opTop = await page
+    .locator(".v21-worklane canvas.v21-mm-flow")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+
+  const mm = await mmTopDoc(page);
+  await scrollTo(page, mm + 450);
+  await page.waitForTimeout(SETTLE_MS + 500);
+  const opMM = await page
+    .locator(".v21-worklane canvas.v21-mm-flow")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+
+  expect(opMM).toBeGreaterThan(0.5);
+  expect(opTop).toBeLessThan(0.5);
+});
