@@ -3,6 +3,7 @@ import ClientShell from "@/components/shell/ClientShell";
 import SmoothScroll from "@/components/portfolio/SmoothScroll";
 import V22Cursor from "@/components/portfolio-v22/V22Cursor";
 import V22Hero from "@/components/portfolio-v22/V22Hero";
+import V22Marquee from "@/components/portfolio-v22/V22Marquee";
 import "@/components/portfolio-v22/v22.css";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function PortfolioV22Page() {
       <ClientShell enableScrolledNav />
       <Nav />
       <V22Hero />
+      <V22Marquee />
     </main>
   );
 }

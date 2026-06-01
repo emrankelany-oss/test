@@ -65,3 +65,12 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
   .v22-hero { grid-template-columns: 1fr; min-height: auto; }
   .v22-dotfield { height: 240px; }
 }
+
+/* ---- velocity marquee ---- */
+.v22-marquee { overflow: hidden; border-block: 1px solid var(--v22-line); padding: 22px 0; }
+.v22-marquee-track { display: inline-flex; white-space: nowrap; will-change: transform; }
+.v22-marquee-item {
+  display: inline-flex; align-items: center; gap: 28px; padding-inline: 14px;
+  font-size: clamp(20px, 3vw, 40px); font-weight: 600; letter-spacing: -0.01em; color: var(--v22-dim);
+}
+.v22-marquee-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--v22-lit); }
