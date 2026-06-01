@@ -11,6 +11,7 @@ import V22FeaturedWork from "@/components/portfolio-v22/V22FeaturedWork";
 import V22Capabilities from "@/components/portfolio-v22/V22Capabilities";
 import V22WorkArchive from "@/components/portfolio-v22/V22WorkArchive";
 import V22Impact from "@/components/portfolio-v22/V22Impact";
+import V22Preloader from "@/components/portfolio-v22/V22Preloader";
 import "@/components/portfolio-v22/v22.css";
 
 export const metadata = {
@@ -22,6 +23,7 @@ export const metadata = {
 export default function PortfolioV22Page() {
   return (
     <main className="v22-page">
+      <V22Preloader />
       <SmoothScroll />
       <V22Cursor />
       <V22ProjectModal />

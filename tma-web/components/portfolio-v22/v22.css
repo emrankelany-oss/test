@@ -144,3 +144,12 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-stat-value { font-size: clamp(40px, 7vw, 96px); line-height: 1; font-weight: 600; letter-spacing: -0.03em; color: var(--v22-lit); font-variant-numeric: tabular-nums; }
 .v22-stat-label { color: var(--v22-dim); font-size: 14px; max-width: 22ch; }
 @media (max-width: 860px) { .v22-stat-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---- preloader ---- */
+.v22-preloader {
+  position: fixed; inset: 0; z-index: 10000; background: var(--v22-bg);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: clamp(20px, 5vw, 60px); will-change: transform;
+}
+.v22-preloader-mark { font-family: var(--font-label); font-weight: 600; letter-spacing: -0.01em; color: var(--v22-ink); }
+.v22-preloader-count { font-size: clamp(48px, 14vw, 200px); font-weight: 600; color: var(--v22-lit); font-variant-numeric: tabular-nums; line-height: 1; }
