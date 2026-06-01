@@ -88,8 +88,10 @@ bloom = clamp(1 − |mmCenter − viewportCenter| / (1.2 × vh), 0, 1)
 Ramps up as MM approaches, holds at peak through the pin, falls off after. No hard edges. If the MM section element is absent (resize/SSR race), `bloom = 0`.
 
 ### Velocity — `--atmo-vel`
-- `raw = |scrollY − lastScrollY|` per frame, normalized so ≈ 40 px/frame maps to 1.0.
-- Lerped toward the target: **0.08 when idle, 0.15 when actively scrolling** (Obsidian active-vs-idle gain). Decays to 0 at rest.
+- **Attack** on `scroll` events: each event eases the value a fraction toward 1 (`vel += (1 − vel) × 0.4`). Lenis fires many scroll events per frame while moving, so it builds to ~1 quickly during active scrolling — a more reliable "user is scrolling" signal than per-frame `scrollY` deltas (which Lenis smooths away).
+- **Decay** in the rAF loop: a smooth per-frame lerp toward 0 (`vel += (0 − vel) × 0.08`), floored to 0 below 0.001. This keeps the tail 60fps-smooth (important — the comet glow reads this), and `--atmo-vel` is written every frame so the decay is reflected continuously.
+
+> Mechanism note: an earlier draft computed velocity purely from per-rAF `|Δscroll|`. That proved unreliable under Lenis smooth-scroll (deltas too small/variable), so the design uses scroll-event attack + rAF decay, which achieves the same intent — a smoothed, weighted velocity that rises with scrolling and eases back to rest.
 
 ### Flow-field — `V21FlowField` (reused)
 - Particle glow target adds `--atmo-vel` (consistent with the comet).
@@ -117,8 +119,8 @@ Ramps up as MM approaches, holds at peak through the pin, falls off after. No ha
 
 ## Performance
 - **One** `requestAnimationFrame` loop. Bloom reads CSS vars (no React re-renders). Comet is a single `getPointAtLength` per frame.
-- The loop **pauses via `IntersectionObserver`** when the work-lane is off-screen.
-- Shares Lenis's RAF where possible; no competing tickers. Always cleaned up via `gsap.context().revert()` / observer disconnect on unmount.
+- The atmosphere loop is **O(1) per frame** (one `getBoundingClientRect` + two `style.setProperty` writes), so it runs continuously. An `IntersectionObserver` pause was evaluated and deemed unnecessary — the per-frame cost is negligible and the gating added fragility for no measurable benefit.
+- No competing tickers. Always cleaned up on unmount (cancel RAF, remove the scroll listener, remove the CSS props, zero the shared signal); the filament keeps its existing `gsap.context().revert()`.
 
 ---
 
