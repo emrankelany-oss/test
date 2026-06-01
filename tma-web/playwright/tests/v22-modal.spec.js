@@ -7,6 +7,7 @@ test("project modal opens from a programmatic open and closes on Escape", async 
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText(/Foodics/i);
+  await expect(page.locator(".v22-modal-card :focus")).toHaveCount(1);
   await page.keyboard.press("Escape");
   await expect(dialog).toHaveCount(0);
 });

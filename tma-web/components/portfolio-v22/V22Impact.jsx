@@ -40,7 +40,7 @@ export default function V22Impact() {
 
   return (
     <section ref={rootRef} className="v22-section v22-impact">
-      <p className="v22-eyebrow">Impact · Foodics case study</p>
+      <h2 className="v22-eyebrow">Impact · Foodics case study</h2>
       <div className="v22-stat-grid">
         {IMPACT.map((item) => (
           <div key={item.label} className="v22-stat">

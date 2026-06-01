@@ -63,7 +63,7 @@ export default function V22FeaturedWork() {
   const [lead, ...rest] = FEATURED;
   return (
     <section id="v22-featured" className="v22-section v22-featured">
-      <p className="v22-eyebrow">Selected work</p>
+      <h2 className="v22-eyebrow">Selected work</h2>
       {lead ? <LeadTile project={lead} /> : null}
       <div className="v22-feat-grid">
         {rest.map((p) => <GridTile key={p.slug} project={p} />)}

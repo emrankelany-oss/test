@@ -27,7 +27,7 @@ export default function V22Capabilities() {
 
   return (
     <section ref={rootRef} className="v22-section v22-caps">
-      <p className="v22-eyebrow">How we work</p>
+      <h2 className="v22-eyebrow">How we work</h2>
       <div className="v22-cap-grid">
         {CAPABILITIES.map((c) => (
           <article key={c.key} className="v22-cap-card" data-skin={c.key}>
