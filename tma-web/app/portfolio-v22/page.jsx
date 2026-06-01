@@ -5,6 +5,7 @@ import V22Cursor from "@/components/portfolio-v22/V22Cursor";
 import V22Hero from "@/components/portfolio-v22/V22Hero";
 import V22Marquee from "@/components/portfolio-v22/V22Marquee";
 import V22FeaturedWork from "@/components/portfolio-v22/V22FeaturedWork";
+import V22Capabilities from "@/components/portfolio-v22/V22Capabilities";
 import V22ProjectModal from "@/components/portfolio-v22/V22ProjectModal";
 import "@/components/portfolio-v22/v22.css";
 
@@ -25,6 +26,7 @@ export default function PortfolioV22Page() {
       <V22Hero />
       <V22Marquee />
       <V22FeaturedWork />
+      <V22Capabilities />
     </main>
   );
 }

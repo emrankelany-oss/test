@@ -104,3 +104,19 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-feat-title { font-size: clamp(28px, 5vw, 64px); line-height: 0.98; letter-spacing: -0.02em; font-weight: 600; margin: 0; }
 .v22-feat-title-sm { font-size: clamp(18px, 2.4vw, 26px); margin: 0; font-weight: 600; }
 .v22-feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+
+/* ---- capabilities ---- */
+.v22-caps { border-top: 1px solid var(--v22-line); }
+.v22-cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+.v22-cap-card {
+  border: 1px solid var(--v22-line); border-radius: 16px; padding: 32px;
+  background: linear-gradient(160deg, var(--v22-panel), #071320);
+  clip-path: inset(0 0 100% 0); opacity: 0; transition: clip-path .7s ease, opacity .7s ease;
+}
+.v22-cap-card.is-in { clip-path: inset(0 0 0 0); opacity: 1; }
+.v22-cap-title { font-size: clamp(24px, 3vw, 40px); margin: 0; letter-spacing: -0.02em; }
+.v22-cap-card[data-skin="creativity"] .v22-cap-title { color: var(--v22-lit); }
+.v22-cap-card[data-skin="collaboration"] .v22-cap-title { color: #9544FF; }
+.v22-cap-card[data-skin="craftsmanship"] .v22-cap-title { color: #00ff49; }
+.v22-cap-body { color: var(--v22-dim); line-height: 1.6; margin: 14px 0 0; }
+@media (max-width: 860px) { .v22-cap-grid { grid-template-columns: 1fr; } }
