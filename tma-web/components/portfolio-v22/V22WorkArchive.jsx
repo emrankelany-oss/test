@@ -1,19 +1,37 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
-import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { useMemo, useRef, useState } from "react";
 import { PROJECTS } from "./projects";
 import { openProject } from "./useProjectModal";
 
-if (typeof window !== "undefined") gsap.registerPlugin(Draggable);
-
 const baseCategory = (p) => (p.category || "Other").split(/[·\-—]/)[0].trim();
+
+function ArchItem({ project }) {
+  const videoRef = useRef(null);
+  const onEnter = () => { const v = videoRef.current; if (v && v.play) v.play().catch(() => {}); };
+  const onLeave = () => { const v = videoRef.current; if (v) v.pause(); };
+  return (
+    <button
+      className="v22-arch-card"
+      data-cursor="view" data-cursor-label="See project"
+      onMouseEnter={onEnter} onMouseLeave={onLeave}
+      onClick={(e) => openProject(project.slug, e.currentTarget)}
+    >
+      <span className="v22-eyebrow v22-arch-label">{project.client} · {project.category}</span>
+      <span className="v22-arch-card-title">{project.title}</span>
+      <span className="v22-arch-media">
+        {project.video ? (
+          <video ref={videoRef} src={project.video} poster={project.thumb} muted loop playsInline preload="none" />
+        ) : (
+          <img src={project.thumb} alt="" loading="lazy" />
+        )}
+      </span>
+    </button>
+  );
+}
 
 export default function V22WorkArchive() {
   const [active, setActive] = useState("All");
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const railRef = useRef(null);
-  const trackRef = useRef(null);
 
   const categories = useMemo(() => {
     const set = new Set(PROJECTS.map(baseCategory));
@@ -24,24 +42,6 @@ export default function V22WorkArchive() {
     () => (active === "All" ? PROJECTS : PROJECTS.filter((p) => baseCategory(p) === active)),
     [active]
   );
-
-  useEffect(() => {
-    const track = trackRef.current, rail = railRef.current;
-    if (!track || !rail) return;
-    if (window.matchMedia("(pointer: coarse)").matches) return; // native scroll on touch
-    const bounds = () => {
-      const min = Math.min(0, rail.clientWidth - track.scrollWidth);
-      return { minX: min, maxX: 0 };
-    };
-    gsap.set(track, { x: 0 });
-    const drag = Draggable.create(track, {
-      type: "x", inertia: false, bounds: bounds(),
-      cursor: "grab", activeCursor: "grabbing",
-    })[0];
-    const onResize = () => drag.applyBounds(bounds());
-    window.addEventListener("resize", onResize);
-    return () => { window.removeEventListener("resize", onResize); drag.kill(); };
-  }, [visible.length]);
 
   return (
     <section className="v22-section v22-arch">
@@ -72,20 +72,8 @@ export default function V22WorkArchive() {
         </div>
       </header>
 
-      <div ref={railRef} className="v22-arch-rail" data-cursor="drag" data-cursor-label="Drag">
-        <div ref={trackRef} className="v22-arch-track">
-          {visible.map((p) => (
-            <button
-              key={p.slug}
-              className="v22-arch-card"
-              onClick={(e) => openProject(p.slug, e.currentTarget)}
-            >
-              <div className="v22-arch-media"><img src={p.thumb} alt="" loading="lazy" /></div>
-              <span className="v22-eyebrow">{p.client}</span>
-              <span className="v22-arch-card-title">{p.title}</span>
-            </button>
-          ))}
-        </div>
+      <div className="v22-arch-list">
+        {visible.map((p) => <ArchItem key={p.slug} project={p} />)}
       </div>
     </section>
   );

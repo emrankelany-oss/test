@@ -25,7 +25,7 @@ export default function V22Hero() {
           data-cursor="view"
           data-cursor-label="Showreel"
         >
-          ▶ Watch the reel
+          Watch the reel
         </a>
       </div>
       <V22DotField />

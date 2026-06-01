@@ -16,14 +16,36 @@ export function useSplitReveal(ref, { by = "chars", stagger = 0.025, start = "to
     }
     el.setAttribute("aria-label", original);
     el.textContent = "";
-    const units = by === "words" ? original.split(/(\s+)/) : Array.from(original);
-    const spans = units.map((u) => {
-      const span = document.createElement("span");
-      span.className = "rv-u";
-      span.setAttribute("aria-hidden", "true");
-      span.textContent = u === " " ? " " : u;
-      el.appendChild(span);
-      return span;
+    // Split on whitespace but KEEP whole words together so a word never breaks
+    // mid-line. Each word is wrapped in a non-wrapping .rv-w; the actual spaces
+    // are emitted as real text nodes so lines still break between words.
+    const spans = [];
+    original.split(/(\s+)/).forEach((token) => {
+      if (token.length === 0) return;
+      if (/^\s+$/.test(token)) {
+        el.appendChild(document.createTextNode(token));
+        return;
+      }
+      if (by === "words") {
+        const span = document.createElement("span");
+        span.className = "rv-u";
+        span.setAttribute("aria-hidden", "true");
+        span.textContent = token;
+        el.appendChild(span);
+        spans.push(span);
+        return;
+      }
+      const word = document.createElement("span");
+      word.className = "rv-w";
+      word.setAttribute("aria-hidden", "true");
+      Array.from(token).forEach((ch) => {
+        const span = document.createElement("span");
+        span.className = "rv-u";
+        span.textContent = ch;
+        word.appendChild(span);
+        spans.push(span);
+      });
+      el.appendChild(word);
     });
     const tween = gsap.from(spans, {
       yPercent: 45, opacity: 0, filter: "blur(12px)", scale: 0.92,
