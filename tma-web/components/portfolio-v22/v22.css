@@ -196,6 +196,9 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-sr-tile-title { font-size: clamp(16px, 1.5vw, 20px); font-weight: 400; }
 
 /* ---- showreel (orbit mode — pinned choreography) ---- */
+/* drop section padding + float the heading so the 100vh stage fills and centres */
+.v22-showreel[data-mode="orbit"] { padding-top: 0; padding-bottom: 0; }
+.v22-showreel[data-mode="orbit"] > .v22-eyebrow { position: absolute; top: clamp(20px, 5vw, 60px); left: clamp(20px, 5vw, 80px); margin: 0; z-index: 5; }
 .v22-showreel[data-mode="orbit"] .v22-sr-stage { position: relative; display: block; height: 100vh; margin: 0; overflow: hidden; }
 .v22-showreel[data-mode="orbit"] .v22-sr-group { position: absolute; inset: 0; display: block; gap: 0; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card { position: absolute; display: block; gap: 0; }

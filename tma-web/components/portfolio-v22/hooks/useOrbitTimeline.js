@@ -24,9 +24,10 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       const vw = window.innerWidth, vh = window.innerHeight;
       const rx = Math.min(vw * 0.28, 400);
       const ry = Math.min(vh * 0.24, 210);
-      const portraitW = Math.min(vw * 0.20, 280), portraitH = Math.min(vh * 0.52, 460);
-      const landW = Math.min(vw * 0.34, 520), landH = Math.min(vh * 0.34, 300);
-      const gap = Math.min(vw * 0.13, 220);
+      // Big, prominent intro cards that fill the centered viewport.
+      const portraitW = Math.min(vw * 0.27, 400), portraitH = Math.min(vh * 0.7, 660);
+      const landW = Math.min(vw * 0.38, 560), landH = Math.min(vh * 0.36, 320);
+      const gap = Math.min(vw * 0.16, 280);
 
       const center = { xPercent: -50, yPercent: -50, left: "50%", top: "50%" };
       gsap.set([foodics.card, zid.card], { ...center });
@@ -41,7 +42,10 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
         scrollTrigger: {
-          trigger: section, start: "top top", end: "+=550%",
+          // Pin off the stage itself so it locks flush to the viewport top and
+          // the cards sit dead-centre (the section's padding/heading no longer
+          // offset the pinned stage downward).
+          trigger: stage, start: "top top", end: "+=550%",
           pin: stage, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
           onUpdate: (self) => {
             const t = self.progress * tl.duration();
@@ -51,10 +55,11 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         },
       });
 
-      // P1: morph to landscape + zid slides behind foodics
+      // P1: morph to landscape + zid slides BEHIND foodics and fully hides
+      // (autoAlpha 0) so it never bleeds through during the Foodics sequence.
       tl.to([foodics.card, zid.card], { width: landW, height: landH, duration: 1 }, "morph")
         .to(foodics.card, { x: 0, duration: 1 }, "morph")
-        .to(zid.card, { x: 0, scale: 0.92, autoAlpha: 0.4, duration: 1 }, "morph");
+        .to(zid.card, { x: 0, scale: 0.92, autoAlpha: 0, duration: 1 }, "morph");
 
       // P2: foodics shrinks; 7 films fan to the ring
       const fpos = ringPositions(foodics.tiles.length, { rx, ry });
@@ -73,8 +78,9 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       foodics.tiles.forEach((t) => {
         tl.to(t, { x: 0, y: 0, scale: 0.4, autoAlpha: 0, duration: 1 }, "collapseF");
       });
-      tl.to(foodics.card, { scale: 0.4, autoAlpha: 0, duration: 1 }, "collapseF")
-        .to(zid.card, { autoAlpha: 1, scale: 1, zIndex: 4, duration: 1 }, "collapseF");
+      tl.to(foodics.card, { scale: 0.4, autoAlpha: 0, duration: 1 }, "collapseF");
+      // Zid only appears AFTER Foodics has fully cleared (not concurrently).
+      tl.to(zid.card, { autoAlpha: 1, scale: 1, zIndex: 4, duration: 1 }, "collapseF+=0.9");
 
       // P5: zid to center + fan its 2 films
       const zpos = ringPositions(zid.tiles.length, { rx, ry });
