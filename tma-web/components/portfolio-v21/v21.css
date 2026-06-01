@@ -3122,3 +3122,18 @@ html.v21-has-cursor [data-cursor="play"] { cursor: none; }
   .v21fw-band-poster { transform:none; }
   .v21fw-band-inner { top:0; height:100%; }
 }
+
+/* ---- Our Work · airy 2-up editorial gallery (Continuum Phase 3) ----------- */
+.v21ow-gal { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,1fr); column-gap:clamp(32px,4vw,80px); row-gap:var(--space-block); }
+.v21ow-gitem--offset { margin-top: clamp(48px,8vw,140px); }
+.v21ow-gitem-link { display:block; text-decoration:none; color: var(--v21-ink,#f3f5f8); }
+.v21ow-gitem-media { position:relative; width:100%; aspect-ratio:4/3; border-radius:14px; overflow:hidden; background:#0b0e13; border:1px solid rgba(111,211,255,.08); }
+.v21ow-gitem-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.04); transition:transform 1.0s cubic-bezier(.2,.8,.2,1); will-change:transform; }
+.v21ow-gitem-link:hover .v21ow-gitem-img { transform:scale(1.0); }
+.v21ow-gitem-cap { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-top:clamp(12px,1.2vw,18px); }
+.v21ow-gitem-client { font-family:var(--v21-serif,Georgia,serif); font-size:clamp(18px,1.8vw,28px); }
+.v21ow-gitem-meta { font-family:var(--mono,ui-monospace,monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--v21-mut,#8b93a0); }
+.v21ow-gitem { opacity:0; transform:translateY(36px); }
+.v21ow-gitem.is-revealed { opacity:1; transform:none; transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+@media (max-width:760px) { .v21ow-gal { grid-template-columns:1fr; } .v21ow-gitem--offset { margin-top:0; } }
+@media (prefers-reduced-motion: reduce) { .v21ow-gitem { opacity:1; transform:none; } .v21ow-gitem-img { transform:none; } }

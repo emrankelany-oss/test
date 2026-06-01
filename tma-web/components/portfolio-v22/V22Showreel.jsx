@@ -12,6 +12,7 @@ function FilmTile({ film }) {
   return (
     <button
       className="v22-sr-tile"
+      data-kind={film.kind}
       data-cursor="view" data-cursor-label="Play"
       onMouseEnter={enter} onMouseLeave={leave}
       onClick={() => openFilm(film)}

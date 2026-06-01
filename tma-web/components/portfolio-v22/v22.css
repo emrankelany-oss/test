@@ -204,3 +204,16 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tiles { display: contents; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(130px, 12vw, 190px); gap: 6px; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tile-media { aspect-ratio: 16 / 9; }
+
+/* tiles/cards are only clickable while a ring is held (not mid-scrub) */
+.v22-showreel[data-mode="orbit"] .v22-sr-card,
+.v22-showreel[data-mode="orbit"] .v22-sr-tile { pointer-events: none; }
+.v22-showreel[data-mode="orbit"].is-hold .v22-sr-card,
+.v22-showreel[data-mode="orbit"].is-hold .v22-sr-tile { pointer-events: auto; }
+
+/* youtube tiles get a play glyph badge */
+.v22-sr-tile[data-kind="youtube"] .v22-sr-tile-media { position: relative; }
+.v22-sr-tile[data-kind="youtube"] .v22-sr-tile-media::after {
+  content: "\25B6"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.6); pointer-events: none;
+}

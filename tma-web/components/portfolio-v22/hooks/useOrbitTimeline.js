@@ -36,11 +36,18 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         gsap.set(tiles, { ...center, x: 0, y: 0, scale: 0.4, autoAlpha: 0, zIndex: 3 })
       );
 
+      const holds = [];
+
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
         scrollTrigger: {
           trigger: section, start: "top top", end: "+=550%",
           pin: stage, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const t = self.progress * tl.duration();
+            const inHold = holds.some(([a, b]) => t >= a && t <= b);
+            section.classList.toggle("is-hold", inHold);
+          },
         },
       });
 
@@ -57,7 +64,9 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       });
 
       // P3: hold
+      const _hs0 = tl.duration();
       tl.to({}, { duration: 0.6 });
+      holds.push([_hs0, tl.duration()]);
 
       // P4: collapse foodics + reveal zid
       tl.addLabel("collapseF");
@@ -75,7 +84,9 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       });
 
       // P6: hold then release
+      const _hs1 = tl.duration();
       tl.to({}, { duration: 0.6 });
+      holds.push([_hs1, tl.duration()]);
     }, section);
 
     let resizeTimer = 0;
@@ -89,7 +100,10 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", onResize);
       ctx.revert();
-      if (section) section.dataset.mode = "static";
+      if (section) {
+        section.dataset.mode = "static";
+        section.classList.remove("is-hold");
+      }
     };
   }, [sectionRef, enabled]);
 }

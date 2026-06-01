@@ -29,12 +29,13 @@ test("clicking a film tile opens the lightbox", async ({ page }) => {
   const section = page.locator("#v22-featured");
   const mode = await section.getAttribute("data-mode");
   if (mode === "orbit") {
-    // In orbit mode tiles start hidden; scroll to the fan phase so tiles are visible
+    // Scroll into the Foodics hold window (~progress 0.47 of the 550% pin range)
+    // so is-hold is active and tiles have pointer-events:auto before clicking.
     const top = await section.evaluate((el) => window.scrollY + el.getBoundingClientRect().top);
-    await page.evaluate((y) => window.scrollTo(0, y + window.innerHeight * 2.2), top);
+    await page.evaluate((y) => window.scrollTo(0, y + window.innerHeight * 2.7), top);
     await page.waitForTimeout(800);
     const tile = page.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile").first();
-    await tile.click({ force: true });
+    await tile.click();
   } else {
     await page.locator(".v22-sr-tile").first().scrollIntoViewIfNeeded();
     await page.locator(".v22-sr-tile").first().click();
