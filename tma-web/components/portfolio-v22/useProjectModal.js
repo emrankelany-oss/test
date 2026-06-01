@@ -16,16 +16,9 @@ export function openProject(slug, triggerEl) {
 }
 
 // Expose at module evaluation time so window.__v22OpenProject is available
-// as soon as this chunk executes (before React hydration completes).
-// Also drain any queued calls registered by the beforeInteractive stub.
+// as soon as this chunk executes (debug / Playwright affordance only).
 if (typeof window !== "undefined") {
   window.__v22OpenProject = openProject;
-  // Flush any calls that arrived before this module loaded.
-  const queue = window.__v22OpenProjectQueue;
-  if (Array.isArray(queue)) {
-    queue.forEach(([slug, el]) => openProject(slug, el));
-    window.__v22OpenProjectQueue = null;
-  }
 }
 export function closeProject() {
   openSlug = null;
