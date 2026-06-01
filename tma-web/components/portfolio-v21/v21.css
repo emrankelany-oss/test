@@ -2969,3 +2969,39 @@ body.has-magnetic-cursor .v21ow-slide * { cursor: none; }
 @media (prefers-reduced-motion: reduce) {
   .v21-grain { display: none; }
 }
+
+/* Custom cursor — fixed dot, blends over the dark canvas. Native cursor is
+   hidden only when the custom one is active (fine pointer, no reduced-motion). */
+.v21-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(243, 245, 248, 0.9);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s cubic-bezier(.2,.8,.2,1), height 0.3s cubic-bezier(.2,.8,.2,1), background 0.3s ease;
+  will-change: transform;
+}
+.v21-cursor .v21-cursor-label {
+  font-size: 11px;
+  color: #060708;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.v21-cursor.is-play {
+  width: 58px;
+  height: 58px;
+  background: var(--v21-cy);
+  mix-blend-mode: normal;
+}
+.v21-cursor.is-play .v21-cursor-label { opacity: 1; }
+html.v21-has-cursor,
+html.v21-has-cursor a,
+html.v21-has-cursor [data-cursor="play"] { cursor: none; }

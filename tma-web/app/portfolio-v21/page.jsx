@@ -24,8 +24,9 @@ export const metadata = {
 export default function PortfolioV21Page() {
   return (
     <main className="v21-page">
-      <SmoothScroll />
       <V21Cursor />
+      <div className="v21-grain" aria-hidden="true" />
+      <SmoothScroll duration={1.3} lerp={0.08} />
       <V21ProjectModal />
       <V21Preloader />
       <ClientShell enableScrolledNav />
