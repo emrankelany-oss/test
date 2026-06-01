@@ -205,14 +205,26 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card-media { width: 100%; height: 100%; aspect-ratio: auto; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card-label { display: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tiles { display: contents; }
-.v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(130px, 12vw, 190px); gap: 6px; }
+.v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(160px, 14.5vw, 240px); gap: 8px; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tile-media { aspect-ratio: 16 / 9; }
+.v22-showreel[data-mode="orbit"] .v22-sr-tile-title { font-size: clamp(15px, 1.3vw, 19px); }
 
-/* tiles/cards are only clickable while a ring is held (not mid-scrub) */
+/* tiles/cards are clickable as soon as they're visible (GSAP autoAlpha hides
+   off-state tiles via visibility:hidden, so only on-screen tiles take clicks). */
 .v22-showreel[data-mode="orbit"] .v22-sr-card,
-.v22-showreel[data-mode="orbit"] .v22-sr-tile { pointer-events: none; }
-.v22-showreel[data-mode="orbit"].is-hold .v22-sr-card,
-.v22-showreel[data-mode="orbit"].is-hold .v22-sr-tile { pointer-events: auto; }
+.v22-showreel[data-mode="orbit"] .v22-sr-tile { pointer-events: auto; }
+
+/* flanking gallery words (orbit only): CLIENT left, GALLERY right of the card */
+.v22-sr-word { display: none; }
+.v22-showreel[data-mode="orbit"] .v22-sr-word {
+  display: block; position: absolute;
+  font-family: var(--font-display); font-weight: 400; line-height: 0.9;
+  font-size: clamp(24px, 3vw, 56px); letter-spacing: -0.02em; text-transform: uppercase;
+  color: var(--v22-ink); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.85);
+}
+.v22-showreel[data-mode="orbit"] .v22-sr-word-l { left: clamp(20px, 4vw, 90px); }
+.v22-showreel[data-mode="orbit"] .v22-sr-word-r { right: clamp(20px, 4vw, 90px); }
 
 /* youtube tiles get a play glyph badge */
 .v22-sr-tile[data-kind="youtube"] .v22-sr-tile-media { position: relative; }

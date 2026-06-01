@@ -52,6 +52,8 @@ export default function V22Showreel() {
       <div className="v22-sr-stage">
         {SHOWREEL.map((proj) => (
           <div key={proj.slug} className="v22-sr-group" data-slug={proj.slug}>
+            <span className="v22-sr-word v22-sr-word-l" aria-hidden="true">{proj.client}</span>
+            <span className="v22-sr-word v22-sr-word-r" aria-hidden="true">Gallery</span>
             <button
               className="v22-sr-card"
               data-cursor="view" data-cursor-label="See project"

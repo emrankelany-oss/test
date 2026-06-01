@@ -29,23 +29,18 @@ test("clicking a film tile opens the lightbox", async ({ page }) => {
   const section = page.locator("#v22-featured");
   const mode = await section.getAttribute("data-mode");
   if (mode === "orbit") {
-    // Step-scroll through the pinned range until the section enters a hold
-    // (is-hold → tiles get pointer-events) AND a Foodics tile is fully faded in.
-    // Robust to timeline-duration changes (no hard-coded scroll offset).
+    // Step-scroll (Lenis needs a real settle) through the Foodics fan range until
+    // a Foodics tile is fully faded in — tiles are clickable whenever visible.
     const top = await section.evaluate((el) => window.scrollY + el.getBoundingClientRect().top);
     const tile = page.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile").first();
-    // Lenis smooth-scroll needs a real settle, so use coarse steps with a 500ms
-    // wait across the Foodics-hold range until is-hold is active and a tile is
-    // faded in. Robust to timeline-duration shifts (no single magic offset).
     let ready = false;
-    for (const mult of [1.8, 2.0, 2.2, 2.4, 2.6, 2.8]) {
+    for (const mult of [1.6, 1.9, 2.2, 2.5, 2.8]) {
       if (ready) break;
       await page.evaluate(({ y, m }) => window.scrollTo(0, y + window.innerHeight * m), { y: top, m: mult });
       await page.waitForTimeout(500);
       ready = await page.evaluate(() => {
-        const sec = document.querySelector("#v22-featured");
         const t = document.querySelector(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile");
-        return sec.classList.contains("is-hold") && parseFloat(getComputedStyle(t).opacity) > 0.6;
+        return parseFloat(getComputedStyle(t).opacity) > 0.6;
       });
     }
     expect(ready).toBe(true);
