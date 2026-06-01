@@ -32,6 +32,13 @@ test("custom cursor mounts and follows the pointer (desktop)", async ({ page }) 
   const cursor = page.locator(".v21-cursor");
   await expect(cursor).toHaveCount(1);
 
+  // On touch/coarse-pointer viewports the cursor renders but intentionally
+  // does NOT set up the pointermove listener (production guard: `pointer: fine`).
+  // Skip the movement delta check on those contexts; the mount assertion above
+  // is sufficient structural coverage.
+  const isFinePointer = await page.evaluate(() => window.matchMedia("(pointer: fine)").matches);
+  if (!isFinePointer) return;
+
   await page.mouse.move(300, 300);
   await page.waitForTimeout(120);
   const a = await cursor.evaluate((el) => el.getBoundingClientRect());
@@ -69,4 +76,13 @@ test("reduced-motion: hero headline lines are fully visible (no entrance animati
   await page.waitForTimeout(SETTLE_MS);
   const op = await page.locator(".v21-hero .v21h-line span").first().evaluate((el) => parseFloat(getComputedStyle(el).opacity));
   expect(op).toBeGreaterThan(0.95);
+});
+
+test("no console errors across a full scroll", async ({ page }) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.goto("/portfolio-v21");
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
 });
