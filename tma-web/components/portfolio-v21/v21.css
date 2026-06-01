@@ -3012,12 +3012,20 @@ html.v21-has-cursor [data-cursor="play"] { cursor: none; }
   z-index: 1;
   min-height: 92vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: visible;
   padding-top: clamp(120px, 16vh, 220px);
   padding-bottom: var(--space-block);
   color: var(--v21-ink);
 }
-.v21-hero-inner { width: var(--measure); }
+.v21-hero-inner {
+  width: var(--measure);
+  margin-inline: auto;
+  display: block;
+  flex: none;
+}
 .v21h-kicker {
   font-family: var(--font-mono, ui-monospace, monospace);
   font-size: 12px;
