@@ -24,7 +24,38 @@ test("showreel section mounts with both cards and all films as tiles", async ({ 
 
 test("clicking a film tile opens the lightbox", async ({ page }) => {
   await page.goto("/portfolio-v22");
-  await page.locator(".v22-sr-tile").first().scrollIntoViewIfNeeded();
-  await page.locator(".v22-sr-tile").first().click();
+  // Wait briefly for React hydration so data-mode may update to "orbit"
+  await page.waitForTimeout(600);
+  const section = page.locator("#v22-featured");
+  const mode = await section.getAttribute("data-mode");
+  if (mode === "orbit") {
+    // In orbit mode tiles start hidden; scroll to the fan phase so tiles are visible
+    const top = await section.evaluate((el) => window.scrollY + el.getBoundingClientRect().top);
+    await page.evaluate((y) => window.scrollTo(0, y + window.innerHeight * 2.2), top);
+    await page.waitForTimeout(800);
+    const tile = page.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile").first();
+    await tile.click({ force: true });
+  } else {
+    await page.locator(".v22-sr-tile").first().scrollIntoViewIfNeeded();
+    await page.locator(".v22-sr-tile").first().click();
+  }
   await expect(page.getByRole("dialog")).toBeVisible();
+});
+
+test("desktop: section pins and Foodics films reach the ring on scroll", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v22");
+  const section = page.locator("#v22-featured");
+  await expect(section).toHaveAttribute("data-mode", "orbit");
+  const top = await section.evaluate((el) => window.scrollY + el.getBoundingClientRect().top);
+  await page.evaluate((y) => window.scrollTo(0, y + 1), top);
+  await page.waitForTimeout(400);
+  const box1 = await page.locator(".v22-sr-stage").boundingBox();
+  await page.evaluate((y) => window.scrollTo(0, y + window.innerHeight * 2.2), top);
+  await page.waitForTimeout(800);
+  const box2 = await page.locator(".v22-sr-stage").boundingBox();
+  expect(Math.abs(box2.y - box1.y)).toBeLessThan(40); // pinned: stage stays put
+  const visible = await page.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile")
+    .evaluateAll((els) => els.filter((e) => parseFloat(getComputedStyle(e).opacity) > 0.6).length);
+  expect(visible).toBeGreaterThan(0);
 });
