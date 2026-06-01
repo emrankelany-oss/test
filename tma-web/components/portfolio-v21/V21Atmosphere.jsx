@@ -10,7 +10,7 @@ import { atmoSignal } from "./atmoSignal";
  * scroll-velocity signal. ONE writer: each frame it computes --atmo-bloom and
  * --atmo-vel, writes them to <html> (CSS readers: the bloom layer + the comet
  * glow) and mirrors them on the shared atmoSignal object (its JS reader, the
- * flow-field, is wired up in Task 3).
+ * flow-field, reads it for its speed + visibility).
  *
  * Velocity: attack on scroll events (Lenis fires many per frame while moving,
  * so it builds toward 1 quickly), then a smooth per-frame decay back to rest

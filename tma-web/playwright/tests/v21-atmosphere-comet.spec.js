@@ -232,3 +232,45 @@ test("reduced-motion: no console errors, static atmosphere, no comet, no canvas"
   await page.waitForTimeout(SETTLE_MS);
   expect(errors).toEqual([]);
 });
+
+test("reduced-motion: static flow wash is visible over MOTION MATTERS", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+
+  const mm = await mmTopDoc(page);
+  await scrollTo(page, mm + 200);
+  // Wait for the IntersectionObserver callback to fire and the CSS opacity
+  // transition to complete (transition is 0.45s; under load allow up to 3s).
+  await page.waitForFunction(
+    () => {
+      const el = document.querySelector(".v21-worklane .v21-mm-flow--static");
+      return el && parseFloat(getComputedStyle(el).opacity) > 0.5;
+    },
+    { timeout: 3000 }
+  );
+  const op = await page
+    .locator(".v21-worklane .v21-mm-flow--static")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+  expect(op).toBeGreaterThan(0.5);
+});
+
+test("bloom layer rendered opacity rises near MOTION MATTERS (normal motion)", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+
+  await scrollTo(page, 0);
+  await page.waitForTimeout(SETTLE_MS);
+  const opTop = await page
+    .locator(".v21-atmosphere")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+
+  const mm = await mmTopDoc(page);
+  await scrollTo(page, mm + 450);
+  await page.waitForTimeout(SETTLE_MS);
+  const opMM = await page
+    .locator(".v21-atmosphere")
+    .evaluate((el) => parseFloat(getComputedStyle(el).opacity));
+
+  expect(opMM).toBeGreaterThan(opTop);
+});
