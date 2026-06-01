@@ -18,11 +18,13 @@ const TRAIL_FADE = 0.06;
  * layer, so it paints BEHIND the filament: the scroll-drawn line and the
  * "MOTION MATTERS" tracing always sit clearly on TOP of it.
  *
- * Visibility is driven by the section's on-screen rect each frame (NOT a
- * ScrollTrigger). The section is pinned for +=200%, and a ScrollTrigger keyed
- * to its natural height would flip inactive ~one viewport before the pin
- * actually releases — which made the background vanish mid-draw. Reading the
- * live rect keeps it visible for the entire time the section is on screen.
+ * Visibility and speed come from the shared atmosphere signal (atmoSignal,
+ * written by V21Atmosphere) — NOT a local rect read or ScrollTrigger. The
+ * canvas fades in while --atmo-bloom is up (which peaks over MOTION MATTERS
+ * and stays up for the whole pin) and its current reacts to --atmo-vel, so it
+ * breathes in sync with the bloom and the filament comet (one writer, many
+ * readers). A bloom gate also pre-fades the canvas in as MM approaches rather
+ * than snapping on at the viewport edge.
  *
  * Hard rule: this layer never alters the filament — mix-blend-mode: screen
  * (adds light only) plus a black trail-fade (a no-op under screen).
