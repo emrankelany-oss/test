@@ -30,8 +30,8 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
 
       const center = { xPercent: -50, yPercent: -50, left: "50%", top: "50%" };
       gsap.set([foodics.card, zid.card], { ...center });
-      gsap.set(foodics.card, { width: portraitW, height: portraitH, x: -gap, autoAlpha: 1, zIndex: 2 });
-      gsap.set(zid.card, { width: portraitW, height: portraitH, x: gap, autoAlpha: 1, zIndex: 1 });
+      gsap.set(foodics.card, { width: portraitW, height: portraitH, x: -gap, y: 0, autoAlpha: 1, zIndex: 2 });
+      gsap.set(zid.card, { width: portraitW, height: portraitH, x: gap, y: 0, autoAlpha: 1, zIndex: 1 });
       data.forEach(({ tiles }) =>
         gsap.set(tiles, { ...center, x: 0, y: 0, scale: 0.4, autoAlpha: 0, zIndex: 3 })
       );
@@ -78,10 +78,15 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       tl.to({}, { duration: 0.6 });
     }, section);
 
-    const onResize = () => ScrollTrigger.refresh();
+    let resizeTimer = 0;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+    };
     window.addEventListener("resize", onResize);
 
     return () => {
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", onResize);
       ctx.revert();
       if (section) section.dataset.mode = "static";

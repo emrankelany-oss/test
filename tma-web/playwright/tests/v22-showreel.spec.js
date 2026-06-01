@@ -45,6 +45,8 @@ test("clicking a film tile opens the lightbox", async ({ page }) => {
 test("desktop: section pins and Foodics films reach the ring on scroll", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/portfolio-v22");
+  const fine = await page.evaluate(() => matchMedia("(pointer: fine)").matches && matchMedia("(min-width: 861px)").matches);
+  test.skip(!fine, "orbit only on wide fine-pointer");
   const section = page.locator("#v22-featured");
   await expect(section).toHaveAttribute("data-mode", "orbit");
   const top = await section.evaluate((el) => window.scrollY + el.getBoundingClientRect().top);
@@ -58,4 +60,20 @@ test("desktop: section pins and Foodics films reach the ring on scroll", async (
   const visible = await page.locator(".v22-sr-group[data-slug='foodics-boundless'] .v22-sr-tile")
     .evaluateAll((els) => els.filter((e) => parseFloat(getComputedStyle(e).opacity) > 0.6).length);
   expect(visible).toBeGreaterThan(0);
+});
+
+test("reduced motion: static gallery, no pin, all tiles present", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/portfolio-v22");
+  await expect(page.locator("#v22-featured")).toHaveAttribute("data-mode", "static");
+  await expect(page.locator(".v22-sr-tile")).toHaveCount(9);
+  await page.locator(".v22-sr-tile").first().click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+});
+
+test("mobile: static gallery renders all tiles", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/portfolio-v22");
+  await expect(page.locator("#v22-featured")).toHaveAttribute("data-mode", "static");
+  await expect(page.locator(".v22-sr-tile")).toHaveCount(9);
 });
