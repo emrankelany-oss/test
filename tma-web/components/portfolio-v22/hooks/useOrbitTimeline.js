@@ -30,17 +30,22 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       // word) and 96px bottom.
       const tileW = Math.max(190, Math.min(vw * 0.14, 250));
       const tileHalfH = (tileW * 9) / 16 / 2;
+      // Centre the whole composition in the usable band BELOW the fixed nav (not
+      // the raw viewport) so it reads visually centred with balanced margins.
+      const navSafe = 96, padB = 30;
+      const cy = (navSafe + (vh - padB)) / 2;
+      const halfUsable = (vh - padB - navSafe) / 2;
       const rx = Math.min(vw * 0.37, 560);
-      const ry = Math.max(170, Math.min((vh - 220) / 2 - tileHalfH, 300));
-      // Big, prominent intro cards.
-      const portraitW = Math.min(vw * 0.3, 460), portraitH = Math.min(vh * 0.8, 720);
+      const ry = Math.max(170, Math.min(halfUsable - tileHalfH - 14, 300));
+      // Intro cards: prominent but with breathing room (not filling full height).
+      const portraitW = Math.min(vw * 0.3, 460), portraitH = Math.min(vh * 0.66, 600);
       const landW = Math.min(vw * 0.46, 720), landH = Math.min(vh * 0.44, 420);
       const gap = Math.min(vw * 0.18, 320);
-      const cardScale = 0.6; // clear focal anchor while the films ring around it
+      const cardScale = 0.62; // clear focal anchor while the films ring around it
       const EASE = "power3.inOut";
       const FAN = "power3.out";
 
-      const center = { xPercent: -50, yPercent: -50, left: "50%", top: "50%" };
+      const center = { xPercent: -50, yPercent: -50, left: "50%", top: cy + "px" };
       gsap.set([foodics.card, zid.card], { ...center });
       gsap.set(foodics.card, { width: portraitW, height: portraitH, x: -gap, y: 0, autoAlpha: 1, zIndex: 2 });
       gsap.set(zid.card, { width: portraitW, height: portraitH, x: gap, y: 0, autoAlpha: 1, zIndex: 1 });
