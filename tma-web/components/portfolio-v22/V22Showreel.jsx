@@ -24,7 +24,6 @@ function FilmTile({ film }) {
           <img src={film.poster} alt="" loading="lazy" />
         )}
         <span className="v22-sr-tile-scrim" aria-hidden="true" />
-        <span className="v22-sr-tile-play" aria-hidden="true">▶</span>
         <span className="v22-sr-tile-meta">
           <span className="v22-sr-tile-tag">{film.group}</span>
           <span className="v22-sr-tile-title">{film.title}</span>

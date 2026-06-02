@@ -202,16 +202,7 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-sr-tile-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.12) 44%, rgba(0,0,0,0) 72%); pointer-events: none; }
 .v22-sr-tile-meta { position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 4px; }
 .v22-sr-tile-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--v22-lit); }
-.v22-sr-tile-title { font-size: clamp(16px, 1.4vw, 20px); font-weight: 400; color: #fff; line-height: 1.05; }
-.v22-sr-tile-play {
-  position: absolute; top: 50%; left: 50%; width: 56px; height: 56px;
-  transform: translate(-50%, -50%) scale(.9); border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.55); background: rgba(0,0,0,.18); backdrop-filter: blur(3px);
-  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; padding-left: 3px;
-  opacity: .92; pointer-events: none;
-  transition: transform .4s cubic-bezier(.16,1,.3,1), background .4s ease, color .4s ease, border-color .4s ease;
-}
-.v22-sr-tile:hover .v22-sr-tile-play { transform: translate(-50%, -50%) scale(1.06); background: var(--v22-lit); color: #04121f; border-color: transparent; }
+.v22-sr-tile-title { font-size: clamp(17px, 1.5vw, 22px); font-weight: 400; color: #fff; line-height: 1.05; }
 
 /* ---- showreel (orbit mode — pinned choreography) ---- */
 /* drop section padding + float the heading so the 100vh stage fills and centres */
@@ -223,7 +214,7 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card-media { width: 100%; height: 100%; aspect-ratio: auto; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card-label { display: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tiles { display: contents; }
-.v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(190px, 14vw, 250px); }
+.v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(240px, 18vw, 300px); }
 
 /* tiles/cards are clickable as soon as they're visible (GSAP autoAlpha hides
    off-state tiles via visibility:hidden, so only on-screen tiles take clicks). */

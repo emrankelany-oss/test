@@ -28,7 +28,7 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       // Ring radius is derived from a SAFE AREA so tiles never clip the nav (top)
       // or the viewport bottom. tileH ≈ tileW * 9/16; reserve 110px top (nav +
       // word) and 96px bottom.
-      const tileW = Math.max(190, Math.min(vw * 0.14, 250));
+      const tileW = Math.max(240, Math.min(vw * 0.18, 300));
       const tileHalfH = (tileW * 9) / 16 / 2;
       // Centre the whole composition in the usable band BELOW the fixed nav (not
       // the raw viewport) so it reads visually centred with balanced margins.
