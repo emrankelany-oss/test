@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { WORK_GRID, isLowRes } from "./projects";
+import { WORK_GRID } from "./projects";
 import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+import { openProject } from "./useV23ProjectModal";
 
 export default function V23WorkGrid() {
   const rootRef = useRef(null);
@@ -26,12 +27,16 @@ export default function V23WorkGrid() {
           {WORK_GRID.map((cell, i) => {
             const p = cell.project;
             return (
-              <article
-                key={p.slug}
-                className={`v23-el v23-el-${cell.span}`}
-                data-cursor="blob"
-              >
-                <div className="v23-el-media" style={{ aspectRatio: cell.ratio }}>
+              <article key={p.slug} className={`v23-el v23-el-${cell.span}`}>
+                <button
+                  type="button"
+                  className="v23-el-media v23-el-open"
+                  style={{ aspectRatio: cell.ratio }}
+                  onClick={(e) => openProject(p.slug, e.currentTarget)}
+                  aria-label={`Open ${p.client} — ${p.title}`}
+                  data-cursor="blob"
+                  data-cursor-label="View"
+                >
                   <span className="v23-im">
                     {p.video ? (
                       <video
@@ -44,17 +49,12 @@ export default function V23WorkGrid() {
                         preload="none"
                         aria-hidden="true"
                       />
-                    ) : isLowRes(p.slug) ? (
-                      <span className="v23-poster" data-letter={p.client?.[0] || ""}>
-                        <span className="v23-poster-cat">{p.category}</span>
-                        <span className="v23-poster-name">{p.client}</span>
-                        <span className="v23-poster-foot">{p.title}{p.year ? ` · ${p.year}` : ""}</span>
-                      </span>
                     ) : (
-                      <img src={p.hero || p.thumb} alt={`${p.client} — ${p.title}`} loading="lazy" />
+                      <img src={cell.image} alt={`${p.client} — ${p.title}`} loading="lazy" />
                     )}
                   </span>
-                </div>
+                  <span className="v23-el-plus" aria-hidden="true" />
+                </button>
                 <div className="v23-el-cap">
                   <span className="t">{p.client} — {p.title}</span>
                   <span className="c">{p.category}</span>

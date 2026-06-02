@@ -11,7 +11,10 @@ const pick = (slugs) => slugs.map(has).filter(Boolean);
 // Projects whose only still is too low-res (≈318–489px) to fill a large cell —
 // these render as crisp designed TMA-blue poster cards instead of a blurry photo.
 // Swap a slug out the moment a high-res image is dropped into its folder.
-export const LOWRES_SLUGS = new Set([
+// These had stills too low-res to fill a large cell, so we cropped each brand's
+// real tile out of the deck (`/assets/portfolio/<slug>/deck.jpg`) to use as the
+// crisp card image. Swap a slug out once a better source image arrives.
+export const DECK_CARD_SLUGS = new Set([
   "avis",
   "electrolux",
   "almarai",
@@ -22,7 +25,11 @@ export const LOWRES_SLUGS = new Set([
   "lg-lifes-good",
   "burger-king-krispier",
 ]);
-export const isLowRes = (slug) => LOWRES_SLUGS.has(slug);
+export const hasDeckCard = (slug) => DECK_CARD_SLUGS.has(slug);
+export const deckCard = (slug) => `/assets/portfolio/${slug}/deck.jpg`;
+// resolved best card image for a project
+export const cardImage = (p) =>
+  hasDeckCard(p.slug) ? deckCard(p.slug) : p.hero || p.thumb;
 
 // ── Featured deep studies (Clim's case_info_els, scoped to ONE project) ─────
 // Each featured project renders as its own asymmetric media grid built from the
@@ -96,9 +103,21 @@ export const WORK_GRID = PROJECTS.filter((p) => !FEATURED_SLUGS.includes(p.slug)
       span === 1
         ? RATIO_FULL[i % RATIO_FULL.length]
         : RATIO_HALF[i % RATIO_HALF.length];
-    return { slug: project.slug, project, span, ratio };
+    return { slug: project.slug, project, span, ratio, image: cardImage(project) };
   }
 );
+
+// Real work images for the project modal gallery: deck crop + hero + gallery,
+// de-duplicated, in a sensible reading order.
+export const projectGallery = (p) => {
+  if (!p) return [];
+  const out = [];
+  if (hasDeckCard(p.slug)) out.push(deckCard(p.slug));
+  if (p.hero) out.push(p.hero);
+  if (Array.isArray(p.gallery)) out.push(...p.gallery);
+  if (p.thumb) out.push(p.thumb);
+  return [...new Set(out)];
+};
 
 // ── Related / More Work carousel (Clim's case_related) ──────────────────────
 // Lead with the video-led production films for motion on the cards.

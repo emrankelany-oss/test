@@ -1,6 +1,11 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("V23 — Clim-mechanics landing", () => {
+  // skip the heavy asset preloader so DOM/scroll assertions aren't blocked by it
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => { window.__V23_SKIP_PRELOADER = true; });
+  });
+
   test("no console errors on load and after a full scroll", async ({ page }) => {
     const errors = [];
     page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
@@ -106,11 +111,32 @@ test.describe("V23 — Clim-mechanics landing", () => {
     expect(srcs.join(" ")).toContain("slide8-loop");
   });
 
-  test("low-res brand projects render as designed poster cards (not blurry photos)", async ({ page }) => {
+  test("low-res brand projects use real cropped deck images, and every card is clickable", async ({ page }) => {
     await page.goto("/portfolio-v23");
-    await expect(page.locator(".v23-work .v23-poster")).toHaveCount(9);
-    await expect(page.locator(".v23-work .v23-poster-name").first()).toHaveText(/.+/);
+    // the 9 brands that were blurry now point at their cropped /deck.jpg
+    const deckImgs = await page
+      .locator(".v23-work .v23-el-open img")
+      .evaluateAll((els) => els.map((e) => e.getAttribute("src")).filter((s) => s && s.endsWith("/deck.jpg")));
+    expect(deckImgs.length).toBeGreaterThanOrEqual(9);
+    // no blurry poster fallback left
+    await expect(page.locator(".v23-work .v23-poster")).toHaveCount(0);
+    // every card opens the modal
+    await expect(page.locator(".v23-work .v23-el-open")).toHaveCount(27);
   });
+
+  test("clicking a work card opens the project modal with PDF content", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    await expect(page.locator(".v23-modal")).toHaveCount(0);
+    await page.locator(".v23-work .v23-el-open").first().dispatchEvent("click");
+    await expect(page.locator(".v23-modal")).toBeVisible();
+    await expect(page.locator(".v23-modal-title")).toHaveText(/.+/);
+    await expect(page.getByText("What we did")).toBeVisible();
+    // gallery shows real work imagery
+    expect(await page.locator(".v23-modal-gallery img").count()).toBeGreaterThan(0);
+    await page.locator(".v23-modal-scrim").dispatchEvent("click");
+    await expect(page.locator(".v23-modal")).toHaveCount(0);
+  });
+
 
   test("clicking a featured film opens the in-page lightbox", async ({ page }) => {
     await page.goto("/portfolio-v23");
@@ -133,6 +159,14 @@ test.describe("V23 — Clim-mechanics landing", () => {
       (el) => getComputedStyle(el).getPropertyValue("--mask").trim()
     );
     expect(parseFloat(mask)).toBeGreaterThan(0);
+  });
+});
+
+test.describe("V23 — preloader", () => {
+  test("premium preloader mounts, preloads, then reveals the page", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    await expect.poll(() => page.locator(".v23-preloader").count(), { timeout: 14000 }).toBe(0);
+    await expect.poll(() => page.evaluate(() => document.documentElement.style.overflow)).not.toBe("hidden");
   });
 });
 
