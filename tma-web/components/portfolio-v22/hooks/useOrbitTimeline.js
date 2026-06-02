@@ -87,20 +87,12 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         });
       };
 
-      const collapseGroup = (d, label) => {
-        d.tiles.forEach((t) => {
-          tl.to(t, { x: 0, y: 0, scale: 0.5, autoAlpha: 0, filter: "blur(16px)", duration: 1 }, label);
-        });
-        tl.to([d.wordL, d.wordR], { autoAlpha: 0, duration: 0.6 }, label);
-        tl.to(d.card, { scale: 0.42, autoAlpha: 0, duration: 1 }, label);
-      };
-
       const hold = () => tl.to({}, { duration: 0.6 });
 
       const tl = gsap.timeline({
         defaults: { ease: EASE },
         scrollTrigger: {
-          trigger: stage, start: "top top", end: "+=640%",
+          trigger: stage, start: "top top", end: "+=760%",
           pin: stage, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
         },
       });
@@ -119,17 +111,21 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       // P3 — hold
       hold();
 
-      // P4 — Foodics clears
-      collapseGroup(foodics, "collapseF");
+      // P4 — Foodics scrolls UP and out of frame as ONE rigid group (no fade, no
+      // collapse): the card + its 7 films + the words all rise away together.
+      const foodicsEls = [foodics.card, ...foodics.tiles, foodics.wordL, foodics.wordR];
+      tl.addLabel("handoff");
+      tl.to(foodicsEls, { y: "-=" + Math.round(vh * 1.3), duration: 1.6, ease: "power2.in" }, "handoff");
 
-      // P5 — Zid slides DOWN from behind Foodics into centre, then fans
+      // P5 — Zid emerges from behind the rising Foodics card and slides DOWN to
+      // settle in the centre of the fresh section, then fans its films.
+      // immediateRender:false so this "from" state doesn't stamp at build time
+      // (Zid must stay visible beside Foodics during the intro).
       tl.fromTo(
         zid.card,
-        { y: -0.22 * vh, autoAlpha: 0, scale: 0.9, zIndex: 4 },
-        // immediateRender:false — otherwise the "from" state stamps at build time
-        // and hides Zid during the intro (it must stay visible beside Foodics first).
-        { y: 0, autoAlpha: 1, scale: 1, duration: 1.4, ease: "power3.out", immediateRender: false },
-        "collapseF+=0.9"
+        { y: -0.18 * vh, autoAlpha: 0, scale: 1, zIndex: 4 },
+        { y: 0, autoAlpha: 1, scale: 1, duration: 1.5, ease: "power3.out", immediateRender: false },
+        "handoff+=0.4"
       );
       fanGroup(zid, "fanZ");
 
