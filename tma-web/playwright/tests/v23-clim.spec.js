@@ -30,10 +30,29 @@ test.describe("V23 — Clim-mechanics landing", () => {
     await expect(page.locator('[data-v23-featured="foodics-boundless"]')).toBeAttached();
     await expect(page.locator('[data-v23-featured="zid-ripple"]')).toBeAttached();
     // real films wired in: autoplay videos + youtube event-film cells + result stats
-    await expect(page.locator(".v23-feat video")).not.toHaveCount(0);
     expect(await page.locator(".v23-feat video").count()).toBeGreaterThanOrEqual(5);
     expect(await page.locator(".v23-feat .v23-im-play").count()).toBeGreaterThanOrEqual(2);
     expect(await page.locator(".v23-feat-stats li").count()).toBeGreaterThan(0);
+  });
+
+  test("each featured block shows ONE lead film and reveals the rest on 'View all'", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    // exactly one lead cell per featured block
+    await expect(page.locator(".v23-feat-lead .v23-el")).toHaveCount(2);
+    const foodics = page.locator('[data-v23-featured="foodics-boundless"]');
+    const rest = foodics.locator(".v23-feat-rest");
+    const toggle = foodics.locator(".v23-feat-more");
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(rest).toHaveAttribute("aria-hidden", "true");
+    // collapsed
+    await expect.poll(() => rest.evaluate((el) => el.getBoundingClientRect().height)).toBeLessThan(5);
+    // expand
+    await expect(page.locator(".v23-track")).toHaveAttribute("data-v23-drag", /ready|static/);
+    await toggle.dispatchEvent("click");
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(foodics).toHaveClass(/is-open/);
+    await expect(rest).toHaveAttribute("aria-hidden", "false");
+    await expect.poll(() => rest.evaluate((el) => el.getBoundingClientRect().height)).toBeGreaterThan(100);
   });
 
   test("hero headline splits into multiple lines", async ({ page }) => {
@@ -57,7 +76,7 @@ test.describe("V23 — Clim-mechanics landing", () => {
 
   test("'More information' toggles the detail reveal and grid reflow", async ({ page }) => {
     await page.goto("/portfolio-v23");
-    const btn = page.locator(".v23-more-bt");
+    const btn = page.locator(".v23-statement .v23-more-bt");
     await expect(btn).toHaveAttribute("aria-expanded", "false");
     // wait for client effects to hydrate (carousel sets this once mounted)
     await expect(page.locator(".v23-track")).toHaveAttribute("data-v23-drag", /ready|static/);

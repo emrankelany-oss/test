@@ -1,17 +1,100 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FEATURED } from "./projects";
-import { useLineReveal, useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+import { useLineReveal, useIrisReveal, useLazyAutoplayVideos } from "./useV23Reveal";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
+
+function MediaCell({ m, client, lazy = true }) {
+  if (m.kind === "youtube") {
+    return (
+      <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
+        <a
+          className="v23-im v23-im-play"
+          href={m.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Watch ${client} — ${m.title}`}
+          data-cursor="blob"
+          data-cursor-label="Watch"
+        >
+          <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
+          <span className="v23-play" aria-hidden="true" />
+        </a>
+      </div>
+    );
+  }
+  return (
+    <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
+      <span className="v23-im">
+        <video
+          {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
+          poster={m.poster}
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+      </span>
+    </div>
+  );
+}
 
 function FeaturedBlock({ data }) {
+  const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const titleRef = useRef(null);
+  const leadRef = useRef(null);
+  const restRef = useRef(null);
+
+  // lead = the first real film (autoplay video if present, else first item)
+  const leadIndex = Math.max(0, data.media.findIndex((m) => m.kind === "video"));
+  const lead = data.media[leadIndex] || data.media[0];
+  const rest = data.media.filter((_, i) => i !== leadIndex);
+
   useLineReveal(titleRef, { start: "top 85%" });
-  useIrisRevealAll(rootRef, ".v23-im");
+  useIrisReveal(leadRef, { start: "top 88%" });
   useLazyAutoplayVideos(rootRef);
 
+  const toggle = () => {
+    const next = !open;
+    setOpen(next);
+    const panel = restRef.current;
+    if (panel) {
+      if (next) {
+        panel.style.height = `${panel.scrollHeight}px`;
+        // iris-open the revealed media in a soft cascade
+        const ims = panel.querySelectorAll(".v23-im");
+        gsap.fromTo(
+          ims,
+          { "--mask": "0%" },
+          { "--mask": "75%", duration: 0.9, ease: "power3.out", stagger: 0.08 }
+        );
+        // let the panel settle to auto height, then sync ScrollTrigger/Lenis
+        const onEnd = () => {
+          panel.style.height = "auto";
+          ScrollTrigger.refresh();
+          panel.removeEventListener("transitionend", onEnd);
+        };
+        panel.addEventListener("transitionend", onEnd);
+      } else {
+        panel.style.height = `${panel.scrollHeight}px`;
+        requestAnimationFrame(() => {
+          panel.style.height = "0px";
+        });
+        ScrollTrigger.refresh();
+      }
+    }
+  };
+
   return (
-    <article className="v23-feat" ref={rootRef} data-v23-featured={data.slug}>
+    <article
+      className={`v23-feat${open ? " is-open" : ""}`}
+      ref={rootRef}
+      data-v23-featured={data.slug}
+    >
       <header className="v23-feat-head v23-grid">
         <div className="v23-feat-headl">
           <p className="v23-eyebrow">{data.client} — Featured Case</p>
@@ -34,52 +117,83 @@ function FeaturedBlock({ data }) {
         </div>
       </header>
 
+      {/* single lead film */}
       <div className="v23-grid">
-        <div className="v23-els">
-          {data.media.map((m, i) => (
-            <div
-              key={i}
-              className={`v23-el v23-el-${m.span}`}
-              data-cursor={m.kind === "youtube" ? undefined : "blob"}
+        <div className="v23-feat-lead">
+          <div className="v23-el v23-el-1">
+            <MediaCellLead m={lead} client={data.client} mediaRef={leadRef} />
+            <div className="v23-el-cap">
+              <span className="t">{lead.title}</span>
+              <span className="c">{lead.group}</span>
+            </div>
+          </div>
+        </div>
+
+        {rest.length ? (
+          <>
+            <button
+              type="button"
+              className="v23-more-bt v23-feat-more"
+              data-magnetic
+              data-cursor="blob"
+              aria-expanded={open}
+              onClick={toggle}
             >
-              <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
-                {m.kind === "youtube" ? (
-                  <a
-                    className="v23-im v23-im-play"
-                    href={m.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Watch ${data.client} — ${m.title}`}
-                    data-cursor="blob"
-                    data-cursor-label="Watch"
+              <span className="v23-more-ic" aria-hidden="true" />
+              {open ? "Hide films" : `View all ${data.media.length} films`}
+            </button>
+
+            <div className="v23-feat-rest" ref={restRef} aria-hidden={!open}>
+              <div className="v23-els">
+                {rest.map((m, i) => (
+                  <div
+                    key={i}
+                    className={`v23-el v23-el-${m.span}`}
+                    data-cursor={m.kind === "youtube" ? undefined : "blob"}
                   >
-                    <img src={m.poster} alt={`${data.client} — ${m.title}`} loading="lazy" />
-                    <span className="v23-play" aria-hidden="true" />
-                  </a>
-                ) : (
-                  <span className="v23-im">
-                    <video
-                      data-lazy
-                      data-src={m.src}
-                      poster={m.poster}
-                      muted
-                      loop
-                      playsInline
-                      preload="none"
-                      aria-hidden="true"
-                    />
-                  </span>
-                )}
-              </div>
-              <div className="v23-el-cap">
-                <span className="t">{m.title}</span>
-                <span className="c">{m.group}</span>
+                    <MediaCell m={m} client={data.client} />
+                    <div className="v23-el-cap">
+                      <span className="t">{m.title}</span>
+                      <span className="c">{m.group}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+          </>
+        ) : null}
       </div>
     </article>
+  );
+}
+
+// Lead cell renders eagerly (autoplay) and exposes the iris ref on its .v23-im.
+function MediaCellLead({ m, client, mediaRef }) {
+  if (m.kind === "youtube") {
+    return (
+      <div className="v23-el-media v23-feat-lead-media" style={{ aspectRatio: "16 / 9" }}>
+        <a
+          ref={mediaRef}
+          className="v23-im v23-im-play"
+          href={m.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Watch ${client} — ${m.title}`}
+          data-cursor="blob"
+          data-cursor-label="Watch"
+        >
+          <img src={m.poster} alt={`${client} — ${m.title}`} />
+          <span className="v23-play" aria-hidden="true" />
+        </a>
+      </div>
+    );
+  }
+  return (
+    <div className="v23-el-media v23-feat-lead-media" style={{ aspectRatio: "16 / 9" }}>
+      <span ref={mediaRef} className="v23-im">
+        <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+      </span>
+    </div>
   );
 }
 

@@ -171,6 +171,20 @@ body.v23-has-cursor.v23-dragging { cursor: none; }
 .v23-feat-stats li { display: flex; flex-direction: column; gap: 4px; }
 .v23-feat-stats .m { font-size: clamp(24px, 2.4vw, 40px); font-weight: 500; letter-spacing: -0.02em; color: var(--v23-c2); }
 .v23-feat-stats .l { font-size: clamp(11px, 0.9vw, 13px); color: var(--v23-dim); font-family: var(--font-label); line-height: 1.3; }
+/* single lead film + collapsible "view all films" */
+.v23-feat-lead { margin-bottom: 0; }
+.v23-feat-lead-media { border-radius: 4px; }
+.v23-feat-more { margin-top: clamp(20px, 3vw, 36px); }
+.v23-feat-rest {
+  height: 0; overflow: hidden; opacity: 0;
+  transition: height .55s var(--ease), opacity .55s var(--ease);
+}
+.v23-feat.is-open .v23-feat-rest { opacity: 1; }
+.v23-feat-rest .v23-els { padding-top: var(--v23-gut); }
+@media (prefers-reduced-motion: reduce) {
+  .v23-feat-rest { height: auto !important; opacity: 1 !important; transition: none !important; }
+}
+
 /* play badge on youtube/event-film cells */
 .v23-im-play { cursor: pointer; }
 .v23-play {
