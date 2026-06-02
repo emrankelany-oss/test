@@ -19,9 +19,13 @@ export default function V23WorkGrid() {
     const onMove = (e) => {
       const card = e.target.closest?.(".v23-el-open");
       if (!card || card.classList.contains("v23-im-contain")) return;
+      const r = card.getBoundingClientRect();
+      // bloom origin: cursor position as a % of the card (drives the hover layer)
+      card.style.setProperty("--mx", `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`);
+      card.style.setProperty("--my", `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`);
+      // parallax: media drifts toward the cursor
       const img = card.querySelector(".v23-im img, .v23-im video");
       if (!img) return;
-      const r = card.getBoundingClientRect();
       const mx = ((e.clientX - (r.left + r.width / 2)) / r.width) * 16;
       const my = ((e.clientY - (r.top + r.height / 2)) / r.height) * 16;
       img.style.setProperty("--xM", `${mx.toFixed(1)}px`);
@@ -83,6 +87,7 @@ export default function V23WorkGrid() {
                     ) : (
                       <img src={cell.image} alt={`${p.client} — ${p.title}`} loading="lazy" />
                     )}
+                    <span className="v23-im-hv" aria-hidden="true" />
                   </span>
                   <span className="v23-el-scrim" aria-hidden="true" />
                   <span className="v23-el-cta" aria-hidden="true">

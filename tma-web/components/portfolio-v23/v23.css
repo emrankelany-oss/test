@@ -324,10 +324,29 @@ html.v23-loading { overflow: hidden; }
   position: relative; border-radius: 6px; overflow: hidden;
   transform: translateZ(0); transition: transform .7s var(--ease), box-shadow .7s var(--ease);
 }
-.v23-im img, .v23-im video { transition: transform 1.1s cubic-bezier(.16,1,.3,1); }
+.v23-im img, .v23-im video { transition: transform 1.1s cubic-bezier(.16,1,.3,1), filter .6s var(--ease); }
 /* media eases up toward the cursor + zooms; the whole card lifts with a soft shadow */
 .v23-el-open:hover { transform: translateY(-7px); box-shadow: 0 36px 70px -28px rgba(0,0,0,.85); }
 .v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { transform: translate(var(--xM), var(--yM)) scale(1.09); }
+
+/* dual-layer reveal — our take on Clim's two-layer hover, but the second layer
+   blooms as a CIRCLE from the cursor (not a centred ellipse) and grades the
+   media vivid + TMA-blue instead of blurring. */
+.v23-im-hv {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  /* whisper of brand blue only at the bloom's leading edge */
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), transparent 52%, rgba(111,211,255,.24) 74%, rgba(43,107,255,.16) 100%);
+  mix-blend-mode: screen;
+  /* the real effect: the media punches in vivid + bright inside the bloom */
+  -webkit-backdrop-filter: saturate(1.65) brightness(1.1) contrast(1.06);
+  backdrop-filter: saturate(1.65) brightness(1.1) contrast(1.06);
+  clip-path: circle(0% at var(--mx, 50%) var(--my, 50%));
+  transition: clip-path .8s cubic-bezier(.55, 0, .1, 1);
+}
+.v23-el-open:hover .v23-im-hv { clip-path: circle(160% at var(--mx, 50%) var(--my, 50%)); }
+/* base media recedes slightly while the vivid layer takes over */
+.v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { filter: brightness(.93) saturate(.92); }
+.v23-im-contain .v23-im-hv { display: none; } /* keep logo tiles clean */
 
 /* gradient scrim fades in from the bottom */
 .v23-el-scrim {
@@ -369,7 +388,7 @@ html.v23-loading { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .v23-el-open, .v23-el-open:hover, .v23-im img, .v23-im video { transform: none !important; box-shadow: none !important; }
-  .v23-el-scrim, .v23-el-cta { display: none; }
+  .v23-el-scrim, .v23-el-cta, .v23-im-hv { display: none; }
 }
 
 /* ---- project modal -------------------------------------------------------- */
