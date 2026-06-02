@@ -33,6 +33,7 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       // Centre the whole composition in the usable band BELOW the fixed nav (not
       // the raw viewport) so it reads visually centred with balanced margins.
       const navSafe = 96, padB = 30;
+      const cx = vw / 2;
       const cy = (navSafe + (vh - padB)) / 2;
       const halfUsable = (vh - padB - navSafe) / 2;
       const rx = Math.min(vw * 0.37, 560);
@@ -52,14 +53,28 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       data.forEach(({ tiles }) =>
         gsap.set(tiles, { ...center, x: 0, y: 0, scale: 0.5, autoAlpha: 0, filter: "blur(16px)", zIndex: 3 })
       );
-      // flanking gallery words: vertically centred at the edges, hidden + nudged outward
-      // words are corner-positioned via CSS (FOODICS top-left, GALLERY bottom-right);
-      // GSAP only fades + nudges them in.
-      gsap.set([foodics.wordL, zid.wordL], { x: -50, autoAlpha: 0, zIndex: 6 });
-      gsap.set([foodics.wordR, zid.wordR], { x: 50, autoAlpha: 0, zIndex: 6 });
+      // Gallery words are positioned RELATIVE TO THE RING (set per group below in
+      // fanGroup): client name top-left of the composition, GALLERY beside the
+      // lowest film tile. Here we just set their hidden/nudged start state.
+      gsap.set([foodics.wordL, zid.wordL], { x: -50, autoAlpha: 0, zIndex: 6, right: "auto", bottom: "auto" });
+      gsap.set([foodics.wordR, zid.wordR], { x: 50, autoAlpha: 0, zIndex: 6, right: "auto", bottom: "auto" });
 
       const fanGroup = (d, label) => {
         const pos = ringPositions(d.tiles.length, { rx, ry });
+        // anchor the client word at the top-left of the ring's bounding box…
+        gsap.set(d.wordL, { left: Math.max(36, cx - rx - tileW / 2), top: navSafe + 4, yPercent: 0 });
+        // …and GALLERY just to the right of the lowest film tile ("next to" it),
+        // clamped so the word never overflows the right edge.
+        let low = 0;
+        pos.forEach((p, i) => { if (p.y > pos[low].y) low = i; });
+        const fontPx = Math.max(30, Math.min(vw * 0.039, 76));
+        const galW = fontPx * 4.8; // approx width of "GALLERY"
+        const galLeft = Math.min(cx + pos[low].x + tileW / 2 + 30, vw - 28 - galW);
+        gsap.set(d.wordR, {
+          left: Math.max(cx, galLeft),
+          top: cy + pos[low].y,
+          yPercent: -50,
+        });
         tl.to(d.card, { scale: cardScale, duration: 1.2 }, label);
         tl.to(d.wordL, { autoAlpha: 1, x: 0, duration: 1.1 }, label + "+=0.15");
         tl.to(d.wordR, { autoAlpha: 1, x: 0, duration: 1.1 }, label + "+=0.15");

@@ -60,7 +60,13 @@ export default function V22Showreel() {
               data-cursor="view" data-cursor-label="See project"
               onClick={(e) => openProject(proj.slug, e.currentTarget)}
             >
-              <span className="v22-sr-card-media"><img src={proj.poster} alt="" /></span>
+              <span className="v22-sr-card-media">
+                {proj.cardVideo ? (
+                  <video src={proj.cardVideo} poster={proj.poster} autoPlay muted loop playsInline />
+                ) : (
+                  <img src={proj.poster} alt="" />
+                )}
+              </span>
               <span className="v22-sr-card-label">
                 <span className="v22-eyebrow">{proj.client}</span>
                 <span className="v22-sr-card-title">{proj.title}</span>

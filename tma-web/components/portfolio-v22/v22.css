@@ -184,7 +184,7 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-sr-group { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 44px); }
 .v22-sr-card { appearance: none; background: transparent; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
 .v22-sr-card-media { display: block; width: min(440px, 72vw); aspect-ratio: 3 / 4; overflow: hidden; background: var(--v22-panel); }
-.v22-sr-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v22-sr-card-media img, .v22-sr-card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .v22-sr-card-label { display: flex; flex-direction: column; gap: 8px; }
 .v22-sr-card-title { font-size: clamp(30px, 5vw, 64px); font-weight: 400; letter-spacing: -0.015em; line-height: 0.98; }
 .v22-sr-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: clamp(20px, 2.6vw, 38px); }
@@ -226,10 +226,9 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-word {
   display: block; position: absolute;
   font-family: var(--font-display); font-weight: 400; line-height: 0.9;
-  font-size: clamp(32px, 4.6vw, 84px); letter-spacing: -0.025em; text-transform: uppercase;
+  font-size: clamp(30px, 3.9vw, 76px); letter-spacing: -0.025em; text-transform: uppercase;
   color: var(--v22-ink); white-space: nowrap; pointer-events: none;
   text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9);
 }
-/* opposite corners: client name top-left (below the nav), GALLERY bottom-right */
-.v22-showreel[data-mode="orbit"] .v22-sr-word-l { left: clamp(20px, 4vw, 80px); top: clamp(90px, 13vh, 124px); }
-.v22-showreel[data-mode="orbit"] .v22-sr-word-r { right: clamp(20px, 4vw, 80px); bottom: clamp(26px, 5vh, 60px); }
+/* word positions are assigned in useOrbitTimeline relative to the ring:
+   client name sits top-left of the composition, GALLERY beside the lowest film. */
