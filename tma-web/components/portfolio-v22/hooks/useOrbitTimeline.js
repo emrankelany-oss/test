@@ -68,9 +68,9 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         let low = 0;
         pos.forEach((p, i) => { if (p.y > pos[low].y) low = i; });
         const fontPx = Math.max(30, Math.min(vw * 0.039, 76));
-        const galW = fontPx * 4.2;            // generous width estimate for "GALLERY"
+        const galW = fontPx * 4.4;            // generous width estimate for "GALLERY"
         const cardRight = cx + pos[low].x + tileW / 2;
-        const rightSafe = vw - 80 - galW;     // always keep >=80px from the right edge
+        const rightSafe = vw - 120 - galW;    // always keep a wide gap from the right edge
         let galLeft = Math.min(cardRight + 24, rightSafe);
         galLeft = Math.max(galLeft, cardRight - 30);
         gsap.set(d.wordR, { left: galLeft, top: cy + pos[low].y, yPercent: -50 });
@@ -120,9 +120,11 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
       // settle in the centre of the fresh section, then fans its films.
       // immediateRender:false so this "from" state doesn't stamp at build time
       // (Zid must stay visible beside Foodics during the intro).
+      // zIndex 1 keeps Zid BEHIND the Foodics composition (card z2, tiles z3) so it
+      // is occluded and only revealed as Foodics rises away — it comes from behind.
       tl.fromTo(
         zid.card,
-        { y: -0.18 * vh, autoAlpha: 0, scale: 1, zIndex: 4 },
+        { y: -0.18 * vh, autoAlpha: 0, scale: 1, zIndex: 1 },
         { y: 0, autoAlpha: 1, scale: 1, duration: 1.5, ease: "power3.out", immediateRender: false },
         "handoff+=0.4"
       );
