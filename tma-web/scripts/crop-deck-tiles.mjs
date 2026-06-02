@@ -8,13 +8,13 @@ const OUT = "public/assets/portfolio";
 // { slug, page, left, top, width, height }
 const CROPS = [
   { slug: "avis", page: 28, left: 8, top: 8, width: 300, height: 250 },
-  { slug: "mixy", page: 28, left: 1090, top: 10, width: 252, height: 246 },
+  { slug: "mixy", page: 28, left: 1092, top: 6, width: 248, height: 250 },
   { slug: "lg-lifes-good", page: 28, left: 712, top: 280, width: 300, height: 238 },
-  { slug: "tawasol", page: 28, left: 712, top: 548, width: 300, height: 238 },
+  { slug: "tawasol", page: 28, left: 714, top: 550, width: 280, height: 232 },
   { slug: "almarai", page: 29, left: 330, top: 8, width: 360, height: 244 },
   { slug: "electrolux", page: 29, left: 18, top: 548, width: 330, height: 224 },
-  { slug: "vanellis", page: 27, left: 8, top: 8, width: 300, height: 250 },
-  { slug: "buffalo-wild-wings", page: 27, left: 700, top: 298, width: 354, height: 232 },
+  { slug: "vanellis", page: 27, left: 18, top: 16, width: 286, height: 232 },
+  { slug: "buffalo-wild-wings", page: 27, left: 700, top: 298, width: 323, height: 232 },
   { slug: "burger-king-krispier", page: 26, left: 6, top: 10, width: 276, height: 224 },
 ];
 

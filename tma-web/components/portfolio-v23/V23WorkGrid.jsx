@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { WORK_GRID } from "./projects";
+import { WORK_GRID, deckFit } from "./projects";
 import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
 import { openProject } from "./useV23ProjectModal";
 
@@ -26,12 +26,13 @@ export default function V23WorkGrid() {
         <div className="v23-els" ref={elsRef}>
           {WORK_GRID.map((cell, i) => {
             const p = cell.project;
+            const fit = deckFit(p.slug);
             return (
               <article key={p.slug} className={`v23-el v23-el-${cell.span}`}>
                 <button
                   type="button"
-                  className="v23-el-media v23-el-open"
-                  style={{ aspectRatio: cell.ratio }}
+                  className={`v23-el-media v23-el-open${fit ? " v23-im-contain" : ""}`}
+                  style={{ aspectRatio: cell.ratio, ...(fit ? { background: fit } : null) }}
                   onClick={(e) => openProject(p.slug, e.currentTarget)}
                   aria-label={`Open ${p.client} — ${p.title}`}
                   data-cursor="blob"

@@ -20,12 +20,14 @@ const PHOTO_TILES = [
   { slug: "almarai", img: "tmp/logos/almarai-fleet.jpg" },
 ];
 
-// brands with no external asset → re-pad the existing deck crop on its brand colour
+// brands with no external asset → re-pad the cleaned deck crop on its brand
+// colour. Rendered `contain` in the card (see DECK_FIT) so they're never cut;
+// bg here must match the card bg so the letterbox is seamless.
 const FALLBACK_TILES = [
-  { slug: "buffalo-wild-wings", bg: "#111111", pad: 0.92 },
-  { slug: "vanellis", bg: "#C8102E", pad: 0.92 },
-  { slug: "tawasol", bg: "#1E8FCC", pad: 0.94 },
-  { slug: "mixy", bg: "#E2231A", pad: 0.92 },
+  { slug: "buffalo-wild-wings", bg: "#111111", pad: 0.9 },
+  { slug: "vanellis", bg: "#C8102E", pad: 0.9 },
+  { slug: "tawasol", bg: "#2C95CE", pad: 0.94 },
+  { slug: "mixy", bg: "#ffffff", pad: 0.9 },
 ];
 
 const tiles = [];
