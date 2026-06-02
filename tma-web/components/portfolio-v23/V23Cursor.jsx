@@ -38,8 +38,7 @@ export default function V23Cursor() {
     const onOver = (e) => {
       const zone = zoneOf(e.target);
       if (zone) {
-        const kind = zone.getAttribute("data-cursor"); // blob | drag
-        root.classList.toggle("is-blob", kind === "blob");
+        const kind = zone.getAttribute("data-cursor"); // drag (blob removed)
         root.classList.toggle("is-pill", kind === "drag");
         if (kind === "drag" && pillLabelRef.current) {
           pillLabelRef.current.textContent =
@@ -49,7 +48,7 @@ export default function V23Cursor() {
     };
     const onOut = (e) => {
       if (zoneOf(e.target) && !zoneOf(e.relatedTarget)) {
-        root.classList.remove("is-blob", "is-pill");
+        root.classList.remove("is-pill");
       }
     };
 
@@ -101,7 +100,6 @@ export default function V23Cursor() {
   return createPortal(
     <div ref={rootRef} className="v23-cursor" aria-hidden="true">
       <span className="v23-cursor-dot" />
-      <span className="v23-cursor-blob" />
       <span className="v23-cursor-pill"><span ref={pillLabelRef}>Drag</span></span>
     </div>,
     document.body
