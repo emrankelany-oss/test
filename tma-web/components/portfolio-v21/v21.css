@@ -922,48 +922,6 @@ html.is-drawer-open body { overflow: hidden !important; }
    the project's films grouped by type.
    ===================================================================== */
 
-/* ---------- "See all N films" pill on the card ---------- */
-.v21fw-card-more {
-  position: absolute;
-  z-index: 3;
-  left: 18px;
-  bottom: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 13px;
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(16, 18, 26, 0.5);
-  backdrop-filter: blur(8px) saturate(1.2);
-  -webkit-backdrop-filter: blur(8px) saturate(1.2);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-  /* hidden until the card is hovered â€” keeps the resting card clean */
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 0.4s cubic-bezier(.2, .8, .2, 1),
-    transform 0.4s cubic-bezier(.2, .8, .2, 1);
-  pointer-events: none;
-}
-.v21fw-card-link:hover .v21fw-card-more {
-  opacity: 1;
-  transform: translateY(0);
-}
-.v21fw-card-more svg {
-  opacity: 0.85;
-}
-/* Touch / coarse pointers can't hover â€” always show the pill there. */
-@media (hover: none), (pointer: coarse) {
-  .v21fw-card-more {
-    opacity: 1;
-    transform: none;
-  }
-}
 
 /* ---------- reel gallery overlay ---------- */
 .v21pg {

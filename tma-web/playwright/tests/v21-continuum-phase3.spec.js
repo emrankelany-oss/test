@@ -51,3 +51,24 @@ test("reduced-motion: gallery items visible without animation", async ({ page })
   const op = await page.locator(".v21ow-gitem").first().evaluate((el) => parseFloat(getComputedStyle(el).opacity));
   expect(op).toBeGreaterThan(0.95);
 });
+
+test("filament tail still draws + no console errors on full scroll", async ({ page }) => {
+  const errors = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+  expect(await page.locator(".v21-filament-path").count()).toBeGreaterThan(0);
+  await scrollBottom(page);
+  await page.waitForTimeout(SETTLE_MS);
+  expect(errors).toEqual([]);
+});
+
+test("custom cursor node matches pointer type (fine→1, coarse→0)", async ({ page }) => {
+  await page.goto("/portfolio-v21");
+  await page.waitForTimeout(SETTLE_MS);
+  const fine = await page.evaluate(() => window.matchMedia("(pointer: fine)").matches);
+  const count = await page.locator(".v21-cursor").count();
+  if (fine) expect(count).toBe(1);
+  else expect(count).toBe(0);
+});
