@@ -8,7 +8,7 @@ export const SHOWREEL = [
     slug: "foodics-boundless",
     client: "Foodics",
     title: "Boundless",
-    poster: "/assets/portfolio/foodics-boundless/card.jpg",
+    poster: "/assets/case-foodics-boundless.png",
     cardVideo: `${V}/hero1.mp4`,
     films: [
       { id: "f-bl-2022", title: "Boundless 2022", group: "Event Film", kind: "youtube", youtubeId: "ZqrF7NYuXHU", poster: yt("ZqrF7NYuXHU") },
@@ -24,7 +24,7 @@ export const SHOWREEL = [
     slug: "zid-ripple",
     client: "Zid",
     title: "Ripple",
-    poster: "/assets/portfolio/zid-ripple/card.jpg",
+    poster: "/assets/case-zid-ripple.png",
     cardVideo: `${V}/Zid%20-%20Strategy.MP4`,
     films: [
       { id: "z-ripple-2024", title: "Ripple 2024", group: "Event Film", kind: "youtube", youtubeId: "GSSS71zV5HI", poster: yt("GSSS71zV5HI") },
