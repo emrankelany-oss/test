@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { CAROUSEL } from "./projects";
+import { openFilm } from "./useV23Lightbox";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(Draggable, InertiaPlugin);
@@ -85,16 +86,22 @@ export default function V23Carousel() {
 
       <div className="v23-track" ref={trackRef} data-cursor="drag" data-cursor-label="Drag">
         {items.map((p, i) => (
-          <a
+          <button
+            type="button"
             key={`${p.slug}-${i}`}
             className="v23-card"
-            href={`#${p.slug}`}
-            aria-label={`${p.client} — ${p.title}`}
-            onClick={(e) => e.preventDefault()}
+            aria-label={`Play ${p.client} — ${p.title}`}
+            onClick={() => {
+              if (document.documentElement.classList.contains("v23-dragging")) return;
+              if (p.video) openFilm({ kind: "video", src: p.video, poster: p.hero || p.thumb, title: p.title, client: p.client });
+            }}
           >
             <div className="v23-card-media">
               {p.video ? (
-                <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
+                <>
+                  <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
+                  <span className="v23-play" aria-hidden="true" />
+                </>
               ) : (
                 <img src={p.hero || p.thumb} alt="" loading="lazy" />
               )}
@@ -103,7 +110,7 @@ export default function V23Carousel() {
               <span className="t">{p.client}</span>
               <span className="c">{p.category}</span>
             </div>
-          </a>
+          </button>
         ))}
       </div>
     </section>

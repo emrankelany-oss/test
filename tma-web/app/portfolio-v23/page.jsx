@@ -5,6 +5,7 @@ import Contact from "@/components/home/Contact";
 import Footer from "@/components/home/Footer";
 import V23Preloader from "@/components/portfolio-v23/V23Preloader";
 import V23Cursor from "@/components/portfolio-v23/V23Cursor";
+import V23VideoLightbox from "@/components/portfolio-v23/V23VideoLightbox";
 import V23Hero from "@/components/portfolio-v23/V23Hero";
 import V23Statement from "@/components/portfolio-v23/V23Statement";
 import V23Featured from "@/components/portfolio-v23/V23Featured";
@@ -24,6 +25,7 @@ export default function PortfolioV23Page() {
       <V23Preloader />
       <SmoothScroll />
       <V23Cursor />
+      <V23VideoLightbox />
       <ClientShell enableScrolledNav />
       <Nav />
       <V23Hero />

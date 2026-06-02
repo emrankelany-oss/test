@@ -8,6 +8,22 @@ export { PROJECTS, PROJECTS_BY_SLUG };
 const has = (slug) => PROJECTS_BY_SLUG[slug];
 const pick = (slugs) => slugs.map(has).filter(Boolean);
 
+// Projects whose only still is too low-res (≈318–489px) to fill a large cell —
+// these render as crisp designed TMA-blue poster cards instead of a blurry photo.
+// Swap a slug out the moment a high-res image is dropped into its folder.
+export const LOWRES_SLUGS = new Set([
+  "avis",
+  "electrolux",
+  "almarai",
+  "mixy",
+  "tawasol",
+  "vanellis",
+  "buffalo-wild-wings",
+  "lg-lifes-good",
+  "burger-king-krispier",
+]);
+export const isLowRes = (slug) => LOWRES_SLUGS.has(slug);
+
 // ── Featured deep studies (Clim's case_info_els, scoped to ONE project) ─────
 // Each featured project renders as its own asymmetric media grid built from the
 // real films in SHOWREEL. Spans/ratios give the Clim editorial rhythm.

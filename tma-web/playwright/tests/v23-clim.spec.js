@@ -98,6 +98,31 @@ test.describe("V23 — Clim-mechanics landing", () => {
     expect(overflow).toBeTruthy();
   });
 
+  test("hero uses the Motion Agency slide-8 loop", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    const srcs = await page
+      .locator(".v23-hero-media video source")
+      .evaluateAll((els) => els.map((e) => e.getAttribute("src")));
+    expect(srcs.join(" ")).toContain("slide8-loop");
+  });
+
+  test("low-res brand projects render as designed poster cards (not blurry photos)", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    await expect(page.locator(".v23-work .v23-poster")).toHaveCount(9);
+    await expect(page.locator(".v23-work .v23-poster-name").first()).toHaveText(/.+/);
+  });
+
+  test("clicking a featured film opens the in-page lightbox", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    await expect(page.locator(".v23-film")).toHaveCount(0);
+    await page.locator(".v23-feat .v23-im-play").first().dispatchEvent("click");
+    await expect(page.locator(".v23-film")).toBeVisible();
+    await expect(page.locator(".v23-film-media")).toBeVisible();
+    // close
+    await page.locator(".v23-film-scrim").dispatchEvent("click");
+    await expect(page.locator(".v23-film")).toHaveCount(0);
+  });
+
   test("iris reveal mechanism opens the hero media clip-path", async ({ page }) => {
     await page.goto("/portfolio-v23");
     await page.waitForTimeout(400);

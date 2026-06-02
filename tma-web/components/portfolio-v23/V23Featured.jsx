@@ -4,40 +4,41 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FEATURED } from "./projects";
 import { useLineReveal, useIrisReveal, useLazyAutoplayVideos } from "./useV23Reveal";
+import { openFilm } from "./useV23Lightbox";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
+// build the lightbox payload for a film
+const filmOf = (m, client) =>
+  m.kind === "youtube"
+    ? { kind: "youtube", youtubeId: m.youtubeId, title: m.title, client, poster: m.poster }
+    : { kind: "video", src: m.src, poster: m.poster, title: m.title, client };
+
 function MediaCell({ m, client, lazy = true }) {
-  if (m.kind === "youtube") {
-    return (
-      <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
-        <a
-          className="v23-im v23-im-play"
-          href={m.href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Watch ${client} — ${m.title}`}
-          data-cursor="blob"
-          data-cursor-label="Watch"
-        >
-          <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
-          <span className="v23-play" aria-hidden="true" />
-        </a>
-      </div>
-    );
-  }
   return (
     <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
-      <span className="v23-im">
-        <video
-          {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
-          poster={m.poster}
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        />
-      </span>
+      <button
+        type="button"
+        className="v23-im v23-im-play"
+        onClick={() => openFilm(filmOf(m, client))}
+        aria-label={`Play ${client} — ${m.title}`}
+        data-cursor="blob"
+        data-cursor-label="Play"
+      >
+        {m.kind === "youtube" ? (
+          <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
+        ) : (
+          <video
+            {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
+            poster={m.poster}
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          />
+        )}
+        <span className="v23-play" aria-hidden="true" />
+      </button>
     </div>
   );
 }
@@ -169,30 +170,24 @@ function FeaturedBlock({ data }) {
 
 // Lead cell renders eagerly (autoplay) and exposes the iris ref on its .v23-im.
 function MediaCellLead({ m, client, mediaRef }) {
-  if (m.kind === "youtube") {
-    return (
-      <div className="v23-el-media v23-feat-lead-media" style={{ aspectRatio: "16 / 9" }}>
-        <a
-          ref={mediaRef}
-          className="v23-im v23-im-play"
-          href={m.href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Watch ${client} — ${m.title}`}
-          data-cursor="blob"
-          data-cursor-label="Watch"
-        >
-          <img src={m.poster} alt={`${client} — ${m.title}`} />
-          <span className="v23-play" aria-hidden="true" />
-        </a>
-      </div>
-    );
-  }
   return (
     <div className="v23-el-media v23-feat-lead-media" style={{ aspectRatio: "16 / 9" }}>
-      <span ref={mediaRef} className="v23-im">
-        <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
-      </span>
+      <button
+        type="button"
+        ref={mediaRef}
+        className="v23-im v23-im-play"
+        onClick={() => openFilm(filmOf(m, client))}
+        aria-label={`Play ${client} — ${m.title}`}
+        data-cursor="blob"
+        data-cursor-label="Play"
+      >
+        {m.kind === "youtube" ? (
+          <img src={m.poster} alt={`${client} — ${m.title}`} />
+        ) : (
+          <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+        )}
+        <span className="v23-play" aria-hidden="true" />
+      </button>
     </div>
   );
 }

@@ -19,14 +19,16 @@ export default function V23Hero() {
       <div className="v23-hero-media v23-grid">
         <span ref={mediaRef} className="v23-im" data-cursor="blob">
           <video
-            src="/assets/videos/hero1.mp4"
-            poster="/assets/portfolio/foodics-boundless/hero.jpg"
+            poster="/assets/v5/slide8-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
             aria-hidden="true"
-          />
+          >
+            <source src="/assets/v5/slide8-loop.webm" type="video/webm" />
+            <source src="/assets/v5/slide8-loop.mp4" type="video/mp4" />
+          </video>
         </span>
       </div>
     </section>
