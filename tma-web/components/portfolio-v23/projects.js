@@ -27,14 +27,10 @@ export const DECK_CARD_SLUGS = new Set([
 ]);
 export const hasDeckCard = (slug) => DECK_CARD_SLUGS.has(slug);
 
-// Wide-wordmark brand tiles with no external logo: shown `contain` on their
-// brand colour so the logo is never cropped. Value = the card background.
-export const DECK_FIT = {
-  "buffalo-wild-wings": "#111111",
-  vanellis: "#C8102E",
-  tawasol: "#2C95CE",
-  mixy: "#ffffff",
-};
+// Cards that must render `contain` on a brand colour (logo tiles). Now that
+// every brand card uses a real photo or a compact vector logo, this is empty —
+// kept as the hook for any future logo-on-colour tile.
+export const DECK_FIT = {};
 export const deckFit = (slug) => DECK_FIT[slug];
 export const deckCard = (slug) => `/assets/portfolio/${slug}/deck.jpg`;
 // resolved best card image for a project
