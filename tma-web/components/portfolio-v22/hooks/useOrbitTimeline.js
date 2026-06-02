@@ -68,13 +68,12 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
         let low = 0;
         pos.forEach((p, i) => { if (p.y > pos[low].y) low = i; });
         const fontPx = Math.max(30, Math.min(vw * 0.039, 76));
-        const galW = fontPx * 4.8; // approx width of "GALLERY"
-        const galLeft = Math.min(cx + pos[low].x + tileW / 2 + 30, vw - 28 - galW);
-        gsap.set(d.wordR, {
-          left: Math.max(cx, galLeft),
-          top: cy + pos[low].y,
-          yPercent: -50,
-        });
+        const galW = fontPx * 4.2;            // generous width estimate for "GALLERY"
+        const cardRight = cx + pos[low].x + tileW / 2;
+        const rightSafe = vw - 80 - galW;     // always keep >=80px from the right edge
+        let galLeft = Math.min(cardRight + 24, rightSafe);
+        galLeft = Math.max(galLeft, cardRight - 30);
+        gsap.set(d.wordR, { left: galLeft, top: cy + pos[low].y, yPercent: -50 });
         tl.to(d.card, { scale: cardScale, duration: 1.2 }, label);
         tl.to(d.wordL, { autoAlpha: 1, x: 0, duration: 1.1 }, label + "+=0.15");
         tl.to(d.wordR, { autoAlpha: 1, x: 0, duration: 1.1 }, label + "+=0.15");
