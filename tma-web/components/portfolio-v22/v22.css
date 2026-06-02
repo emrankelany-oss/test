@@ -183,8 +183,11 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel .v22-sr-stage { display: flex; flex-direction: column; gap: clamp(56px, 9vw, 140px); margin-top: clamp(40px, 6vw, 90px); }
 .v22-sr-group { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 44px); }
 .v22-sr-card { appearance: none; background: transparent; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-.v22-sr-card-media { display: block; width: min(440px, 72vw); aspect-ratio: 3 / 4; overflow: hidden; background: var(--v22-panel); }
-.v22-sr-card-media img, .v22-sr-card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v22-sr-card-media { position: relative; display: block; width: min(440px, 72vw); aspect-ratio: 3 / 4; overflow: hidden; background: var(--v22-panel); }
+.v22-sr-card-media img, .v22-sr-card-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* poster image by default; the video fades in + plays on hover */
+.v22-sr-card-media video { opacity: 0; transition: opacity .45s ease; }
+.v22-sr-card:hover .v22-sr-card-media video { opacity: 1; }
 .v22-sr-card-label { display: flex; flex-direction: column; gap: 8px; }
 .v22-sr-card-title { font-size: clamp(30px, 5vw, 64px); font-weight: 400; letter-spacing: -0.015em; line-height: 0.98; }
 .v22-sr-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: clamp(20px, 2.6vw, 38px); }

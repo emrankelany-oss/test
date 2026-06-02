@@ -33,6 +33,31 @@ function FilmTile({ film }) {
   );
 }
 
+function ProjectCard({ project }) {
+  const vref = useRef(null);
+  const enter = () => { const v = vref.current; if (v && v.play) { try { v.currentTime = 0; } catch {} v.play().catch(() => {}); } };
+  const leave = () => { const v = vref.current; if (v) v.pause(); };
+  return (
+    <button
+      className="v22-sr-card"
+      data-cursor="view" data-cursor-label="See project"
+      onMouseEnter={enter} onMouseLeave={leave}
+      onClick={(e) => openProject(project.slug, e.currentTarget)}
+    >
+      <span className="v22-sr-card-media">
+        <img src={project.poster} alt="" />
+        {project.cardVideo ? (
+          <video ref={vref} src={project.cardVideo} muted loop playsInline preload="none" />
+        ) : null}
+      </span>
+      <span className="v22-sr-card-label">
+        <span className="v22-eyebrow">{project.client}</span>
+        <span className="v22-sr-card-title">{project.title}</span>
+      </span>
+    </button>
+  );
+}
+
 export default function V22Showreel() {
   const sectionRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -55,23 +80,7 @@ export default function V22Showreel() {
           <div key={proj.slug} className="v22-sr-group" data-slug={proj.slug}>
             <span className="v22-sr-word v22-sr-word-l" aria-hidden="true">{proj.client}</span>
             <span className="v22-sr-word v22-sr-word-r" aria-hidden="true">Gallery</span>
-            <button
-              className="v22-sr-card"
-              data-cursor="view" data-cursor-label="See project"
-              onClick={(e) => openProject(proj.slug, e.currentTarget)}
-            >
-              <span className="v22-sr-card-media">
-                {proj.cardVideo ? (
-                  <video src={proj.cardVideo} poster={proj.poster} autoPlay muted loop playsInline />
-                ) : (
-                  <img src={proj.poster} alt="" />
-                )}
-              </span>
-              <span className="v22-sr-card-label">
-                <span className="v22-eyebrow">{proj.client}</span>
-                <span className="v22-sr-card-title">{proj.title}</span>
-              </span>
-            </button>
+            <ProjectCard project={proj} />
             <div className="v22-sr-tiles">
               {proj.films.map((f) => <FilmTile key={f.id} film={f} />)}
             </div>
