@@ -10,6 +10,36 @@ export default function V23WorkGrid() {
   useIrisRevealAll(rootRef, ".v23-im");
   useLazyAutoplayVideos(rootRef);
 
+  // premium hover: the media drifts toward the cursor (photo cards only)
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const onMove = (e) => {
+      const card = e.target.closest?.(".v23-el-open");
+      if (!card || card.classList.contains("v23-im-contain")) return;
+      const img = card.querySelector(".v23-im img, .v23-im video");
+      if (!img) return;
+      const r = card.getBoundingClientRect();
+      const mx = ((e.clientX - (r.left + r.width / 2)) / r.width) * 16;
+      const my = ((e.clientY - (r.top + r.height / 2)) / r.height) * 16;
+      img.style.setProperty("--xM", `${mx.toFixed(1)}px`);
+      img.style.setProperty("--yM", `${my.toFixed(1)}px`);
+    };
+    const onLeave = (e) => {
+      const card = e.target.closest?.(".v23-el-open");
+      const img = card?.querySelector(".v23-im img, .v23-im video");
+      if (img) { img.style.setProperty("--xM", "0px"); img.style.setProperty("--yM", "0px"); }
+    };
+    root.addEventListener("pointermove", onMove, { passive: true });
+    root.addEventListener("pointerout", onLeave, true);
+    return () => {
+      root.removeEventListener("pointermove", onMove);
+      root.removeEventListener("pointerout", onLeave, true);
+    };
+  }, []);
+
   // reflow when the statement's "More information" opens (Clim's .el-A)
   useEffect(() => {
     const els = elsRef.current;
@@ -54,7 +84,11 @@ export default function V23WorkGrid() {
                       <img src={cell.image} alt={`${p.client} — ${p.title}`} loading="lazy" />
                     )}
                   </span>
-                  <span className="v23-el-plus" aria-hidden="true" />
+                  <span className="v23-el-scrim" aria-hidden="true" />
+                  <span className="v23-el-cta" aria-hidden="true">
+                    <span className="v23-el-cta-t">View project</span>
+                    <span className="v23-el-cta-arw">→</span>
+                  </span>
                 </button>
                 <div className="v23-el-cap">
                   <span className="t">{p.client} — {p.title}</span>

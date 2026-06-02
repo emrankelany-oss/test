@@ -318,15 +318,59 @@ html.v23-loading { overflow: hidden; }
 .v23-im-contain .v23-im img { object-fit: contain; transform: none !important; }
 .v23-el-open.v23-im-contain:hover .v23-im img { transform: scale(1.04) !important; }
 
-/* ---- work cards open the project modal ----------------------------------- */
-.v23-el-open { display: block; width: 100%; border: 0; padding: 0; background: none; cursor: pointer; position: relative; border-radius: 4px; overflow: hidden; }
-.v23-el-plus { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,.42); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.5); opacity: 0; transform: scale(.7); transition: opacity .35s var(--ease), transform .35s var(--ease), background .35s var(--ease); }
-.v23-el-plus::before, .v23-el-plus::after { content: ""; position: absolute; left: 50%; top: 50%; background: #fff; transform: translate(-50%, -50%); }
-.v23-el-plus::before { width: 14px; height: 2px; }
-.v23-el-plus::after { width: 2px; height: 14px; }
-.v23-el-open:hover .v23-el-plus { opacity: 1; transform: scale(1); background: var(--v23-c4); }
-.v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { transform: translate(var(--xM), var(--yM)) scale(1.1); }
-.v23-im img, .v23-im video { transition: transform .6s var(--ease); }
+/* ---- work cards open the project modal (premium hover) ------------------- */
+.v23-el-open {
+  display: block; width: 100%; border: 0; padding: 0; background: none; cursor: pointer;
+  position: relative; border-radius: 6px; overflow: hidden;
+  transform: translateZ(0); transition: transform .7s var(--ease), box-shadow .7s var(--ease);
+}
+.v23-im img, .v23-im video { transition: transform 1.1s cubic-bezier(.16,1,.3,1); }
+/* media eases up toward the cursor + zooms; the whole card lifts with a soft shadow */
+.v23-el-open:hover { transform: translateY(-7px); box-shadow: 0 36px 70px -28px rgba(0,0,0,.85); }
+.v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { transform: translate(var(--xM), var(--yM)) scale(1.09); }
+
+/* gradient scrim fades in from the bottom */
+.v23-el-scrim {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.12) 42%, transparent 70%);
+  transition: opacity .6s var(--ease);
+}
+.v23-el-open:hover .v23-el-scrim { opacity: 1; }
+
+/* "View project →" CTA rises in from below */
+.v23-el-cta {
+  position: absolute; left: clamp(14px, 1.4vw, 22px); bottom: clamp(14px, 1.4vw, 22px);
+  display: inline-flex; align-items: center; gap: 12px; pointer-events: none;
+  padding: 11px 8px 11px 18px; border-radius: 999px;
+  background: rgba(255,255,255,.14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  color: #fff; font-family: var(--font-label); font-size: clamp(12px, 1vw, 14px); font-weight: 500;
+  letter-spacing: .02em; white-space: nowrap;
+  opacity: 0; transform: translateY(16px); transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.v23-el-cta-arw {
+  display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
+  border-radius: 50%; background: var(--v23-c4); color: #fff; font-size: 14px;
+  transition: transform .55s var(--ease);
+}
+.v23-el-open:hover .v23-el-cta { opacity: 1; transform: translateY(0); transition-delay: .06s; }
+.v23-el-open:hover .v23-el-cta-arw { transform: translateX(3px); }
+
+/* the caption below echoes the hover: title shifts to accent + an arrow trails it */
+.v23-el .v23-el-cap .t { transition: color .45s var(--ease), transform .45s var(--ease); }
+.v23-el .v23-el-cap .t::after {
+  content: "\2197"; display: inline-block; margin-left: 8px; color: var(--v23-c2);
+  opacity: 0; transform: translate(-6px, 4px); transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+.v23-el:hover .v23-el-cap .t { color: var(--v23-c2); }
+.v23-el:hover .v23-el-cap .t::after { opacity: 1; transform: translate(0, 0); }
+
+/* logo tiles: keep the zoom gentle (no big crop) */
+.v23-el-open.v23-im-contain:hover .v23-im img { transform: scale(1.03) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .v23-el-open, .v23-el-open:hover, .v23-im img, .v23-im video { transform: none !important; box-shadow: none !important; }
+  .v23-el-scrim, .v23-el-cta { display: none; }
+}
 
 /* ---- project modal -------------------------------------------------------- */
 .v23-modal { position: fixed; inset: 0; z-index: 10001; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: clamp(16px, 4vw, 60px); }
