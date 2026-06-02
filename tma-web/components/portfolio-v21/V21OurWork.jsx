@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS } from "./projects";
 import { useProjectDrawer } from "./useProjectDrawer";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
@@ -16,30 +14,73 @@ import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
    Header (.v21ow-title-word + em) preserved as filament TAIL anchors.
    ===================================================================== */
 
-if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
-
 export default function V21OurWork() {
   const { open } = useProjectDrawer();
   const reduced = usePrefersReducedMotion();
   const rootRef = useRef(null);
 
-  /* gentle scroll-reveal for each gallery item */
+  /* gentle scroll-reveal for each gallery item
+     Progressive enhancement: the gallery starts in its natural state (items
+     visible). JS opts items into the scroll-reveal animation by adding the
+     --animated modifier, THEN immediately checks which items are already in
+     view and reveals them — so the test window (scroll → wait) always wins. */
   useEffect(() => {
     if (reduced) return;
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray(".v21ow-gitem").forEach((it) => {
-        ScrollTrigger.create({
-          trigger: it,
-          start: "top 86%",
-          once: true,
-          onEnter: () => it.classList.add("is-revealed"),
-        });
+    const root = rootRef.current;
+    if (!root) return;
+    const gal = root.querySelector(".v21ow-gal");
+    if (!gal) return;
+
+    /* 1. Opt into animation (makes items opacity:0 via CSS) */
+    gal.classList.add("v21ow-gal--animated");
+
+    const items = Array.from(root.querySelectorAll(".v21ow-gitem"));
+    const reveal = (el) => el.classList.add("is-revealed");
+
+    /* 2. Immediately reveal items already in viewport (handles any scroll
+          position set before/during hydration). */
+    const revealVisible = () => {
+      const vh = window.innerHeight;
+      items.forEach((it) => {
+        if (it.classList.contains("is-revealed")) return;
+        const r = it.getBoundingClientRect();
+        if (r.top < vh + 100 && r.bottom > -100) reveal(it);
       });
-      /* Refresh so any items already in-viewport at mount-time are
-         revealed immediately (fixes headless-Playwright timing). */
-      ScrollTrigger.refresh();
-    }, rootRef);
-    return () => ctx.revert();
+    };
+    revealVisible();
+
+    /* 3. Observer for items that scroll into view later */
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            reveal(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "100px 0px 100px 0px" }
+    );
+    items.forEach((it) => {
+      if (!it.classList.contains("is-revealed")) io.observe(it);
+    });
+
+    /* 4. Also listen to native scroll to re-check on window.scrollTo calls */
+    const onScroll = () => revealVisible();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* 5. Safety net: poll every 100ms for up to 1s after mount, covering any
+          window.scrollTo calls that happen after this effect fires. */
+    const polls = [100, 200, 400, 700, 1000].map((ms) =>
+      setTimeout(revealVisible, ms)
+    );
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      polls.forEach(clearTimeout);
+      gal.classList.remove("v21ow-gal--animated");
+    };
   }, [reduced]);
 
   return (
