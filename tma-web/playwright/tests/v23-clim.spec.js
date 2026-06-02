@@ -19,36 +19,53 @@ test.describe("V23 — Clim-mechanics landing", () => {
     const sections = await page.locator("[data-v23-section]").evaluateAll(
       (els) => els.map((e) => e.getAttribute("data-v23-section"))
     );
-    expect(sections).toEqual(["hero", "statement", "work", "related"]);
+    expect(sections).toEqual(["hero", "statement", "featured", "work", "related"]);
     await expect(page.locator(".v23-panel-word")).toHaveText(/.+/);
+  });
+
+  test("featured section presents Foodics & Zid as multi-media case blocks", async ({ page }) => {
+    await page.goto("/portfolio-v23");
+    const blocks = page.locator("[data-v23-featured]");
+    await expect(blocks).toHaveCount(2);
+    await expect(page.locator('[data-v23-featured="foodics-boundless"]')).toBeAttached();
+    await expect(page.locator('[data-v23-featured="zid-ripple"]')).toBeAttached();
+    // real films wired in: autoplay videos + youtube event-film cells + result stats
+    await expect(page.locator(".v23-feat video")).not.toHaveCount(0);
+    expect(await page.locator(".v23-feat video").count()).toBeGreaterThanOrEqual(5);
+    expect(await page.locator(".v23-feat .v23-im-play").count()).toBeGreaterThanOrEqual(2);
+    expect(await page.locator(".v23-feat-stats li").count()).toBeGreaterThan(0);
   });
 
   test("hero headline splits into multiple lines", async ({ page }) => {
     await page.goto("/portfolio-v23");
-    await page.waitForTimeout(300);
-    const lines = await page.locator(".v23-hero-title .line").count();
-    expect(lines).toBeGreaterThan(1);
+    // SplitText runs after fonts/mount — poll rather than assume a fixed delay
+    await expect
+      .poll(() => page.locator(".v23-hero-title .line").count(), { timeout: 10000 })
+      .toBeGreaterThan(1);
   });
 
-  test("work grid is video-led with mixed column spans", async ({ page }) => {
+  test("work grid lists the full remaining roster with mixed spans & media", async ({ page }) => {
     await page.goto("/portfolio-v23");
-    const cells = page.locator(".v23-els .v23-el");
-    expect(await cells.count()).toBeGreaterThanOrEqual(8);
-    expect(await page.locator(".v23-el-1").count()).toBeGreaterThan(0); // full-width rows
-    expect(await page.locator(".v23-el-2").count()).toBeGreaterThan(0); // half-width pairs
-    expect(await page.locator(".v23-els video").count()).toBeGreaterThan(0);
+    const cells = page.locator(".v23-work .v23-el");
+    await expect(cells.first()).toBeAttached();
+    await expect.poll(() => cells.count(), { timeout: 10000 }).toBeGreaterThanOrEqual(20); // full roster minus featured
+    expect(await page.locator(".v23-work .v23-el-1").count()).toBeGreaterThan(0); // full-width rows
+    expect(await page.locator(".v23-work .v23-el-2").count()).toBeGreaterThan(0); // half-width pairs
+    expect(await page.locator(".v23-work video").count()).toBeGreaterThan(0); // videos
+    expect(await page.locator(".v23-work img").count()).toBeGreaterThan(0);   // images
   });
 
   test("'More information' toggles the detail reveal and grid reflow", async ({ page }) => {
     await page.goto("/portfolio-v23");
     const btn = page.locator(".v23-more-bt");
     await expect(btn).toHaveAttribute("aria-expanded", "false");
+    // wait for client effects to hydrate (carousel sets this once mounted)
+    await expect(page.locator(".v23-track")).toHaveAttribute("data-v23-drag", /ready|static/);
     // dispatch directly so the assertion doesn't depend on smooth-scroll position
     await btn.dispatchEvent("click");
-    await page.waitForTimeout(150);
     await expect(btn).toHaveAttribute("aria-expanded", "true");
     await expect(page.locator(".v23-statement")).toHaveClass(/is-open/);
-    await expect(page.locator(".v23-els")).toHaveClass(/is-open/);
+    await expect(page.locator(".v23-work .v23-els")).toHaveClass(/is-open/);
   });
 
   test("related carousel mounts as a draggable track with duplicated cards", async ({ page }) => {

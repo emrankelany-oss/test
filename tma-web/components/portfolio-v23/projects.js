@@ -1,34 +1,91 @@
 // V23 sources its content from the shared v20 roster — single source of truth.
 import { PROJECTS, PROJECTS_BY_SLUG } from "@/components/portfolio-v20/projects";
+// The canonical Foodics/Zid film mapping that V20/V22 already established.
+import { SHOWREEL } from "@/components/portfolio-v22/showreel";
 
 export { PROJECTS, PROJECTS_BY_SLUG };
 
 const has = (slug) => PROJECTS_BY_SLUG[slug];
 const pick = (slugs) => slugs.map(has).filter(Boolean);
 
-// Projects that ship a production/animation film — these become the video-led cells.
-export const VIDEO_PROJECTS = PROJECTS.filter((p) => p.video);
+// ── Featured deep studies (Clim's case_info_els, scoped to ONE project) ─────
+// Each featured project renders as its own asymmetric media grid built from the
+// real films in SHOWREEL. Spans/ratios give the Clim editorial rhythm.
+// type: "video" (autoplay loop) | "youtube" (poster + play badge → opens film).
+const FEATURED_SLUGS = ["foodics-boundless", "zid-ripple"];
 
-// ── Work grid (Clim's case_info_els) ───────────────────────────────────────
-// An asymmetric editorial rhythm: full-width "el_1" rows alternating with
-// half-width "el_2" pairs, with varied aspect ratios. `span` = 1 (full) | 2 (half).
-// `ratio` drives the cell aspect-ratio so the column heights vary like Clim's.
-export const WORK_GRID = [
-  { slug: "rubicon-exotic", span: 1, ratio: "16 / 9" },
-  { slug: "zaintech-drones", span: 2, ratio: "4 / 5" },
-  { slug: "linc-card", span: 2, ratio: "4 / 5" },
-  { slug: "vodafone-global", span: 1, ratio: "16 / 7" },
-  { slug: "investcorp-capital", span: 2, ratio: "1 / 1" },
-  { slug: "mawani-vision-2030", span: 2, ratio: "1 / 1" },
-  { slug: "lsc-vision-2034", span: 1, ratio: "16 / 9" },
-  { slug: "world-government-summit", span: 2, ratio: "4 / 5" },
-  { slug: "family-development-finance", span: 2, ratio: "4 / 5" },
-  { slug: "sharjah-data-smart-gov", span: 1, ratio: "16 / 7" },
-]
-  .map((c) => ({ ...c, project: has(c.slug) }))
-  .filter((c) => c.project);
+// hand-tuned layout rhythm per featured project (index-aligned to its films)
+const FEATURED_LAYOUT = {
+  "foodics-boundless": [
+    { span: 1, ratio: "16 / 9" },
+    { span: 2, ratio: "4 / 5" },
+    { span: 2, ratio: "4 / 5" },
+    { span: 1, ratio: "16 / 7" },
+    { span: 2, ratio: "1 / 1" },
+    { span: 2, ratio: "1 / 1" },
+    { span: 1, ratio: "16 / 9" },
+  ],
+  "zid-ripple": [
+    { span: 2, ratio: "16 / 10" },
+    { span: 2, ratio: "16 / 10" },
+  ],
+};
+
+function buildFeatured(slug) {
+  const project = has(slug);
+  const reel = SHOWREEL.find((r) => r.slug === slug);
+  if (!project || !reel) return null;
+  const layout = FEATURED_LAYOUT[slug] || [];
+  const media = reel.films.map((f, i) => {
+    const box = layout[i] || { span: i % 3 === 0 ? 1 : 2, ratio: "4 / 5" };
+    if (f.kind === "youtube") {
+      return {
+        kind: "youtube",
+        youtubeId: f.youtubeId,
+        href: `https://www.youtube.com/watch?v=${f.youtubeId}`,
+        poster: f.poster,
+        title: f.title,
+        group: f.group,
+        ...box,
+      };
+    }
+    return { kind: "video", src: f.src, poster: f.poster, title: f.title, group: f.group, ...box };
+  });
+  return {
+    slug,
+    client: project.client,
+    title: project.title,
+    tagline: project.tagline,
+    category: project.category,
+    year: project.year,
+    intro: project.intro,
+    results: project.results || [],
+    media,
+  };
+}
+
+export const FEATURED = FEATURED_SLUGS.map(buildFeatured).filter(Boolean);
+
+// ── Work grid (Clim's case_info_els) — the full remaining roster ────────────
+// Everything except the featured studies, in an asymmetric full/half rhythm.
+// `span` 1 = full-width row, 2 = half-width (two per row). Ratios vary heights.
+const SPAN_RHYTHM = [1, 2, 2, 1, 2, 2, 2, 2]; // repeating editorial cadence
+const RATIO_FULL = ["16 / 9", "16 / 7"];
+const RATIO_HALF = ["4 / 5", "1 / 1", "4 / 5", "3 / 4"];
+
+export const WORK_GRID = PROJECTS.filter((p) => !FEATURED_SLUGS.includes(p.slug)).map(
+  (project, i) => {
+    const span = SPAN_RHYTHM[i % SPAN_RHYTHM.length];
+    const ratio =
+      span === 1
+        ? RATIO_FULL[i % RATIO_FULL.length]
+        : RATIO_HALF[i % RATIO_HALF.length];
+    return { slug: project.slug, project, span, ratio };
+  }
+);
 
 // ── Related / More Work carousel (Clim's case_related) ──────────────────────
+// Lead with the video-led production films for motion on the cards.
 export const CAROUSEL = pick([
   "rubicon-exotic",
   "linc-card",
@@ -38,12 +95,13 @@ export const CAROUSEL = pick([
   "mawani-vision-2030",
   "family-development-finance",
   "sharjah-data-smart-gov",
+  "vodafone-global",
+  "lsc-vision-2034",
 ]);
 
 // ── Statement copy (Clim's case_info_st intro) ──────────────────────────────
 export const STATEMENT = {
   eyebrow: "The Motion Agency — Studio",
-  // The rotated accent word sits inside the panel, Clim-style.
   panelWord: "Bold",
   lead:
     "Almost a decade of turning category noise into bold, ownable stories. We are a motion-led creative studio — strategy, design and production crafted to a standard that earns attention.",

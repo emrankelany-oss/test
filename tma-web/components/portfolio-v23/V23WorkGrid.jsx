@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { WORK_GRID } from "./projects";
-import { useIrisRevealAll } from "./useV23Reveal";
+import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
 
 export default function V23WorkGrid() {
   const rootRef = useRef(null);
   const elsRef = useRef(null);
   useIrisRevealAll(rootRef, ".v23-im");
+  useLazyAutoplayVideos(rootRef);
 
   // reflow when the statement's "More information" opens (Clim's .el-A)
   useEffect(() => {
@@ -17,34 +18,10 @@ export default function V23WorkGrid() {
     return () => window.removeEventListener("v23:info", onInfo);
   }, []);
 
-  // lazy autoplay videos only while on-screen
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-    const vids = Array.from(root.querySelectorAll("video[data-lazy]"));
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) => {
-          const v = en.target;
-          if (en.isIntersecting) {
-            if (!v.src && v.dataset.src) v.src = v.dataset.src;
-            v.play?.().catch(() => {});
-          } else {
-            v.pause?.();
-          }
-        });
-      },
-      { rootMargin: "200px 0px" }
-    );
-    vids.forEach((v) => io.observe(v));
-    return () => io.disconnect();
-  }, []);
-
   return (
     <section className="v23-section v23-work" ref={rootRef} data-v23-section="work">
       <div className="v23-grid">
+        <p className="v23-eyebrow v23-work-kicker">Selected Work — {WORK_GRID.length} Projects</p>
         <div className="v23-els" ref={elsRef}>
           {WORK_GRID.map((cell, i) => {
             const p = cell.project;

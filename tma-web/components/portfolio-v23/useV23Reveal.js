@@ -72,6 +72,36 @@ export function useIrisReveal(ref, { start = "top 85%", to = 75 } = {}) {
 }
 
 /**
+ * Lazy-autoplay every `video[data-lazy]` inside the container: load + play only
+ * while on-screen, pause off-screen. No-op under reduced motion.
+ */
+export function useLazyAutoplayVideos(containerRef) {
+  useEffect(() => {
+    const root = containerRef.current;
+    if (!root) return;
+    if (reduced()) return;
+    const vids = Array.from(root.querySelectorAll("video[data-lazy]"));
+    if (!vids.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          const v = en.target;
+          if (en.isIntersecting) {
+            if (!v.src && v.dataset.src) v.src = v.dataset.src;
+            v.play?.().catch(() => {});
+          } else {
+            v.pause?.();
+          }
+        });
+      },
+      { rootMargin: "200px 0px" }
+    );
+    vids.forEach((v) => io.observe(v));
+    return () => io.disconnect();
+  }, [containerRef]);
+}
+
+/**
  * Reveal a group of media nodes (querySelector inside `containerRef`). Each
  * matching `.v23-im` iris-opens on its own ScrollTrigger.
  */

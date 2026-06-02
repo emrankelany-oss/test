@@ -7,6 +7,7 @@ import V23Preloader from "@/components/portfolio-v23/V23Preloader";
 import V23Cursor from "@/components/portfolio-v23/V23Cursor";
 import V23Hero from "@/components/portfolio-v23/V23Hero";
 import V23Statement from "@/components/portfolio-v23/V23Statement";
+import V23Featured from "@/components/portfolio-v23/V23Featured";
 import V23WorkGrid from "@/components/portfolio-v23/V23WorkGrid";
 import V23Carousel from "@/components/portfolio-v23/V23Carousel";
 import "@/components/portfolio-v23/v23.css";
@@ -27,6 +28,7 @@ export default function PortfolioV23Page() {
       <Nav />
       <V23Hero />
       <V23Statement />
+      <V23Featured />
       <V23WorkGrid />
       <V23Carousel />
       <Contact />
