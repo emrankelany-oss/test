@@ -25,14 +25,18 @@ export function useOrbitTimeline(sectionRef, { enabled }) {
 
     const ctx = gsap.context(() => {
       const vw = window.innerWidth, vh = window.innerHeight;
-      // Big, breathing ring that fills the section; words live in the corners.
+      // Ring radius is derived from a SAFE AREA so tiles never clip the nav (top)
+      // or the viewport bottom. tileH ≈ tileW * 9/16; reserve 110px top (nav +
+      // word) and 96px bottom.
+      const tileW = Math.max(190, Math.min(vw * 0.14, 250));
+      const tileHalfH = (tileW * 9) / 16 / 2;
       const rx = Math.min(vw * 0.37, 560);
-      const ry = Math.min(vh * 0.34, 312);
+      const ry = Math.max(170, Math.min((vh - 220) / 2 - tileHalfH, 300));
       // Big, prominent intro cards.
       const portraitW = Math.min(vw * 0.3, 460), portraitH = Math.min(vh * 0.8, 720);
-      const landW = Math.min(vw * 0.44, 660), landH = Math.min(vh * 0.44, 400);
+      const landW = Math.min(vw * 0.46, 720), landH = Math.min(vh * 0.44, 420);
       const gap = Math.min(vw * 0.18, 320);
-      const cardScale = 0.4; // small focal anchor while the films ring around it
+      const cardScale = 0.6; // clear focal anchor while the films ring around it
       const EASE = "power3.inOut";
       const FAN = "power3.out";
 
