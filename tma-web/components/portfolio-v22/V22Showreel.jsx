@@ -33,7 +33,7 @@ function FilmTile({ film }) {
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index = 0 }) {
   const vref = useRef(null);
   const enter = () => { const v = vref.current; if (v && v.play) { try { v.currentTime = 0; } catch {} v.play().catch(() => {}); } };
   const leave = () => { const v = vref.current; if (v) v.pause(); };
@@ -45,14 +45,22 @@ function ProjectCard({ project }) {
       onClick={(e) => openProject(project.slug, e.currentTarget)}
     >
       <span className="v22-sr-card-media">
-        <img src={project.poster} alt="" />
+        <img className="v22-sr-card-poster" src={project.poster} alt="" />
         {project.cardVideo ? (
-          <video ref={vref} src={project.cardVideo} muted loop playsInline preload="none" />
+          <video ref={vref} className="v22-sr-card-video" src={project.cardVideo} muted loop playsInline preload="none" />
         ) : null}
+        <span className="v22-sr-card-tint" aria-hidden="true" />
+        <span className="v22-sr-card-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
       </span>
-      <span className="v22-sr-card-label">
-        <span className="v22-eyebrow">{project.client}</span>
-        <span className="v22-sr-card-title">{project.title}</span>
+      <span className="v22-sr-card-info">
+        <span className="v22-sr-card-titles">
+          <span className="v22-sr-card-client">{project.client}</span>
+          <span className="v22-sr-card-title">{project.title}</span>
+        </span>
+        <span className="v22-sr-card-tags">
+          {project.sector ? <span>{project.sector}</span> : null}
+          {project.year ? <span className="v22-sr-card-year">{project.year}</span> : null}
+        </span>
       </span>
     </button>
   );
@@ -76,11 +84,11 @@ export default function V22Showreel() {
     <section id="v22-featured" ref={sectionRef} className="v22-section v22-showreel" data-mode="static">
       <h2 className="v22-eyebrow">Selected work</h2>
       <div className="v22-sr-stage">
-        {SHOWREEL.map((proj) => (
+        {SHOWREEL.map((proj, i) => (
           <div key={proj.slug} className="v22-sr-group" data-slug={proj.slug}>
             <span className="v22-sr-word v22-sr-word-l" aria-hidden="true">{proj.client}</span>
             <span className="v22-sr-word v22-sr-word-r" aria-hidden="true">Gallery</span>
-            <ProjectCard project={proj} />
+            <ProjectCard project={proj} index={i} />
             <div className="v22-sr-tiles">
               {proj.films.map((f) => <FilmTile key={f.id} film={f} />)}
             </div>

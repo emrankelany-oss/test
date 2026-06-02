@@ -8,6 +8,8 @@ export const SHOWREEL = [
     slug: "foodics-boundless",
     client: "Foodics",
     title: "Boundless",
+    sector: "Hospitality SaaS",
+    year: 2025,
     poster: "/assets/case-foodics-boundless.png",
     cardVideo: `${V}/hero1.mp4`,
     films: [
@@ -24,6 +26,8 @@ export const SHOWREEL = [
     slug: "zid-ripple",
     client: "Zid",
     title: "Ripple",
+    sector: "Commerce Identity",
+    year: 2024,
     poster: "/assets/case-zid-ripple.png",
     cardVideo: `${V}/Zid%20-%20Strategy.MP4`,
     films: [

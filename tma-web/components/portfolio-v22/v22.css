@@ -182,14 +182,29 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 /* ---- showreel (static / fallback layout) ---- */
 .v22-showreel .v22-sr-stage { display: flex; flex-direction: column; gap: clamp(56px, 9vw, 140px); margin-top: clamp(40px, 6vw, 90px); }
 .v22-sr-group { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 44px); }
-.v22-sr-card { appearance: none; background: transparent; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-.v22-sr-card-media { position: relative; display: block; width: min(440px, 72vw); aspect-ratio: 3 / 4; overflow: hidden; background: var(--v22-panel); }
-.v22-sr-card-media img, .v22-sr-card-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-/* poster image by default; the video fades in + plays on hover */
-.v22-sr-card-media video { opacity: 0; transition: opacity .45s ease; }
-.v22-sr-card:hover .v22-sr-card-media video { opacity: 1; }
-.v22-sr-card-label { display: flex; flex-direction: column; gap: 8px; }
-.v22-sr-card-title { font-size: clamp(30px, 5vw, 64px); font-weight: 400; letter-spacing: -0.015em; line-height: 0.98; }
+/* main project card — framed media (poster + hover-video + tint + index) and a
+   caption row (CLIENT / Title · sector / year), in the V21 featured-card style. */
+.v22-sr-card { appearance: none; background: transparent; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: clamp(14px, 1.2vw, 20px); align-items: stretch; }
+.v22-sr-card-media {
+  position: relative; display: block; width: min(440px, 72vw); aspect-ratio: 4 / 5;
+  overflow: hidden; border-radius: 8px; background: var(--v22-panel);
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s cubic-bezier(.2,.8,.2,1);
+}
+.v22-sr-card:hover .v22-sr-card-media { transform: translateY(-6px); box-shadow: 0 44px 90px rgba(0, 0, 0, 0.62), inset 0 0 0 1px rgba(255, 255, 255, 0.16); }
+.v22-sr-card-poster, .v22-sr-card-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.v22-sr-card-poster { z-index: 0; transform: scale(1.02); transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+.v22-sr-card:hover .v22-sr-card-poster { transform: scale(1.08); }
+.v22-sr-card-video { z-index: 1; opacity: 0; transform: scale(1.06); transition: opacity .5s ease, transform .7s cubic-bezier(.2,.8,.2,1); will-change: opacity, transform; pointer-events: none; }
+.v22-sr-card:hover .v22-sr-card-video { opacity: 1; transform: scale(1); }
+.v22-sr-card-tint { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); pointer-events: none; }
+.v22-sr-card-index { position: absolute; top: 16px; left: 18px; z-index: 3; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-shadow: 0 1px 4px rgba(0,0,0,0.5); pointer-events: none; }
+.v22-sr-card-info { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 0 2px; }
+.v22-sr-card-titles { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.v22-sr-card-client { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--v22-dim); }
+.v22-sr-card-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px, 3vw, 44px); line-height: 1; letter-spacing: -0.02em; color: #fff; margin: 0; }
+.v22-sr-card-tags { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v22-dim); text-align: right; white-space: nowrap; flex: 0 0 auto; }
+.v22-sr-card-year { color: rgba(255,255,255,0.82); }
 .v22-sr-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: clamp(20px, 2.6vw, 38px); }
 /* premium film tile: media box with overlaid tag/title, scrim, and play button */
 .v22-sr-tile { appearance: none; background: transparent; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; display: block; }
@@ -215,7 +230,7 @@ body.v22-has-cursor [data-cursor] { cursor: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-group { position: absolute; inset: 0; display: block; gap: 0; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card { position: absolute; display: block; gap: 0; }
 .v22-showreel[data-mode="orbit"] .v22-sr-card-media { width: 100%; height: 100%; aspect-ratio: auto; }
-.v22-showreel[data-mode="orbit"] .v22-sr-card-label { display: none; }
+.v22-showreel[data-mode="orbit"] .v22-sr-card-info { display: none; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tiles { display: contents; }
 .v22-showreel[data-mode="orbit"] .v22-sr-tile { position: absolute; width: clamp(240px, 18vw, 300px); }
 
