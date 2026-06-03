@@ -40,7 +40,7 @@ export default function V23Carousel() {
     let pos = 0;
     const render = () => gsap.set(track, { x: wrapX(pos) });
 
-    const SPEED = 110; // px/sec — marquee drift
+    const SPEED = 150; // px/sec — marquee drift
     const DIR = 1; // +1 = cards travel left → right
     let hovering = false; // pause while a card is hovered
     let visible = true; // pause when the section is off-screen
