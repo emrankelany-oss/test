@@ -132,7 +132,7 @@ export default function V23Carousel() {
                     <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
                   </span>
                   <span className="v23-im-hv">
-                    <img src={p.hero || p.thumb} alt="" loading="lazy" />
+                    <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
                   </span>
                   <span className="v23-play" aria-hidden="true" />
                 </>

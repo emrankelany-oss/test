@@ -39,7 +39,16 @@ function MediaCell({ m, client, lazy = true }) {
             />
           )}
         </span>
-        <span className="v23-im-hv"><img src={m.poster} alt="" loading="lazy" /></span>
+        <span className="v23-im-hv">
+          {m.kind === "youtube" ? (
+            <img src={m.poster} alt="" loading="lazy" />
+          ) : (
+            <video
+              {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
+              poster={m.poster} muted loop playsInline aria-hidden="true"
+            />
+          )}
+        </span>
         <span className="v23-play" aria-hidden="true" />
       </button>
     </div>
@@ -191,7 +200,13 @@ function MediaCellLead({ m, client, mediaRef }) {
             <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
           )}
         </span>
-        <span className="v23-im-hv"><img src={m.poster} alt="" loading="lazy" /></span>
+        <span className="v23-im-hv">
+          {m.kind === "youtube" ? (
+            <img src={m.poster} alt="" loading="lazy" />
+          ) : (
+            <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+          )}
+        </span>
         <span className="v23-play" aria-hidden="true" />
       </button>
     </div>
