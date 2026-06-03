@@ -124,9 +124,9 @@ body.v23-has-cursor.v23-dragging { cursor: none; }
 /* ---- HERO (case_intro) ---------------------------------------------------- */
 .v23-hero { position: relative; padding-top: clamp(120px, 18vh, 220px); padding-bottom: clamp(40px, 6vw, 96px); }
 .v23-hero-title {
-  /* match the home hero: Inter Tight, heavy + uppercase, tight tracking */
-  font-size: clamp(44px, 10vw, 184px); line-height: 0.86; letter-spacing: -0.04em;
-  font-weight: 900; text-transform: uppercase; margin: 18px 0 0; max-width: 15ch;
+  /* home hero font (Inter Tight, heavy uppercase) — sized down to sit comfortably */
+  font-size: clamp(32px, 6.4vw, 112px); line-height: 0.94; letter-spacing: -0.035em;
+  font-weight: 900; text-transform: uppercase; margin: 16px 0 0; max-width: 17ch;
 }
 .v23-hero-media {
   position: relative; margin-top: clamp(40px, 6vw, 90px);
