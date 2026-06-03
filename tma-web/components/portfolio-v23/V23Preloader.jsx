@@ -4,17 +4,23 @@ import gsap from "gsap";
 import { WORK_GRID, FEATURED } from "./projects";
 import V23Logo from "./V23Logo";
 
-// Real critical assets to preload before revealing (hero loop + above-the-fold
-// imagery + featured lead films) so the draw is paced by genuine loading.
+// Real page assets to preload before revealing. Genuinely waits on them:
+// every work-grid card image + all featured posters, the hero loop and the
+// statement panel video buffered to a playable first frame ("loadeddata"),
+// and the featured lead films to metadata. 100% is only reached once these
+// have actually finished loading over the network.
 function criticalAssets() {
-  const imgs = new Set(["/assets/v5/slide8-poster.jpg"]);
-  WORK_GRID.slice(0, 10).forEach((c) => c.image && imgs.add(c.image));
-  FEATURED.forEach((f) => f.media[0]?.poster && imgs.add(f.media[0].poster));
-  const vids = new Set([
-    "/assets/v5/slide8-loop.mp4",
-    ...FEATURED.map((f) => f.media.find((m) => m.kind === "video")?.src).filter(Boolean),
-  ]);
-  return { images: [...imgs], videos: [...vids] };
+  const imgs = new Set(["/assets/v5/slide8-poster.jpg", "/assets/v23/studio-motion.jpg"]);
+  WORK_GRID.forEach((c) => c.image && imgs.add(c.image));
+  FEATURED.forEach((f) => f.media.forEach((m) => m.poster && imgs.add(m.poster)));
+
+  const videos = [];
+  const seen = new Set();
+  const add = (src, until) => { if (src && !seen.has(src)) { seen.add(src); videos.push({ src, until }); } };
+  add("/assets/v5/slide8-loop.mp4", "loadeddata");      // hero — must be playable
+  add("/assets/v23/studio-motion.mp4", "loadeddata");   // statement panel — must be playable
+  FEATURED.forEach((f) => add(f.media.find((m) => m.kind === "video")?.src, "loadedmetadata"));
+  return { images: [...imgs], videos };
 }
 
 export default function V23Preloader() {
@@ -65,26 +71,32 @@ export default function V23Preloader() {
     let done = 0;
     const bump = () => { done = Math.min(total, done + 1); };
     const loadImg = (src) => new Promise((res) => { const im = new Image(); im.onload = im.onerror = () => { bump(); res(); }; im.src = src; });
-    const loadVid = (src) => new Promise((res) => {
-      const v = document.createElement("video"); v.muted = true; v.preload = "metadata";
+    const loadVid = ({ src, until }) => new Promise((res) => {
+      const v = document.createElement("video"); v.muted = true;
+      v.preload = until === "loadeddata" ? "auto" : "metadata";
       let s = false; const fin = () => { if (s) return; s = true; bump(); res(); };
-      v.onloadedmetadata = fin; v.oncanplay = fin; v.onerror = fin; setTimeout(fin, 3500); v.src = src;
+      v.addEventListener(until, fin); v.addEventListener("canplaythrough", fin); v.onerror = fin;
+      setTimeout(fin, 7000); // safety so one slow file never traps the reveal
+      v.src = src;
     });
     const fontsP = (document.fonts ? document.fonts.ready : Promise.resolve()).then(bump);
     Promise.all([fontsP, ...images.map(loadImg), ...videos.map(loadVid)]).catch(() => {});
 
     const start = performance.now();
-    const MIN_MS = 1700; // keep the draw legible on fast loads
+    const MIN_MS = 3400; // slower, deliberate write-on — also the minimum on-screen time
     let shown = 0, raf = 0, revealed = false;
 
     const tick = () => {
-      const real = (done / total) * 100;
-      shown += (real - shown) * 0.07;
       const elapsed = performance.now() - start;
-      let display = Math.min(shown, done >= total && elapsed >= MIN_MS ? 100 : 99);
+      const realPct = (done / total) * 100;            // genuine network progress
+      const timePct = Math.min(100, (elapsed / MIN_MS) * 100); // min-duration pace
+      const target = Math.min(realPct, timePct);       // bounded by BOTH → can't finish early
+      shown += (target - shown) * 0.08;
+      const display = Math.min(shown, 99.9);
       drawTo(display / 100);
       if (numRef.current) numRef.current.textContent = String(Math.round(display));
-      if (display >= 99.6 && !revealed) { revealed = true; reveal(); return; }
+      // reveal strictly once the real assets are loaded AND the minimum time passed
+      if (done >= total && elapsed >= MIN_MS && !revealed) { revealed = true; reveal(); return; }
       raf = requestAnimationFrame(tick);
     };
 
@@ -95,7 +107,7 @@ export default function V23Preloader() {
       const navLogo = document.querySelector(".v23-page .nav-logo");
       const tl = gsap.timeline();
       tl.add(() => root.classList.add("is-filled")) // stroke → solid fill
-        .to(".v23-pl-count", { opacity: 0, y: -10, duration: 0.4, ease: "power2.in" }, 0.25)
+        .to(".v23-pl-count", { opacity: 0, y: -10, duration: 0.5, ease: "power2.in" }, 0.4)
         .add(() => {
           if (!navLogo) return;
           const from = logo.getBoundingClientRect();
@@ -105,21 +117,21 @@ export default function V23Preloader() {
             x: to.left - from.left,
             y: to.top - from.top,
             scale: to.width / from.width,
-            duration: 0.95,
+            duration: 1.15,
             ease: "expo.inOut",
           });
-        }, 0.5)
-        .to(root, { backgroundColor: "rgba(0,0,0,0)", duration: 0.8, ease: "power2.inOut" }, 0.7)
+        }, 0.7)
+        .to(root, { backgroundColor: "rgba(0,0,0,0)", duration: 1.0, ease: "power2.inOut" }, 0.95)
         .add(() => {
           docEl.classList.remove("v23-loading"); // navbar logo fades in under the flown mark
           docEl.style.overflow = "";
           window.dispatchEvent(new CustomEvent("v23:loaded"));
-        }, 1.45)
-        .add(() => setMounted(false), 1.55);
+        }, 1.85)
+        .add(() => setMounted(false), 1.95);
     };
 
     raf = requestAnimationFrame(tick);
-    const hardStop = setTimeout(() => { done = total; }, 8000);
+    const hardStop = setTimeout(() => { done = total; }, 14000);
 
     return () => {
       cancelAnimationFrame(raf);
