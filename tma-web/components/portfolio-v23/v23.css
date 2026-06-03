@@ -148,10 +148,10 @@ body.v23-has-cursor.v23-dragging { cursor: none; }
   display: flex; align-items: center; justify-content: center;
 }
 .v23-panel-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-/* Keep the shared Contact CTA's italic word as the serif (Times New Roman) —
-   identical to the home page, regardless of any cache/fallback render. */
+/* Match the home page's Contact CTA exactly: "bold stories" in the Inter Tight
+   italic (sans) face, not the global .ital serif. */
 .v23-page .contact-headline .ital {
-  font-family: "Times New Roman", "Source Serif Pro", Georgia, serif !important;
+  font-family: var(--font-display) !important; /* Inter Tight */
   font-style: italic;
 }
 .v23-panel-word {
