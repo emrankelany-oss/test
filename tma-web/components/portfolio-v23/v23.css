@@ -324,26 +324,41 @@ html.v23-loading { overflow: hidden; }
   position: relative; border-radius: 6px; overflow: hidden;
   transform: translateZ(0); transition: transform .7s var(--ease), box-shadow .7s var(--ease);
 }
-/* base media (direct children of .v23-im) — recedes (blur + dim) on hover */
-.v23-im > img, .v23-im > video { transition: filter .65s var(--ease), transform 1s var(--ease); }
-.v23-el-open:hover { transform: translateY(-6px); box-shadow: 0 36px 70px -28px rgba(0,0,0,.85); }
-.v23-el-open:not(.v23-im-contain):hover .v23-im > img, .v23-el-open:not(.v23-im-contain):hover .v23-im > video { filter: blur(7px) brightness(.86); }
-
-/* dual-layer reveal (near Clim): a second take irises open from the centre
-   while its inner image slow-zooms — eased on cubic-bezier(.55,0,.1,1). */
+/* ── Studio-Clim-style dual-layer card hover (ported from V21 .v21ow-im-h/hv) ──
+   Two stacked media layers (same source):
+     .v23-im-h  = base. Visible at rest; blurs + scales up on hover (0.6s/1.4s).
+     .v23-im-hv = overlay. Hidden by ellipse(0% 0%) clip-path; on hover the
+                  ellipse opens AND the layer rotates 150° while the inner media
+                  counter-rotates -150° (the picture stays upright, the portal
+                  spins into place). clip-path 1s, transform 1.4s, ease .55,0,.1,1. */
+.v23-im-h, .v23-im-hv { position: absolute; inset: 0; display: block; overflow: hidden; }
+.v23-im-h { z-index: 1; transition: filter .6s var(--ease); }
+.v23-im-h img, .v23-im-h video {
+  width: 100%; height: 100%; object-fit: cover; transform: scale(1);
+  transition: transform 1.4s var(--ease); pointer-events: none; user-select: none;
+}
 .v23-im-hv {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
-  clip-path: ellipse(0% 0% at 50% 50%);
-  transition: clip-path 1s cubic-bezier(.55, 0, .1, 1);
+  z-index: 2; pointer-events: none; clip-path: ellipse(0% 0% at 50% 50%); transform: rotate(0deg);
+  transition: clip-path 1s var(--ease), transform 1.4s var(--ease);
 }
-.v23-im-hv img {
-  width: 100%; height: 100%; object-fit: cover;
-  transform: scale(1.14); filter: brightness(1.06) saturate(1.14);
-  transition: transform 1.4s cubic-bezier(.55, 0, .1, 1);
+.v23-im-hv img, .v23-im-hv video {
+  width: 100%; height: 100%; object-fit: cover; transform: rotate(0deg);
+  transition: transform 1.4s var(--ease); pointer-events: none; user-select: none;
 }
-.v23-el-open:hover .v23-im-hv { clip-path: ellipse(82% 82% at 50% 50%); }
-.v23-el-open:hover .v23-im-hv img { transform: scale(1.02); }
+.v23-el-open:not(.v23-im-contain):hover .v23-im-h,
+.v23-el-open:not(.v23-im-contain):focus-visible .v23-im-h { filter: blur(14px); }
+.v23-el-open:not(.v23-im-contain):hover .v23-im-h img,
+.v23-el-open:not(.v23-im-contain):hover .v23-im-h video { transform: scale(1.2); }
+.v23-el-open:not(.v23-im-contain):hover .v23-im-hv,
+.v23-el-open:not(.v23-im-contain):focus-visible .v23-im-hv {
+  clip-path: ellipse(50% 35% at 50% 50%); transform: rotate(150deg);
+}
+.v23-el-open:not(.v23-im-contain):hover .v23-im-hv img,
+.v23-el-open:not(.v23-im-contain):hover .v23-im-hv video { transform: rotate(-150deg); }
 .v23-im-contain .v23-im-hv { display: none; } /* keep logo tiles clean */
+.v23-el-open.v23-im-contain:hover .v23-im-h img { transform: scale(1.03); }
+
+@media (hover: none) { .v23-im-hv { display: none; } }
 
 /* gradient scrim fades in from the bottom */
 .v23-el-scrim {
@@ -380,11 +395,9 @@ html.v23-loading { overflow: hidden; }
 .v23-el:hover .v23-el-cap .t { color: var(--v23-c2); }
 .v23-el:hover .v23-el-cap .t::after { opacity: 1; transform: translate(0, 0); }
 
-/* logo tiles: keep the zoom gentle (no big crop) */
-.v23-el-open.v23-im-contain:hover .v23-im img { transform: scale(1.03) !important; }
-
 @media (prefers-reduced-motion: reduce) {
   .v23-el-open, .v23-el-open:hover, .v23-im img, .v23-im video { transform: none !important; box-shadow: none !important; }
+  .v23-im-h { filter: none !important; }
   .v23-el-scrim, .v23-el-cta, .v23-im-hv { display: none; }
 }
 

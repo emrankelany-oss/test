@@ -39,23 +39,22 @@ export default function V23WorkGrid() {
                   data-cursor-label="View"
                 >
                   <span className="v23-im">
-                    {p.video ? (
-                      <video
-                        data-lazy
-                        data-src={p.video}
-                        poster={p.hero || p.thumb}
-                        muted
-                        loop
-                        playsInline
-                        preload="none"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <img src={cell.image} alt={`${p.client} — ${p.title}`} loading="lazy" />
-                    )}
-                    <span className="v23-im-hv" aria-hidden="true">
-                      <img src={p.video ? (p.hero || p.thumb) : cell.image} alt="" loading="lazy" />
+                    <span className="v23-im-h">
+                      {p.video ? (
+                        <video data-lazy data-src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="none" aria-hidden="true" />
+                      ) : (
+                        <img src={cell.image} alt={`${p.client} — ${p.title}`} loading="lazy" />
+                      )}
                     </span>
+                    {!deckFit(p.slug) && (
+                      <span className="v23-im-hv" aria-hidden="true">
+                        {p.video ? (
+                          <video data-lazy data-src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="none" aria-hidden="true" />
+                        ) : (
+                          <img src={cell.image} alt="" loading="lazy" />
+                        )}
+                      </span>
+                    )}
                   </span>
                   <span className="v23-el-scrim" aria-hidden="true" />
                   <span className="v23-el-cta" aria-hidden="true">
