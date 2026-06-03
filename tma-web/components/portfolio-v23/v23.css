@@ -27,8 +27,8 @@
   --v23-size: calc(100vw - var(--v23-padgut) * 2);
 
   --ease: cubic-bezier(0.55, 0, 0.1, 1);
-  --font-display: var(--font-inter-tight), system-ui, sans-serif;
-  --font-label: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--display); /* same Inter Tight stack as the home page */
+  --font-label: var(--mono);      /* JetBrains Mono — same as the home/V21 CTAs */
 
   position: relative;
   min-height: 100vh;
@@ -46,8 +46,8 @@
   --v23-c2: #6fd3ff; --v23-c4: #2b6bff; --v23-acc: #6fd3ff;
   --v23-padgut: clamp(20px, 5.6vw, 120px); --v23-gut: clamp(10px, 1.2vw, 24px);
   --ease: cubic-bezier(0.55, 0, 0.1, 1);
-  --font-display: var(--font-inter-tight), system-ui, sans-serif;
-  --font-label: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--display); /* same Inter Tight stack as the home page */
+  --font-label: var(--mono);      /* JetBrains Mono — same as the home/V21 CTAs */
   font-family: var(--font-display); color: var(--v23-ink);
 }
 
@@ -124,8 +124,9 @@ body.v23-has-cursor.v23-dragging { cursor: none; }
 /* ---- HERO (case_intro) ---------------------------------------------------- */
 .v23-hero { position: relative; padding-top: clamp(120px, 18vh, 220px); padding-bottom: clamp(40px, 6vw, 96px); }
 .v23-hero-title {
-  font-size: clamp(52px, 12vw, 220px); line-height: 0.9; letter-spacing: -0.02em;
-  font-weight: 400; margin: 18px 0 0; max-width: 14ch;
+  /* match the home hero: Inter Tight, heavy + uppercase, tight tracking */
+  font-size: clamp(44px, 10vw, 184px); line-height: 0.86; letter-spacing: -0.04em;
+  font-weight: 900; text-transform: uppercase; margin: 18px 0 0; max-width: 15ch;
 }
 .v23-hero-media {
   position: relative; margin-top: clamp(40px, 6vw, 90px);
