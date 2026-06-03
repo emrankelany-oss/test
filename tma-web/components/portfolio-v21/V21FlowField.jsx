@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
-import { atmoSignal } from "./atmoSignal";
 
 const PARTICLE_COUNT = 220;
 const DPR_CAP = 2;
@@ -18,13 +17,11 @@ const TRAIL_FADE = 0.06;
  * layer, so it paints BEHIND the filament: the scroll-drawn line and the
  * "MOTION MATTERS" tracing always sit clearly on TOP of it.
  *
- * Visibility and speed come from the shared atmosphere signal (atmoSignal,
- * written by V21Atmosphere) — NOT a local rect read or ScrollTrigger. The
- * canvas fades in while --atmo-bloom is up (which peaks over MOTION MATTERS
- * and stays up for the whole pin) and its current reacts to --atmo-vel, so it
- * breathes in sync with the bloom and the filament comet (one writer, many
- * readers). A bloom gate also pre-fades the canvas in as MM approaches rather
- * than snapping on at the viewport edge.
+ * Visibility is driven by the section's on-screen rect each frame (NOT a
+ * ScrollTrigger). The section is pinned for +=200%, and a ScrollTrigger keyed
+ * to its natural height would flip inactive ~one viewport before the pin
+ * actually releases — which made the background vanish mid-draw. Reading the
+ * live rect keeps it visible for the entire time the section is on screen.
  *
  * Hard rule: this layer never alters the filament — mix-blend-mode: screen
  * (adds light only) plus a black trail-fade (a no-op under screen).
@@ -39,104 +36,94 @@ export default function V21FlowField() {
     const section = document.querySelector(".v21-mm");
     if (!section) return;
 
-    // Reduced motion: no rAF, no particles. Use an IntersectionObserver to
-    // show the static wash div whenever MOTION MATTERS is on screen — this is
-    // event-driven and unaffected by rAF throttling in reduced-motion contexts.
-    if (reduced) {
-      const io = new IntersectionObserver(
-        ([entry]) => {
-          el.style.opacity = entry.isIntersecting ? "1" : "0";
-        },
-        { threshold: 0 }
-      );
-      io.observe(section);
-      return () => io.disconnect();
-    }
-
     let rafId = 0;
     let ro = null;
-    // Velocity + visibility now come from the shared atmosphere signal, so the
-    // flow-field breathes in sync with the bloom and the comet (one writer).
+    let lastY = window.scrollY;
     let lastVisible = null;
 
     // Particle/canvas drawing is only set up for the animated (non-reduced)
     // path. `drawFrame(velocity)` advances and renders one frame.
     let drawFrame = null;
+    if (!reduced) {
+      const ctx2d = el.getContext("2d");
+      const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
 
-    const ctx2d = el.getContext("2d");
-    const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
+      let width = 0;
+      let height = 0;
+      const fit = () => {
+        const rect = el.getBoundingClientRect();
+        width = Math.max(1, Math.round(rect.width));
+        height = Math.max(1, Math.round(rect.height));
+        el.width = width * dpr;
+        el.height = height * dpr;
+        ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      fit();
 
-    let width = 0;
-    let height = 0;
-    const fit = () => {
-      const rect = el.getBoundingClientRect();
-      width = Math.max(1, Math.round(rect.width));
-      height = Math.max(1, Math.round(rect.height));
-      el.width = width * dpr;
-      el.height = height * dpr;
-      ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    fit();
+      ro = new ResizeObserver(fit);
+      ro.observe(el);
 
-    ro = new ResizeObserver(fit);
-    ro.observe(el);
+      const rand = (a, b) => a + Math.random() * (b - a);
+      const spawn = () => ({ x: rand(0, width), y: rand(0, height), life: rand(40, 160) });
+      const particles = Array.from({ length: PARTICLE_COUNT }, spawn);
 
-    const rand = (a, b) => a + Math.random() * (b - a);
-    const spawn = () => ({ x: rand(0, width), y: rand(0, height), life: rand(40, 160) });
-    const particles = Array.from({ length: PARTICLE_COUNT }, spawn);
+      const lerp = (a, b, n) => a + (b - a) * n;
+      let flowSpeed = 0.5; // multiplier on time advance
+      let glow = 0.2; // stroke alpha
+      let t = 0;
+      const field = (x, y) =>
+        Math.sin(y * 0.012 + t * 0.6) * 0.8 + Math.cos(x * 0.008 - t * 0.3) * 0.5;
 
-    const lerp = (a, b, n) => a + (b - a) * n;
-    let flowSpeed = 0.5; // multiplier on time advance
-    let glow = 0.2; // stroke alpha
-    let t = 0;
-    const field = (x, y) =>
-      Math.sin(y * 0.012 + t * 0.6) * 0.8 + Math.cos(x * 0.008 - t * 0.3) * 0.5;
+      drawFrame = (velocity) => {
+        // Always-visible base, brighter/faster while scrolling.
+        const speedTarget = 0.45 + velocity * 0.95; // 0.45 .. 1.4
+        const glowTarget = 0.2 + velocity * 0.14; // 0.20 .. 0.34
+        flowSpeed = lerp(flowSpeed, speedTarget, 0.05);
+        glow = lerp(glow, glowTarget, 0.05);
 
-    drawFrame = (velocity) => {
-      // Always-visible base, brighter/faster while scrolling.
-      const speedTarget = 0.45 + velocity * 0.95; // 0.45 .. 1.4
-      const glowTarget = 0.2 + velocity * 0.14; // 0.20 .. 0.34
-      flowSpeed = lerp(flowSpeed, speedTarget, 0.05);
-      glow = lerp(glow, glowTarget, 0.05);
+        t += 0.006 * flowSpeed;
+        // Fade prior frame toward black to build flowing trails. Black is a
+        // no-op under screen blend, so this never darkens the filament/page.
+        ctx2d.fillStyle = `rgba(0, 0, 0, ${TRAIL_FADE})`;
+        ctx2d.fillRect(0, 0, width, height);
 
-      t += 0.006 * flowSpeed;
-      // Fade prior frame toward black to build flowing trails. Black is a
-      // no-op under screen blend, so this never darkens the filament/page.
-      ctx2d.fillStyle = `rgba(0, 0, 0, ${TRAIL_FADE})`;
-      ctx2d.fillRect(0, 0, width, height);
-
-      ctx2d.lineWidth = 1.3;
-      ctx2d.lineCap = "round";
-      ctx2d.strokeStyle = `rgba(95, 185, 255, ${glow})`;
-      for (const p of particles) {
-        const a = field(p.x, p.y);
-        const nx = p.x + Math.cos(a) * 1.6 * flowSpeed;
-        const ny = p.y + Math.sin(a) * 1.6 * flowSpeed;
-        ctx2d.beginPath();
-        ctx2d.moveTo(p.x, p.y);
-        ctx2d.lineTo(nx, ny);
-        ctx2d.stroke();
-        p.x = nx;
-        p.y = ny;
-        p.life -= 1;
-        if (p.life < 0 || p.x < 0 || p.x > width || p.y < 0 || p.y > height) {
-          Object.assign(p, spawn());
+        ctx2d.lineWidth = 1.3;
+        ctx2d.lineCap = "round";
+        ctx2d.strokeStyle = `rgba(95, 185, 255, ${glow})`;
+        for (const p of particles) {
+          const a = field(p.x, p.y);
+          const nx = p.x + Math.cos(a) * 1.6 * flowSpeed;
+          const ny = p.y + Math.sin(a) * 1.6 * flowSpeed;
+          ctx2d.beginPath();
+          ctx2d.moveTo(p.x, p.y);
+          ctx2d.lineTo(nx, ny);
+          ctx2d.stroke();
+          p.x = nx;
+          p.y = ny;
+          p.life -= 1;
+          if (p.life < 0 || p.x < 0 || p.x > width || p.y < 0 || p.y > height) {
+            Object.assign(p, spawn());
+          }
         }
-      }
-    };
+      };
+    }
 
     const tick = () => {
-      // Normal motion: visibility + speed come from the shared atmosphere
-      // signal, so the canvas breathes with the bloom and the comet. Reduced
-      // motion: handled above via IntersectionObserver (rAF is throttled in
-      // that context; this branch only runs for normal motion).
-      const visible = atmoSignal.bloom > 0.02;
+      const y = window.scrollY;
+      const velocity = Math.min(1, Math.abs(y - lastY) / 45);
+      lastY = y;
+
+      // Visible whenever the section overlaps the viewport — true for the
+      // entire pin (rect stays top:0..bottom:vh while pinned). CSS opacity
+      // transition smooths the fade at the edges.
+      const r = section.getBoundingClientRect();
+      const visible = r.top < window.innerHeight && r.bottom > 0;
       if (visible !== lastVisible) {
         el.style.opacity = visible ? "1" : "0";
         lastVisible = visible;
       }
 
-      if (visible && drawFrame) drawFrame(atmoSignal.vel);
+      if (visible && drawFrame) drawFrame(velocity);
       rafId = requestAnimationFrame(tick);
     };
     rafId = requestAnimationFrame(tick);

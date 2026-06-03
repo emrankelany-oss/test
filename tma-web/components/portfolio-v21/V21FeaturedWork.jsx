@@ -8,30 +8,24 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
-
-if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 /* =====================================================================
    V21 — Featured Work
    ---------------------------------------------------------------------
-   Three featured projects as full-width editorial cinematic bands.
+   Three featured projects in a clean 3-column row.
 
-   Each band is a 16:9 media panel with a bottom-anchored overlay showing
-   the project caption (mono, uppercase) and large serif title.
-   The poster/video live inside an oversized `.v21fw-band-inner` wrapper
-   that is parallaxed via GSAP ScrollTrigger — the overflow is clipped by
-   `.v21fw-band-media` so the motion is contained without affecting layout.
-
-   Hover model:
-     • Hovering a band fades the project video in over the poster.
-     • The poster scale rests at 1.04 and eases back to 1.0 on hover.
+   Hover model (premium, full-card play):
+     • Hovering a card crossfades its project video in over the whole card
+       and plays it; leaving fades it out, pauses and resets.
+     • A glassy circular "VIEW VIDEO" badge follows the cursor while it is
+       over the grid (native cursor hidden over the cards).
+     • The hovered card is spotlit — its two siblings dim + desaturate
+       (pure CSS via :has()).
+   Cards also open/close on scroll (clip-path driven by JS, unchanged).
 
    Click model:
      • A project with several films (a `videos` array) expands IN PLACE:
-       the clicked band morphs out into a full "reel" gallery — a featured
+       the clicked card morphs out into a full "reel" gallery — a featured
        player plus that project's films grouped by type (ProjectGallery).
      • A project with a single film opens the simple centred VideoModal.
    ===================================================================== */
@@ -153,8 +147,8 @@ const PROJECTS = [
 const hasReel = (project) => (project.videos?.length ?? 0) > 1;
 
 export default function V21FeaturedWork() {
-  const rootRef = useRef(null);
-  const reduced = usePrefersReducedMotion();
+  const gridRef = useRef(null);
+  const cursorRef = useRef(null);
   // The project whose single film is open in the centred modal (null = closed).
   const [openProject, setOpenProject] = useState(null);
   // The project + origin rect whose multi-film reel is expanded (null = closed).
@@ -168,41 +162,158 @@ export default function V21FeaturedWork() {
   );
   const closeReel = useCallback(() => setReel(null), []);
 
-  /* ---------- GSAP bands reveal + parallax ---------- */
+  /* ---------- Scroll-linked open/close reveal ----------
+     --reveal : top clip-inset (100% closed -> 0% open) so the media opens
+                bottom->up scrolling down and closes top->down scrolling up.
+     --p      : same 0->1 progress for the caption fade/rise.
+     Wide window + eased target + per-frame damping = slow & smooth. */
   useEffect(() => {
-    if (reduced) return;
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray(".v21fw-band").forEach((band) => {
-        ScrollTrigger.create({
-          trigger: band,
-          start: "top 82%",
-          once: true,
-          onEnter: () => band.classList.add("is-revealed"),
-        });
-        const media = band.querySelector(".v21fw-band-inner");
-        if (media) {
-          gsap.fromTo(
-            media,
-            { yPercent: -6 },
-            {
-              yPercent: 6,
-              ease: "none",
-              scrollTrigger: {
-                trigger: band,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 2.5,
-              },
-            }
-          );
-        }
+    const grid = gridRef.current;
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".v21fw-card"));
+    if (!cards.length) return;
+
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      cards.forEach((c) => {
+        c.style.setProperty("--reveal", "0%");
+        c.style.setProperty("--p", "1");
       });
-    }, rootRef);
-    return () => ctx.revert();
-  }, [reduced]);
+      return;
+    }
+
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const state = cards.map(() => ({ cur: 0, target: 0 }));
+    let rafId = 0;
+    let running = false;
+
+    const setProps = (i, p) => {
+      cards[i].style.setProperty("--reveal", `${((1 - p) * 100).toFixed(2)}%`);
+      cards[i].style.setProperty("--p", p.toFixed(3));
+    };
+
+    const computeTargets = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        const offset = i * vh * 0.06; // gentle left->right stagger
+        const start = vh * 0.8 + offset; // card top here -> starts opening
+        const end = vh * 0.22 + offset; // card top here -> fully open
+        let p = (start - rect.top) / (start - end);
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        state[i].target = easeInOutCubic(p);
+      });
+    };
+
+    const tick = () => {
+      let moving = false;
+      for (let i = 0; i < cards.length; i++) {
+        const s = state[i];
+        s.cur += (s.target - s.cur) * 0.07; // damping: lower = smoother/slower
+        if (Math.abs(s.target - s.cur) > 0.0015) moving = true;
+        else s.cur = s.target;
+        setProps(i, s.cur);
+      }
+      if (moving) rafId = requestAnimationFrame(tick);
+      else running = false;
+    };
+
+    const ensureRunning = () => {
+      if (!running) {
+        running = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
+    const onScroll = () => {
+      computeTargets();
+      ensureRunning();
+    };
+
+    // seed: paint each card at its correct target with no entry animation
+    computeTargets();
+    state.forEach((s) => (s.cur = s.target));
+    for (let i = 0; i < cards.length; i++) setProps(i, state[i].cur);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  /* ---------- "VIEW VIDEO" cursor badge ----------
+     One glassy badge eased toward the pointer while it is over the grid.
+     The native cursor is hidden over the cards (see CSS), so this badge is
+     the cursor. Pointer-fine devices only — touch keeps native behaviour. */
+  useEffect(() => {
+    const grid = gridRef.current;
+    const cursor = cursorRef.current;
+    if (!grid || !cursor) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches)
+      return;
+
+    let rawX = 0;
+    let rawY = 0;
+    let easeX = 0;
+    let easeY = 0;
+    let rafId = 0;
+    let active = false;
+
+    const seed = (e) => {
+      rawX = e.clientX;
+      rawY = e.clientY;
+    };
+
+    const place = () => {
+      cursor.style.transform =
+        `translate3d(${easeX.toFixed(2)}px, ${easeY.toFixed(2)}px, 0) translate(-50%, -50%)`;
+    };
+
+    const loop = () => {
+      easeX += (rawX - easeX) / 6; // snappy follow, still eased
+      easeY += (rawY - easeY) / 6;
+      place();
+      rafId = requestAnimationFrame(loop);
+    };
+
+    const activate = (e) => {
+      if (active) return;
+      active = true;
+      // snap to the entry point so the badge doesn't streak in from 0,0
+      rawX = easeX = e.clientX;
+      rawY = easeY = e.clientY;
+      place();
+      cursor.classList.add("is-active");
+      rafId = requestAnimationFrame(loop);
+    };
+
+    const deactivate = () => {
+      if (!active) return;
+      active = false;
+      cancelAnimationFrame(rafId);
+      cursor.classList.remove("is-active");
+    };
+
+    grid.addEventListener("pointerenter", activate);
+    grid.addEventListener("pointermove", seed, { passive: true });
+    grid.addEventListener("pointerleave", deactivate);
+    return () => {
+      cancelAnimationFrame(rafId);
+      grid.removeEventListener("pointerenter", activate);
+      grid.removeEventListener("pointermove", seed);
+      grid.removeEventListener("pointerleave", deactivate);
+    };
+  }, []);
 
   return (
-    <section ref={rootRef} className="v21fw">
+    <section className="v21fw">
       <header className="v21fw-header container">
         <span className="v21fw-eyebrow">
           <span className="v21fw-eyebrow-tick" />
@@ -216,58 +327,32 @@ export default function V21FeaturedWork() {
         </p>
       </header>
 
-      <ul className="v21fw-bands container">
-        {PROJECTS.slice(0, 3).map((p, i) => {
-          const isReel = hasReel(p);
-          const handleClick = (e) => {
-            e.preventDefault();
-            if (isReel) {
-              const rect = e.currentTarget.getBoundingClientRect();
-              openReel(p, rect);
-            } else {
-              openModal(p);
-            }
-          };
-          return (
-            <li className="v21fw-band" key={p.slug || i}>
-              <a
-                className="v21fw-band-link"
-                href={`#${p.slug || ""}`}
-                data-cursor="play"
-                onClick={handleClick}
-                aria-label={`Open ${p.client} — ${p.title}`}
-              >
-                <div className="v21fw-band-media">
-                  <div className="v21fw-band-inner">
-                    <img
-                      className="v21fw-band-poster"
-                      src={p.poster}
-                      alt=""
-                      loading="lazy"
-                    />
-                    {p.video && (
-                      <video
-                        className="v21fw-band-video"
-                        src={p.video}
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
-                  <span className="v21fw-band-scrim" aria-hidden="true" />
-                  <div className="v21fw-band-overlay">
-                    <span className="v21fw-band-cap">{`${p.client} · ${p.sector} · ${p.year}`}</span>
-                    <h3 className="v21fw-band-title">{p.title}</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-          );
-        })}
+      <ul ref={gridRef} className="v21fw-grid container">
+        {PROJECTS.map((project, index) => (
+          <FeaturedCard
+            key={project.slug}
+            project={project}
+            index={index}
+            onOpen={openModal}
+            onOpenReel={openReel}
+          />
+        ))}
       </ul>
+
+      {/* Cursor badge — follows the pointer over the grid (see effect above) */}
+      <div ref={cursorRef} className="v21fw-cursor" aria-hidden="true">
+        <span className="v21fw-cursor-ring" />
+        <svg
+          className="v21fw-cursor-play"
+          viewBox="0 0 24 24"
+          width="15"
+          height="15"
+          aria-hidden="true"
+        >
+          <path d="M8 5v14l11-7z" fill="currentColor" />
+        </svg>
+        <span className="v21fw-cursor-label">View Video</span>
+      </div>
 
       {openProject && (
         <VideoModal project={openProject} onClose={closeModal} />
@@ -281,6 +366,109 @@ export default function V21FeaturedWork() {
         />
       )}
     </section>
+  );
+}
+
+/* ---------- single card ---------- */
+function FeaturedCard({ project, index, onOpen, onOpenReel }) {
+  const videoRef = useRef(null);
+  const reel = hasReel(project);
+  const filmCount = project.videos?.length ?? 0;
+
+  const onEnter = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
+
+  const onLeave = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
+  };
+
+  // Click expands the reel in place (multi-film) or opens the single modal.
+  const onClick = (e) => {
+    e.preventDefault();
+    if (reel) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      onOpenReel(project, rect);
+    } else {
+      onOpen(project);
+    }
+  };
+
+  return (
+    <li className="v21fw-card" style={{ "--i": index }}>
+      <a
+        href={`#work-${project.slug}`}
+        className="v21fw-card-link"
+        aria-label={
+          reel
+            ? `Browse ${filmCount} ${project.client} films`
+            : `Play ${project.client} — ${project.title} video`
+        }
+        onPointerEnter={onEnter}
+        onPointerLeave={onLeave}
+        onClick={onClick}
+      >
+        <div className="v21fw-card-media">
+          <img
+            className="v21fw-card-poster"
+            src={project.poster}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+
+          {/* Full-card video — crossfades in on hover (CSS), plays via JS. */}
+          <video
+            ref={videoRef}
+            className="v21fw-card-video"
+            src={project.video}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+
+          <span className="v21fw-card-tint" aria-hidden="true" />
+
+          <span className="v21fw-card-index" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          {reel && (
+            <span className="v21fw-card-more" aria-hidden="true">
+              See all {filmCount} films
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          )}
+        </div>
+
+        <div className="v21fw-card-info">
+          <div className="v21fw-card-titles">
+            <span className="v21fw-card-client">{project.client}</span>
+            <h3 className="v21fw-card-title">{project.title}</h3>
+          </div>
+          <div className="v21fw-card-tags">
+            <span>{project.sector}</span>
+            <span className="v21fw-card-year">{project.year}</span>
+          </div>
+        </div>
+      </a>
+    </li>
   );
 }
 

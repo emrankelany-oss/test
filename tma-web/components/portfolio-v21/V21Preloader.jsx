@@ -87,9 +87,7 @@ export default function V21Preloader() {
     const releaseHero = () => page && page.classList.remove(HOLD_CLASS);
 
     // --- Hold the viewport at the top (no overflow toggling) -----------
-    // Guard: don't reset if the user/test has already scrolled (e.g. Playwright
-    // test helpers that call window.scrollTo before hydration completes).
-    if (window.scrollY === 0) window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     const block = (e) => {
       e.preventDefault();
       e.stopPropagation();

@@ -194,51 +194,6 @@ export default function V21Filament({
     const letterEls = [];
     const connectorEls = [];
 
-    // --- comet head: a spark that rides the current draw frontier ----------
-    const comet = document.createElementNS(SVG_NS, "g");
-    comet.setAttribute("class", "v21-comet");
-    comet.style.display = "none";
-    const cometFlareH = document.createElementNS(SVG_NS, "line");
-    cometFlareH.setAttribute("x1", "-9");
-    cometFlareH.setAttribute("y1", "0");
-    cometFlareH.setAttribute("x2", "9");
-    cometFlareH.setAttribute("y2", "0");
-    cometFlareH.setAttribute("class", "v21-comet-flare");
-    const cometFlareV = document.createElementNS(SVG_NS, "line");
-    cometFlareV.setAttribute("x1", "0");
-    cometFlareV.setAttribute("y1", "-9");
-    cometFlareV.setAttribute("x2", "0");
-    cometFlareV.setAttribute("y2", "9");
-    cometFlareV.setAttribute("class", "v21-comet-flare");
-    const cometCore = document.createElementNS(SVG_NS, "circle");
-    cometCore.setAttribute("r", "3");
-    cometCore.setAttribute("class", "v21-comet-core");
-    comet.appendChild(cometFlareH);
-    comet.appendChild(cometFlareV);
-    comet.appendChild(cometCore);
-    group.appendChild(comet); // last child of <g> → paints on top of the stroke
-
-    const ptOf = (el, L, prog) => {
-      const p = prog < 0 ? 0 : prog > 1 ? 1 : prog;
-      if (!el || p <= 0 || L <= 0) return null;
-      try {
-        return el.getPointAtLength(L * p);
-      } catch {
-        return null;
-      }
-    };
-    const placeComet = (pt) => {
-      if (!pt) {
-        comet.style.display = "none";
-        return;
-      }
-      comet.setAttribute(
-        "transform",
-        `translate(${pt.x.toFixed(2)} ${pt.y.toFixed(2)})`
-      );
-      comet.style.display = "";
-    };
-
     const ensurePool = (pool, count) => {
       while (pool.length < count) pool.push(makePath());
       for (let i = count; i < pool.length; i++) pool[i].setAttribute("d", "");
@@ -382,6 +337,8 @@ export default function V21Filament({
       const OUR_WIPE_RUNWAY = Math.max(280, 0.3 * Vh);
       let ourCrossStart = Math.max(ourCenterAbs - 0.55 * Vh, aPinEnd + 40);
       let ourCrossEnd = Math.max(ourCenterAbs - 0.2 * Vh, ourCrossStart + OUR_WIPE_RUNWAY);
+      // Tip leads in the lower-middle of the viewport and reaches the grid
+      // bottom (last works) exactly as the CTA begins to appear at the bottom.
       let drawEnd = laneBottomAbs - Vh;
       featCrossStart = Math.max(featCrossStart, drawBegin + 1);
       featCrossEnd = Math.max(featCrossEnd, featCrossStart + 1);
@@ -448,40 +405,6 @@ export default function V21Filament({
       tailEl.style.strokeDashoffset = String(geom.tailLen * (1 - tailProg));
 
       paintWipes(headProg * geom.headLen, tailProg * geom.tailLen);
-
-      // Comet rides the furthest-drawn frontier: tail → letters (during the
-      // pin) → head → parked at head end (head done, pin not yet begun). Reads
-      // the ACTUAL drawn length so the head→letters→tail handoff has no jump.
-      // (The slot math here mirrors the LETTERS loop above; keep them in sync.)
-      let tip = null;
-      if (tailProg > 0 && tailProg < 0.999) {
-        tip = ptOf(tailEl, geom.tailLen, tailProg);
-      } else if (scroll >= aPinStart && scroll <= aPinEnd && N > 0) {
-        const cSlotW = (aPinEnd - aPinStart) / N;
-        let idx = Math.floor((scroll - aPinStart) / cSlotW);
-        if (idx < 0) idx = 0;
-        else if (idx > N - 1) idx = N - 1;
-        const slotStart = aPinStart + idx * cSlotW;
-        const slotEnd = slotStart + cSlotW;
-        const connEnd = slotStart + cSlotW * CONN_FRAC;
-        if (idx > 0 && scroll < connEnd && connectorEls[idx - 1]) {
-          const cProg = clamp01((scroll - slotStart) / (connEnd - slotStart));
-          tip = ptOf(connectorEls[idx - 1], geom.connectorLens[idx - 1], cProg);
-        } else {
-          const lStart = idx === 0 ? slotStart : connEnd;
-          const lProg = clamp01((scroll - lStart) / (slotEnd - lStart));
-          tip = ptOf(letterEls[idx], geom.letterLens[idx], lProg);
-        }
-        // Seam guard: at a slot/connector start the sub-progress is 0 (→ null);
-        // park the spark at the head end (= where the first letter begins) so
-        // the head→letters seam stays continuous.
-        if (!tip) tip = ptOf(headEl, geom.headLen, 1);
-      } else if (headProg > 0 && headProg < 1) {
-        tip = ptOf(headEl, geom.headLen, headProg);
-      } else if (headProg >= 1 && scroll < aPinStart) {
-        tip = ptOf(headEl, geom.headLen, 1);
-      }
-      placeComet(tip);
     };
 
     const drawStaticFull = () => {
@@ -501,10 +424,13 @@ export default function V21Filament({
         return;
       }
       rebuild();
+      // end:"max" keeps the trigger active to the very bottom of the page so
+      // the draw never freezes mid-way (the MM pin spacer inflates the lane and
+      // a "bottom top" end would stop onUpdate early, plateauing the tail).
       ScrollTrigger.create({
         trigger: lane,
         start: "top bottom",
-        end: "bottom top",
+        end: "max",
         onUpdate: (self) => draw(self.scroll()),
         onRefresh: () => draw(window.scrollY),
       });
@@ -526,7 +452,6 @@ export default function V21Filament({
       ctx.revert();
       clearWipes();
       mpath.remove();
-      comet.remove();
       // Remove all created paths from the DOM.
       headEl.remove();
       tailEl.remove();
