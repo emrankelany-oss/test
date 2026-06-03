@@ -1,0 +1,199 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - img [ref=e10]
+    - main [ref=e15]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - img [ref=e25]
+          - generic [ref=e29]:
+            - heading "Smooth Scroll" [level=2] [ref=e31]
+            - heading "© 2026 darkroom.engineering" [level=2] [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e36]:
+            - paragraph [ref=e38]: scroll
+            - paragraph [ref=e40]: to explore
+          - heading "A smooth scroll library fresh out of darkroom.engineering" [level=1] [ref=e41]:
+            - paragraph [ref=e43]: A smooth scroll library
+            - paragraph [ref=e45]:
+              - text: fresh out of
+              - link "darkroom.engineering" [ref=e46] [cursor=pointer]:
+                - /url: https://darkroom.engineering
+          - link "documentation" [ref=e47] [cursor=pointer]:
+            - /url: https://github.com/darkroomengineering/lenis/blob/main/README.md
+            - generic [ref=e50]: documentation
+          - link "view showcase" [ref=e51] [cursor=pointer]:
+            - /url: /showcase
+            - generic [ref=e54]: view showcase
+      - generic [ref=e56]:
+        - heading "Why smooth scroll?" [level=2] [ref=e57]:
+          - generic "Why smooth scroll?" [ref=e58]:
+            - generic [ref=e60]: Why
+            - generic [ref=e62]: smooth
+            - generic [ref=e64]: scroll?
+        - complementary [ref=e65]:
+          - paragraph [ref=e67]: We’ve heard all the reasons to not use smooth scroll. It feels hacky. It’s inaccessible. It’s not performant. It’s over-engineered. And historically, those were all true. But we like to imagine things as they could be, then build them. So, why should you use smooth scroll?
+          - generic [ref=e68]:
+            - heading "Create more immersive interfaces" [level=3] [ref=e69]
+            - paragraph [ref=e70]: Unlock the creative potential and impact of your web experiences. Smoothing the scroll pulls users into the flow of the experience that feels so substantial that they forget they’re navigating a web page.
+          - generic [ref=e71]:
+            - heading "Normalize all your user inputs" [level=3] [ref=e72]
+            - paragraph [ref=e73]: Give all your users the same (dope) experience whether they’re using trackpads, mouse wheels, or otherwise. With smooth scroll, you control how silky, heavy, or responsive the experience should be — no matter the input. Magic!
+          - generic [ref=e74]:
+            - heading "Make your animations flawless" [level=3] [ref=e75]
+            - paragraph [ref=e76]: Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - paragraph [ref=e82]:
+            - generic "Rethinking smooth scroll" [ref=e83]:
+              - generic [ref=e85]: Rethinking
+              - generic [ref=e87]: smooth
+              - generic [ref=e89]: scroll
+          - paragraph [ref=e93]:
+            - text: We have to give props to libraries like
+            - link "Locomotive Scroll" [ref=e94] [cursor=pointer]:
+              - /url: https://github.com/locomotivemtl/locomotive-scroll
+            - text: and
+            - link "GSAP ScrollSmoother" [ref=e95] [cursor=pointer]:
+              - /url: https://greensock.com/docs/v3/Plugins/ScrollSmoother
+            - text: . They’re well built and well documented – and we’ve used them a lot. But they still have issues that keep them from being bulletproof.
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - paragraph [ref=e101]: "01"
+            - paragraph [ref=e102]: Loss of performance budget due to using CSS transforms
+          - generic [ref=e103]:
+            - paragraph [ref=e104]: "02"
+            - paragraph [ref=e105]: Inaccessibility from no page search support and native scrollbar
+          - generic [ref=e106]:
+            - paragraph [ref=e107]: "03"
+            - paragraph [ref=e108]: Non-negligible import costs (12.1kb - 24.34kb gzipped)
+          - generic [ref=e109]:
+            - paragraph [ref=e110]: "04"
+            - paragraph [ref=e111]: Limited animation systems for complex, scroll-based animations
+          - generic [ref=e112]:
+            - paragraph [ref=e113]: "05"
+            - paragraph [ref=e114]: Erasing native APIs like Intersection-Observer, CSS Sticky, etc.
+      - generic [ref=e117]:
+        - heading "so we built web scrolling" [level=2] [ref=e118]:
+          - text: so we built
+          - text: web scrolling
+        - heading "Enter Lenis" [level=2] [ref=e119]:
+          - text: Enter
+          - text: Lenis
+        - heading "As it should be" [level=2] [ref=e120]
+      - generic [ref=e121]:
+        - paragraph [ref=e124]:
+          - text: Lenis is an
+          - link "open-source library" [ref=e125] [cursor=pointer]:
+            - /url: https://github.com/darkroomengineering/lenis
+          - text: built to standardize scroll experiences and sauce up websites with butter-smooth navigation, all while using the platform and keeping it accessible.
+        - generic [ref=e128]:
+          - complementary [ref=e129]:
+            - paragraph [ref=e130]:
+              - generic "Lenis bringsthe heat" [ref=e131]:
+                - generic [ref=e133]: Lenis brings
+                - generic [ref=e135]: the heat
+          - generic:
+            - generic [ref=e137]:
+              - paragraph [ref=e138]: "01"
+              - paragraph [ref=e139]: Run scroll in the main thread
+            - generic [ref=e141]:
+              - paragraph [ref=e142]: "02"
+              - paragraph [ref=e143]:
+                - text: Lightweight
+                - text: (under 4kb)
+            - generic [ref=e145]:
+              - paragraph [ref=e146]: "03"
+              - paragraph [ref=e147]: Made for 2026+
+            - generic [ref=e149]:
+              - paragraph [ref=e150]: "04"
+              - paragraph [ref=e151]: Bring your own animation library
+            - generic [ref=e153]:
+              - paragraph [ref=e154]: "05"
+              - paragraph [ref=e155]: CONTROL THE SCROLL EASING DURATION
+            - generic [ref=e157]:
+              - paragraph [ref=e158]: "06"
+              - paragraph [ref=e159]: Use any element as scroller
+            - generic [ref=e161]:
+              - paragraph [ref=e162]: "07"
+              - paragraph [ref=e163]: Enjoy horizontal + vertical support
+            - generic [ref=e165]:
+              - paragraph [ref=e166]: "08"
+              - paragraph [ref=e167]: "Feel free to use “position: sticky” again"
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: "09"
+              - paragraph [ref=e171]: touch support
+      - generic [ref=e173]:
+        - complementary [ref=e174]:
+          - paragraph [ref=e175]:
+            - generic "Lenisin use" [ref=e176]:
+              - generic [ref=e178]: Lenis
+              - generic [ref=e180]: in use
+        - list [ref=e181]:
+          - listitem [ref=e182]:
+            - link "Ibicash darkroom.engineering" [ref=e183] [cursor=pointer]:
+              - /url: https://ibi.cash
+              - generic [ref=e184]:
+                - generic [ref=e186]: Ibicash
+                - generic [ref=e188]: darkroom.engineering
+          - listitem [ref=e189]:
+            - link "Grand Theft Auto VI Rockstar Games" [ref=e190] [cursor=pointer]:
+              - /url: https://www.rockstargames.com/VI
+              - generic [ref=e191]:
+                - generic [ref=e193]: Grand Theft Auto VI
+                - generic [ref=e195]: Rockstar Games
+          - listitem [ref=e196]:
+            - link "Getty - Sculpting Harmony Resn" [ref=e197] [cursor=pointer]:
+              - /url: https://gehry.getty.edu/
+              - generic [ref=e198]:
+                - generic [ref=e200]: Getty - Sculpting Harmony
+                - generic [ref=e202]: Resn
+          - listitem [ref=e203]:
+            - link "Microsoft Design Microsoft" [ref=e204] [cursor=pointer]:
+              - /url: https://microsoft.design/
+              - generic [ref=e205]:
+                - generic [ref=e207]: Microsoft Design
+                - generic [ref=e209]: Microsoft
+          - listitem [ref=e210]:
+            - link "Shopify Supply Shopify" [ref=e211] [cursor=pointer]:
+              - /url: https://shopify.supply/
+              - generic [ref=e212]:
+                - generic [ref=e214]: Shopify Supply
+                - generic [ref=e216]: Shopify
+          - listitem [ref=e217]:
+            - link "Metamask Antinomy" [ref=e218] [cursor=pointer]:
+              - /url: https://metamask.io/
+              - generic [ref=e219]:
+                - generic [ref=e221]: Metamask
+                - generic [ref=e223]: Antinomy
+        - link "view showcase" [ref=e224] [cursor=pointer]:
+          - /url: /showcase
+          - generic [ref=e227]: view showcase
+    - contentinfo [ref=e228]:
+      - generic [ref=e229]:
+        - paragraph [ref=e230]:
+          - text: Lenis is
+          - text: Open source
+        - paragraph [ref=e231]:
+          - text: open to features
+          - text: and sponsors
+        - link "Let's build together" [ref=e232] [cursor=pointer]:
+          - /url: https://github.com/sponsors/darkroomengineering
+          - generic [ref=e235]: Let's build together
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - link "GitHub" [ref=e238] [cursor=pointer]:
+            - /url: https://github.com/darkroomengineering/lenis
+          - link "X" [ref=e239] [cursor=pointer]:
+            - /url: https://twitter.com/LenisSmooth
+          - link "LinkedIn" [ref=e240] [cursor=pointer]:
+            - /url: https://github.com/sponsors/darkroomengineering
+          - link "Mail" [ref=e241] [cursor=pointer]:
+            - /url: mailto:hi@darkroom.engineering
+          - link "darkroom.engineering" [ref=e242] [cursor=pointer]:
+            - /url: https://darkroom.engineering/
+        - paragraph [ref=e243]: © 2026 darkroom.engineering
+  - alert [ref=e244]

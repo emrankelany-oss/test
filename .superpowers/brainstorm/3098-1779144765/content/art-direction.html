@@ -1,0 +1,61 @@
+<h2>Pick the art direction for the relief hero</h2>
+<p class="subtitle">Same OA technique &amp; motion in all three — only the mood/palette differs. The glow color = the cursor "lamp". Click the one that feels right (or tell me in the terminal).</p>
+
+<style>
+  .hero-mock{position:relative;height:230px;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:22px;font-family:Georgia,'Times New Roman',serif}
+  .hero-mock .mono{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+  .hero-mock .mono-strong{opacity:.95}
+  .hero-mock .big{font-size:46px;line-height:.92;font-weight:500;letter-spacing:-.01em}
+  .hero-mock .mark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:170px;font-weight:800;font-family:Inter,system-ui,sans-serif;letter-spacing:-.04em}
+  .hero-mock .glow{position:absolute;width:340px;height:340px;left:38%;top:30%;border-radius:50%;filter:blur(10px);pointer-events:none}
+  .cap{display:flex;justify-content:space-between;align-items:flex-end}
+</style>
+
+<div class="cards">
+  <div class="card" data-choice="faithful" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="hero-mock" style="background:radial-gradient(120% 90% at 50% 18%, #2b2622 0%, #14110f 60%, #0c0a09 100%)">
+        <div class="mark" style="color:#000;text-shadow:0 0 1px #5a4632;opacity:.5">M</div>
+        <div class="glow" style="background:radial-gradient(circle,rgba(199,30,18,.55) 0%,rgba(199,30,18,0) 70%)"></div>
+        <div class="mono" style="color:#d8c7b0;position:relative">The Motion Agency — Reel 2026</div>
+        <div style="position:relative">
+          <div class="big" style="color:#efe6d8">Motion<br>That Moves</div>
+          <div class="cap" style="margin-top:14px"><div class="mono" style="color:#bfae97">Scroll to enter</div><div class="mono mono-strong" style="color:#c71e12">●</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>A · Faithful Obsidian</h3><p>OA's exact mood: warm tan/marble dark base, blood-red cursor lamp. Most 1:1 to the reference, cinematic &amp; mysterious.</p></div>
+  </div>
+
+  <div class="card" data-choice="signal" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="hero-mock" style="background:radial-gradient(120% 90% at 50% 20%, #14181b 0%, #0a0c0e 60%, #060708 100%)">
+        <div class="mark" style="color:#000;text-shadow:0 0 1px #2a3f47;opacity:.55">M</div>
+        <div class="glow" style="background:radial-gradient(circle,rgba(116,209,234,.5) 0%,rgba(116,209,234,0) 70%)"></div>
+        <div class="mono" style="color:#9fb6bd;position:relative">The Motion Agency — Reel 2026</div>
+        <div style="position:relative">
+          <div class="big" style="color:#f4f4f1">Motion<br>That Moves</div>
+          <div class="cap" style="margin-top:14px"><div class="mono" style="color:#7e949b">Scroll to enter</div><div class="mono mono-strong" style="color:#74d1ea">●</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B · TMA Signal</h3><p>On-brand: pure near-black obsidian, TMA cyan (#74d1ea) as the lamp glow, paper-white type. Cooler, modern, unmistakably us.</p></div>
+  </div>
+
+  <div class="card" data-choice="platinum" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="hero-mock" style="background:radial-gradient(120% 90% at 50% 20%, #1c1c1e 0%, #0d0d0e 60%, #070707 100%)">
+        <div class="mark" style="color:#000;text-shadow:0 0 1px #3a3a3d;opacity:.6">M</div>
+        <div class="glow" style="background:radial-gradient(circle,rgba(244,244,241,.42) 0%,rgba(244,244,241,0) 70%)"></div>
+        <div class="mono" style="color:#b9b9bb;position:relative">The Motion Agency — Reel 2026</div>
+        <div style="position:relative">
+          <div class="big" style="color:#f4f4f1">Motion<br>That Moves</div>
+          <div class="cap" style="margin-top:14px"><div class="mono" style="color:#8d8d90">Scroll to enter</div><div class="mono mono-strong" style="color:#f4f4f1">●</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>C · Platinum Monolith</h3><p>Monochrome luxe: black obsidian, cool white/platinum lamp, no hue. Restrained, gallery-grade. Accent color stays out of the relief.</p></div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:18px">Note: violet (#4e008e) is also a TMA accent — say the word if you want a 4th "Violet Dusk" variant instead.</p>

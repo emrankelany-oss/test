@@ -1,0 +1,68 @@
+<style>
+  .stage{position:relative;background:#070709;border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;aspect-ratio:16/9;overflow:hidden;margin-top:6px}
+  .t{position:absolute;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font:700 13px/1 ui-monospace,monospace;color:rgba(255,255,255,.9);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 12px 30px -14px rgba(0,0,0,.7)}
+  .c{background:linear-gradient(135deg,#3a4a7a,#1b6f6f)}      /* center */
+  .a{background:linear-gradient(135deg,#6a3a7a,#2a6fb0)}
+  .b{background:linear-gradient(135deg,#2a6f7a,#7a6a2a)}
+  .d{background:linear-gradient(135deg,#7a3a5a,#2a5a8a)}
+  .e{background:linear-gradient(135deg,#3a6a5a,#5a3a7a)}
+  .cap{font-size:11px;color:var(--muted,#9aa);margin:2px 0 0}
+  h3 .s{font:600 11px/1 ui-monospace,monospace;color:var(--muted,#9aa)}
+</style>
+
+<h2>Where the 5 cards LAND (resting cluster, before the zoom)</h2>
+<p class="subtitle">Center image is clearly the largest; the other 4 sit around it, balanced.
+On scroll the whole thing scales — center fills the screen, the 4 fly outward.
+Pick the resting arrangement.</p>
+
+<div class="options">
+
+ <div class="option" data-choice="corners" onclick="toggleSelect(this)">
+  <div class="letter">A</div>
+  <div class="content">
+   <h3>Center + 4 corners <span class="s">(diamond)</span></h3>
+   <p>Big center; four equal smaller tiles tucked at the four corners. Very symmetric; on zoom the corners shoot diagonally off-screen.</p>
+   <div class="stage">
+     <div class="t c" style="left:33%;top:25%;width:34%;height:50%">C</div>
+     <div class="t a" style="left:6%;top:8%;width:20%;height:26%">1</div>
+     <div class="t b" style="left:74%;top:8%;width:20%;height:26%">2</div>
+     <div class="t d" style="left:6%;top:66%;width:20%;height:26%">3</div>
+     <div class="t e" style="left:74%;top:66%;width:20%;height:26%">4</div>
+   </div>
+  </div>
+ </div>
+
+ <div class="option" data-choice="cardinal" onclick="toggleSelect(this)">
+  <div class="letter">B</div>
+  <div class="content">
+   <h3>Center + 4 sides <span class="s">(plus / cross)</span></h3>
+   <p>Big center; one tile centered on each side — top, right, bottom, left. Clean cross; on zoom they slide straight out N/E/S/W.</p>
+   <div class="stage">
+     <div class="t c" style="left:34%;top:27%;width:32%;height:46%">C</div>
+     <div class="t a" style="left:38.5%;top:4%;width:23%;height:18%">1</div>
+     <div class="t b" style="left:74%;top:36%;width:22%;height:28%">2</div>
+     <div class="t d" style="left:38.5%;top:78%;width:23%;height:18%">3</div>
+     <div class="t e" style="left:4%;top:36%;width:22%;height:28%">4</div>
+   </div>
+  </div>
+ </div>
+
+ <div class="option" data-choice="flank" onclick="toggleSelect(this)">
+  <div class="letter">C</div>
+  <div class="content">
+   <h3>Center + flanking pairs <span class="s">(editorial, still balanced)</span></h3>
+   <p>Dominant center; tall medium tiles left &amp; right, wide small tiles top &amp; bottom. Symmetric but with size variety — richer than a plain grid.</p>
+   <div class="stage">
+     <div class="t c" style="left:32%;top:22%;width:36%;height:56%">C</div>
+     <div class="t a" style="left:30%;top:4%;width:40%;height:14%">1</div>
+     <div class="t b" style="left:71%;top:24%;width:25%;height:52%">2</div>
+     <div class="t d" style="left:30%;top:82%;width:40%;height:14%">3</div>
+     <div class="t e" style="left:4%;top:24%;width:25%;height:52%">4</div>
+   </div>
+  </div>
+ </div>
+
+</div>

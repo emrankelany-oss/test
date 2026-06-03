@@ -1,0 +1,222 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]: TMA
+    - navigation:
+      - link "The Motion Agency — home" [ref=e5] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e6]:
+        - link "Portfolio" [ref=e7] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e8] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e11] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e12] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e13] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e16]:
+      - paragraph [ref=e17]: The Motion Agency — Studio Original
+      - heading "Where strategy meets bold storytelling." [level=1] [ref=e18]:
+        - generic [ref=e19]: Where strategy
+        - generic [ref=e20]: meets bold
+        - generic [ref=e21]: storytelling.
+    - generic [ref=e26]:
+      - paragraph [ref=e27]: The Motion Agency — Studio
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - paragraph [ref=e30]:
+            - generic [ref=e31]: Almost a decade of turning
+            - generic [ref=e32]: category noise into bold, ownable
+            - generic [ref=e33]: stories. We are a motion-led
+            - generic [ref=e34]: creative studio — strategy,
+            - generic [ref=e35]: design and production crafted to
+            - generic [ref=e36]: a standard that earns attention.
+          - paragraph [ref=e37]: From early-stage positioning to flagship launch films, we embed with your team end-to-end. Every frame is built to move markets, not just eyeballs — concept, art direction, animation and delivery under one roof.
+          - button "More information" [ref=e38]: More information
+        - generic [ref=e41]: Bold
+    - generic [ref=e44]:
+      - article [ref=e45]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: Rubicon — Exotic Juice Drinks
+          - generic [ref=e51]: TVC · Animation
+      - article [ref=e52]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: ZainTECH — Drone Surveying & Mapping
+          - generic [ref=e58]: Technology Film
+      - article [ref=e59]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: LINC — Credit Card
+          - generic [ref=e65]: Product Film
+      - article [ref=e66]:
+        - generic [ref=e70]:
+          - generic [ref=e71]: Vodafone — Global Brand Films
+          - generic [ref=e72]: Animation · TVC
+      - article [ref=e73]:
+        - generic [ref=e77]:
+          - generic [ref=e78]: Investcorp Capital — Strategic Capital
+          - generic [ref=e79]: Brand Film
+      - article [ref=e80]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: MAWANI — Saudi Ports · Vision 2030
+          - generic [ref=e86]: Corporate Film
+      - article [ref=e87]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: LSC — Vision 2034 + WCA
+          - generic [ref=e93]: Social · Industry
+      - article [ref=e94]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: World Government Summit — Next Generation of Minds
+          - generic [ref=e100]: Brand Film
+      - article [ref=e101]:
+        - generic [ref=e105]:
+          - generic [ref=e106]: Family Development Centers — Financial Awareness
+          - generic [ref=e107]: Animation · Explainer
+      - article [ref=e108]:
+        - generic [ref=e112]:
+          - generic [ref=e113]: Sharjah Data — Smart Government
+          - generic [ref=e114]: Animation · Explainer
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - heading "More Work" [level=2] [ref=e117]
+        - generic [ref=e119]: Drag
+      - generic [ref=e121]:
+        - link "Rubicon — Exotic Juice Drinks" [ref=e122] [cursor=pointer]:
+          - /url: "#rubicon-exotic"
+          - generic [ref=e124]:
+            - generic [ref=e125]: Rubicon
+            - generic [ref=e126]: TVC · Animation
+        - link "LINC — Credit Card" [ref=e127] [cursor=pointer]:
+          - /url: "#linc-card"
+          - generic [ref=e129]:
+            - generic [ref=e130]: LINC
+            - generic [ref=e131]: Product Film
+        - link "ZainTECH — Drone Surveying & Mapping" [ref=e132] [cursor=pointer]:
+          - /url: "#zaintech-drones"
+          - generic [ref=e134]:
+            - generic [ref=e135]: ZainTECH
+            - generic [ref=e136]: Technology Film
+        - link "Investcorp Capital — Strategic Capital" [ref=e137] [cursor=pointer]:
+          - /url: "#investcorp-capital"
+          - generic [ref=e139]:
+            - generic [ref=e140]: Investcorp Capital
+            - generic [ref=e141]: Brand Film
+        - link "World Government Summit — Next Generation of Minds" [ref=e142] [cursor=pointer]:
+          - /url: "#world-government-summit"
+          - generic [ref=e144]:
+            - generic [ref=e145]: World Government Summit
+            - generic [ref=e146]: Brand Film
+        - link "MAWANI — Saudi Ports · Vision 2030" [ref=e147] [cursor=pointer]:
+          - /url: "#mawani-vision-2030"
+          - generic [ref=e149]:
+            - generic [ref=e150]: MAWANI
+            - generic [ref=e151]: Corporate Film
+        - link "Family Development Centers — Financial Awareness" [ref=e152] [cursor=pointer]:
+          - /url: "#family-development-finance"
+          - generic [ref=e154]:
+            - generic [ref=e155]: Family Development Centers
+            - generic [ref=e156]: Animation · Explainer
+        - link "Sharjah Data — Smart Government" [ref=e157] [cursor=pointer]:
+          - /url: "#sharjah-data-smart-gov"
+          - generic [ref=e159]:
+            - generic [ref=e160]: Sharjah Data
+            - generic [ref=e161]: Animation · Explainer
+        - link "Rubicon — Exotic Juice Drinks" [ref=e162] [cursor=pointer]:
+          - /url: "#rubicon-exotic"
+          - generic [ref=e164]:
+            - generic [ref=e165]: Rubicon
+            - generic [ref=e166]: TVC · Animation
+        - link "LINC — Credit Card" [ref=e167] [cursor=pointer]:
+          - /url: "#linc-card"
+          - generic [ref=e169]:
+            - generic [ref=e170]: LINC
+            - generic [ref=e171]: Product Film
+        - link "ZainTECH — Drone Surveying & Mapping" [ref=e172] [cursor=pointer]:
+          - /url: "#zaintech-drones"
+          - generic [ref=e174]:
+            - generic [ref=e175]: ZainTECH
+            - generic [ref=e176]: Technology Film
+        - link "Investcorp Capital — Strategic Capital" [ref=e177] [cursor=pointer]:
+          - /url: "#investcorp-capital"
+          - generic [ref=e179]:
+            - generic [ref=e180]: Investcorp Capital
+            - generic [ref=e181]: Brand Film
+        - link "World Government Summit — Next Generation of Minds" [ref=e182] [cursor=pointer]:
+          - /url: "#world-government-summit"
+          - generic [ref=e184]:
+            - generic [ref=e185]: World Government Summit
+            - generic [ref=e186]: Brand Film
+        - link "MAWANI — Saudi Ports · Vision 2030" [ref=e187] [cursor=pointer]:
+          - /url: "#mawani-vision-2030"
+          - generic [ref=e189]:
+            - generic [ref=e190]: MAWANI
+            - generic [ref=e191]: Corporate Film
+        - link "Family Development Centers — Financial Awareness" [ref=e192] [cursor=pointer]:
+          - /url: "#family-development-finance"
+          - generic [ref=e194]:
+            - generic [ref=e195]: Family Development Centers
+            - generic [ref=e196]: Animation · Explainer
+        - link "Sharjah Data — Smart Government" [ref=e197] [cursor=pointer]:
+          - /url: "#sharjah-data-smart-gov"
+          - generic [ref=e199]:
+            - generic [ref=e200]: Sharjah Data
+            - generic [ref=e201]: Animation · Explainer
+    - generic [ref=e203]:
+      - generic [ref=e204]:
+        - generic [ref=e205]: 08 / Contact
+        - generic [ref=e207]:
+          - text: Amman · Riyadh
+          - text: + remote, anywhere.
+      - heading "Let's build bold stories with impact." [level=2] [ref=e208]:
+        - text: Let's build
+        - text: bold stories
+        - text: with impact.
+      - generic [ref=e209]:
+        - generic [ref=e210]:
+          - paragraph [ref=e211]: If you have a brand to launch, a product to position, or a category to define — tell us where you're headed and what's in the way. We'll come back within 48 hours with first thoughts, not a deck of templates.
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - generic [ref=e214]: General
+              - link "info@themotionagency.net" [ref=e215] [cursor=pointer]:
+                - /url: mailto:info@themotionagency.net
+            - generic [ref=e216]:
+              - generic [ref=e217]: Press
+              - link "press@themotionagency.net" [ref=e218] [cursor=pointer]:
+                - /url: mailto:press@themotionagency.net
+        - generic [ref=e219]:
+          - textbox "Your name *" [ref=e220]
+          - textbox "Company *" [ref=e221]
+          - textbox "Email *" [ref=e222]
+          - combobox [ref=e223]:
+            - option "What do you need help with? *" [disabled] [selected]
+            - option "Brand strategy & positioning"
+            - option "Brand design & identity"
+            - option "Go-to-market & growth"
+            - option "Event & experience"
+            - option "Content & production"
+            - option "All of the above"
+          - textbox "Tell us where you're headed *" [ref=e224]
+          - textbox [ref=e225]
+          - button "Send brief ↗" [ref=e226] [cursor=pointer]:
+            - text: Send brief
+            - generic [ref=e227]: ↗
+    - generic [ref=e228]:
+      - generic [ref=e229]: THE / MOTION / AGENCY
+      - generic [ref=e230]:
+        - generic [ref=e231]: © 2026 The Motion Agency
+        - generic [ref=e232]: themotionagency.net
+        - generic [ref=e233]: info@themotionagency.net
+        - link "LinkedIn" [ref=e235] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e236]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e242] [cursor=pointer]:
+    - img [ref=e243]
+  - alert [ref=e246]
+  - generic:
+    - generic:
+      - generic: Drag

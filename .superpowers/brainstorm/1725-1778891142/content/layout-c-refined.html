@@ -1,0 +1,98 @@
+<style>
+  .grid{position:relative;background:#070709;border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;padding:22px;display:grid;gap:16px;aspect-ratio:16/8.2;
+    grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(6,1fr)}
+  .c{position:relative;border-radius:14px;overflow:hidden;color:#fff;
+    box-shadow:0 26px 60px -28px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.09)}
+  .c .img{position:absolute;inset:0;filter:brightness(.7) saturate(.95)}
+  .c .img.a{background:linear-gradient(150deg,#3a4a7a,#1b6f6f)}
+  .c .img.b{background:linear-gradient(150deg,#6a3a7a,#2a6fb0)}
+  .c .img.c{background:linear-gradient(150deg,#2a6f7a,#7a6a2a)}
+  .c .img.d{background:linear-gradient(150deg,#7a3a5a,#2a5a8a)}
+  .c .img.e{background:linear-gradient(150deg,#3a6a5a,#5a3a7a)}
+  .c .bd{position:relative;height:100%;display:flex;flex-direction:column;
+    justify-content:space-between;padding:14px}
+  .c .top{display:flex;justify-content:space-between;font:600 10px/1 ui-monospace,monospace;color:rgba(255,255,255,.7)}
+  .c .ttl{font:700 clamp(13px,1.5vw,22px)/1.1 system-ui;letter-spacing:-.01em}
+  .c .cl{font:600 9px/1 ui-monospace,monospace;letter-spacing:.16em;color:rgba(255,255,255,.7);text-transform:uppercase}
+  .c .hl{font:400 11px/1.4 system-ui;color:rgba(255,255,255,.72);margin-top:5px;max-width:34ch}
+  .c .tags{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+  .c .tags i{font:600 8px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);padding:4px 7px;border-radius:99px;border:1px solid rgba(255,255,255,.16)}
+  .c.compact .hl,.c.compact .tags{display:none}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:12px;color:var(--muted,#9aa)}
+  .legend b{color:inherit}
+</style>
+
+<h2>Refined Layout C &mdash; sign-off on exact proportions</h2>
+<p class="subtitle">5 cases (01&ndash;05, Vancouver dropped). Card&nbsp;01 is the dominant feature. Cards on short/small
+slots show a <b>compact</b> body (client + title + KPI only) so text never crowds. Same scroll deck&rarr;grid
+animation, just these resting slots. Click to approve, or tell me what to nudge.</p>
+
+<div class="options" style="margin-top:14px">
+ <div class="option" data-choice="approve" onclick="toggleSelect(this)" style="display:block">
+  <div class="content" style="width:100%">
+   <div class="grid">
+
+    <div class="c" style="grid-column:1/7;grid-row:1/5">
+      <div class="img a"></div>
+      <div class="bd">
+        <div class="top"><span>01</span><span>+35.6% &middot; YoY REVENUE</span></div>
+        <div>
+          <div class="cl">Foodics</div>
+          <div class="ttl">Boundless 22 &middot; 23</div>
+          <div class="hl">Transforming a POS platform into the growth engine of F&amp;B.</div>
+          <div class="tags"><i>Brand Strategy</i><i>Product Launch</i><i>Event</i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c compact" style="grid-column:7/13;grid-row:1/3">
+      <div class="img b"></div>
+      <div class="bd">
+        <div class="top"><span>02</span><span>+200% &middot; YoY GROWTH</span></div>
+        <div><div class="cl">Zid</div><div class="ttl">Ripple 2024</div></div>
+      </div>
+    </div>
+
+    <div class="c" style="grid-column:7/10;grid-row:3/7">
+      <div class="img c"></div>
+      <div class="bd">
+        <div class="top"><span>03</span><span>v3.0</span></div>
+        <div>
+          <div class="cl">Foodics</div>
+          <div class="ttl">Brand System v3.0</div>
+          <div class="hl">A category-defining identity for the F&amp;B OS.</div>
+          <div class="tags"><i>Brand Design</i><i>Guidelines</i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c compact" style="grid-column:10/13;grid-row:3/6">
+      <div class="img d"></div>
+      <div class="bd">
+        <div class="top"><span>04</span><span>3 LP</span></div>
+        <div><div class="cl">Zid</div><div class="ttl">Launchpad Series</div></div>
+      </div>
+    </div>
+
+    <div class="c compact" style="grid-column:1/7;grid-row:5/7">
+      <div class="img e"></div>
+      <div class="bd">
+        <div class="top"><span>05</span><span>B2B &middot; SAAS</span></div>
+        <div><div class="cl">InvoiceQ</div><div class="ttl">Brand Identity v1.0</div></div>
+      </div>
+    </div>
+
+   </div>
+   <div class="legend">
+     <span><b>01</b> dominant feature (full body)</span>
+     <span><b>02</b> wide banner (compact)</span>
+     <span><b>03</b> portrait accent (full)</span>
+     <span><b>04</b> small accent (compact)</span>
+     <span><b>05</b> wide strip (compact)</span>
+   </div>
+   <p style="margin-top:14px;font-weight:600">Click to approve this composition &rarr;</p>
+  </div>
+ </div>
+</div>

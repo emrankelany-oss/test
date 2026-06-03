@@ -1,0 +1,107 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - status "Loading The Motion Agency" [ref=e3]:
+      - generic [ref=e12]: "00"
+    - navigation:
+      - link "The Motion Agency — home" [ref=e14] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e15]:
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e17] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e18] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e21] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e22] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: EST.
+            - generic [ref=e31]: "2019"
+          - generic [ref=e32]:
+            - generic [ref=e33]: AMMAN
+            - generic [ref=e34]: ·
+            - generic [ref=e35]: RIYADH
+          - generic [ref=e36]:
+            - generic [ref=e37]: SHOWREEL
+            - generic [ref=e38]: "2025"
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "Narrative where vision Meets Design" [level=1] [ref=e41]:
+              - generic [ref=e43]: Narrative
+              - emphasis [ref=e46]: where vision
+              - generic [ref=e48]: Meets
+              - generic [ref=e50]: Design
+            - link "Play showreel — 2 minutes 58 seconds" [ref=e51] [cursor=pointer]:
+              - /url: "#showreel"
+              - generic [ref=e53]:
+                - generic [ref=e54]: Play showreel
+                - generic [ref=e55]: 02:58
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e59] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e60]:
+              - generic [ref=e61]: Let's talk
+              - generic [ref=e62]: Mohamed Sabha
+              - generic [ref=e63]: Chief Executive Officer
+            - img [ref=e71]
+      - generic [ref=e73]:
+        - text: Scroll
+        - text: 01 / 01
+    - generic [ref=e75]:
+      - generic:
+        - img
+      - generic [ref=e76]:
+        - generic [ref=e77]: Selected work · 2024–25
+        - heading "Featured narratives" [level=2] [ref=e79]:
+          - text: Featured
+          - emphasis [ref=e80]: narratives
+        - paragraph [ref=e81]: Three chapters from this year's reel. Hover to play the cut.
+      - list [ref=e82]:
+        - listitem [ref=e83]:
+          - link "Foodics — Boundless" [ref=e84] [cursor=pointer]:
+            - /url: "#work-foodics-boundless"
+            - generic [ref=e85]:
+              - generic: "01"
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: Foodics
+                - heading "Boundless" [level=3] [ref=e89]
+              - generic [ref=e90]:
+                - generic [ref=e91]: Hospitality SaaS
+                - generic [ref=e92]: "2025"
+        - listitem [ref=e93]:
+          - link "Zid — Ripple" [ref=e94] [cursor=pointer]:
+            - /url: "#work-zid-ripple"
+            - generic [ref=e95]:
+              - generic: "02"
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]: Zid
+                - heading "Ripple" [level=3] [ref=e99]
+              - generic [ref=e100]:
+                - generic [ref=e101]: Commerce Identity
+                - generic [ref=e102]: "2025"
+        - listitem [ref=e103]:
+          - link "Vodafone — Vodafone" [ref=e104] [cursor=pointer]:
+            - /url: "#work-vodafone"
+            - generic [ref=e105]:
+              - generic: "03"
+            - generic [ref=e106]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: Vodafone
+                - heading "Vodafone" [level=3] [ref=e109]
+              - generic [ref=e110]:
+                - generic [ref=e111]: Telecom TVC
+                - generic [ref=e112]: "2024"
+  - button "Open Next.js Dev Tools" [ref=e118] [cursor=pointer]:
+    - img [ref=e119]
+  - alert [ref=e122]

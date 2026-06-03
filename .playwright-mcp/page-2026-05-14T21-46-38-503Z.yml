@@ -1,0 +1,72 @@
+- generic [active]:
+  - generic [ref=e1]:
+    - generic:
+      - navigation [ref=e17]:
+        - link "TMA / PORTFOLIO V8" [ref=e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e19]:
+          - button "Sound off" [ref=e20] [cursor=pointer]
+          - link "Let's talk" [ref=e21] [cursor=pointer]:
+            - /url: mailto:info@themotionagency.net
+      - generic [ref=e22]: 02 / 05 · BY THE NUMBERS
+      - generic "Diagnostics — remove for production": WEBGL OK · STATS · 21%
+      - generic [ref=e24]: Scroll 21%
+      - generic [ref=e25]:
+        - generic [ref=e26]: The Motion Agency
+        - heading "We turn bold strategy into motion that moves markets." [level=1] [ref=e27]:
+          - generic [ref=e29]: We
+          - generic [ref=e31]: turn
+          - generic [ref=e33]: bold
+          - generic [ref=e35]: strategy
+          - generic [ref=e37]: into
+          - generic [ref=e39]: motion
+          - generic [ref=e41]: that
+          - generic [ref=e43]: moves
+          - generic [ref=e45]: markets.
+      - generic [ref=e46]:
+        - generic [ref=e47]: How we help
+        - heading "The numbers behind bold work." [level=2] [ref=e48]
+        - paragraph [ref=e49]: Built across Amman & Riyadh. From early-stage scale-ups to unicorns and category leaders.
+      - generic [ref=e50]:
+        - generic [ref=e51]: Featured work
+        - heading "Bold ideas, brought to market." [level=2] [ref=e52]
+        - paragraph [ref=e53]: Six campaigns from the last four years that shaped categories and grew brands by triple digits.
+      - generic [ref=e54]:
+        - generic [ref=e55]: What we do
+        - heading "Eight services, one playbook." [level=2] [ref=e56]
+        - paragraph [ref=e57]: Strategy, design, and storytelling — all under one roof so every campaign moves in the same direction.
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: Let's work together
+          - heading "Let's build bold stories with strategic impact." [level=2] [ref=e61]:
+            - text: Let's build
+            - emphasis [ref=e62]: bold stories
+            - text: with strategic impact.
+          - generic [ref=e63]:
+            - link "info@themotionagency.net" [ref=e64] [cursor=pointer]:
+              - /url: mailto:info@themotionagency.net
+            - link "View full portfolio" [ref=e65] [cursor=pointer]:
+              - /url: /portfolio
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - text: Amman
+            - generic [ref=e68]: Al-Abdali, 432, Amman, Jordan
+            - generic [ref=e69]: +962 79 924 5366
+          - generic [ref=e70]:
+            - text: Riyadh
+            - generic [ref=e71]: Al-Olaya, Riyadh, Saudi Arabia
+            - generic [ref=e72]: +966 57 353 2604
+          - generic [ref=e73]:
+            - text: General
+            - link "info@themotionagency.net" [ref=e75] [cursor=pointer]:
+              - /url: mailto:info@themotionagency.net
+            - generic [ref=e76]: themotionagency.net
+      - generic [ref=e77]: scroll to explore
+    - generic:
+      - generic: The Motion Agency — Loading the experience
+      - generic:
+        - generic: "100"
+        - generic: /100
+  - button "Open Next.js Dev Tools" [ref=e9] [cursor=pointer]:
+    - img [ref=e10]
+  - alert [ref=e13]

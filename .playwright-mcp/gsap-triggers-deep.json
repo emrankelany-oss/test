@@ -1,0 +1,721 @@
+{
+  "ssCfg": {
+    "smooth": 1.8
+  },
+  "count": 24,
+  "triggers": [
+    {
+      "i": 0,
+      "pin": false,
+      "start": "top top",
+      "end": "+=25",
+      "tweens": null
+    },
+    {
+      "i": 1,
+      "pin": false,
+      "scrub": 1,
+      "start": "top 90%",
+      "end": "bottom 30%",
+      "tweens": [
+        {
+          "targets": [
+            "DIV.scroll-trigger-ready__worm-wrap"
+          ],
+          "props": {
+            "autoAlpha": 1,
+            "repeat": 0
+          },
+          "ease": "power2.out",
+          "duration": 0
+        },
+        {
+          "targets": [],
+          "props": {}
+        },
+        {
+          "targets": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "pin": true,
+      "scrub": 1,
+      "start": "50% 50%",
+      "end": "bottom 50%",
+      "tweens": [
+        {
+          "targets": [
+            "DIV.scroll-trigger-pin__windmill"
+          ],
+          "props": {
+            "autoAlpha": 1,
+            "repeat": 0
+          },
+          "ease": "power1.inOut",
+          "duration": 0
+        },
+        {
+          "targets": [
+            "DIV.scroll-trigger-pin__windmill-svg"
+          ],
+          "props": {
+            "rotateZ": 900
+          },
+          "ease": "power1.inOut",
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "pin": false,
+      "scrub": 3,
+      "start": "top 75%",
+      "end": "bottom 25%",
+      "tweens": [
+        {
+          "targets": [
+            "DIV.scroll-smooth-breeze__plane"
+          ],
+          "props": {},
+          "ease": "power3.out",
+          "duration": 3
+        },
+        {
+          "targets": [
+            "path.[object SVGAnimatedString]"
+          ],
+          "props": {},
+          "duration": 1.85
+        },
+        {
+          "targets": [
+            "path.[object SVGAnimatedString]"
+          ],
+          "props": {},
+          "duration": 2
+        },
+        {
+          "targets": [
+            "path.[object SVGAnimatedString]"
+          ],
+          "props": {},
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "pin": false,
+      "scrub": 1,
+      "start": "top 90%",
+      "end": "bottom 30%",
+      "tweens": [
+        {
+          "targets": [
+            "DIV.scroll-smooth-effortless__worm"
+          ],
+          "props": {
+            "autoAlpha": 1,
+            "repeat": 0
+          },
+          "ease": "power2.out",
+          "duration": 0
+        },
+        {
+          "targets": [
+            "DIV.scroll-smooth-effortless__ball"
+          ],
+          "props": {},
+          "ease": "none",
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "trigger": "scroll-smooth-butter",
+      "pin": false,
+      "scrub": 1,
+      "start": "top bottom",
+      "end": "bottom top",
+      "tweens": [
+        {
+          "targets": [
+            "IMG.",
+            "IMG."
+          ],
+          "props": {},
+          "ease": "power1.inOut",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "i": 6,
+      "trigger": "scroll-smooth-effects__wrapper",
+      "pin": false,
+      "scrub": 1,
+      "start": "top 90%",
+      "end": "bottom bottom",
+      "tweens": [
+        {
+          "targets": [
+            "DIV.scroll-smooth-effects__circle",
+            "DIV.scroll-smooth-effects__circle"
+          ],
+          "props": {
+            "y": -900
+          },
+          "ease": "power2.inOut",
+          "stagger": 0.008,
+          "duration": 1
+        },
+        {
+          "targets": [
+            "DIV.scroll-smooth-effects__circle",
+            "DIV.scroll-smooth-effects__circle"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power2.inOut",
+          "stagger": 0.008,
+          "duration": 0.5
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "trigger": "scroll-smooth-effects",
+      "pin": true,
+      "scrub": 1,
+      "start": "top top",
+      "end": "bottom bottom",
+      "tweens": []
+    },
+    {
+      "i": 8,
+      "pin": false,
+      "scrub": 1.5,
+      "start": "top 50%",
+      "end": "bottom 40%",
+      "tweens": [
+        {
+          "targets": [
+            "svg.[object SVGAnimatedString]"
+          ],
+          "props": {
+            "y": 800
+          },
+          "ease": "power2.in",
+          "duration": 3
+        },
+        {
+          "targets": [
+            "svg.[object SVGAnimatedString]"
+          ],
+          "props": {
+            "y": 800
+          },
+          "ease": "power2.in",
+          "duration": 3
+        },
+        {
+          "targets": [
+            "DIV.scroll-seamless__svg-masks--square",
+            "DIV.scroll-seamless__svg-masks--square"
+          ],
+          "props": {
+            "scale": 0
+          },
+          "ease": "back.in(1.7)",
+          "duration": 3
+        },
+        {
+          "targets": [
+            "DIV.scroll-seamless__svg-masks--oval",
+            "DIV.scroll-seamless__svg-masks--oval"
+          ],
+          "props": {
+            "scale": 0
+          },
+          "ease": "back.in(1.7)",
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 11,
+      "trigger": "subtitle subtitle--regular subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 12,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 15,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 16,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 17,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 18,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 19,
+      "trigger": "subtitle subtitle--small subtitle--left ",
+      "pin": false,
+      "start": "top 90%",
+      "tweens": [
+        {
+          "targets": [
+            "P.subtitle__label"
+          ],
+          "props": {
+            "opacity": 0
+          },
+          "ease": "power3.out",
+          "duration": 0.7
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": 100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        },
+        {
+          "targets": [
+            "DIV.subtitle__brace"
+          ],
+          "props": {
+            "opacity": 0,
+            "xPercent": -100
+          },
+          "ease": "power3.out",
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "i": 20,
+      "trigger": "showcase__wrap",
+      "pin": false,
+      "start": "top bottom",
+      "end": "bottom top",
+      "tweens": null
+    },
+    {
+      "i": 21,
+      "trigger": "scroll-smooth-effects__flair scroll-smooth-effects__flair--c",
+      "pin": false,
+      "scrub": true,
+      "tweens": null
+    },
+    {
+      "i": 22,
+      "trigger": "scroll-smooth-effects__flair scroll-smooth-effects__flair--f",
+      "pin": false,
+      "scrub": true,
+      "tweens": null
+    },
+    {
+      "i": 23,
+      "trigger": "scroll-smooth-effects__flair scroll-smooth-effects__flair--r",
+      "pin": false,
+      "scrub": true,
+      "tweens": null
+    }
+  ]
+}

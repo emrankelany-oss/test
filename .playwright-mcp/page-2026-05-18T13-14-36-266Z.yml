@@ -1,0 +1,34 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]: EST. 2019
+          - generic [ref=e7]: AMMAN · RIYADH
+          - generic [ref=e8]: PORTFOLIO ’25
+        - heading "WE DON’T BUILD BRANDS we release MOMENTUM" [level=1] [ref=e10]:
+          - generic [ref=e12]: WE DON’T BUILD BRANDS
+          - generic [ref=e14]: we release
+          - generic [ref=e16]: MOMENTUM
+        - generic:
+          - article [ref=e17]:
+            - generic [ref=e18]:
+              - generic [ref=e19]: CASE 01
+              - generic [ref=e20]: $2M → $1B
+            - generic [ref=e21]:
+              - generic [ref=e22]: Foodics
+              - generic [ref=e23]: BOUNDLESS · F&B TECH
+          - article [ref=e24]:
+            - generic [ref=e25]:
+              - generic [ref=e26]: CASE 02
+              - generic [ref=e27]: +200% YoY
+            - generic [ref=e28]:
+              - generic [ref=e29]: Zid
+              - generic [ref=e30]: RIPPLE · TOTAL COMMERCE
+        - generic [ref=e31]:
+          - text: Scroll
+          - text: Featured Work
+      - region "Featured work (coming next)" [ref=e33]:
+        - paragraph [ref=e34]: FEATURED CAROUSEL — SECTION 2
+  - button "Open Next.js Dev Tools" [ref=e40] [cursor=pointer]:
+    - img [ref=e41]

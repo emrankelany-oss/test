@@ -1,0 +1,96 @@
+<h2>Sections 1 &amp; 2 &mdash; no 3D object &middot; how they look while scrolling</h2>
+<p class="subtitle">Type-led + parallax, the Obsidian way. No Remotion / no WebGL &mdash; just GSAP SplitText, Lenis smooth-scroll, layered CSS depth. Lighter &amp; faster to build; the "spectacle" becomes the typography and the moving case-cards.</p>
+
+<style>
+  .seq{display:flex;flex-direction:column;gap:14px;margin:10px 0 20px}
+  .fr{border:1px solid rgba(255,255,255,.16);border-radius:13px;overflow:hidden}
+  .frh{display:flex;justify-content:space-between;padding:8px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1)}
+  .frh .p{color:#7db4ff}
+  .st{position:relative;height:300px;overflow:hidden}
+  .h1{background:radial-gradient(ellipse 80% 70% at 50% 60%,#15111e,#070409 70%,#000)}
+  .h2{background:radial-gradient(ellipse 90% 80% at 50% 50%,#241a38,#0a0712 65%,#000)}
+  .m1{background:linear-gradient(180deg,#0a0712,#1c1424 60%,#241a30)}
+  .m2{background:linear-gradient(180deg,#241a30,#3a2e22 55%,#4a3a26)}
+  .nav{position:absolute;top:13px;left:0;right:0;display:flex;justify-content:space-between;padding:0 24px;font-family:Georgia,serif;font-size:13px;color:#e9e4d8;opacity:.85}
+  .nav .pill{font-family:monospace;font-size:9px;letter-spacing:.15em;border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:3px 10px}
+  .mono{position:absolute;font-family:monospace;font-size:9.5px;letter-spacing:.2em;color:#7db4ff;opacity:.7;line-height:1.5}
+  .serif{position:absolute;left:50%;transform:translateX(-50%);font-family:Georgia,serif;color:#f3ece0;text-align:center;line-height:.92;white-space:nowrap}
+  .note{position:absolute;left:0;right:0;text-align:center;font-family:monospace;font-size:9.5px;letter-spacing:.16em;color:#9fc4ff;opacity:.8}
+  .orbit{position:absolute;inset:-30% -12%;border:1px solid rgba(125,180,255,.22);border-radius:50%;transform:rotate(-10deg)}
+  .ec{position:absolute;border:1px solid rgba(255,255,255,.22);border-radius:7px;display:flex;flex-direction:column;justify-content:flex-end;padding:9px;font-size:8.5px;color:#cfd2dd}
+  .ecF{width:96px;height:128px;left:5%;top:26%;background:linear-gradient(150deg,#4E008E,#2a0050);transform:perspective(800px) rotateY(20deg)}
+  .ecZ{width:84px;height:108px;right:5%;top:36%;background:linear-gradient(150deg,#1f7ae0,#0a3b8c);transform:perspective(800px) rotateY(-22deg)}
+  .ec b{font-family:Georgia,serif;font-size:13px;color:#fff}
+  .cue{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-family:monospace;font-size:9.5px;letter-spacing:.3em;color:#9fc4ff;opacity:.7}
+  .mbody{position:absolute;left:9%;right:42%;top:30%;font-family:Georgia,serif;font-size:15px;line-height:1.5;color:#e7e0d2}
+  .mbody .l{opacity:.9}
+  .mpull{position:absolute;right:7%;top:34%;width:34%;font-family:Georgia,serif;font-size:30px;line-height:1.05;color:#fff}
+  .ginfo{padding:12px 15px;font-size:11.5px;line-height:1.55;opacity:.88;border-top:1px solid rgba(255,255,255,.08)}
+  .ginfo b{color:#7db4ff}
+</style>
+
+<span class="label">Section 1 &mdash; HERO (pinned ~2vh while it plays)</span>
+<div class="seq">
+  <div class="fr">
+    <div class="frh"><span>Hero &middot; State A</span><span class="p">scroll 0 &rarr; 0.4</span></div>
+    <div class="st h1">
+      <div class="nav"><span>The&nbsp;Motion&nbsp;Agency</span><span class="pill">MENU</span></div>
+      <div class="orbit"></div>
+      <div class="mono" style="left:7%;top:44%">EST.<br>AMMAN&middot;RIYADH</div>
+      <div class="mono" style="right:7%;top:44%;text-align:right">B2B BRAND<br>STUDIO</div>
+      <div class="serif" style="top:34%;font-size:64px;letter-spacing:-2px">We don&rsquo;t<br><span style="font-size:64px">build brands.</span></div>
+      <div class="note" style="bottom:42px">[ each letter cascades in left&rarr;right, random jitter &middot; orbital line drifts &middot; bg breathes ]</div>
+      <div class="cue">SCROLL &darr;</div>
+    </div>
+  </div>
+  <div class="fr">
+    <div class="frh"><span>Hero &middot; State B</span><span class="p">scroll 0.4 &rarr; 1</span></div>
+    <div class="st h2">
+      <div class="nav" style="opacity:.5"><span>The&nbsp;Motion&nbsp;Agency</span><span class="pill">MENU</span></div>
+      <div class="orbit" style="transform:rotate(6deg) scale(1.15)"></div>
+      <div class="ec ecF"><b>Foodics</b><span>$2M&rarr;$1B</span></div>
+      <div class="ec ecZ"><b>Zid</b><span>+200%</span></div>
+      <div class="serif" style="top:16%;font-size:30px;opacity:.18;letter-spacing:-1px">We don&rsquo;t build brands.</div>
+      <div class="serif" style="top:40%;font-size:72px;letter-spacing:-2px;color:#fff">We release<br>momentum.</div>
+      <div class="note" style="bottom:30px">[ line 1 recedes &amp; blurs &middot; line 2 scales up &middot; Foodics/Zid cards fly in from edges, 3D-tilted, different speeds ]</div>
+    </div>
+  </div>
+</div>
+
+<span class="label">Section 2 &mdash; MANIFESTO (the handoff &mdash; type-driven, no rupture)</span>
+<div class="seq">
+  <div class="fr">
+    <div class="frh"><span>Manifesto &middot; entry</span><span class="p">scroll 1 &rarr; 1.4</span></div>
+    <div class="st m1">
+      <div class="serif" style="top:8%;font-size:24px;opacity:.15;letter-spacing:-1px;color:#fff">We release momentum.</div>
+      <div class="mpull" style="font-size:26px">&ldquo;We don&rsquo;t just deliver value &mdash;<br>we become part of your<br>success story.&rdquo;</div>
+      <div class="mbody">
+        <div class="l">A creative powerhouse with offices</div>
+        <div class="l">in Amman and Riyadh, delivering</div>
+        <div class="l">bold ideas and meaningful results</div>
+        <div class="l" style="opacity:.35">across the GCC.&hellip;</div>
+      </div>
+      <div class="note" style="bottom:18px">[ hero line drifts up &amp; fades &middot; bg grades violet&rarr;warm &middot; manifesto reveals line-by-line, mask-up ]</div>
+    </div>
+  </div>
+  <div class="fr">
+    <div class="frh"><span>Manifesto &middot; settle &rarr; into Stats</span><span class="p">scroll 1.4 &rarr; 1.8</span></div>
+    <div class="st m2">
+      <div class="mpull" style="right:50%;transform:translateX(50%);top:30%;width:62%;text-align:center;font-size:34px">We build brands<br>with purpose.</div>
+      <div class="note" style="bottom:46px;color:#3a2e22">[ full paragraph settled &middot; pull-quote holds centre &middot; warm grade peaks ]</div>
+      <div class="cue" style="color:#5a4630">178%&nbsp;&middot;&nbsp;$1B&nbsp;&middot;&nbsp;500+&nbsp;&nbsp;&darr;</div>
+    </div>
+  </div>
+</div>
+
+<div class="fr" style="border-color:rgba(255,180,90,.3)">
+<div class="ginfo">
+<b>Trade-off of dropping 3D:</b> &nbsp;+ much lighter &amp; faster to build, no render pipeline, flawless mobile perf, still genuinely cinematic (this IS the Obsidian formula). &nbsp;&minus; you lose the "object ruptures and its particles become the words" spectacle &mdash; the hero&rarr;manifesto handoff is now a <b>typographic transition</b> (text recedes, grade shifts, manifesto rises) instead of a physical one. Elegant, but less of a "wow" moment.
+</div>
+</div>
+
+<div class="options" style="margin-top:12px">
+  <div class="option" data-choice="no3d-yes" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>Yes &mdash; go type-led, no 3D</h3><p>This look is right. Lock Hero+Manifesto as type+parallax, build Section 1.</p></div></div>
+  <div class="option" data-choice="keep3d" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Keep a 3D object after all</h3><p>The typographic handoff isn't enough &mdash; go back to the realistic asteroid.</p></div></div>
+  <div class="option" data-choice="tweak-no3d" onclick="toggleSelect(this)"><div class="letter">C</div><div class="content"><h3>Type-led, but adjust</h3><p>I'll describe changes (a hero image/video plate instead of 3D, different copy, etc.).</p></div></div>
+</div>

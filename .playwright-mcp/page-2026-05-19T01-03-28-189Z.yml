@@ -1,0 +1,25 @@
+- generic [ref=e2]:
+  - img
+  - img [ref=e4]
+  - img [ref=e6]
+  - img [ref=e8]
+  - generic [ref=e9]: Motion
+  - generic [ref=e10]: in every
+  - generic [ref=e11]: frame
+  - img [ref=e13]
+  - generic [ref=e14]:
+    - text: The Motion
+    - text: Agency
+    - generic [ref=e15]: Studio · est. 2026
+  - navigation [ref=e16]:
+    - generic [ref=e17]: Work
+    - generic [ref=e18]: Studio
+  - generic [ref=e19]: Menu
+  - generic [ref=e23]:
+    - text: A studio built
+    - text: for motion
+  - generic [ref=e24]:
+    - text: Showreel
+    - text: "2026"
+  - generic [ref=e25]: The Motion Agency — Reel 2026
+  - generic [ref=e26]: Scroll to enter

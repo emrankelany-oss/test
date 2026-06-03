@@ -1,0 +1,63 @@
+<h2>TMA Portfolio &mdash; full structure, first scroll &rarr; last scroll</h2>
+<p class="subtitle">Spine: <b>Manifesto&rarr;Proof</b>. Visual language &amp; text mechanics from Obsidian Assembly. 3D capped at Hero&rarr;Manifesto. "vh" = how many screen-heights of scroll the section consumes.</p>
+
+<style>
+  .tx{border:1px solid rgba(125,180,255,.3);background:rgba(125,180,255,.07);border-radius:12px;padding:14px 16px;margin:6px 0 22px;font-size:12.5px;line-height:1.6}
+  .tx b{color:#7db4ff}
+  .tl{margin:8px 0 24px}
+  .s{display:grid;grid-template-columns:54px 150px 1fr;border-bottom:1px solid rgba(255,255,255,.08);min-height:62px}
+  .s>div{padding:12px 12px}
+  .s .sc{font-family:monospace;font-size:12px;opacity:.55;border-right:1px solid rgba(255,255,255,.08)}
+  .s .nm{font-weight:700;font-size:13px;border-right:1px solid rgba(255,255,255,.08)}
+  .s .de{font-size:12px;line-height:1.5;opacity:.92}
+  .s .de em{color:#9fc4ff;font-style:normal}
+  .s.d3{background:linear-gradient(90deg,rgba(125,180,255,.15),transparent)}
+  .s.d3 .nm{color:#7db4ff}
+  .s.feat{background:linear-gradient(90deg,rgba(255,180,90,.15),transparent)}
+  .s.feat .nm{color:#ffb45a}
+  .s.feat .de em{color:#ffcf94}
+  .pin{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.05em;padding:1px 6px;border-radius:99px;background:rgba(255,255,255,.14);margin-left:6px;vertical-align:1px}
+  .tot{text-align:right;font-family:monospace;font-size:12px;opacity:.6;margin:6px 4px 0}
+</style>
+
+<div class="tx">
+<b>How text moves everywhere on this page</b> (the Obsidian mechanic, reproduced):<br>
+&bull; <b>Headlines</b> &rarr; split per character; each letter <b>opacity+translate</b> in, duration grows with letter index (left&rarr;right cascade) + random 0&ndash;675ms jitter per letter &rarr; organic, never typewriter.<br>
+&bull; <b>Body / paragraphs</b> &rarr; split per line; each line mask-slides up on enter.<br>
+&bull; A scroll-linked <b>--progress</b> var keeps headlines subtly reacting to scroll after they land.<br>
+&bull; Implemented with GSAP SplitText + CSS vars (matches your v16 pure-math/CSS engine).
+</div>
+
+<div class="tl">
+
+  <div class="s d3"><div class="sc">0&ndash;1vh</div><div class="nm">1 &middot; HERO <span class="pin">PINNED</span></div><div class="de">Branded 3D monolith scrubs (v16 frame engine). Serif headline <em>"WE RELEASE MOMENTUM"</em> reveals per-char as it enters. Background grades warm&rarr;black. Edge case-cards drift in with 3D tilt. Scroll-cue pulses.</div></div>
+
+  <div class="s d3"><div class="sc">1&ndash;2vh</div><div class="nm">2 &middot; RUPTURE <span class="pin">PINNED</span></div><div class="de">Monolith <em>ruptures</em> &mdash; particle burst + screen shake (v16 explosion band). Headline letters scatter out (reverse of the cascade). Object does NOT cut &mdash; it's the anchor through to&hellip;</div></div>
+
+  <div class="s d3"><div class="sc">2&ndash;3.5vh</div><div class="nm">3 &middot; MANIFESTO <span class="pin">PINNED</span></div><div class="de">Burst particles <em>resolve into the manifesto words</em> (deck Slide 3 copy), revealed line-by-line. Monolith scales through &amp; fades. <em>WebGL ends here</em> &mdash; everything below is DOM parallax.</div></div>
+
+  <div class="s"><div class="sc">3.5&ndash;5vh</div><div class="nm">4 &middot; STATS</div><div class="de">Four counters &mdash; <em>178% &middot; $1B &middot; 500+ &middot; 30+</em> &mdash; numbers roll up on scroll, labels line-reveal, set on two depth-parallax layers (label slow, number fast).</div></div>
+
+  <div class="s feat"><div class="sc">5&ndash;7.5vh</div><div class="nm">5 &middot; FEATURED: FOODICS <span class="pin">PINNED</span></div><div class="de">The Obsidian parallax. Pinned ~2.5vh. Serif <em>"FOODICS"</em> char-cascades; bg grades to Foodics purple; 3 framed case visuals fly from edges at <em>different depths &amp; speeds</em> with rotateY/X tilt; orbital line sweeps; result line counts up; unpins into&hellip;</div></div>
+
+  <div class="s feat"><div class="sc">7.5&ndash;10vh</div><div class="nm">6 &middot; FEATURED: ZID <span class="pin">PINNED</span></div><div class="de">Same component, re-skinned: Zid blue grade, Zid cards, <em>"200% GROWTH"</em> payoff. Proves it's one data-driven section reusable for any future project.</div></div>
+
+  <div class="s"><div class="sc">10&ndash;12vh</div><div class="nm">7 &middot; THE WORK</div><div class="de">Parallax mosaic of brand/campaign tiles (Burger King, LG, Almarai, Electrolux&hellip;) at staggered depths; section title char-reveals; hover scales a tile, click &rarr; detail page (the /objects-style template).</div></div>
+
+  <div class="s"><div class="sc">12&ndash;13vh</div><div class="nm">8 &middot; CLIENTS</div><div class="de">Quiet logo field, two slow parallax depth layers. Single line-reveal caption: <em>"Trusted across the GCC."</em></div></div>
+
+  <div class="s"><div class="sc">13&ndash;14vh</div><div class="nm">9 &middot; CONTACT</div><div class="de">Giant serif <em>"LET'S BUILD BOLD STORIES"</em> char-cascade. Amman / Riyadh + email line-reveal. Subtle warm grade returns (full-circle to hero).</div></div>
+
+</div>
+<div class="tot">total scroll &asymp; 14 screen-heights &middot; 3 pinned 3D blocks + 2 pinned featured blocks + 4 flow sections</div>
+
+<div class="tx" style="border-color:rgba(255,180,90,.35);background:rgba(255,180,90,.07)">
+<b style="color:#ffb45a">Case-study detail pages</b> (when a project tile is clicked) reuse Obsidian's <b>/objects</b> template: arched image portal, colossal split-char title bleeding off-screen, symmetric left/right body copy, orbital line. One template, data-driven per project.
+</div>
+
+<p class="subtitle">This is the proposed full structure. Click to approve it as the spine of the spec, or tell me in the terminal what to change &mdash; section order, pin lengths, which projects are featured, how many "vh" the 3D gets, warm vs cool grade.</p>
+
+<div class="options" style="margin-top:14px">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>This structure works &mdash; write the spec</h3><p>Lock this 9-section / ~14vh flow and proceed to the formal design doc.</p></div></div>
+  <div class="option" data-choice="adjust" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Close, but I want changes</h3><p>I'll describe adjustments in the terminal first.</p></div></div>
+</div>

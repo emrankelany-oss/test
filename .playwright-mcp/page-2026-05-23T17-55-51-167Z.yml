@@ -1,0 +1,302 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e13] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e14]:
+        - link "Portfolio" [ref=e15] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e16] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e17] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e19] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e20] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e21] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e23]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: EST.
+            - generic [ref=e30]: "2019"
+          - generic [ref=e31]:
+            - generic [ref=e32]: AMMAN
+            - generic [ref=e33]: ·
+            - generic [ref=e34]: RIYADH
+          - generic [ref=e35]:
+            - generic [ref=e36]: SHOWREEL
+            - generic [ref=e37]: "2025"
+        - generic [ref=e38]:
+          - heading "Narrative where vision Meets Design" [level=1] [ref=e40]:
+            - generic [ref=e42]: Narrative
+            - emphasis [ref=e45]: where vision
+            - generic [ref=e47]: Meets
+            - generic [ref=e49]: Design
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e53] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e54]:
+              - generic [ref=e55]: Let's talk
+              - generic [ref=e56]: Mohamed Sabha
+              - generic [ref=e57]: Chief Executive Officer
+            - img [ref=e65]
+      - generic [ref=e67]:
+        - text: Scroll
+        - text: 01 / 01
+    - generic [ref=e69]:
+      - generic:
+        - img
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: Selected work · 2024–25
+          - heading "Featured narratives" [level=2] [ref=e74]:
+            - text: Featured
+            - emphasis [ref=e75]: narratives
+          - paragraph [ref=e76]: Three chapters from this year's reel. Hover to play the cut.
+        - list [ref=e77]:
+          - listitem [ref=e78]:
+            - link "Foodics — Boundless" [ref=e79]:
+              - /url: "#work-foodics-boundless"
+              - generic [ref=e80]:
+                - generic: "01"
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e83]: Foodics
+                  - heading "Boundless" [level=3] [ref=e84]
+                - generic [ref=e85]:
+                  - generic [ref=e86]: Hospitality SaaS
+                  - generic [ref=e87]: "2025"
+          - listitem [ref=e88]:
+            - link "Zid — Ripple" [ref=e89]:
+              - /url: "#work-zid-ripple"
+              - generic [ref=e90]:
+                - generic: "02"
+              - generic [ref=e91]:
+                - generic [ref=e92]:
+                  - generic [ref=e93]: Zid
+                  - heading "Ripple" [level=3] [ref=e94]
+                - generic [ref=e95]:
+                  - generic [ref=e96]: Commerce Identity
+                  - generic [ref=e97]: "2025"
+          - listitem [ref=e98]:
+            - link "Vodafone — Vodafone" [ref=e99]:
+              - /url: "#work-vodafone"
+              - generic [ref=e100]:
+                - generic: "03"
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e103]: Vodafone
+                  - heading "Vodafone" [level=3] [ref=e104]
+                - generic [ref=e105]:
+                  - generic [ref=e106]: Telecom TVC
+                  - generic [ref=e107]: "2024"
+        - generic:
+          - img
+          - generic: View Video
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]: The archive · selected clients
+          - heading "Our work" [level=2] [ref=e112]:
+            - text: Our
+            - emphasis [ref=e113]: work
+          - paragraph [ref=e114]: Campaigns, identities and films across the GCC — drag the reel, then dig into the grid below.
+        - generic "Selected work reel" [ref=e115]:
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - generic [ref=e118]:
+                - img "Foodics — POS Launch Film"
+              - generic [ref=e120]:
+                - generic [ref=e121]: Foodics
+                - generic [ref=e122]: POS Launch Film
+                - generic [ref=e123]: 3D / Product
+            - listitem [ref=e124]:
+              - generic [ref=e125]:
+                - img "Burger King — Taste is King"
+              - generic [ref=e127]:
+                - generic [ref=e128]: Burger King
+                - generic [ref=e129]: Taste is King
+                - generic [ref=e130]: Campaign
+            - listitem [ref=e131]:
+              - generic [ref=e132]:
+                - img "LG — Life's Good"
+              - generic [ref=e134]:
+                - generic [ref=e135]: LG
+                - generic [ref=e136]: Life's Good
+                - generic [ref=e137]: Brand
+            - listitem [ref=e138]:
+              - generic [ref=e139]:
+                - img "Zain — Made for You"
+              - generic [ref=e141]:
+                - generic [ref=e142]: Zain
+                - generic [ref=e143]: Made for You
+                - generic [ref=e144]: Social
+            - listitem [ref=e145]:
+              - generic [ref=e146]:
+                - img "Almarai — Quality You Trust"
+              - generic [ref=e148]:
+                - generic [ref=e149]: Almarai
+                - generic [ref=e150]: Quality You Trust
+                - generic [ref=e151]: OOH / Fleet
+            - listitem [ref=e152]:
+              - generic [ref=e153]:
+                - img "Sigma Paints — Wild Side of Paints"
+              - generic [ref=e155]:
+                - generic [ref=e156]: Sigma Paints
+                - generic [ref=e157]: Wild Side of Paints
+                - generic [ref=e158]: Campaign
+            - listitem [ref=e159]:
+              - generic [ref=e160]:
+                - img "McCafé — Everyday Treats"
+              - generic [ref=e162]:
+                - generic [ref=e163]: McCafé
+                - generic [ref=e164]: Everyday Treats
+                - generic [ref=e165]: Campaign
+            - listitem [ref=e166]:
+              - generic [ref=e167]:
+                - img
+              - generic [ref=e169]:
+                - generic [ref=e170]: Foodics
+                - generic [ref=e171]: POS Launch Film
+                - generic [ref=e172]: 3D / Product
+            - listitem [ref=e173]:
+              - generic [ref=e174]:
+                - img
+              - generic [ref=e176]:
+                - generic [ref=e177]: Burger King
+                - generic [ref=e178]: Taste is King
+                - generic [ref=e179]: Campaign
+            - listitem [ref=e180]:
+              - generic [ref=e181]:
+                - img
+              - generic [ref=e183]:
+                - generic [ref=e184]: LG
+                - generic [ref=e185]: Life's Good
+                - generic [ref=e186]: Brand
+            - listitem [ref=e187]:
+              - generic [ref=e188]:
+                - img
+              - generic [ref=e190]:
+                - generic [ref=e191]: Zain
+                - generic [ref=e192]: Made for You
+                - generic [ref=e193]: Social
+            - listitem [ref=e194]:
+              - generic [ref=e195]:
+                - img
+              - generic [ref=e197]:
+                - generic [ref=e198]: Almarai
+                - generic [ref=e199]: Quality You Trust
+                - generic [ref=e200]: OOH / Fleet
+            - listitem [ref=e201]:
+              - generic [ref=e202]:
+                - img
+              - generic [ref=e204]:
+                - generic [ref=e205]: Sigma Paints
+                - generic [ref=e206]: Wild Side of Paints
+                - generic [ref=e207]: Campaign
+            - listitem [ref=e208]:
+              - generic [ref=e209]:
+                - img
+              - generic [ref=e211]:
+                - generic [ref=e212]: McCafé
+                - generic [ref=e213]: Everyday Treats
+                - generic [ref=e214]: Campaign
+          - generic [ref=e215]: ↤ drag ↦
+        - list [ref=e216]:
+          - listitem [ref=e217]:
+            - link "BAE Systems — Inspired Work" [ref=e218] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e221]: Print
+              - generic [ref=e222]:
+                - generic [ref=e223]: BAE Systems
+                - heading "Inspired Work" [level=3] [ref=e224]
+          - listitem [ref=e225]:
+            - link "Electrolux — Thinking of You" [ref=e226] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e229]: Product
+              - generic [ref=e230]:
+                - generic [ref=e231]: Electrolux
+                - heading "Thinking of You" [level=3] [ref=e232]
+          - listitem [ref=e233]:
+            - link "Aramco — Brand Mark" [ref=e234] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e237]: Identity
+              - generic [ref=e238]:
+                - generic [ref=e239]: Aramco
+                - heading "Brand Mark" [level=3] [ref=e240]
+          - listitem [ref=e241]:
+            - link "Batania — Pure by Nature" [ref=e242] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e245]: Campaign
+              - generic [ref=e246]:
+                - generic [ref=e247]: Batania
+                - heading "Pure by Nature" [level=3] [ref=e248]
+          - listitem [ref=e249]:
+            - link "Burger King — 5-Minute Drive Thru" [ref=e250] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e253]: Campaign
+              - generic [ref=e254]:
+                - generic [ref=e255]: Burger King
+                - heading "5-Minute Drive Thru" [level=3] [ref=e256]
+          - listitem [ref=e257]:
+            - link "T-GAH-WA — Bedouin Impression" [ref=e258] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e261]: Packaging
+              - generic [ref=e262]:
+                - generic [ref=e263]: T-GAH-WA
+                - heading "Bedouin Impression" [level=3] [ref=e264]
+    - generic [ref=e266]:
+      - generic [ref=e267]:
+        - generic [ref=e268]: 08 / Contact
+        - generic [ref=e270]:
+          - text: Amman · Riyadh
+          - text: + remote, anywhere.
+      - heading "Let's build bold stories with impact." [level=2] [ref=e271]:
+        - text: Let's build
+        - text: bold stories
+        - text: with impact.
+      - generic [ref=e272]:
+        - generic [ref=e273]:
+          - paragraph [ref=e274]: If you have a brand to launch, a product to position, or a category to define — tell us where you're headed and what's in the way. We'll come back within 48 hours with first thoughts, not a deck of templates.
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - generic [ref=e277]: General
+              - link "info@themotionagency.net" [ref=e278] [cursor=pointer]:
+                - /url: mailto:info@themotionagency.net
+            - generic [ref=e279]:
+              - generic [ref=e280]: Press
+              - link "press@themotionagency.net" [ref=e281] [cursor=pointer]:
+                - /url: mailto:press@themotionagency.net
+        - generic [ref=e282]:
+          - textbox "Your name *" [ref=e283]
+          - textbox "Company *" [ref=e284]
+          - textbox "Email *" [ref=e285]
+          - combobox [ref=e286]:
+            - option "What do you need help with? *" [disabled] [selected]
+            - option "Brand strategy & positioning"
+            - option "Brand design & identity"
+            - option "Go-to-market & growth"
+            - option "Event & experience"
+            - option "Content & production"
+            - option "All of the above"
+          - textbox "Tell us where you're headed *" [ref=e287]
+          - textbox [ref=e288]
+          - button "Send brief ↗" [ref=e289] [cursor=pointer]:
+            - text: Send brief
+            - generic [ref=e290]: ↗
+    - generic [ref=e291]:
+      - generic [ref=e292]: THE / MOTION / AGENCY
+      - generic [ref=e293]:
+        - generic [ref=e294]: © 2026 The Motion Agency
+        - generic [ref=e295]: themotionagency.net
+        - generic [ref=e296]: info@themotionagency.net
+        - link "LinkedIn" [ref=e298] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e299]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e305] [cursor=pointer]:
+    - img [ref=e306]
+  - alert [ref=e309]

@@ -1,0 +1,125 @@
+<h2>Hero &rarr; Featured Carousel &mdash; scroll storyboard (pre-build check)</h2>
+<p class="subtitle">Built on your home <b>hero-prism</b> pattern (made interactive), GSAP + Lenis. Read top&rarr;bottom = what happens as the user scrolls. Confirm this and I build the Hero section first.</p>
+
+<style>
+  .board{display:flex;flex-direction:column;gap:15px;margin:10px 0 20px}
+  .fr{border:1px solid rgba(255,255,255,.16);border-radius:13px;overflow:hidden}
+  .frh{display:flex;justify-content:space-between;padding:8px 14px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1)}
+  .frh .p{color:#7db4ff}
+  .st{position:relative;height:300px;overflow:hidden;background:#000}
+  /* the real home prism */
+  .prism{position:absolute;inset:0;overflow:hidden}
+  .cone{position:absolute;border-radius:50%;mix-blend-mode:screen;filter:blur(60px)}
+  .c-blue{top:-22%;left:-8%;width:70%;height:95%;background:radial-gradient(ellipse 55% 80% at 48% 28%,#00b3ff,#0084ff 18%,#0046d8 38%,rgba(0,40,140,.45) 60%,transparent 78%);transform:rotate(-12deg);opacity:.95}
+  .c-warm{bottom:-18%;left:-14%;width:65%;height:80%;background:radial-gradient(ellipse 45% 65% at 38% 75%,#fff,#ffe070 8%,#ff9a1f 18%,#ff3b1f 32%,#d6005a 48%,rgba(140,0,180,.5) 65%,transparent 82%);transform:rotate(8deg);opacity:.95}
+  .c-rim{top:28%;left:-2%;width:35%;height:45%;background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(255,40,140,.55),rgba(180,40,255,.3) 30%,transparent 65%);filter:blur(70px);opacity:.7}
+  .fade{position:absolute;inset:0;background:linear-gradient(90deg,transparent 40%,rgba(0,0,0,.55) 70%,#000);z-index:3}
+  .grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay;opacity:.4}
+  .cursor{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(120,200,255,.35),transparent 70%);z-index:4;pointer-events:none}
+  .title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;text-align:center;font-family:Arial,sans-serif;font-weight:800;letter-spacing:-1px;color:#fff;line-height:.92;font-size:42px;text-transform:uppercase}
+  .title .ital{font-family:Georgia,serif;font-style:italic;font-weight:500;text-transform:none}
+  .meta{position:absolute;top:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 22px;font-family:monospace;font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5}
+  .card{position:absolute;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 20px 50px rgba(0,0,0,.55);display:flex;flex-direction:column;justify-content:flex-end;padding:9px;font-size:8px;color:#dfe2ea;z-index:6}
+  .card b{font-family:Georgia,serif;font-size:13px;color:#fff}
+  .fo{background:linear-gradient(150deg,#4E008E,#250048)}
+  .zi{background:linear-gradient(150deg,#1f7ae0,#072a63)}
+  .bk{background:linear-gradient(150deg,#7a2410,#3a1004)}
+  .lg{background:linear-gradient(150deg,#a50034,#4a0018)}
+  .al{background:linear-gradient(150deg,#0a7d3c,#04331a)}
+  .cue{position:absolute;bottom:11px;left:50%;transform:translateX(-50%);font-family:monospace;font-size:9px;letter-spacing:.3em;color:#9fc4ff;opacity:.75;z-index:7}
+  .note{position:absolute;left:0;right:0;text-align:center;font-family:monospace;font-size:9px;letter-spacing:.13em;color:#9fc4ff;opacity:.85;z-index:7}
+  .arrows{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:90px;z-index:9}
+  .arrows div{width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+  .count{position:absolute;right:9%;top:50%;transform:translateY(-50%);font-family:Georgia,serif;font-size:30px;color:rgba(255,255,255,.8);z-index:9}
+  .ctitle{position:absolute;left:8%;bottom:30%;font-family:Georgia,serif;font-size:30px;color:#fff;z-index:9}
+  .caseinfo{position:absolute;left:8%;bottom:14%;z-index:9;color:#eee;font-family:monospace;font-size:10px;letter-spacing:.08em;line-height:1.7}
+  .caseinfo b{font-family:Georgia,serif;font-size:15px;color:#fff}
+  .spec{padding:13px 16px;font-size:12px;line-height:1.6;border-top:1px solid rgba(255,255,255,.08)}
+  .spec b{color:#7db4ff}
+</style>
+
+<div class="board">
+
+  <div class="fr">
+    <div class="frh"><span>1 &middot; HERO (rest state)</span><span class="p">scroll 0</span></div>
+    <div class="st">
+      <div class="prism"><div class="cone c-blue"></div><div class="cone c-warm"></div><div class="cone c-rim"></div><div class="grain"></div></div>
+      <div class="cursor" style="right:24%;top:22%"></div>
+      <div class="meta"><span>EST. 2019</span><span>AMMAN &middot; RIYADH</span><span>PORTFOLIO 2025</span></div>
+      <div class="title">WE DON&rsquo;T BUILD BRANDS<br><span class="ital">we release</span> MOMENTUM</div>
+      <div class="card fo" style="width:96px;height:124px;left:7%;top:26%;transform:rotate(-5deg)"><b>Foodics</b><span>$2M&rarr;$1B</span></div>
+      <div class="card zi" style="width:90px;height:116px;right:7%;bottom:16%;transform:rotate(5deg)"><b>Zid</b><span>+200%</span></div>
+      <div class="cue">SCROLL &darr;</div>
+    </div>
+  </div>
+
+  <div class="fr">
+    <div class="frh"><span>2 &middot; HERO interactive &mdash; mouse</span><span class="p">no scroll &middot; pointer</span></div>
+    <div class="st">
+      <div class="prism"><div class="cone c-blue" style="transform:rotate(-12deg) translate(5%,3%) scale(1.06)"></div><div class="cone c-warm" style="transform:rotate(8deg) translate(-4%,-2%)"></div><div class="cone c-rim" style="transform:translate(6%,4%)"></div><div class="grain"></div></div>
+      <div class="cursor" style="left:60%;top:55%;width:150px;height:150px"></div>
+      <div class="title">WE DON&rsquo;T BUILD BRANDS<br><span class="ital">we release</span> MOMENTUM</div>
+      <div class="card fo" style="width:96px;height:124px;left:9%;top:30%;transform:rotate(-7deg)"><b>Foodics</b><span>$2M&rarr;$1B</span></div>
+      <div class="card zi" style="width:90px;height:116px;right:9%;bottom:20%;transform:rotate(7deg)"><b>Zid</b><span>+200%</span></div>
+      <div class="note" style="bottom:12px">[ prism cones &amp; cards parallax toward cursor &middot; soft glow follows mouse &middot; title holds ]</div>
+    </div>
+  </div>
+
+  <div class="fr">
+    <div class="frh"><span>3 &middot; SCROLL &mdash; the 2 cards travel down</span><span class="p">scroll 0 &rarr; 1</span></div>
+    <div class="st">
+      <div class="prism" style="opacity:.5"><div class="cone c-blue"></div><div class="cone c-warm"></div><div class="grain"></div></div>
+      <div class="title" style="top:24%;font-size:24px;opacity:.2">WE RELEASE MOMENTUM</div>
+      <div class="card fo" style="width:88px;height:112px;left:24%;top:42%;transform:rotate(-3deg)"><b>Foodics</b></div>
+      <div class="card zi" style="width:88px;height:112px;right:24%;top:50%;transform:rotate(3deg)"><b>Zid</b></div>
+      <div class="note" style="bottom:14px">[ title recedes &middot; Foodics + Zid cards detach &amp; glide down with scroll toward Section 2 ]</div>
+    </div>
+  </div>
+
+  <div class="fr">
+    <div class="frh"><span>4 &middot; FEATURED CAROUSEL assembled</span><span class="p">scroll 1 &middot; cards land</span></div>
+    <div class="st" style="background:#0b0b0e">
+      <div class="card fo" style="width:70px;height:92px;left:4%;top:20%;transform:rotate(-8deg);opacity:.7"><b>Foodics</b></div>
+      <div class="card lg" style="width:64px;height:84px;right:5%;top:14%;transform:rotate(7deg);opacity:.7"><b>LG</b></div>
+      <div class="card al" style="width:60px;height:80px;left:7%;bottom:10%;transform:rotate(6deg);opacity:.7"><b>Almarai</b></div>
+      <div class="card zi" style="width:66px;height:88px;right:6%;bottom:12%;transform:rotate(-6deg);opacity:.7"><b>Zid</b></div>
+      <div class="card bk" style="width:300px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%);opacity:1;border-color:rgba(255,255,255,.4)"><b style="font-size:20px">Burger King</b><span>ROYAL TASTE &middot; CAMPAIGN</span></div>
+      <div class="arrows"><div>&larr;</div><div>&rarr;</div></div>
+      <div class="count">1 / 5</div>
+      <div class="note" style="bottom:11px">[ 2 hero cards + 3 brand clients = 5 scattered cards &middot; center is focused &middot; arrows + counter ]</div>
+    </div>
+  </div>
+
+  <div class="fr">
+    <div class="frh"><span>5 &middot; ZOOM IN &mdash; enter the project's world</span><span class="p">scroll 1 &rarr; 2 (pinned)</span></div>
+    <div class="st">
+      <div class="card bk" style="width:100%;height:100%;left:0;top:0;transform:none;border:0;border-radius:0;padding:0"></div>
+      <div class="ctitle">Burger King</div>
+      <div class="caseinfo"><b>&ldquo;Royal Taste&rdquo; &mdash; KSA</b><br>OOH &middot; TVC &middot; Ramadan &middot; Drive-Thru<br>National campaign &middot; bun-as-sun key visual</div>
+      <div class="count" style="opacity:.5">1 / 5</div>
+      <div class="note" style="bottom:12px">[ surrounding cards fade out &middot; center image zooms to full-bleed &middot; case facts reveal &mdash; "you entered the world" ]</div>
+    </div>
+  </div>
+
+  <div class="fr">
+    <div class="frh"><span>6 &middot; PORTAL OUT &mdash; leave the world</span><span class="p">scroll 2 &rarr; 2.5</span></div>
+    <div class="st" style="background:#070409">
+      <div class="card bk" style="width:130px;height:90px;left:50%;top:46%;transform:translate(-50%,-50%) scale(.9);opacity:.4;border-radius:10px"></div>
+      <div class="note" style="bottom:50%;color:#cfe2ff">[ clean zoom-out portal transition &mdash; image recedes, carousel dissolves, flows into the next section ]</div>
+      <div class="cue">&darr; next section</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="fr">
+  <div class="spec">
+    <b>Locked from your answers:</b> &nbsp;bg = home <b>hero-prism</b> (interactive: cones+cards parallax to cursor, glow follows mouse) &middot; centered title, home's font/shape (condensed uppercase + 1 italic serif word) &middot; 2 hero cards = Foodics, Zid &middot; carousel = those 2 + <b>Burger King, LG, Almarai</b> (visual-only brand cards) = 5 &middot; click <b>&larr;/&rarr;</b> changes the centered card &middot; scroll-zoom enters center image &rarr; case info shows &rarr; scroll more = clean portal zoom-out to next section &middot; <b>GSAP + Lenis</b>, custom cursor. Built as new <b>portfolio-v17</b> route (v16/home untouched).<br><br>
+    <b>Note:</b> tma-web is a modified Next.js (per AGENTS.md) &mdash; I'll read its bundled docs before writing any code. &nbsp;<b>Open:</b> the Manifesto/Stats/etc. from the earlier full-page plan still come <em>after</em> this carousel &mdash; we'll design those section-by-section later.
+  </div>
+</div>
+
+<div class="options" style="margin-top:12px">
+  <div class="option" data-choice="build-hero" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>Storyboard is right &mdash; build the HERO (Section 1) only</h3><p>Per our contract: build just the hero now, we review the real thing, then continue.</p></div></div>
+  <div class="option" data-choice="adjust" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Adjust the storyboard first</h3><p>I'll describe changes (copy, card choices, motion, zoom behaviour) before any code.</p></div></div>
+</div>

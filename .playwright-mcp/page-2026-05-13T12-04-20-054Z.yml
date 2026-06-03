@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - img
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: EST.
+          - generic [ref=e20]: "2019"
+        - generic [ref=e21]:
+          - generic [ref=e22]: AMMAN
+          - generic [ref=e23]: ·
+          - generic [ref=e24]: RIYADH
+        - generic [ref=e25]:
+          - generic [ref=e26]: SHOWREEL
+          - generic [ref=e27]: "2025"
+      - heading "CASES WORTH TELLING." [level=1] [ref=e28]:
+        - generic [ref=e30]: CASES
+        - generic [ref=e32]: WORTH
+        - generic [ref=e34]: TELLING.
+    - region "All work" [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: Our work
+            - generic [ref=e41]: 39 projects
+            - heading "All work. In motion." [level=2] [ref=e42]:
+              - text: All work.
+              - text: In motion.
+          - tablist [ref=e43]:
+            - tab "All" [selected] [ref=e44] [cursor=pointer]
+            - tab "Brand" [ref=e45] [cursor=pointer]
+            - tab "Campaign" [ref=e46] [cursor=pointer]
+            - tab "Event" [ref=e47] [cursor=pointer]
+            - tab "Social" [ref=e48] [cursor=pointer]
+            - tab "Web" [ref=e49] [cursor=pointer]
+            - tab "OOH" [ref=e50] [cursor=pointer]
+            - tab "Production" [ref=e51] [cursor=pointer]
+            - tab "Animation" [ref=e52] [cursor=pointer]
+        - generic: scroll · the stream flows
+    - generic [ref=e57]:
+      - generic [ref=e58]: Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e60]
+      - paragraph [ref=e61]: Let's create something extraordinary together. Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e62]:
+        - link "Book a discovery call ↗" [ref=e63] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e64]: ↗
+        - link "Send a brief ↗" [ref=e65] [cursor=pointer]:
+          - /url: /#contact
+          - text: Send a brief
+          - generic [ref=e66]: ↗
+    - contentinfo [ref=e67]:
+      - generic [ref=e68]: THE / MOTION / AGENCY
+      - generic [ref=e69]:
+        - generic [ref=e70]: © 2026 The Motion Agency
+        - generic [ref=e71]: themotionagency.net
+        - generic [ref=e72]: info@themotionagency.net
+        - link "LinkedIn" [ref=e74] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e75]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e81] [cursor=pointer]:
+    - img [ref=e82]

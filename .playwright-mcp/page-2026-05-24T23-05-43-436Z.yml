@@ -1,0 +1,527 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e14] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e15]:
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e17] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e18] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e21] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e22] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: EST.
+            - generic [ref=e31]: "2019"
+          - generic [ref=e32]:
+            - generic [ref=e33]: AMMAN
+            - generic [ref=e34]: ·
+            - generic [ref=e35]: RIYADH
+          - generic [ref=e36]:
+            - generic [ref=e37]: SHOWREEL
+            - generic [ref=e38]: "2025"
+        - generic [ref=e39]:
+          - heading "Narrative where vision Meets Design" [level=1] [ref=e41]:
+            - generic [ref=e43]: Narrative
+            - emphasis [ref=e46]: where vision
+            - generic [ref=e48]: Meets
+            - generic [ref=e50]: Design
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e54] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e55]:
+              - generic [ref=e56]: Let's talk
+              - generic [ref=e57]: Mohamed Sabha
+              - generic [ref=e58]: Chief Executive Officer
+            - img [ref=e66]
+      - generic [ref=e68]:
+        - text: Scroll
+        - text: 01 / 01
+    - generic [ref=e70]:
+      - generic:
+        - img
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: Selected work · 2024–25
+          - heading "Featured narratives" [level=2] [ref=e75]:
+            - text: Featured
+            - emphasis [ref=e76]: narratives
+          - paragraph [ref=e77]: Three chapters from this year's reel. Hover to play the cut.
+        - list [ref=e78]:
+          - listitem [ref=e79]:
+            - link "Play Foodics — Boundless video" [ref=e80]:
+              - /url: "#work-foodics-boundless"
+              - generic [ref=e81]:
+                - generic: "01"
+              - generic [ref=e82]:
+                - generic [ref=e83]:
+                  - generic [ref=e84]: Foodics
+                  - heading "Boundless" [level=3] [ref=e85]
+                - generic [ref=e86]:
+                  - generic [ref=e87]: Hospitality SaaS
+                  - generic [ref=e88]: "2025"
+          - listitem [ref=e89]:
+            - link "Play Zid — Ripple video" [ref=e90]:
+              - /url: "#work-zid-ripple"
+              - generic [ref=e91]:
+                - generic: "02"
+              - generic [ref=e92]:
+                - generic [ref=e93]:
+                  - generic [ref=e94]: Zid
+                  - heading "Ripple" [level=3] [ref=e95]
+                - generic [ref=e96]:
+                  - generic [ref=e97]: Commerce Identity
+                  - generic [ref=e98]: "2025"
+          - listitem [ref=e99]:
+            - link "Play Vodafone — Vodafone video" [ref=e100]:
+              - /url: "#work-vodafone"
+              - generic [ref=e101]:
+                - generic: "03"
+              - generic [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: Vodafone
+                  - heading "Vodafone" [level=3] [ref=e105]
+                - generic [ref=e106]:
+                  - generic [ref=e107]: Telecom TVC
+                  - generic [ref=e108]: "2024"
+        - generic:
+          - img
+          - generic: View Video
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]: The archive · selected clients
+          - heading "Our work" [level=2] [ref=e113]:
+            - text: Our
+            - emphasis [ref=e114]: work
+          - paragraph [ref=e115]: Campaigns, identities and films across the GCC — drag the reel, click any tile to read the full story.
+        - generic "Selected work reel" [ref=e116]:
+          - list [ref=e117]:
+            - button "Foodics — Boundless 2022 / 2023 Foodics Boundless 2022 / 2023 Event Marketing" [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]:
+                  - img "Foodics — Boundless 2022 / 2023"
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e123]:
+                - generic [ref=e124]: Foodics
+                - generic [ref=e125]: Boundless 2022 / 2023
+                - generic [ref=e126]: Event Marketing
+            - button "Sol — Brand & Ramadan Sol Brand & Ramadan Social · TVC" [ref=e127]:
+              - generic [ref=e128]:
+                - generic [ref=e129]:
+                  - img "Sol — Brand & Ramadan"
+                - generic:
+                  - generic: Sol
+                  - img
+              - generic [ref=e132]:
+                - generic [ref=e133]: Sol
+                - generic [ref=e134]: Brand & Ramadan
+                - generic [ref=e135]: Social · TVC
+            - button "Salasa — FIFA 2034 + National Day Salasa FIFA 2034 + National Day Social" [ref=e136]:
+              - generic [ref=e137]:
+                - generic [ref=e138]:
+                  - img "Salasa — FIFA 2034 + National Day"
+                - generic:
+                  - generic: Salasa
+                  - img
+              - generic [ref=e141]:
+                - generic [ref=e142]: Salasa
+                - generic [ref=e143]: FIFA 2034 + National Day
+                - generic [ref=e144]: Social
+            - button "LSC — Vision 2034 + WCA LSC Vision 2034 + WCA Social · Industry" [ref=e145]:
+              - generic [ref=e146]:
+                - generic [ref=e147]:
+                  - img "LSC — Vision 2034 + WCA"
+                - generic:
+                  - generic: LSC
+                  - img
+              - generic [ref=e150]:
+                - generic [ref=e151]: LSC
+                - generic [ref=e152]: Vision 2034 + WCA
+                - generic [ref=e153]: Social · Industry
+            - button "Burger King — Get Your Krispier Within 5 Burger King Get Your Krispier Within 5 Campaign" [ref=e154]:
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - img "Burger King — Get Your Krispier Within 5"
+                - generic:
+                  - generic: Burger King
+                  - img
+              - generic [ref=e159]:
+                - generic [ref=e160]: Burger King
+                - generic [ref=e161]: Get Your Krispier Within 5
+                - generic [ref=e162]: Campaign
+            - button "LG Saudi — Life's Good LG Saudi Life's Good Brand · Product" [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]:
+                  - img "LG Saudi — Life's Good"
+                - generic:
+                  - generic: LG Saudi
+                  - img
+              - generic [ref=e168]:
+                - generic [ref=e169]: LG Saudi
+                - generic [ref=e170]: Life's Good
+                - generic [ref=e171]: Brand · Product
+            - button "Foodics — Egypt Launch — OOH Foodics Egypt Launch — OOH OOH · Launch" [ref=e172]:
+              - generic [ref=e173]:
+                - generic [ref=e174]:
+                  - img "Foodics — Egypt Launch — OOH"
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e177]:
+                - generic [ref=e178]: Foodics
+                - generic [ref=e179]: Egypt Launch — OOH
+                - generic [ref=e180]: OOH · Launch
+            - listitem [ref=e181]:
+              - generic [ref=e182]:
+                - generic [ref=e183]:
+                  - img
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e186]:
+                - generic [ref=e187]: Foodics
+                - generic [ref=e188]: Boundless 2022 / 2023
+                - generic [ref=e189]: Event Marketing
+            - listitem [ref=e190]:
+              - generic [ref=e191]:
+                - generic [ref=e192]:
+                  - img
+                - generic:
+                  - generic: Sol
+                  - img
+              - generic [ref=e195]:
+                - generic [ref=e196]: Sol
+                - generic [ref=e197]: Brand & Ramadan
+                - generic [ref=e198]: Social · TVC
+            - listitem [ref=e199]:
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - img
+                - generic:
+                  - generic: Salasa
+                  - img
+              - generic [ref=e204]:
+                - generic [ref=e205]: Salasa
+                - generic [ref=e206]: FIFA 2034 + National Day
+                - generic [ref=e207]: Social
+            - listitem [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - img
+                - generic:
+                  - generic: LSC
+                  - img
+              - generic [ref=e213]:
+                - generic [ref=e214]: LSC
+                - generic [ref=e215]: Vision 2034 + WCA
+                - generic [ref=e216]: Social · Industry
+            - listitem [ref=e217]:
+              - generic [ref=e218]:
+                - generic [ref=e219]:
+                  - img
+                - generic:
+                  - generic: Burger King
+                  - img
+              - generic [ref=e222]:
+                - generic [ref=e223]: Burger King
+                - generic [ref=e224]: Get Your Krispier Within 5
+                - generic [ref=e225]: Campaign
+            - listitem [ref=e226]:
+              - generic [ref=e227]:
+                - generic [ref=e228]:
+                  - img
+                - generic:
+                  - generic: LG Saudi
+                  - img
+              - generic [ref=e231]:
+                - generic [ref=e232]: LG Saudi
+                - generic [ref=e233]: Life's Good
+                - generic [ref=e234]: Brand · Product
+            - listitem [ref=e235]:
+              - generic [ref=e236]:
+                - generic [ref=e237]:
+                  - img
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e240]:
+                - generic [ref=e241]: Foodics
+                - generic [ref=e242]: Egypt Launch — OOH
+                - generic [ref=e243]: OOH · Launch
+          - generic [ref=e244]: ↤ drag · click to open ↦
+        - generic "Selected work reel" [ref=e245]:
+          - list [ref=e246]:
+            - button "Zid — Ripple 2024 — Total Commerce Zid Ripple 2024 — Total Commerce Product Launch · Event" [ref=e247]:
+              - generic [ref=e248]:
+                - generic [ref=e249]:
+                  - img "Zid — Ripple 2024 — Total Commerce"
+                - generic:
+                  - generic: Zid
+                  - img
+              - generic [ref=e252]:
+                - generic [ref=e253]: Zid
+                - generic [ref=e254]: Ripple 2024 — Total Commerce
+                - generic [ref=e255]: Product Launch · Event
+            - button "InvoiceQ — Fintech Identity InvoiceQ Fintech Identity Brand Identity" [ref=e256]:
+              - generic [ref=e257]:
+                - generic [ref=e258]:
+                  - img "InvoiceQ — Fintech Identity"
+                - generic:
+                  - generic: InvoiceQ
+                  - img
+              - generic [ref=e261]:
+                - generic [ref=e262]: InvoiceQ
+                - generic [ref=e263]: Fintech Identity
+                - generic [ref=e264]: Brand Identity
+            - button "Transform — Brand System Transform Brand System Brand Identity" [ref=e265]:
+              - generic [ref=e266]:
+                - generic [ref=e267]:
+                  - img "Transform — Brand System"
+                - generic:
+                  - generic: Transform
+                  - img
+              - generic [ref=e270]:
+                - generic [ref=e271]: Transform
+                - generic [ref=e272]: Brand System
+                - generic [ref=e273]: Brand Identity
+            - button "Fra'ed International — Identity & Apparel Fra'ed International Identity & Apparel Brand Identity" [ref=e274]:
+              - generic [ref=e275]:
+                - generic [ref=e276]:
+                  - img "Fra'ed International — Identity & Apparel"
+                - generic:
+                  - generic: Fra'ed International
+                  - img
+              - generic [ref=e279]:
+                - generic [ref=e280]: Fra'ed International
+                - generic [ref=e281]: Identity & Apparel
+                - generic [ref=e282]: Brand Identity
+            - button "Vodafone — Global Brand Films Vodafone Global Brand Films Animation · TVC" [ref=e283]:
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - img "Vodafone — Global Brand Films"
+                - generic:
+                  - generic: Vodafone
+                  - img
+              - generic [ref=e288]:
+                - generic [ref=e289]: Vodafone
+                - generic [ref=e290]: Global Brand Films
+                - generic [ref=e291]: Animation · TVC
+            - button "Foodics — Pay at Table Foodics Pay at Table Landing Page · Product" [ref=e292]:
+              - generic [ref=e293]:
+                - generic [ref=e294]:
+                  - img "Foodics — Pay at Table"
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e297]:
+                - generic [ref=e298]: Foodics
+                - generic [ref=e299]: Pay at Table
+                - generic [ref=e300]: Landing Page · Product
+            - button "Foodics — Customer Display Screen Foodics Customer Display Screen Landing Page · Product" [ref=e301]:
+              - generic [ref=e302]:
+                - generic [ref=e303]:
+                  - img "Foodics — Customer Display Screen"
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e306]:
+                - generic [ref=e307]: Foodics
+                - generic [ref=e308]: Customer Display Screen
+                - generic [ref=e309]: Landing Page · Product
+            - listitem [ref=e310]:
+              - generic [ref=e311]:
+                - generic [ref=e312]:
+                  - img
+                - generic:
+                  - generic: Zid
+                  - img
+              - generic [ref=e315]:
+                - generic [ref=e316]: Zid
+                - generic [ref=e317]: Ripple 2024 — Total Commerce
+                - generic [ref=e318]: Product Launch · Event
+            - listitem [ref=e319]:
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - img
+                - generic:
+                  - generic: InvoiceQ
+                  - img
+              - generic [ref=e324]:
+                - generic [ref=e325]: InvoiceQ
+                - generic [ref=e326]: Fintech Identity
+                - generic [ref=e327]: Brand Identity
+            - listitem [ref=e328]:
+              - generic [ref=e329]:
+                - generic [ref=e330]:
+                  - img
+                - generic:
+                  - generic: Transform
+                  - img
+              - generic [ref=e333]:
+                - generic [ref=e334]: Transform
+                - generic [ref=e335]: Brand System
+                - generic [ref=e336]: Brand Identity
+            - listitem [ref=e337]:
+              - generic [ref=e338]:
+                - generic [ref=e339]:
+                  - img
+                - generic:
+                  - generic: Fra'ed International
+                  - img
+              - generic [ref=e342]:
+                - generic [ref=e343]: Fra'ed International
+                - generic [ref=e344]: Identity & Apparel
+                - generic [ref=e345]: Brand Identity
+            - listitem [ref=e346]:
+              - generic [ref=e347]:
+                - generic [ref=e348]:
+                  - img
+                - generic:
+                  - generic: Vodafone
+                  - img
+              - generic [ref=e351]:
+                - generic [ref=e352]: Vodafone
+                - generic [ref=e353]: Global Brand Films
+                - generic [ref=e354]: Animation · TVC
+            - listitem [ref=e355]:
+              - generic [ref=e356]:
+                - generic [ref=e357]:
+                  - img
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e360]:
+                - generic [ref=e361]: Foodics
+                - generic [ref=e362]: Pay at Table
+                - generic [ref=e363]: Landing Page · Product
+            - listitem [ref=e364]:
+              - generic [ref=e365]:
+                - generic [ref=e366]:
+                  - img
+                - generic:
+                  - generic: Foodics
+                  - img
+              - generic [ref=e369]:
+                - generic [ref=e370]: Foodics
+                - generic [ref=e371]: Customer Display Screen
+                - generic [ref=e372]: Landing Page · Product
+        - generic [ref=e373]:
+          - generic [ref=e374]:
+            - 'button "Read more: Foodics — Boundless 2022 / 2023" [ref=e375]':
+              - generic:
+                - generic: Foodics
+                - img
+            - 'button "Read more: LG Saudi — Life''s Good" [ref=e378]':
+              - generic:
+                - generic: LG Saudi
+                - img
+            - 'button "Read more: Fra''ed International — Identity & Apparel" [ref=e381]':
+              - generic:
+                - generic: Fra'ed International
+                - img
+          - generic [ref=e384]:
+            - 'button "Read more: Zid — Ripple 2024 — Total Commerce" [ref=e385]':
+              - generic:
+                - generic: Zid
+                - img
+            - 'button "Read more: Salasa — FIFA 2034 + National Day" [ref=e388]':
+              - generic:
+                - generic: Salasa
+                - img
+            - 'button "Read more: Burger King — Get Your Krispier Within 5" [ref=e391]':
+              - generic:
+                - generic: Burger King
+                - img
+          - generic [ref=e394]:
+            - 'button "Read more: Sol — Brand & Ramadan" [ref=e395]':
+              - generic:
+                - generic: Sol
+                - img
+            - 'button "Read more: InvoiceQ — Fintech Identity" [ref=e398]':
+              - generic:
+                - generic: InvoiceQ
+                - img
+            - 'button "Read more: Vodafone — Global Brand Films" [ref=e401]':
+              - generic:
+                - generic: Vodafone
+                - img
+          - generic [ref=e404]:
+            - 'button "Read more: LSC — Vision 2034 + WCA" [ref=e405]':
+              - generic:
+                - generic: LSC
+                - img
+            - 'button "Read more: Transform — Brand System" [ref=e408]':
+              - generic:
+                - generic: Transform
+                - img
+            - 'button "Read more: Foodics — Pay at Table" [ref=e411]':
+              - generic:
+                - generic: Foodics
+                - img
+    - generic [ref=e415]:
+      - generic [ref=e416]:
+        - generic [ref=e417]: 08 / Contact
+        - generic [ref=e419]:
+          - text: Amman · Riyadh
+          - text: + remote, anywhere.
+      - heading "Let's build bold stories with impact." [level=2] [ref=e420]:
+        - text: Let's build
+        - text: bold stories
+        - text: with impact.
+      - generic [ref=e421]:
+        - generic [ref=e422]:
+          - paragraph [ref=e423]: If you have a brand to launch, a product to position, or a category to define — tell us where you're headed and what's in the way. We'll come back within 48 hours with first thoughts, not a deck of templates.
+          - generic [ref=e424]:
+            - generic [ref=e425]:
+              - generic [ref=e426]: General
+              - link "info@themotionagency.net" [ref=e427] [cursor=pointer]:
+                - /url: mailto:info@themotionagency.net
+            - generic [ref=e428]:
+              - generic [ref=e429]: Press
+              - link "press@themotionagency.net" [ref=e430] [cursor=pointer]:
+                - /url: mailto:press@themotionagency.net
+        - generic [ref=e431]:
+          - textbox "Your name *" [ref=e432]
+          - textbox "Company *" [ref=e433]
+          - textbox "Email *" [ref=e434]
+          - combobox [ref=e435]:
+            - option "What do you need help with? *" [disabled] [selected]
+            - option "Brand strategy & positioning"
+            - option "Brand design & identity"
+            - option "Go-to-market & growth"
+            - option "Event & experience"
+            - option "Content & production"
+            - option "All of the above"
+          - textbox "Tell us where you're headed *" [ref=e436]
+          - textbox [ref=e437]
+          - button "Send brief ↗" [ref=e438] [cursor=pointer]:
+            - text: Send brief
+            - generic [ref=e439]: ↗
+    - generic [ref=e440]:
+      - generic [ref=e441]: THE / MOTION / AGENCY
+      - generic [ref=e442]:
+        - generic [ref=e443]: © 2026 The Motion Agency
+        - generic [ref=e444]: themotionagency.net
+        - generic [ref=e445]: info@themotionagency.net
+        - link "LinkedIn" [ref=e447] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e448]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e454] [cursor=pointer]:
+    - img [ref=e455]
+  - alert [ref=e458]
+  - generic:
+    - generic: READ · FOODICS
+  - dialog [ref=e459]

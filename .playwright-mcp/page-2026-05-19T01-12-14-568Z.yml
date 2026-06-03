@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - img
+      - heading "Motion in every frame" [level=1] [ref=e6]:
+        - generic [ref=e8]: Motion
+      - paragraph [ref=e9]:
+        - generic [ref=e11]: in every frame
+      - generic [ref=e12]:
+        - text: The Motion
+        - text: Agency
+        - generic [ref=e13]: Studio · est. 2026
+      - navigation "Primary" [ref=e14]:
+        - generic [ref=e15]: Work
+        - generic [ref=e16]: Studio
+      - button "Menu" [ref=e17]: Menu
+      - generic [ref=e21]:
+        - text: A studio built
+        - text: for motion
+      - generic [ref=e22]:
+        - text: Showreel
+        - text: "2026"
+      - generic [ref=e23]: The Motion Agency — Reel 2026
+      - generic [ref=e24]: Scroll to enter
+  - button "Open Next.js Dev Tools" [ref=e32] [cursor=pointer]:
+    - img [ref=e33]

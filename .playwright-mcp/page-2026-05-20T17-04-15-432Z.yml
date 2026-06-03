@@ -1,0 +1,84 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e510] [cursor=pointer]:
+    - img [ref=e511]
+  - alert [ref=e514]: Portfolio V18 — The Motion Agency — The Motion Agency
+  - main [ref=e515]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e516] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e517]:
+        - link "Portfolio" [ref=e518] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e519] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e520] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e521] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e522] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e523] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e524] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e543]:
+      - generic [ref=e544]:
+        - generic:
+          - generic: +
+          - generic: ·
+          - generic: +
+          - generic: /
+          - generic: ·
+          - generic: +
+          - generic: ·
+        - generic:
+          - generic: REEL · BOUNDLESS '23
+          - generic: FILM · ZID RIPPLE
+          - generic: STAGE · DIRIYAH
+          - generic: MOTION · LOOP 04
+          - generic: BTS · SHOOT DAY 2
+          - generic: TITLE CARD · 04
+          - generic: PORTRAIT · CEO
+          - generic: PRODUCT · POS
+          - generic: EVENT · KEYNOTE
+          - generic: REEL · BOUNDLESS '22
+          - generic: AERIAL · RIYADH
+          - generic: ID · LOGO LOOP
+      - generic [ref=e545]:
+        - generic [ref=e546]:
+          - generic [ref=e547]:
+            - generic [ref=e548]: EST.
+            - generic [ref=e549]: "2019"
+          - generic [ref=e550]:
+            - generic [ref=e551]: AMMAN
+            - generic [ref=e552]: ·
+            - generic [ref=e553]: RIYADH
+          - generic [ref=e554]:
+            - generic [ref=e555]: PORTFOLIO
+            - generic [ref=e556]: V18
+        - heading "THE WORK DOES THE TALKING." [level=1] [ref=e557]:
+          - generic [ref=e558]:
+            - generic [ref=e560]: THE
+            - generic [ref=e562]: WORK
+            - generic [ref=e564]: DOES
+            - generic [ref=e566]: THE
+            - generic [ref=e568]: TALKING.
+        - generic [ref=e569]:
+          - paragraph [ref=e570]: A selected reel from the brands we've embedded with — strategy, design, and motion compounded into category leadership across the GCC. Every frame earned. Every result receipt-backed.
+          - generic [ref=e571]:
+            - generic [ref=e572]:
+              - generic [ref=e573]: 178%
+              - generic [ref=e574]: Client growth
+            - generic [ref=e575]:
+              - generic [ref=e576]: $1B
+              - generic [ref=e577]: Unicorn built
+            - generic [ref=e578]:
+              - generic [ref=e579]: 30+
+              - generic [ref=e580]: Brand partners
+            - generic [ref=e581]:
+              - generic [ref=e582]: 500+
+              - generic [ref=e583]: Businesses created
+      - generic [ref=e584]:
+        - text: Scroll
+        - text: 01 / —

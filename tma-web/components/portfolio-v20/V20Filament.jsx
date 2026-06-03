@@ -4,95 +4,104 @@ import { useEffect, useId, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
-import { buildMotionMattersPath } from "./mmGlyphs";
+import { buildMotionMattersStructure } from "./mmGlyphs";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const MOBILE_MAX = 820;
 
-/* ONE continuous path spanning the whole work lane (Featured + Our Work).
-   It sweeps into "Featured" and crosses it, weaves down through the
-   featured cards, continues into Our Work, crosses "OUR WORK", then
-   weaves on to the bottom of the lane. Coordinates are in lane space. */
-function buildLanePath(w, h, fw, ourW, workE, fNarr, mm) {
+/* Build the HEAD path (M 0 0 → FEATURED crossing → descent through cards →
+   end at the first M's bottom-left with tangent UP). Returns the `d` plus
+   substrings of cumulative arc-length up to the start/end of FEATURED so
+   the renderer can drive the FEATURED colour wipe off head progress. */
+function buildHeadPath(w, h, fw, fNarr, mm, letterEntry) {
   const cx = w / 2;
-  if (!fw || !ourW) {
-    return `M 0 0 C ${w * 0.12} ${h * 0.1}, ${cx} ${h * 0.4}, ${cx} ${h}`;
+  if (!fw || !letterEntry) {
+    const d = `M 0 0 C ${w * 0.12} ${h * 0.1}, ${cx} ${h * 0.4}, ${cx} ${h}`;
+    return { d, sFeatStart: d, sFeatEnd: d };
   }
 
   const fy = fw.cy;
+  const fGuard = Math.max(fw.r, fNarr ? fNarr.r : fw.r);
+  const fRight = Math.min(w - w * 0.04, fGuard + w * 0.05);
+  // a generous proxy for the vertical span the head has to descend through;
+  // mm.cy is the panel center, which lies between FEATURED and OUR WORK.
+  const span = Math.max(letterEntry.y - fy, 100);
+
+  const headEndX = letterEntry.x;
+  const headEndY = letterEntry.y;
+  const scale = mm ? Math.min((mm.r - mm.l) * 0.8, (mm.b - mm.t) * 1.2) : 80;
+  const HOOK_HEIGHT = mm ? Math.max(60, scale * 0.12) : 80;
+  const UP_LEAD = mm ? Math.max(12, scale * 0.018) : 80;
+  const plateauX = headEndX;
+  const plateauY = headEndY - HOOK_HEIGHT;
+
+  const headSweep =
+    w <= MOBILE_MAX
+      ? `M 0 0 C ${fw.l * 0.4} ${fy * 0.5}, ${fw.l * 0.75} ${fy}, ${fw.l} ${fy} `
+      : `M 0 0 C ${fw.l * 0.3} ${fy * 0.45}, ${fw.l * 0.72} ${fy}, ${fw.l} ${fy} `;
+  const featCross = `L ${fw.r} ${fy} `;
+
+  // Descent: right rail (only on desktop) → sweep to plateau → hook to M.
+  const headDescent = mm
+    ? (w <= MOBILE_MAX
+        ? `C ${fRight} ${fy}, ${plateauX} ${plateauY}, ${plateauX} ${plateauY} `
+        : `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.05}, ${fRight} ${fy + span * 0.15} ` +
+          `C ${fRight} ${plateauY}, ${plateauX} ${plateauY - 60}, ${plateauX} ${plateauY} `) +
+      `C ${plateauX} ${plateauY + HOOK_HEIGHT * 0.45}, ${headEndX} ${headEndY + UP_LEAD}, ${headEndX} ${headEndY}`
+    : (w <= MOBILE_MAX
+        ? `C ${fRight} ${fy + span * 0.2}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`
+        : `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.22}, ${fRight} ${fy + span * 0.38} ` +
+          `C ${fRight} ${fy + span * 0.58}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`);
+
+  return {
+    d: headSweep + featCross + headDescent,
+    sFeatStart: headSweep,
+    sFeatEnd: headSweep + featCross,
+  };
+}
+
+/* Build the TAIL path (last S's bottom-right → curve out → OUR WORK crossing
+   → descend to lane bottom). Returns the `d` plus cumulative substrings
+   for the start/end of the OUR WORK crossing, so the renderer can drive
+   the OUR + work colour wipes off tail progress. */
+function buildTailPath(w, h, ourW, workE, letterExit, mm) {
+  const cx = w / 2;
+  if (!ourW || !letterExit) {
+    const d = `M ${cx} 0 L ${cx} ${h}`;
+    return { d, sOurStart: d, sOurEnd: d };
+  }
   const oy = ourW.cy;
   const ourL = ourW.l;
   const workR = workE ? workE.r : ourW.r;
-  const fGuard = Math.max(fw.r, fNarr ? fNarr.r : fw.r);
-  const fRight = Math.min(w - w * 0.04, fGuard + w * 0.05);
   const owRight = Math.min(w - w * 0.04, Math.max(workR, ourL) + w * 0.04);
-  const span = oy - fy;
 
-  // The MM panel's lane-coordinate position SHIFTS during the pin window
-  // (the pinned text-box stays at viewport top while the lane scrolls past,
-  // so its offset from lane.top grows). Both the descent-into-panel AND
-  // the approach must end at points that track this moving panel — otherwise
-  // the fixed-lane head leaves the path stretching back to where the panel
-  // used to be, which reads as a "broken" or doubled line.
-  const mmCx = mm ? mm.l + (mm.r - mm.l) / 2 : null;
-  const headEndX = mm ? mmCx : (w <= MOBILE_MAX ? cx : w * 0.3);
-  const headEndY = mm ? mm.t - 60 : (w <= MOBILE_MAX ? fy + span * 0.72 : fy + span * 0.74);
+  const scale = mm ? Math.min((mm.r - mm.l) * 0.8, (mm.b - mm.t) * 1.2) : 80;
+  const EXIT_LEAD = mm ? Math.max(50, scale * 0.11) : 80;
 
-  // ---- Pre-Featured + Featured crossing + descent through cards ----
-  let head;
-  if (w <= MOBILE_MAX) {
-    head =
-      `M 0 0 ` +
-      `C ${fw.l * 0.4} ${fy * 0.5}, ${fw.l * 0.75} ${fy}, ${fw.l} ${fy} ` +
-      `L ${fw.r} ${fy} ` +
-      // Final descent: cp2 directly above headEnd so the tangent at headEnd
-      // is straight-down — the approach can continue without a kink.
-      `C ${fRight} ${fy + span * 0.2}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`;
-  } else {
-    head =
-      `M 0 0 ` +
-      `C ${fw.l * 0.3} ${fy * 0.45}, ${fw.l * 0.72} ${fy}, ${fw.l} ${fy} ` +
-      `L ${fw.r} ${fy} ` +
-      `C ${fRight} ${fy}, ${fRight} ${fy + span * 0.22}, ${fRight} ${fy + span * 0.38} ` +
-      // Final descent: cp2 directly above headEnd so the tangent at headEnd
-      // is straight-down — the approach can continue without a kink.
-      `C ${fRight} ${fy + span * 0.58}, ${headEndX} ${headEndY - 80}, ${headEndX} ${headEndY}`;
-  }
+  const penX = letterExit.x;
+  const penY = letterExit.y;
+  const tailCp1X = penX + EXIT_LEAD * 0.81;
+  const tailCp1Y = penY + EXIT_LEAD * 0.58;
 
-  let penX = headEndX;
-  let penY = headEndY;
+  const tailHead = `M ${penX} ${penY}`;
+  const tailApproach =
+    w <= MOBILE_MAX
+      ? ` C ${tailCp1X} ${tailCp1Y}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} `
+      : ` C ${tailCp1X} ${tailCp1Y}, ${ourL * 0.72} ${oy}, ${ourL} ${oy} `;
+  const ourCross = `L ${workR} ${oy} `;
+  const tailDescent =
+    w <= MOBILE_MAX
+      ? `C ${owRight} ${oy}, ${cx} ${oy + (h - oy) * 0.5}, ${cx} ${oy + (h - oy) * 0.75} ` +
+        `S ${cx} ${h * 0.92}, ${cx} ${h}`
+      : `C ${owRight} ${oy}, ${owRight} ${oy + (h - oy) * 0.28}, ${owRight} ${oy + (h - oy) * 0.48} ` +
+        `C ${owRight} ${h * 0.82}, ${cx} ${h * 0.9}, ${cx} ${h}`;
 
-  // ---- MOTION MATTERS letter strokes (optional) ----
-  let mmPart = "";
-  if (mm) {
-    // Head already ended right above the panel at (mmCx, mm.t - 60), so
-    // the approach is just a short straight-down line into the panel.
-    const approachY = mm.t + (mm.b - mm.t) * 0.15;
-    mmPart = ` L ${mmCx} ${approachY}`;
-    const built = buildMotionMattersPath(mm, { x: mmCx, y: approachY });
-    mmPart += built.d;
-    penX = built.exit.x;
-    penY = built.exit.y;
-  }
-
-  // ---- Approach to Our Work + cross OUR WORK + descend to bottom ----
-  let tail;
-  if (w <= MOBILE_MAX) {
-    tail =
-      ` C ${penX} ${(penY + oy) * 0.5}, ${ourL * 0.7} ${oy}, ${ourL} ${oy} ` +
-      `L ${workR} ${oy} ` +
-      `C ${owRight} ${oy}, ${cx} ${oy + (h - oy) * 0.5}, ${cx} ${oy + (h - oy) * 0.75} ` +
-      `S ${cx} ${h * 0.92}, ${cx} ${h}`;
-  } else {
-    tail =
-      ` C ${penX} ${(penY + oy) * 0.5}, ${ourL * 0.72} ${oy}, ${ourL} ${oy} ` +
-      `L ${workR} ${oy} ` +
-      `C ${owRight} ${oy}, ${owRight} ${oy + (h - oy) * 0.28}, ${owRight} ${oy + (h - oy) * 0.48} ` +
-      `C ${owRight} ${h * 0.82}, ${cx} ${h * 0.9}, ${cx} ${h}`;
-  }
-
-  return head + mmPart + tail;
+  return {
+    d: tailHead + tailApproach + ourCross + tailDescent,
+    sOurStart: tailHead + tailApproach,
+    sOurEnd: tailHead + tailApproach + ourCross,
+  };
 }
 
 const DEFAULT_STOPS = [
@@ -104,6 +113,8 @@ const DEFAULT_STOPS = [
   { offset: "100%", color: "#1f6fc0", opacity: 0.92 },
 ];
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 export default function V20Filament({
   laneSelector = ".v20-worklane",
   featuredWordSel = ".v20fw-title-word",
@@ -114,36 +125,41 @@ export default function V20Filament({
 } = {}) {
   const rootRef = useRef(null);
   const svgRef = useRef(null);
-  const pathRef = useRef(null);
+  const groupRef = useRef(null); // <g> containing all filament paths
   const reduced = usePrefersReducedMotion();
   const gradId = "v20-filament-grad-" + useId().replace(/:/g, "");
 
   useEffect(() => {
     const root = rootRef.current;
     const svg = svgRef.current;
-    const path = pathRef.current;
-    if (!root || !svg || !path) return;
+    const group = groupRef.current;
+    if (!root || !svg || !group) return;
 
     const lane = root.closest(laneSelector) || root.parentElement;
     if (!lane) return;
 
     const fwEl = lane.querySelector(featuredWordSel);
-    const fNarrEl = lane.querySelector(featuredEmSel); // for avoidance, not a wipe
+    const fNarrEl = lane.querySelector(featuredEmSel);
     const ourEl = lane.querySelector(ourWordSel);
     const workEl = lane.querySelector(workSel);
 
-    // wipe targets: each fills with its --v20-lit colour as the line tip
-    // crosses it. window = arc-length range where the path is inside its box.
-    const targets = [fwEl, ourEl, workEl]
-      .filter(Boolean)
-      .map((el) => ({ el, s1: -1, s2: -1, ready: false }));
-
+    const wipeEls = [fwEl, ourEl, workEl].filter(Boolean);
     const clearWipes = () =>
-      targets.forEach((t) => t.el.style.removeProperty("--v20-wipe"));
-    const setWipe = (t, frac) =>
-      t.el.style.setProperty("--v20-wipe", (frac * 100).toFixed(2) + "%");
+      wipeEls.forEach((el) => el.style.removeProperty("--v20-wipe"));
+    const setWipe = (el, frac) =>
+      el && el.style.setProperty("--v20-wipe", (frac * 100).toFixed(2) + "%");
+    const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
 
-    const geom = { len: 0 };
+    // Hidden sibling path for measuring arc lengths of substrings.
+    const mpath = document.createElementNS(SVG_NS, "path");
+    mpath.setAttribute("fill", "none");
+    mpath.setAttribute("stroke", "none");
+    svg.appendChild(mpath);
+    const lenOf = (sub) => {
+      if (!sub) return 0;
+      mpath.setAttribute("d", sub);
+      return mpath.getTotalLength();
+    };
 
     const boxIn = (el) => {
       if (!el) return null;
@@ -158,7 +174,51 @@ export default function V20Filament({
       };
     };
 
-    const measure = (resetOffset = true) => {
+    // Make / configure one <path> element. Reused across rebuilds.
+    const makePath = () => {
+      const p = document.createElementNS(SVG_NS, "path");
+      p.setAttribute("fill", "none");
+      p.setAttribute("stroke", `url(#${gradId})`);
+      p.setAttribute("stroke-width", "8");
+      p.setAttribute("stroke-linecap", "round");
+      p.classList.add("v20-filament-path");
+      group.appendChild(p);
+      return p;
+    };
+
+    // Pools of path elements indexed by role. Lazily grown as needed; we
+    // never shrink — surplus paths get their `d` cleared so they render
+    // nothing without churning the DOM.
+    const headEl = makePath();
+    const tailEl = makePath();
+    const letterEls = [];
+    const connectorEls = [];
+
+    const ensurePool = (pool, count) => {
+      while (pool.length < count) pool.push(makePath());
+      for (let i = count; i < pool.length; i++) pool[i].setAttribute("d", "");
+    };
+
+    // Live geometry: per-path lengths + arc-length markers for wipes.
+    const geom = {
+      headLen: 0, headFeatStart: 0, headFeatEnd: 0,
+      tailLen: 0, tailOurStart: 0, tailOurEnd: 0,
+      letterLens: [],
+      connectorLens: [],
+      fw: null, ourW: null, workE: null,
+      ourL: 0, workR: 0,
+    };
+
+    const setPathLen = (el, dStr) => {
+      el.setAttribute("d", dStr || "");
+      const L = dStr ? el.getTotalLength() : 0;
+      el.style.strokeDasharray = String(L);
+      el.style.strokeDashoffset = String(L);
+      return L;
+    };
+
+    // Rebuild everything from the current layout.
+    const rebuild = () => {
       const w = lane.clientWidth;
       const h = lane.scrollHeight || lane.clientHeight;
       if (!w || !h) return;
@@ -167,128 +227,216 @@ export default function V20Filament({
       const fNarr = boxIn(fNarrEl);
       const ourW = boxIn(ourEl);
       const workE = boxIn(workEl);
-      const mmEl = lane.querySelector("[data-v20-mm-box]");
-      const mm = boxIn(mmEl);
+      const mm = boxIn(lane.querySelector("[data-v20-mm-box]"));
 
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      path.setAttribute("d", buildLanePath(w, h, fw, ourW, workE, fNarr, mm));
-      const len = path.getTotalLength();
-      geom.len = len;
 
-      const boxes = [fw, ourW, workE].filter(Boolean);
-      targets.forEach((t) => {
-        t.ready = false;
-        t.s1 = -1;
-        t.s2 = -1;
-      });
-      if (len) {
-        // Bump sample count proportional to path length so wipe windows stay
-        // accurate as the path grows with the letter strokes.
-        const N = Math.max(520, Math.ceil(len / 6));
-        for (let i = 0; i <= N; i++) {
-          const s = (len * i) / N;
-          const pt = path.getPointAtLength(s);
-          targets.forEach((t, ti) => {
-            const b = boxes[ti];
-            if (!b) return;
-            const inX = pt.x >= b.l - 1 && pt.x <= b.r + 1;
-            const inY = pt.y >= b.t - 2 && pt.y <= b.b + 2;
-            if (inX && inY) {
-              if (t.s1 < 0) t.s1 = s;
-              t.s2 = s;
-            }
-          });
+      // Letters + connectors (only if MM panel + boxes exist).
+      const mmStruct = mm ? buildMotionMattersStructure(mm) : null;
+      const letters = mmStruct ? mmStruct.letters : [];
+      const connectors = mmStruct ? mmStruct.connectors : [];
+      const letterEntry = mmStruct ? mmStruct.entry : null;
+      const letterExit = mmStruct ? mmStruct.exit : null;
+
+      ensurePool(letterEls, letters.length);
+      ensurePool(connectorEls, connectors.length);
+
+      geom.letterLens = [];
+      geom.connectorLens = [];
+      for (let i = 0; i < letters.length; i++) {
+        geom.letterLens.push(setPathLen(letterEls[i], letters[i].d));
+      }
+      for (let i = 0; i < connectors.length; i++) {
+        geom.connectorLens.push(setPathLen(connectorEls[i], connectors[i].d));
+      }
+
+      // Head + tail.
+      const head = buildHeadPath(w, h, fw, fNarr, mm, letterEntry);
+      const tail = buildTailPath(w, h, ourW, workE, letterExit, mm);
+      geom.headLen = setPathLen(headEl, head.d);
+      geom.tailLen = setPathLen(tailEl, tail.d);
+      geom.headFeatStart = lenOf(head.sFeatStart);
+      geom.headFeatEnd = lenOf(head.sFeatEnd);
+      geom.tailOurStart = lenOf(tail.sOurStart);
+      geom.tailOurEnd = lenOf(tail.sOurEnd);
+
+      geom.fw = fw; geom.ourW = ourW; geom.workE = workE;
+      geom.ourL = ourW ? ourW.l : 0;
+      geom.workR = workE ? workE.r : ourW ? ourW.r : 0;
+    };
+
+    // Wipes — Featured driven off head's tip arc, OUR/work off tail's tip arc.
+    const paintWipes = (headTipArc, tailTipArc) => {
+      const frac = (t, a, b) => (b > a ? clamp01((t - a) / (b - a)) : t >= b ? 1 : 0);
+      if (geom.fw) setWipe(fwEl, frac(headTipArc, geom.headFeatStart, geom.headFeatEnd));
+      const span = geom.workR - geom.ourL;
+      if (span > 0) {
+        const arcOfX = (x) =>
+          geom.tailOurStart + clamp01((x - geom.ourL) / span) * (geom.tailOurEnd - geom.tailOurStart);
+        if (geom.ourW) setWipe(ourEl, frac(tailTipArc, arcOfX(geom.ourW.l), arcOfX(geom.ourW.r)));
+        if (geom.workE) setWipe(workEl, frac(tailTipArc, arcOfX(geom.workE.l), arcOfX(geom.workE.r)));
+      }
+    };
+
+    // Find the MOTION MATTERS pin trigger so we can anchor letter timing.
+    let pinTrigger = null;
+    const getPin = () => {
+      if (pinTrigger && pinTrigger.trigger && pinTrigger.trigger.isConnected)
+        return pinTrigger;
+      pinTrigger =
+        ScrollTrigger.getAll().find(
+          (t) =>
+            t.vars &&
+            t.vars.pin &&
+            t.trigger &&
+            t.trigger.classList &&
+            t.trigger.classList.contains("v20-mm")
+        ) || null;
+      return pinTrigger;
+    };
+
+    // Within each letter's pin sub-slot, the connector reveals during the
+    // first CONN_FRAC of the slot, then the letter reveals during the rest.
+    const CONN_FRAC = 0.22;
+
+    // Linear interpolation used by the piecewise scroll → progress maps.
+    const seg = (x, x0, x1, p0, p1) =>
+      x <= x0 ? p0 : x >= x1 ? p1 : p0 + (p1 - p0) * ((x - x0) / (x1 - x0));
+
+    const draw = (scroll) => {
+      rebuild();
+      if (!geom.headLen) return;
+
+      const Vh = window.innerHeight || 900;
+      const laneRect = lane.getBoundingClientRect();
+      const laneTopAbs = laneRect.top + window.scrollY;
+      const laneBottomAbs = laneTopAbs + (lane.scrollHeight || lane.clientHeight);
+
+      const featCenterAbs = geom.fw ? laneTopAbs + geom.fw.cy : laneTopAbs;
+      const ourCenterAbs = geom.ourW ? laneTopAbs + geom.ourW.cy : laneBottomAbs;
+      const pin = getPin();
+      const pinStart = pin ? pin.start : ourCenterAbs - Vh;
+      const pinEnd = pin ? pin.end : pinStart + 2 * Vh;
+
+      // Three head sub-windows in scroll-space (strictly increasing):
+      //   drawBegin   → featCrossStart : line sweeps in toward FEATURED
+      //   featCrossStart → featCrossEnd : line crosses FEATURED + colour wipe
+      //                                    (DEDICATED scroll runway so the
+      //                                    user actually watches the wipe;
+      //                                    ~0.35*Vh ≈ 315px of scroll)
+      //   featCrossEnd → pinStart       : descent through the cards
+      let drawBegin = laneTopAbs - 0.55 * Vh;
+      let featCrossStart = featCenterAbs - 0.5 * Vh;
+      let featCrossEnd = featCenterAbs - 0.18 * Vh;
+      let aPinStart = pinStart;
+      let aPinEnd = pinEnd;
+      // OUR sub-window: prefer the "OUR in view" position, but if that
+      // would overlap the pin (because the pin spacer pushes OUR down so
+      // it enters view DURING the pin, not after), anchor relative to
+      // aPinEnd so the wipe still gets ≥ 280px of dedicated scroll runway.
+      const OUR_WIPE_RUNWAY = Math.max(280, 0.3 * Vh);
+      let ourCrossStart = Math.max(ourCenterAbs - 0.55 * Vh, aPinEnd + 40);
+      let ourCrossEnd = Math.max(ourCenterAbs - 0.2 * Vh, ourCrossStart + OUR_WIPE_RUNWAY);
+      let drawEnd = laneBottomAbs - Vh;
+      featCrossStart = Math.max(featCrossStart, drawBegin + 1);
+      featCrossEnd = Math.max(featCrossEnd, featCrossStart + 1);
+      aPinStart = Math.max(aPinStart, featCrossEnd + 1);
+      aPinEnd = Math.max(aPinEnd, aPinStart + 1);
+      ourCrossStart = Math.max(ourCrossStart, aPinEnd + 1);
+      ourCrossEnd = Math.max(ourCrossEnd, ourCrossStart + 1);
+      drawEnd = Math.max(drawEnd, ourCrossEnd + 1);
+
+      // HEAD: 3-segment piecewise. Segment 2 dedicates a comfortable scroll
+      // range to the FEATURED arc range [headFeatStart, headFeatEnd], so the
+      // visible line tip crawls across FEATURED at a watchable pace and the
+      // colour wipe (tied to the tip arc) fills the word visibly. Segments 1
+      // and 3 cover empty-space sweep and descent — speed there is fine.
+      const fHeadFeatStart = geom.headLen > 0 ? geom.headFeatStart / geom.headLen : 0;
+      const fHeadFeatEnd = geom.headLen > 0 ? geom.headFeatEnd / geom.headLen : 0;
+      let headProg;
+      if (scroll <= drawBegin) headProg = 0;
+      else if (scroll <= featCrossStart)
+        headProg = seg(scroll, drawBegin, featCrossStart, 0, fHeadFeatStart);
+      else if (scroll <= featCrossEnd)
+        headProg = seg(scroll, featCrossStart, featCrossEnd, fHeadFeatStart, fHeadFeatEnd);
+      else headProg = seg(scroll, featCrossEnd, aPinStart, fHeadFeatEnd, 1);
+      headProg = clamp01(headProg);
+      headEl.style.strokeDashoffset = String(geom.headLen * (1 - headProg));
+
+      // LETTERS + CONNECTORS: pin window divided into N equal sub-slots.
+      const N = geom.letterLens.length;
+      if (N > 0) {
+        const pinW = aPinEnd - aPinStart;
+        const slotW = pinW / N;
+        for (let i = 0; i < N; i++) {
+          const slotStart = aPinStart + i * slotW;
+          const slotEnd = slotStart + slotW;
+          if (i > 0 && connectorEls[i - 1]) {
+            const connEnd = slotStart + slotW * CONN_FRAC;
+            const cProg = clamp01((scroll - slotStart) / (connEnd - slotStart));
+            connectorEls[i - 1].style.strokeDashoffset = String(
+              geom.connectorLens[i - 1] * (1 - cProg)
+            );
+          }
+          // letter reveals over either the full slot (i=0) or after the connector.
+          const lStart = i === 0 ? slotStart : slotStart + slotW * CONN_FRAC;
+          const lProg = clamp01((scroll - lStart) / (slotEnd - lStart));
+          letterEls[i].style.strokeDashoffset = String(
+            geom.letterLens[i] * (1 - lProg)
+          );
         }
-        targets.forEach((t) => {
-          if (t.s1 >= 0 && t.s2 > t.s1) t.ready = true;
-        });
       }
 
-      if (resetOffset) {
-        gsap.set(path, {
-          strokeDasharray: len,
-          strokeDashoffset: reduced ? 0 : len,
-        });
-      } else {
-        gsap.set(path, { strokeDasharray: len });
-      }
+      // TAIL: 3-segment piecewise mirroring the head's pattern. The OUR WORK
+      // arc range [tailOurStart, tailOurEnd] gets its own dedicated scroll
+      // sub-window so the wipe across OUR + WORK is watchable too.
+      const fTailOurStart = geom.tailLen > 0 ? geom.tailOurStart / geom.tailLen : 0;
+      const fTailOurEnd = geom.tailLen > 0 ? geom.tailOurEnd / geom.tailLen : 0;
+      let tailProg;
+      if (scroll <= aPinEnd) tailProg = 0;
+      else if (scroll <= ourCrossStart)
+        tailProg = seg(scroll, aPinEnd, ourCrossStart, 0, fTailOurStart);
+      else if (scroll <= ourCrossEnd)
+        tailProg = seg(scroll, ourCrossStart, ourCrossEnd, fTailOurStart, fTailOurEnd);
+      else tailProg = seg(scroll, ourCrossEnd, drawEnd, fTailOurEnd, 1);
+      tailProg = clamp01(tailProg);
+      tailEl.style.strokeDashoffset = String(geom.tailLen * (1 - tailProg));
 
-      if (reduced) targets.forEach((t) => setWipe(t, 1));
+      paintWipes(headProg * geom.headLen, tailProg * geom.tailLen);
     };
 
-    const applyWipes = (p) => {
-      const len = geom.len;
-      if (!len) return;
-      targets.forEach((t) => {
-        if (!t.ready) return;
-        const a = t.s1 / len;
-        const b = t.s2 / len;
-        const frac = Math.min(1, Math.max(0, (p - a) / (b - a)));
-        setWipe(t, frac);
-      });
-    };
-
-    // Lightweight per-scroll rebuild: re-queries lane elements (including
-    // the MOTION MATTERS text-box, whose visual position changes during
-    // pin) and rebuilds the path's `d`. Does NOT re-sample wipe windows
-    // (Featured + Our Work are at fixed lane positions; their cached s1/s2
-    // remain accurate against their cached len at sample time, and they're
-    // only "active" outside the MM pin window anyway).
-    const refreshPath = () => {
-      const w2 = lane.clientWidth;
-      const h2 = lane.scrollHeight || lane.clientHeight;
-      if (!w2 || !h2) return;
-      const fw2 = boxIn(fwEl);
-      const fNarr2 = boxIn(fNarrEl);
-      const ourW2 = boxIn(ourEl);
-      const workE2 = boxIn(workEl);
-      const mmEl2 = lane.querySelector("[data-v20-mm-box]");
-      const mm2 = boxIn(mmEl2);
-      path.setAttribute("d", buildLanePath(w2, h2, fw2, ourW2, workE2, fNarr2, mm2));
-      const len2 = path.getTotalLength();
-      geom.len = len2;
-      path.style.strokeDasharray = String(len2);
+    const drawStaticFull = () => {
+      rebuild();
+      headEl.style.strokeDashoffset = "0";
+      tailEl.style.strokeDashoffset = "0";
+      for (let i = 0; i < geom.letterLens.length; i++)
+        letterEls[i].style.strokeDashoffset = "0";
+      for (let i = 0; i < geom.connectorLens.length; i++)
+        connectorEls[i].style.strokeDashoffset = "0";
+      paintWipes(geom.headLen, geom.tailLen);
     };
 
     const ctx = gsap.context(() => {
-      measure();
-      if (!reduced) {
-        const state = { p: 0 };
-        gsap.to(state, {
-          p: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: lane,
-            // Start the draw when the lane reaches the top of the viewport
-            // (no head-start). With the longer MOTION-MATTERS path, the old
-            // "top 130%" head-start revealed too much line before the user
-            // had even scrolled past the hero.
-            start: "top top",
-            end: "bottom bottom",
-            // scrub:true links the draw DIRECTLY to the scrollbar (no catch-up
-            // lag), so the tip is always at the scroll position — visibly
-            // crossing the words in real time, never "arriving late".
-            scrub: true,
-          },
-          onUpdate: () => {
-            // Rebuild the path each tick so the MOTION MATTERS letters
-            // track the visually-pinned text-box. Without this, letters
-            // would scroll off the top while the panel sat empty.
-            refreshPath();
-            const p = state.p;
-            path.style.strokeDashoffset = String(geom.len * (1 - p));
-            applyWipes(p);
-          },
-        });
+      if (reduced) {
+        drawStaticFull();
+        return;
       }
+      rebuild();
+      ScrollTrigger.create({
+        trigger: lane,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: (self) => draw(self.scroll()),
+        onRefresh: () => draw(window.scrollY),
+      });
     }, root);
 
     let rafId = 0;
     const ro = new ResizeObserver(() => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        measure(false);
-        if (!reduced) ScrollTrigger.refresh();
+        if (reduced) drawStaticFull();
+        else ScrollTrigger.refresh();
       });
     });
     ro.observe(lane);
@@ -298,6 +446,12 @@ export default function V20Filament({
       ro.disconnect();
       ctx.revert();
       clearWipes();
+      mpath.remove();
+      // Remove all created paths from the DOM.
+      headEl.remove();
+      tailEl.remove();
+      letterEls.forEach((el) => el.remove());
+      connectorEls.forEach((el) => el.remove());
     };
   }, [reduced, laneSelector, featuredWordSel, featuredEmSel, ourWordSel, workSel]);
 
@@ -320,14 +474,7 @@ export default function V20Filament({
             ))}
           </linearGradient>
         </defs>
-        <path
-          ref={pathRef}
-          className="v20-filament-path"
-          fill="none"
-          stroke={`url(#${gradId})`}
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
+        <g ref={groupRef} />
       </svg>
     </div>
   );

@@ -100,17 +100,20 @@ Owns beats 1–3. Time-driven via the existing GSAP timeline.
   Design (scroll-ready). A hard refresh replays.
 - **Resize:** Design's coordinate and all paths are re-measured; `ScrollTrigger.refresh()`.
 
-## Wordmark vector generation (offline, embedded)
+## Wordmark draw — SVG `<text>` stroke-draw (no offline generation)
 
-- A one-off Node script (`opentype.js`) loads the site display font TTF
-  (Inter Tight, resolved from `node_modules`/`public`), lays out "The Motion
-  Agency", and emits glyph-outline path data + the group's intrinsic width/height.
-- Output is written to a committed module
-  (`tma-web/components/portfolio-v19/wordmarkPath.js`) exporting the path
-  string(s) and viewBox — **no runtime dependency**.
-- If the exact TTF can't be resolved, fall back to the nearest bundled display
-  weight and note it in the module header. The script itself is committed under
-  `tma-web/scripts/` for reproducibility but not run at build time.
+The site font (Inter Tight) ships only as WOFF2 in the Next build cache, which
+`opentype.js` cannot parse, and adding a font-vectorisation toolchain is fragile.
+Instead the wordmark is a live SVG `<text>` element in Inter Tight with
+`fill: none` and a cool `stroke`, drawn on by animating `stroke-dashoffset`
+(the glyph outlines stroke in), gated by a **left→right reveal** (an animated
+`clipPath` rect, or `mask`) so it reads as writing rather than all letters at
+once. After the stroke beat a soft `fill` fades in. This uses the exact site
+font, scales crisply, and needs no new dependency or build step.
+
+Because `<text>` has no `getTotalLength()`, the dash uses a fixed large
+`stroke-dasharray` and animates `stroke-dashoffset`; the left→right clip is what
+sequences the reveal, so dash length need not be exact.
 
 ## Reduced motion
 
@@ -121,12 +124,8 @@ Owns beats 1–3. Time-driven via the existing GSAP timeline.
 ## Components & files
 
 - **Modify** `tma-web/components/portfolio-v19/V19Preloader.jsx` — wordmark
-  stroke-draw replaces the "M" monogram; add the flight path + Design-handoff;
-  keep panels, counter, seam, split, release logic.
-- **New** `tma-web/components/portfolio-v19/wordmarkPath.js` — generated glyph
-  path data + viewBox.
-- **New** `tma-web/scripts/gen-wordmark.mjs` — offline generator (committed, not
-  in the build).
+  SVG-`<text>` stroke-draw replaces the "M" monogram; add the flight path +
+  Design-handoff; keep panels, counter, seam, split, release logic.
 - **Modify** `V19Filament.jsx` — add `variant="lead"` (hero segment + Design
   wipe) OR add a focused hero-lead component; mount it in the hero.
 - **Modify** `V19Hero.jsx` — wrap "Design" in `.v19-line-word` (wipe target);

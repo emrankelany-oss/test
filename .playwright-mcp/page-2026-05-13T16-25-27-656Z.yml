@@ -1,0 +1,148 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - img
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: EST.
+          - generic [ref=e20]: "2019"
+        - generic [ref=e21]:
+          - generic [ref=e22]: AMMAN
+          - generic [ref=e23]: ·
+          - generic [ref=e24]: RIYADH
+        - generic [ref=e25]:
+          - generic [ref=e26]: SHOWREEL
+          - generic [ref=e27]: "2025"
+      - heading "CASES WORTH TELLING." [level=1] [ref=e28]:
+        - generic [ref=e30]: CASES
+        - generic [ref=e32]: WORTH
+        - generic [ref=e34]: TELLING.
+    - region "All work" [ref=e35]:
+      - generic "left work stack" [ref=e36]:
+        - generic [ref=e37]:
+          - article "Multi-brand — Foodics + Zid OOH + Salasa + Sól" [ref=e38]:
+            - img [ref=e39]
+            - generic [ref=e40]:
+              - generic [ref=e41]: Multi-brand
+              - generic [ref=e42]: Foodics + Zid OOH + Salasa + Sól
+              - generic [ref=e43]: Social
+          - article "Foodics — Vancouver Canada — cafe scene":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Vancouver Canada — cafe scene
+              - generic: Production
+          - article "Foodics — Vancouver Canada — fries stand":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Vancouver Canada — fries stand
+              - generic: Production
+          - article "Zid — Mobile app TVC frames":
+            - img
+            - generic:
+              - generic: Zid
+              - generic: Mobile app TVC frames
+              - generic: Production
+          - article "Zid — Purple-room TVC still":
+            - img
+            - generic:
+              - generic: Zid
+              - generic: Purple-room TVC still
+              - generic: Production
+      - generic "right work stack" [ref=e44]:
+        - generic [ref=e45]:
+          - article "InvoiceQ — Brand Identity v1.0 — full system" [ref=e46]:
+            - img [ref=e47]
+            - generic [ref=e48]:
+              - generic [ref=e49]: InvoiceQ
+              - generic [ref=e50]: Brand Identity v1.0 — full system
+              - generic [ref=e51]: Brand
+          - article "FRA'ED International — Niche perfumery — packaging suite":
+            - img
+            - generic:
+              - generic: FRA'ED International
+              - generic: Niche perfumery — packaging suite
+              - generic: Brand
+          - article "Transform — Humanizing Growth — identity system":
+            - img
+            - generic:
+              - generic: Transform
+              - generic: Humanizing Growth — identity system
+              - generic: Brand
+          - article "TMA Studio — Animation reel — Global key visual":
+            - img
+            - generic:
+              - generic: TMA Studio
+              - generic: Animation reel — Global key visual
+              - generic: Animation
+          - article "TMA Studio — Animation reel — drummer studio":
+            - img
+            - generic:
+              - generic: TMA Studio
+              - generic: Animation reel — drummer studio
+              - generic: Animation
+      - generic [ref=e53]:
+        - generic [ref=e54]: Our work
+        - generic [ref=e56]: 39 projects
+        - generic [ref=e57]:
+          - heading "All work. In motion." [level=2] [ref=e58]:
+            - text: All work.
+            - text: In motion.
+          - tablist [ref=e59]:
+            - tab "All" [selected] [ref=e60] [cursor=pointer]
+            - tab "Brand" [ref=e61] [cursor=pointer]
+            - tab "Campaign" [ref=e62] [cursor=pointer]
+            - tab "Event" [ref=e63] [cursor=pointer]
+            - tab "Social" [ref=e64] [cursor=pointer]
+            - tab "Web" [ref=e65] [cursor=pointer]
+            - tab "OOH" [ref=e66] [cursor=pointer]
+            - tab "Production" [ref=e67] [cursor=pointer]
+            - tab "Animation" [ref=e68] [cursor=pointer]
+      - generic: drag the stacks · or watch them advance
+    - generic [ref=e71]:
+      - generic [ref=e72]: Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e74]
+      - paragraph [ref=e75]: Let's create something extraordinary together. Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e76]:
+        - link "Book a discovery call ↗" [ref=e77] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e78]: ↗
+        - link "Send a brief ↗" [ref=e79] [cursor=pointer]:
+          - /url: /#contact
+          - text: Send a brief
+          - generic [ref=e80]: ↗
+    - contentinfo [ref=e81]:
+      - generic [ref=e82]: THE / MOTION / AGENCY
+      - generic [ref=e83]:
+        - generic [ref=e84]: © 2026 The Motion Agency
+        - generic [ref=e85]: themotionagency.net
+        - generic [ref=e86]: info@themotionagency.net
+        - link "LinkedIn" [ref=e88] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e89]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e95] [cursor=pointer]:
+    - img [ref=e96]

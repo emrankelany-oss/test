@@ -1,0 +1,75 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e8]: THE MOTION AGENCY
+          - img [ref=e10]
+          - generic [ref=e14]: EST. 2019 · AMMAN ↔ RIYADH
+        - generic [ref=e16]:
+          - generic [ref=e17]: "013"
+          - generic [ref=e18]: "%"
+          - generic [ref=e19]: LOADING EXPERIENCE
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic:
+            - generic: +
+            - generic: ·
+            - generic: +
+            - generic: /
+            - generic: ·
+            - generic: +
+            - generic: ·
+          - generic:
+            - generic: REEL · BOUNDLESS '23
+            - generic: FILM · ZID RIPPLE
+            - generic: STAGE · DIRIYAH
+            - generic: MOTION · LOOP 04
+            - generic: BTS · SHOOT DAY 2
+            - generic: TITLE CARD · 04
+            - generic: PORTRAIT · CEO
+            - generic: PRODUCT · POS
+            - generic: EVENT · KEYNOTE
+            - generic: REEL · BOUNDLESS '22
+            - generic: AERIAL · RIYADH
+            - generic: ID · LOGO LOOP
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - generic [ref=e25]: EST.
+              - generic [ref=e26]: "2019"
+            - generic [ref=e27]:
+              - generic [ref=e28]: AMMAN
+              - generic [ref=e29]: ·
+              - generic [ref=e30]: RIYADH
+            - generic [ref=e31]:
+              - generic [ref=e32]: PORTFOLIO
+              - generic [ref=e33]: V18
+          - heading "WHERE STRATEGY MEETS BOLD STORYTELLING" [level=1] [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e37]: WHERE
+              - generic [ref=e39]: STRATEGY
+              - generic [ref=e41]: MEETS
+              - generic [ref=e43]: BOLD
+              - generic [ref=e45]: STORYTELLING
+          - generic [ref=e46]:
+            - paragraph [ref=e47]: A creative powerhouse with offices in Amman and Riyadh, delivering bold ideas and meaningful results across the GCC. We don't pitch campaigns — we embed with B2B brands and build them into category leaders.
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - generic [ref=e50]: 178%
+                - generic [ref=e51]: Client growth
+              - generic [ref=e52]:
+                - generic [ref=e53]: $1B
+                - generic [ref=e54]: Unicorn built
+              - generic [ref=e55]:
+                - generic [ref=e56]: 30+
+                - generic [ref=e57]: Brand partners
+              - generic [ref=e58]:
+                - generic [ref=e59]: 500+
+                - generic [ref=e60]: Businesses created
+        - generic [ref=e61]:
+          - text: Scroll
+          - text: 01 / —
+  - button "Open Next.js Dev Tools" [ref=e68] [cursor=pointer]:
+    - img [ref=e69]
+  - alert [ref=e72]

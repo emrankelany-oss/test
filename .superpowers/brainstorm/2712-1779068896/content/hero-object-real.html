@@ -1,0 +1,73 @@
+<h2>The Hero object &mdash; realistic directions (no letterform)</h2>
+<p class="subtitle">All photoreal, all reuse the v16 Remotion&rarr;frame pipeline, all keep the same story arc: <b>dormant &rarr; energy charges &rarr; ruptures &rarr; becomes the Manifesto.</b> The only question is <em>what the realistic object is</em>.</p>
+
+<style>
+  .grid{display:flex;flex-direction:column;gap:18px;margin:12px 0 20px}
+  .opt{border:1px solid rgba(255,255,255,.16);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .15s,transform .15s}
+  .opt:hover{border-color:#7db4ff;transform:translateY(-2px)}
+  .opt.selected{border-color:#7db4ff;box-shadow:0 0 0 2px #7db4ff}
+  .opt.reco{border-color:#7db4ff}
+  .oh{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1)}
+  .oh h3{margin:0;font-size:16px}
+  .badge{font-size:10px;font-weight:700;background:#7db4ff;color:#000;padding:2px 9px;border-radius:99px;letter-spacing:.05em}
+  .seq{display:flex}
+  .cell{flex:1;height:200px;position:relative;border-right:1px solid rgba(0,0,0,.4);overflow:hidden}
+  .cell:last-child{border-right:0}
+  .cap{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:monospace;font-size:9.5px;letter-spacing:.14em;color:#cfe2ff;opacity:.8}
+  /* Asteroid */
+  .as-bg{background:radial-gradient(ellipse at 50% 45%,#241a3c,#070410)}
+  .ast{position:absolute;left:50%;top:46%;width:120px;height:115px;transform:translate(-50%,-50%);border-radius:48% 52% 55% 45%/50% 48% 52% 50%;background:radial-gradient(circle at 38% 35%,#6b6b73,#2c2c33 55%,#0f0f14);box-shadow:inset -14px -10px 26px #000,inset 8px 6px 14px rgba(255,255,255,.12)}
+  .ast.charged{background:radial-gradient(circle at 38% 35%,#6b6b73,#241f30 55%,#0d0c12)}
+  .ast.charged:after{content:"";position:absolute;inset:0;border-radius:inherit;background:
+    linear-gradient(28deg,transparent 45%,rgba(120,200,255,.9) 49%,transparent 53%),
+    linear-gradient(-42deg,transparent 46%,rgba(120,200,255,.7) 49%,transparent 52%),
+    radial-gradient(circle at 60% 55%,transparent 22%,rgba(90,166,255,.55) 25%,transparent 28%);mix-blend-mode:screen}
+  .det{position:absolute;left:50%;top:46%;width:200px;height:200px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#eaf3ff,#7db4ff 28%,#2b50a8 52%,transparent 72%);filter:blur(1px)}
+  /* Obsidian monolith */
+  .ob-bg{background:radial-gradient(ellipse at 50% 50%,#1c1828,#060409)}
+  .obl{position:absolute;left:50%;top:50%;width:74px;height:150px;transform:translate(-50%,-50%) perspective(800px) rotateY(-20deg);background:linear-gradient(135deg,#4a4660 0%,#1b1922 45%,#0a0910 100%);clip-path:polygon(20% 0,80% 4%,100% 92%,52% 100%,0 88%);box-shadow:0 0 30px rgba(90,166,255,.15)}
+  .obl.charged{background:linear-gradient(135deg,#3a3550,#15131d 50%,#080710)}
+  .obl.charged:after{content:"";position:absolute;inset:0;clip-path:inherit;background:linear-gradient(15deg,transparent 46%,rgba(120,200,255,.85) 49%,transparent 52%),linear-gradient(-30deg,transparent 47%,rgba(120,200,255,.55) 49%,transparent 51%);mix-blend-mode:screen}
+  /* Liquid metal core */
+  .lm-bg{background:radial-gradient(ellipse at 50% 50%,#201a30,#060410)}
+  .lm{position:absolute;left:50%;top:50%;width:120px;height:120px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#cfd6e6,#5b6480 40%,#1a1d2c 75%);box-shadow:inset -10px -8px 20px #000,0 0 30px rgba(90,166,255,.2)}
+  .lm.charged{background:radial-gradient(circle at 35% 30%,#dff0ff,#5aa6ff 38%,#1b2b5e 78%)}
+  .info{padding:12px 16px;font-size:12px;line-height:1.55;opacity:.9;border-top:1px solid rgba(255,255,255,.08)}
+  .info b{color:#7db4ff}
+</style>
+
+<div class="grid">
+
+  <div class="opt reco" data-choice="asteroid" onclick="toggleSelect(this)">
+    <div class="oh"><h3>A &middot; Photoreal energy asteroid</h3><span class="badge">RECOMMENDED</span></div>
+    <div class="seq">
+      <div class="cell as-bg"><div class="ast"></div><div class="cap">DORMANT &mdash; cratered rock, drifting</div></div>
+      <div class="cell as-bg"><div class="ast charged"></div><div class="cap">CHARGING &mdash; blue energy fractures</div></div>
+      <div class="cell as-bg"><div class="det"></div><div class="cap">RUPTURE &mdash; detonates into manifesto</div></div>
+    </div>
+    <div class="info">A real, cratered planetoid (PBR rock + displacement + HDRI) holding energy until it bursts. <b>Exactly the look from your /frames</b>, rebuilt in Remotion &mdash; sharper, no watermark, TMA-blue energy, art-directable. Most realistic + most cinematic; the metaphor "contained momentum &rarr; release" is instantly readable.</div>
+  </div>
+
+  <div class="opt" data-choice="obsidian" onclick="toggleSelect(this)">
+    <div class="oh"><h3>B &middot; Obsidian / volcanic monolith</h3><span></span></div>
+    <div class="seq">
+      <div class="cell ob-bg"><div class="obl"></div><div class="cap">DORMANT &mdash; black volcanic glass slab</div></div>
+      <div class="cell ob-bg"><div class="obl charged"></div><div class="cap">CHARGING &mdash; fractures glow</div></div>
+      <div class="cell ob-bg"><div class="det" style="width:170px;height:170px"></div><div class="cap">RUPTURE &mdash; shatters into manifesto</div></div>
+    </div>
+    <div class="info">A real obsidian rock monolith (the actual material on your reference site, <b>obsidianassembly.com</b>). Premium, grounded, mysterious. Same realism, more "gallery" than "cosmic". Closest to the reference's exact mood.</div>
+  </div>
+
+  <div class="opt" data-choice="core" onclick="toggleSelect(this)">
+    <div class="oh"><h3>C &middot; Liquid-metal energy core</h3><span></span></div>
+    <div class="seq">
+      <div class="cell lm-bg"><div class="lm"></div><div class="cap">DORMANT &mdash; mercury-like sphere</div></div>
+      <div class="cell lm-bg"><div class="lm charged"></div><div class="cap">CHARGING &mdash; surface energizes</div></div>
+      <div class="cell lm-bg"><div class="det"></div><div class="cap">RUPTURE &mdash; releases into manifesto</div></div>
+    </div>
+    <div class="info">A photoreal liquid-metal / mercury sphere that charges and bursts. Sleek and modern, very "tech brand". Realistic materials, but more abstract than a rock &mdash; less of a literal "stored power" read.</div>
+  </div>
+
+</div>
+
+<p class="subtitle">My pick: <b>A &mdash; the photoreal asteroid</b>. It's the realistic object you've returned to all along, it carries the "release momentum" story with zero explanation, and it reuses the Remotion pipeline. B if you want the exact Obsidian gallery mood instead. Click your choice.</p>

@@ -1,0 +1,78 @@
+<h2>TMA Portfolio &mdash; whole-page draft + animation map</h2>
+<p class="subtitle">Built on your v16 engine, story spine <b>Manifesto&nbsp;&rarr;&nbsp;Proof</b>, visual language borrowed from Obsidian Assembly. 3D capped at Hero&nbsp;&rarr;&nbsp;Manifesto. The <b>Featured Project</b> section gets the exact Obsidian parallax mechanic you asked for.</p>
+
+<style>
+  .ob{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 22px}
+  .ob .b{flex:1;min-width:200px;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;font-size:12.5px;line-height:1.5}
+  .ob .b h4{margin:0 0 6px;color:#7db4ff;font-size:13px}
+  .map{position:relative;margin:10px 0 26px;border-left:2px solid rgba(125,180,255,.35);padding-left:0}
+  .row{display:grid;grid-template-columns:130px 1fr;gap:0;border-bottom:1px solid rgba(255,255,255,.07)}
+  .row .stage{padding:14px 14px;font-weight:700;font-size:13px;position:relative}
+  .row .stage:before{content:"";position:absolute;left:-7px;top:18px;width:10px;height:10px;border-radius:50%;background:#7db4ff}
+  .row .anim{padding:14px 14px;font-size:12.5px;line-height:1.55;opacity:.92}
+  .row.d3{background:linear-gradient(90deg,rgba(125,180,255,.16),transparent)}
+  .row.d3 .stage{color:#7db4ff}
+  .row.feat{background:linear-gradient(90deg,rgba(255,180,90,.16),transparent)}
+  .row.feat .stage:before{background:#ffb45a}
+  .row.feat .stage{color:#ffb45a}
+  .k{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.06em}
+  .wire{border:1px solid rgba(255,255,255,.16);border-radius:14px;overflow:hidden;margin:14px 0 8px}
+  .wire-h{background:rgba(255,180,90,.12);padding:10px 14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ffb45a;border-bottom:1px solid rgba(255,255,255,.1)}
+  .stage-box{position:relative;height:340px;background:radial-gradient(ellipse at 60% 40%,#3a2150,#120a1c);overflow:hidden}
+  .gserif{position:absolute;left:6%;top:30%;font-family:Georgia,serif;font-size:62px;line-height:.9;color:#f3ece0;opacity:.95}
+  .gserif small{display:block;font-size:15px;letter-spacing:.3em;opacity:.5;margin-top:10px;font-family:monospace}
+  .pcard{position:absolute;border:1px solid rgba(255,255,255,.25);border-radius:6px;background:rgba(255,255,255,.06);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;font-size:10px;color:#cbb;text-align:center}
+  .pc1{width:150px;height:200px;right:30%;top:14%;transform:perspective(900px) rotateY(-22deg) rotateX(5deg)}
+  .pc2{width:120px;height:150px;right:8%;top:42%;transform:perspective(900px) rotateY(-30deg)}
+  .pc3{width:130px;height:90px;right:20%;bottom:8%;transform:perspective(900px) rotateY(-16deg) rotateX(-8deg)}
+  .orbit{position:absolute;inset:-20% -10%;border:1px solid rgba(125,180,255,.28);border-radius:50%;transform:rotate(-12deg)}
+  .arrowcol{font-size:11.5px;line-height:1.6;opacity:.85;padding:12px 15px}
+  .arrowcol b{color:#ffb45a}
+</style>
+
+<span class="label">What I took from obsidianassembly.com (the 3 mechanics you flagged)</span>
+<div class="ob">
+  <div class="b"><h4>1 &middot; The persistent anchor</h4>The 3D obsidian object never cuts between hero &amp; section 2 &mdash; it scales/rotates and stays centered while everything else changes around it. That single through-line <em>is</em> the transition.</div>
+  <div class="b"><h4>2 &middot; Graded depth-parallax</h4>Framed image cards fly in from the edges with real 3D tilt (rotateY/X), each at a <em>different</em> scroll speed, over a background that grades warm&rarr;dark. Layered depth, not flat translateY.</div>
+  <div class="b"><h4>3 &middot; Type as cinematography</h4>Giant editorial serif headlines cross-fade &amp; drift per scroll beat, with a slow SVG orbital line sweeping the composition. Buttery because it's GPU-composited.</div>
+</div>
+
+<span class="label">Whole-page scroll map &mdash; left: section &nbsp;|&nbsp; right: what animates</span>
+<div class="map">
+  <div class="row d3"><div class="stage">1. HERO<br><span class="k">3D</span></div><div class="anim">Pinned. Branded monolith scrubs (your v16 frame engine). Giant serif <b>"We release momentum"</b>. Background grades warm&rarr;black on scroll. Edge cards (Foodics/Zid teaser) drift in with 3D tilt.</div></div>
+  <div class="row d3"><div class="stage">2. RUPTURE<br><span class="k">3D &middot; transition</span></div><div class="anim">At scroll peak the monolith <b>ruptures</b> &mdash; energy + particles burst. The object does <em>not</em> cut: it carries through as the anchor (Obsidian mechanic 1) straight into&hellip;</div></div>
+  <div class="row d3"><div class="stage">3. MANIFESTO<br><span class="k">3D ends here</span></div><div class="anim">Particles from the rupture <b>dissolve into the manifesto words</b> (deck Slide 3 copy). Object scales through &amp; fades. Last 3D beat &mdash; WebGL stops after this.</div></div>
+  <div class="row"><div class="stage">4. STATS</div><div class="anim">Depth-parallax counters: <b>178% &middot; $1B &middot; 500+ &middot; 30+</b> rise at different speeds over a grading background. No WebGL.</div></div>
+  <div class="row feat"><div class="stage">5. FEATURED &mdash; FOODICS<br><span class="k">Obsidian parallax</span></div><div class="anim"><b>The effect you want.</b> Pinned. Framed case visuals fly in from edges with 3D perspective tilt at varied scroll speeds; big serif headline cross-fades; bg grades to Foodics purple; orbital line sweeps. Anchor = Foodics key art. (wireframe below)</div></div>
+  <div class="row feat"><div class="stage">6. FEATURED &mdash; ZID<br><span class="k">Obsidian parallax</span></div><div class="anim">Same mechanic, re-skinned: Zid blue grade, Zid case cards, "200% growth" payoff. Reuses the exact same parallax component &mdash; data-driven.</div></div>
+  <div class="row"><div class="stage">7. THE WORK</div><div class="anim">Parallax brand/campaign mosaic (Burger King, LG, Almarai&hellip;) &mdash; tiles at staggered depths, hover to enlarge.</div></div>
+  <div class="row"><div class="stage">8. CLIENTS</div><div class="anim">Quiet logo field, gentle parallax drift on two depth layers.</div></div>
+  <div class="row"><div class="stage">9. CONTACT</div><div class="anim">"Let's build bold stories with strategic impact." Amman / Riyadh. Subtle type rise.</div></div>
+</div>
+
+<div class="cards" style="display:block">
+<div class="card wire" data-choice="featured" onclick="toggleSelect(this)">
+  <div class="wire-h">Featured Project section &mdash; the Obsidian parallax applied (wireframe of one pinned frame)</div>
+  <div style="display:grid;grid-template-columns:1fr 230px">
+    <div class="stage-box">
+      <div class="orbit"></div>
+      <div class="gserif">Foodics<small>&mdash; FROM $2M TO $1B UNICORN</small></div>
+      <div class="pcard pc1">Brand guidelines<br>spread</div>
+      <div class="pcard pc2">Boundless<br>event key art</div>
+      <div class="pcard pc3">POS / app mock</div>
+    </div>
+    <div class="arrowcol">
+      <b>As you scroll this pinned block:</b><br><br>
+      &bull; bg grades black&rarr;<b>Foodics purple</b><br>
+      &bull; serif headline cross-fades in, drifts up slowly<br>
+      &bull; card 1 enters from right, <b>fast</b>, rotateY&minus;22&deg;<br>
+      &bull; card 2 enters <b>slower</b>, deeper, rotateY&minus;30&deg;<br>
+      &bull; card 3 floats up <b>slowest</b> (far layer)<br>
+      &bull; orbital line sweeps behind<br>
+      &bull; result lines count up, then unpins to Zid
+    </div>
+  </div>
+</div>
+</div>
+
+<p class="subtitle" style="margin-top:16px">This is a <b>draft</b>. Tell me what to change &mdash; section order, which projects are "featured", how aggressive the parallax tilt is, warm vs. cool grade, or whether Hero+Manifesto 3D scope still feels right. Click the wireframe if the Featured-Project effect is what you meant, or describe adjustments in the terminal.</p>

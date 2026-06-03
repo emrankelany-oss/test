@@ -1,0 +1,106 @@
+<h2>The best shape for the TMA portfolio page</h2>
+<p class="subtitle">Same content & story spine (Manifesto&nbsp;&rarr;&nbsp;Proof). Three ways to structure the scroll. The blue zone = the 3D cinematic stretch (hero &rarr; the one section after it). Click the one you want me to design.</p>
+
+<style>
+  .ribbons{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+  .ribbon{flex:1;min-width:240px;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s}
+  .ribbon:hover{transform:translateY(-3px);border-color:#7db4ff}
+  .ribbon.selected{border-color:#7db4ff;box-shadow:0 0 0 2px #7db4ff}
+  .ribbon-head{padding:14px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.1)}
+  .ribbon-head h3{margin:0 0 4px}
+  .ribbon-head .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+  .rec{display:inline-block;margin-left:8px;font-size:10px;font-weight:700;background:#7db4ff;color:#000;padding:2px 7px;border-radius:99px;letter-spacing:.06em}
+  .seg{padding:9px 16px;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:8px;align-items:center}
+  .seg .n{opacity:.4;font-size:11px;min-width:14px}
+  .seg.d3{background:linear-gradient(90deg,rgba(125,180,255,.22),rgba(125,180,255,.05));border-left:3px solid #7db4ff}
+  .seg.cut{justify-content:center;opacity:.5;font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.02)}
+  .ribbon-foot{padding:12px 16px;font-size:11.5px;opacity:.7;line-height:1.5}
+  .legend{margin:14px 0 22px;font-size:12px;opacity:.7}
+  .legend b{color:#7db4ff}
+</style>
+
+<div class="legend"><b>Blue = 3D / pinned cinematic zone.</b> Plain rows = parallax + scroll-storytelling (no WebGL cost). All three reuse your v16 frame-sequence engine for the hero.</div>
+
+<div class="cards ribbons">
+
+  <div class="card ribbon" data-choice="a" onclick="toggleSelect(this)">
+    <div class="ribbon-head">
+      <h3>A &middot; The Release <span class="rec">RECOMMENDED</span></h3>
+      <div class="tag">One unbroken cinematic descent</div>
+    </div>
+    <div class="seg d3"><span class="n">1</span>3D HERO &mdash; branded monolith, energy cracks build</div>
+    <div class="seg d3"><span class="n">2</span>PEAK &mdash; it ruptures: "We release momentum"</div>
+    <div class="seg d3"><span class="n">3</span>MANIFESTO &mdash; particles dissolve into the words</div>
+    <div class="seg"><span class="n">4</span>STATS &mdash; 178% / $1B / 500+ count up on scroll</div>
+    <div class="seg"><span class="n">5</span>FOODICS &mdash; pinned case study, parallax</div>
+    <div class="seg"><span class="n">6</span>ZID &mdash; pinned case study, parallax</div>
+    <div class="seg"><span class="n">7</span>THE WORK &mdash; parallax brand/campaign mosaic</div>
+    <div class="seg"><span class="n">8</span>CLIENTS &mdash; logo field</div>
+    <div class="seg"><span class="n">9</span>CONTACT &mdash; "Let's build bold stories"</div>
+    <div class="ribbon-foot">One mood, one breath. The explosion physically <em>becomes</em> the manifesto. Most cinematic; most ambitious to tune.</div>
+  </div>
+
+  <div class="card ribbon" data-choice="b" onclick="toggleSelect(this)">
+    <div class="ribbon-head">
+      <h3>B &middot; Chaptered Film</h3>
+      <div class="tag">Titled acts, hard cinematic cuts</div>
+    </div>
+    <div class="seg cut">&mdash; ACT I &mdash;</div>
+    <div class="seg d3"><span class="n">1</span>3D HERO + rupture</div>
+    <div class="seg cut">&mdash; ACT II &mdash;</div>
+    <div class="seg d3"><span class="n">2</span>MANIFESTO (3D fades out here)</div>
+    <div class="seg cut">&mdash; ACT III: PROOF &mdash;</div>
+    <div class="seg"><span class="n">3</span>STATS + Foodics + Zid</div>
+    <div class="seg cut">&mdash; ACT IV: THE WORK &mdash;</div>
+    <div class="seg"><span class="n">4</span>Gallery + Clients</div>
+    <div class="seg cut">&mdash; ACT V &mdash;</div>
+    <div class="seg"><span class="n">5</span>CONTACT</div>
+    <div class="ribbon-foot">Structured & navigable, each act its own world. Cuts give rhythm but break the "single breath." Easier to build in stages.</div>
+  </div>
+
+  <div class="card ribbon" data-choice="c" onclick="toggleSelect(this)">
+    <div class="ribbon-head">
+      <h3>C &middot; Editorial Immersive</h3>
+      <div class="tag">Restraint &mdash; type-led, 3D as accent</div>
+    </div>
+    <div class="seg d3"><span class="n">1</span>3D HERO &mdash; slow elegant orbit (no blast)</div>
+    <div class="seg d3"><span class="n">2</span>MANIFESTO &mdash; huge typographic moment</div>
+    <div class="seg"><span class="n">3</span>STATS &mdash; minimal, editorial</div>
+    <div class="seg"><span class="n">4</span>FOODICS &mdash; full-bleed image essay</div>
+    <div class="seg"><span class="n">5</span>ZID &mdash; full-bleed image essay</div>
+    <div class="seg"><span class="n">6</span>WORK &mdash; refined parallax grid, whitespace</div>
+    <div class="seg"><span class="n">7</span>CLIENTS &mdash; quiet logo row</div>
+    <div class="seg"><span class="n">8</span>CONTACT &mdash; understated</div>
+    <div class="ribbon-foot">Premium studio feel. Cinematic via pacing & negative space, not VFX. Lowest risk, least spectacle.</div>
+  </div>
+
+</div>
+
+<div class="section">
+  <span class="label">How it becomes "real cinematic" (applies to whichever you pick)</span>
+  <div class="pros-cons" style="margin-top:10px">
+    <div class="pros">
+      <h4>The craft levers</h4>
+      <ul>
+        <li><b>Scroll = a camera, not a scrollbar</b> — Lenis weighted easing; motion lags slightly behind input (your v16 0.12 lerp)</li>
+        <li><b>One light source, one palette</b> — black + TMA blue energy, consistent grade across every section</li>
+        <li><b>Continuity of motion</b> — every section hands a moving element to the next (the explosion's particles seed the manifesto)</li>
+        <li><b>Type as cinematography</b> — beats reveal on scroll progress, not on load; few words, big, timed</li>
+        <li><b>Sound-design-ready pacing</b> — deliberate holds & negative space between hits, never uniform</li>
+        <li><b>Grain + vignette + DOF</b> — the film layer that kills the "website" feel (already in v16)</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>What kills cinematic (avoid)</h4>
+      <ul>
+        <li>3D running the whole page (perf death + fatigue) &mdash; that's why we cap it at hero&rarr;1 section</li>
+        <li>Linear 1:1 scroll with no easing (feels like a spreadsheet)</li>
+        <li>Many fonts / many accent colors</li>
+        <li>Everything animating at once with no rest beats</li>
+        <li>AI-watermarked 720p source as final hero asset</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:18px">My recommendation: <b>A &mdash; The Release</b>. It's the only one where the 3D <em>pays off the story</em> (rupture = "we release momentum") instead of being decoration, and it's the truest to a bold creative agency. B is the safe staged build; C if you want quiet luxury over spectacle. Click your pick, or tell me in the terminal.</p>

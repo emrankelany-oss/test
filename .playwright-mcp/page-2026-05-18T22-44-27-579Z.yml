@@ -1,0 +1,288 @@
+- generic [ref=e2]:
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - img
+      - generic [ref=e5]:
+        - generic: Nothing
+        - generic: Shown
+        - generic: First
+        - paragraph [ref=e6]:
+          - text: Coordinates
+          - text: Withheld
+        - paragraph [ref=e7]:
+          - text: A Private Assembly
+          - text: for Makers
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - generic [ref=e10]: Commitment
+            - generic [ref=e11]: Precedes
+            - generic [ref=e12]: Entry /
+          - button "Seek Admission" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: Seek Admission
+        - img "ImaginePossible" [ref=e16]
+        - figure [ref=e19]:
+          - img "ImaginePossible" [ref=e20]
+          - text: P.
+        - figure [ref=e21]:
+          - img "ImaginePossible" [ref=e22]
+          - text: I.
+      - img
+    - generic [ref=e23]:
+      - img
+      - generic [ref=e24]:
+        - generic [ref=e25]: Explore
+        - generic [ref=e26]: Places
+      - generic:
+        - generic [ref=e27]: Not
+        - generic [ref=e28]: Everything
+        - generic [ref=e29]: is Visible
+      - generic [ref=e33]:
+        - figure [ref=e34]:
+          - img "ImaginePossible" [ref=e35]
+        - figure [ref=e36]:
+          - img "ImaginePossible" [ref=e37]
+        - figure [ref=e38]:
+          - img "ImaginePossible" [ref=e39]
+        - figure [ref=e40]:
+          - img "ImaginePossible" [ref=e41]
+        - figure [ref=e42]:
+          - img "ImaginePossible" [ref=e43]
+        - figure [ref=e44]:
+          - img "ImaginePossible" [ref=e45]
+        - generic [ref=e48]:
+          - generic [ref=e50]: Silent Room
+          - navigation [ref=e51]:
+            - button [ref=e52] [cursor=pointer]:
+              - img [ref=e53]
+              - img [ref=e55]
+            - button [ref=e57] [cursor=pointer]:
+              - img [ref=e58]
+              - img [ref=e60]
+            - generic [ref=e63]:
+              - generic [ref=e64]: "4"
+              - generic [ref=e65]: /7
+    - generic [ref=e66]:
+      - figure [ref=e68]:
+        - img "ImaginePossible" [ref=e69]
+      - img [ref=e70]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: You Won’t
+          - generic [ref=e75]: Find Them
+          - generic [ref=e76]: on a Map
+        - paragraph [ref=e77]: These places aren’t broadly announced.
+        - paragraph [ref=e78]:
+          - text: There are
+          - generic: "7"
+          - text: in operation at the moment, each established within a specific context and maintained with discretion. Their presence is intentional, shaped by location rather than visibility. Access is considered, not assumed.
+        - generic [ref=e79]:
+          - generic [ref=e80]: See if
+          - generic [ref=e81]: Nearby /
+        - button "Seek Admission" [ref=e82] [cursor=pointer]:
+          - generic [ref=e83]: Seek Admission
+      - figure:
+        - img "ImaginePossible"
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - img [ref=e87]
+        - figure [ref=e91]:
+          - img "ImaginePossible" [ref=e92]
+        - figure [ref=e96]:
+          - img "ImaginePossible" [ref=e97]
+        - figure [ref=e100]:
+          - img "ImaginePossible" [ref=e101]
+        - figure [ref=e104]:
+          - img "ImaginePossible" [ref=e105]
+      - generic [ref=e107]:
+        - generic [ref=e109]: Origin
+        - generic [ref=e111]: Objects
+      - generic [ref=e113]:
+        - paragraph [ref=e114]: These items are formed within the places themselves.
+        - paragraph [ref=e115]: Each originates on site, shaped by material, process, and circumstance.
+        - paragraph [ref=e116]: Once completed, they leave their point of origin and circulate independently.
+        - link "Explore Objects" [ref=e118] [cursor=pointer]:
+          - /url: /objects
+          - generic [ref=e119]: Explore Objects
+        - generic [ref=e120]:
+          - generic [ref=e121]: (V) The Fox Spirit
+          - navigation [ref=e122]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: "1"
+              - generic [ref=e127]: /4
+    - generic [ref=e129]:
+      - figure [ref=e130]:
+        - img "ImaginePossible" [ref=e131]
+      - img [ref=e132]
+      - img [ref=e134]
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - generic [ref=e139]: Connection
+        - generic [ref=e140]: The
+        - generic [ref=e141]:
+          - generic [ref=e142]: Item Shown
+          - generic [ref=e143]: at Point
+          - generic [ref=e144]: of Origin.
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: Places and Items are not separate. Each item originates within a specific place, shaped by its conditions, materials, and use.
+        - paragraph [ref=e147]: Once removed, the item continues independently, carrying its point of origin without representing it directly.
+        - figure [ref=e148]:
+          - img "ImaginePossible" [ref=e149]
+    - generic [ref=e151]:
+      - generic [ref=e152]: Updates
+      - generic [ref=e153]: Now Forming
+      - generic [ref=e154] [cursor=pointer]:
+        - generic:
+          - img
+      - generic [ref=e156] [cursor=pointer]:
+        - generic:
+          - img
+      - generic [ref=e158]: Place status
+      - generic [ref=e160]: Lower Hall – Operational
+      - paragraph [ref=e161]:
+        - generic [ref=e162]: Lower Hall has entered active operation and is now maintained on a regular cycle.
+      - generic [ref=e164]: Item release
+      - generic [ref=e166]: Item II – In Circulation
+      - paragraph [ref=e167]:
+        - generic [ref=e168]: Item 02 has been released externally and is now circulating beyond its point of origin.
+      - generic [ref=e170]: Formation / Process
+      - generic [ref=e172]: Interior V – Forming
+      - paragraph [ref=e173]:
+        - generic [ref=e174]: Work continues on Interior 05. Conditions are being refined prior to use.
+      - navigation [ref=e175]:
+        - generic [ref=e177] [cursor=pointer]: "1"
+        - generic [ref=e179] [cursor=pointer]: "2"
+        - generic [ref=e181] [cursor=pointer]: "3"
+        - generic [ref=e183] [cursor=pointer]: "4"
+        - generic [ref=e185] [cursor=pointer]: "5"
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e189]:
+          - generic [ref=e190]: Formed
+          - generic [ref=e191]: by
+          - generic [ref=e192]: People…
+        - generic [ref=e193]: People
+        - figure [ref=e199]:
+          - img "ImaginePossible" [ref=e200]
+        - paragraph [ref=e201]: These places and items are shaped by a small group of people working across locations and disciplines.
+        - paragraph [ref=e202]: Their involvement is ongoing and collaborative.
+      - img
+      - img
+    - generic [ref=e203]:
+      - generic:
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+      - img
+      - generic [ref=e204]: Admission
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - generic [ref=e209]: Full
+            - generic [ref=e210]: Name
+          - generic: Nick Harrison
+          - textbox "Full Name" [ref=e211]:
+            - /placeholder: ""
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - generic [ref=e214]: Email
+            - generic [ref=e215]: Address
+          - generic: nick-h@gmail.com
+          - textbox "Email Address" [ref=e216]:
+            - /placeholder: ""
+        - generic [ref=e217]:
+          - generic [ref=e218]: Country
+          - generic: Switzerland
+          - textbox "Country" [ref=e219]:
+            - /placeholder: ""
+        - generic [ref=e220]:
+          - generic [ref=e221]: City
+          - generic: Basel
+          - textbox "City" [ref=e222]:
+            - /placeholder: ""
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]: Context for
+            - generic [ref=e226]: Admission /
+          - generic: I am an Artist, leaving in…
+          - textbox "Context for Admission /" [ref=e227]:
+            - /placeholder: ""
+        - generic [ref=e228]:
+          - checkbox "I understand that admission is reviewed selectively and responses may take time. Read ImaginePossible Poliy" [ref=e229] [cursor=pointer]
+          - generic [ref=e230]:
+            - text: I understand that admission is reviewed selectively and responses may take time.
+            - link "Read ImaginePossible Poliy" [ref=e231] [cursor=pointer]:
+              - /url: /imagine-possible-policy
+        - button "Submit Admission" [ref=e233] [cursor=pointer]:
+          - generic [ref=e234]: Submit Admission
+    - generic [ref=e235]:
+      - generic [ref=e237]:
+        - generic [ref=e238]: No Social Medias
+        - generic [ref=e239]: Independent practice operating across locations.
+        - generic [ref=e240]:
+          - generic [ref=e241]: Operating
+          - generic [ref=e242]: Across
+          - generic [ref=e243]: Locations.
+        - navigation [ref=e244]:
+          - link "Places" [ref=e245] [cursor=pointer]:
+            - /url: /places
+          - link "Objects" [ref=e246] [cursor=pointer]:
+            - /url: /objects
+          - link "About" [ref=e247] [cursor=pointer]:
+            - /url: /about
+          - generic [ref=e248]: Contacts
+          - link "People" [ref=e249] [cursor=pointer]:
+            - /url: /people
+        - generic [ref=e250]: © 2026
+        - generic [ref=e251]: This website is an expression of the ImaginePossible initiative.
+        - link "Website by Fiddle.Digital" [ref=e252] [cursor=pointer]:
+          - /url: https://fiddle.digital
+      - generic [ref=e253]:
+        - link "The Obsidian Assembly" [ref=e254] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e255]: The
+          - generic [ref=e256]: Obsidian
+          - generic [ref=e257]: Assembly
+        - generic [ref=e258]: /
+        - paragraph [ref=e259]:
+          - link "Imagine Possible" [ref=e260] [cursor=pointer]:
+            - /url: /imagine-possible-policy
+          - text: is a design exploration initiative by Fiddle.Digital.
+        - paragraph [ref=e261]: It investigates alternative possibilities across systems, spaces, and objects, using speculative design as a way to question defaults and expand how things might otherwise be formed.
+        - figure [ref=e262]:
+          - img "ImaginePossible" [ref=e263]
+      - figure [ref=e264]:
+        - img "ImaginePossible" [ref=e265]
+  - banner:
+    - generic:
+      - link "The Obsidian Assembly Imagine Possible" [ref=e266] [cursor=pointer]:
+        - /url: https://obsidianassembly.com
+        - generic [ref=e267]: The
+        - generic [ref=e268]: Obsidian
+        - generic [ref=e269]: Assembly
+        - generic [ref=e270]: Imagine Possible
+      - link "Places" [ref=e271] [cursor=pointer]:
+        - /url: /places
+        - generic [ref=e272]: Places
+      - link "Objects" [ref=e273] [cursor=pointer]:
+        - /url: /objects
+        - generic [ref=e274]: Objects
+      - button "send request":
+        - generic: send request
+      - button "Menu" [ref=e276] [cursor=pointer]:
+        - generic [ref=e277]: Menu
+  - img
+  - generic:
+    - generic:
+      - generic:
+        - generic: The
+        - generic: Obsidian
+        - generic: Assembly

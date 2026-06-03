@@ -1,0 +1,109 @@
+<style>
+  .film{display:flex;flex-direction:column;gap:14px;margin-top:10px}
+  .fr{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:center}
+  .fr .lbl{font:600 11px/1.3 ui-monospace,monospace;color:var(--muted,#9aa)}
+  .scr{position:relative;aspect-ratio:16/8;border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;background:#070709;overflow:hidden}
+  /* grid slots (Layout C) — slot0 feature, slot1 banner are the 2 in scope */
+  .s{position:absolute;border-radius:5px;background:rgba(255,255,255,.07);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+  .s0{left:4%;top:13%;width:44%;height:60%;background:linear-gradient(150deg,#3a4a7a,#1b6f6f)}
+  .s1{left:50%;top:13%;width:46%;height:26%;background:linear-gradient(150deg,#6a3a7a,#2a6fb0)}
+  .s2{left:50%;top:43%;width:21%;height:47%}
+  .s3{left:73%;top:43%;width:23%;height:34%}
+  .s4{left:4%;top:77%;width:44%;height:15%}
+  .focus{position:absolute;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+  .f1{background:linear-gradient(150deg,#3a4a7a,#1b6f6f)}
+  .f2{background:linear-gradient(150deg,#6a3a7a,#2a6fb0)}
+  .panel{position:absolute;right:5%;top:15%;width:40%;height:70%;border-radius:6px;
+    background:rgba(8,8,12,.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+    padding:9px;display:flex;flex-direction:column;gap:5px}
+  .panel .h{height:12px;width:78%;background:rgba(255,255,255,.55);border-radius:3px}
+  .panel .t{height:6px;width:92%;background:rgba(255,255,255,.22);border-radius:2px}
+  .panel .m{display:flex;gap:5px;margin-top:5px}
+  .panel .m i{flex:1;height:20px;background:rgba(255,255,255,.12);border-radius:3px}
+  .panel .cta{margin-top:auto;height:12px;width:45%;background:rgba(255,255,255,.7);border-radius:3px}
+  .cap{font-size:11px;color:var(--muted,#9aa)}
+  .ar{position:absolute;left:50%;bottom:5px;transform:translateX(-50%);font:600 10px/1 ui-monospace,monospace;color:rgba(255,255,255,.5)}
+</style>
+
+<h2>Zoom-Tour v2 &mdash; image returns to its slot</h2>
+<p class="subtitle">The Layout-C grid is the persistent home. The focused card lifts <b>out of its own slot</b>
+to full screen + content, then settles <b>back into the exact same slot</b> before the next one lifts.
+Other cards stay put. (First 2 projects.)</p>
+
+<div class="film">
+
+  <div class="fr"><div class="lbl">1<br/>GRID<br/>(home)</div>
+    <div class="scr">
+      <div class="s s0"></div><div class="s s1"></div><div class="s s2"></div><div class="s s3"></div><div class="s s4"></div>
+      <div class="ar">Layout-C grid resting (after deck lands)</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">2<br/>#1 LIFTS<br/>from slot</div>
+    <div class="scr">
+      <div class="s s1" style="opacity:.5"></div><div class="s s2" style="opacity:.5"></div><div class="s s3" style="opacity:.5"></div><div class="s s4" style="opacity:.5"></div>
+      <div class="focus f1" style="left:12%;top:9%;width:62%;height:74%"></div>
+      <div class="ar">Foodics image scales UP out of slot 0</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">3<br/>INSIDE&nbsp;#1</div>
+    <div class="scr">
+      <div class="focus f1" style="inset:0;border-radius:10px"></div>
+      <div class="panel">
+        <div class="cap" style="color:rgba(255,255,255,.6)">FOODICS &middot; BOUNDLESS 22&middot;23</div>
+        <div class="h"></div><div class="t"></div><div class="t" style="width:80%"></div>
+        <div class="m"><i></i><i></i><i></i><i></i></div>
+        <div class="t" style="margin-top:5px;width:88%;opacity:.7"></div>
+        <div class="cta"></div>
+      </div>
+      <div class="ar">full-bleed + panel: +35.6% &middot; 32K+ &middot; 35% &middot; $1B &middot; quote &middot; View full case</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">4<br/>#1 RETURNS<br/>to slot</div>
+    <div class="scr">
+      <div class="s s1" style="opacity:.5"></div><div class="s s2" style="opacity:.5"></div><div class="s s3" style="opacity:.5"></div><div class="s s4" style="opacity:.5"></div>
+      <div class="focus f1" style="left:10%;top:11%;width:52%;height:64%"></div>
+      <div class="ar">scales back DOWN, settling into slot 0 &mdash; grid whole again</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">5<br/>#2 LIFTS<br/>from slot</div>
+    <div class="scr">
+      <div class="s s0" style="opacity:.5"></div><div class="s s2" style="opacity:.5"></div><div class="s s3" style="opacity:.5"></div><div class="s s4" style="opacity:.5"></div>
+      <div class="focus f2" style="left:20%;top:10%;width:60%;height:72%"></div>
+      <div class="ar">Zid image scales UP out of slot 1 (top-right)</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">6<br/>INSIDE&nbsp;#2</div>
+    <div class="scr">
+      <div class="focus f2" style="inset:0;border-radius:10px"></div>
+      <div class="panel">
+        <div class="cap" style="color:rgba(255,255,255,.6)">ZID &middot; RIPPLE 2024</div>
+        <div class="h"></div><div class="t"></div><div class="t" style="width:80%"></div>
+        <div class="m"><i></i><i></i><i></i><i></i></div>
+        <div class="t" style="margin-top:5px;width:88%;opacity:.7"></div>
+        <div class="cta"></div>
+      </div>
+      <div class="ar">+200% &middot; 12K+ &middot; +50% &middot; 1K+ &middot; quote &middot; View full case</div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">7<br/>#2 RETURNS<br/>&rarr; continue</div>
+    <div class="scr">
+      <div class="s s0"></div><div class="s s1"></div><div class="s s2"></div><div class="s s3"></div><div class="s s4"></div>
+      <div class="ar">Zid settles back into slot 1 &mdash; grid whole &mdash; page continues to &ldquo;Our Work&rdquo;</div>
+    </div></div>
+
+</div>
+
+<div class="options" style="margin-top:18px">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>Approve this sequence</h3>
+      <p>Grid is the home; each focused image lifts out of its exact slot to full-bleed + curated panel, then settles back into the same slot. First 2 projects.</p></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content"><h3>Close, but tweak something</h3>
+      <p>Select this and tell me what to change (panel side, zoom amount, whether other cards dim, etc.).</p></div>
+  </div>
+</div>

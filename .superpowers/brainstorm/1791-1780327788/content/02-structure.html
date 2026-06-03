@@ -1,0 +1,24 @@
+<h2>V22 — proposed page flow (Clim-inspired, TMA-branded)</h2>
+<p class="subtitle">A fresh single-scroll structure, distinct from v19–v21. Each block notes the Clim mechanic it borrows. Tell me what to add, cut, or reorder.</p>
+
+<style>
+  .flow{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
+  .blk{background:linear-gradient(100deg,#0b2742,#071320);border:1px solid #14324f;border-radius:12px;padding:14px 18px;color:#eaf4ff;font-family:'Inter Tight',system-ui,sans-serif}
+  .blk .n{display:inline-block;width:24px;height:24px;border-radius:50%;background:#6fd3ff;color:#04121f;text-align:center;line-height:24px;font-weight:700;font-size:12px;margin-right:10px}
+  .blk h4{display:inline;font-size:17px;font-weight:600}
+  .blk .fx{margin:8px 0 0 34px;font-size:12.5px;color:#9fc6ee;line-height:1.5}
+  .blk .fx b{color:#6fd3ff;font-weight:600}
+</style>
+
+<div class="flow">
+  <div class="blk"><span class="n">0</span><h4>Preloader</h4><div class="fx">TMA monogram draws in + a <b>0→100 counter</b>; on complete it splits/wipes away to reveal the hero (Clim's quiet intro, your v19 preloader DNA).</div></div>
+  <div class="blk"><span class="n">1</span><h4>Hero — "Where strategy meets bold storytelling"</h4><div class="fx">Oversized headline with <b>blur + char-reveal</b>. A <b>magnetic "Showreel" button</b> floating in a scattered <b>dot-field</b> (dots tinted in your blue palette). Animated logo mark.</div></div>
+  <div class="blk"><span class="n">2</span><h4>Velocity marquee</h4><div class="fx">A strip of client names / "END-TO-END PRODUCTION · BRAND · EVENTS" that <b>speeds up with scroll velocity</b> and drifts with cursor.</div></div>
+  <div class="blk"><span class="n">3</span><h4>Featured work (3–5 hero projects)</h4><div class="fx">Big media tiles — <b>scroll-scrubbed / hover-play video</b>, <b>magnetic tilt</b>, "See Project" <b>cursor label</b>, titles reveal per-char. Foodics, Zid, Burger King, LG…</div></div>
+  <div class="blk"><span class="n">4</span><h4>Capabilities — the 3 C's</h4><div class="fx">Creativity · Collaboration · Craftsmanship (or your service pillars), each a <b>clip-path reveal</b> + char-stagger as it enters view; section <b>accent-color skin</b> shift.</div></div>
+  <div class="blk"><span class="n">5</span><h4>Work archive — drag gallery</h4><div class="fx">All ~28 projects in a <b>drag-scrollable</b> horizontal rail (or filterable grid) with the <b>"+ Filters"</b> magnetic pill. Custom cursor switches to a "drag" state.</div></div>
+  <div class="blk"><span class="n">6</span><h4>Impact / numbers</h4><div class="fx">+35.6% revenue · 32,000+ merchants · $1B valuation — <b>count-up on reveal</b>, scroll-pinned.</div></div>
+  <div class="blk"><span class="n">7</span><h4>Contact — "Let's Talk" + footer</h4><div class="fx">Big magnetic CTA, cursor reads "How can we help?" (Clim footer touch). Reuses your existing Contact/Footer.</div></div>
+</div>
+
+<p class="subtitle" style="margin-top:20px">Throughout: <b>Lenis smooth scroll</b>, a <b>custom magnetic cursor</b>, GSAP-driven scroll progress (your ScrollTrigger replaces Clim's anime-timeline-seek), and a <b>reduced-motion fallback</b>. Look good? What would you change?</p>

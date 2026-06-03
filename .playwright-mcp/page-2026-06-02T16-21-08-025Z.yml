@@ -1,0 +1,225 @@
+- generic [ref=e3]:
+  - banner [ref=e19]:
+    - link [ref=e20] [cursor=pointer]:
+      - /url: /
+      - img
+    - generic:
+      - link "Work":
+        - /url: /work
+        - generic: Work
+      - link "About":
+        - /url: /about
+        - generic: About
+      - link "Services":
+        - /url: /services
+        - generic: Services
+      - link "Jobs":
+        - /url: /jobs
+        - generic: Jobs
+      - link "Contact":
+        - /url: /contact
+        - generic: Contact
+    - button "Toggle menu" [ref=e244] [cursor=pointer]
+    - navigation [ref=e37]:
+      - generic [ref=e39]:
+        - link "Work" [ref=e40] [cursor=pointer]:
+          - /url: /work
+          - text: Work
+        - link "About" [ref=e42] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Services" [ref=e44] [cursor=pointer]:
+          - /url: /services
+          - text: Services
+        - link "Jobs" [ref=e46] [cursor=pointer]:
+          - /url: /jobs
+          - text: Jobs
+        - link "Contact" [ref=e48] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+  - main [ref=e50]:
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - heading "Clim Studio - Studio Original" [level=4] [ref=e54]
+        - heading "Our New Us!" [level=2] [ref=e55]:
+          - generic [ref=e238]: Our
+          - generic [ref=e239]: New
+          - generic [ref=e240]: Us!
+      - button [ref=e57] [cursor=pointer]
+    - generic [ref=e60]:
+      - generic:
+        - generic:
+          - generic:
+            - heading "Our New Us!" [level=2]
+            - paragraph: Almost 15 years in the making, and we're just getting started! Our entire internal creative team, alongside some of our most beloved collaborators, joined forces with Clim to align the Studio’s identity with the impact, energy, and growth that define us. We felt the need not only for a fresher, more modern look but also for a truer representation of who we are and where we’re headed.
+            - paragraph
+            - paragraph: "After taking a deep look in, out, and around—defining our mission, vision, and more—our new identity is stronger than ever: visually bold, recognizable, flexible, and strategically streamlined. This rebrand covers everything: a new logo, a refreshed color palette, a flexible social graphic language, and a revamp of both internal and external communication."
+            - paragraph
+            - paragraph: To showcase it all, our rebrand film captures the essence of our transformation. With the mantra "we are more powerful together" at its core, this 40-second animation unveils an identity full of joy, brightness, and sophistication, finally speaking the language of mixed media. By blending the power of 2D motion with the tactility and realism of 3D, we feel truly represented.
+            - paragraph
+            - paragraph: After years of amazing projects and growing into a full-blown creative studio, we decided it was time for a refresh. Clim just turned 40... and maybe this rebrand is his way of handling a midlife crisis. No shiny Porsche needed—just a bold, powerful new look! 😎
+          - generic:
+            - heading "Client" [level=3]
+            - heading "Studio Originals" [level=3]
+          - generic:
+            - heading "Services" [level=3]
+            - heading "Production, Creative Direction, CG & 2D Design & Animation, Branding" [level=3]
+          - generic:
+            - heading "Credits" [level=3]
+          - list:
+            - listitem:
+              - heading "Produced By" [level=4]
+              - heading "Clim Studio" [level=4]
+            - listitem:
+              - heading "Creative & Art Direction" [level=4]
+              - heading "Clim" [level=4]
+            - listitem:
+              - heading "CG Design & Animation" [level=4]
+              - heading "Davide Pezza" [level=4]
+            - listitem:
+              - heading "CG Design & Animation" [level=4]
+              - heading "Chris Ntantos" [level=4]
+            - listitem:
+              - heading "CG Design & Animation" [level=4]
+              - heading "Berta Terrassa" [level=4]
+            - listitem:
+              - heading "Editing, Renders & Post" [level=4]
+              - heading "Berta Terrassa" [level=4]
+            - listitem:
+              - heading "Graphic Design" [level=4]
+              - heading "Clim" [level=4]
+            - listitem:
+              - heading "2D Animation" [level=4]
+              - heading "Eduardo Altarriba" [level=4]
+            - listitem:
+              - heading "Sound Design" [level=4]
+              - heading "QB Sound" [level=4]
+          - generic:
+            - heading "R&D" [level=3]
+          - list:
+            - listitem:
+              - heading "CG Design" [level=4]
+              - heading "Everthon Estevan" [level=4]
+            - listitem:
+              - heading "CG Design" [level=4]
+              - heading "Witold Markiewicz" [level=4]
+            - listitem:
+              - heading "CG Design & Animation" [level=4]
+              - heading "Sergio Fuego" [level=4]
+            - listitem:
+              - heading "CG Design & Animation" [level=4]
+              - heading "Nacho Velasco" [level=4]
+          - generic:
+            - heading "Website" [level=3]
+          - list:
+            - listitem:
+              - heading "Website Design" [level=4]
+              - heading "Eva Sánchez" [level=4]
+            - listitem:
+              - heading "Website Coding" [level=4]
+              - heading "Ángel Pérez" [level=4]
+            - listitem:
+              - heading "Copywriter" [level=4]
+              - heading "Theresa Peterson" [level=4]
+          - generic:
+            - heading "Year" [level=3]
+            - heading "2024" [level=3]
+      - button "Toggle Info" [ref=e62] [cursor=pointer]:
+        - generic [ref=e64]: More information Hide
+      - generic [ref=e65]:
+        - img "Color Palette" [ref=e68]
+        - img "Alt text" [ref=e78]
+        - button [ref=e82] [cursor=pointer]
+        - generic [ref=e83]:
+          - img "Alt text" [ref=e85]
+          - img "Alt text" [ref=e87]
+        - img "Bubbles Bar Styleframe" [ref=e106]
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - heading "Related Projects" [level=3] [ref=e114]
+        - generic [ref=e116]: Drag
+      - generic [ref=e118]:
+        - link "Clim Studio NOBJECTS" [ref=e119] [cursor=pointer]:
+          - /url: /work/NOBJECTS
+          - generic [ref=e123]:
+            - heading "Clim Studio" [level=4] [ref=e124]
+            - heading "NOBJECTS" [level=3] [ref=e125]
+        - link "Helia Helia's Launch" [ref=e126] [cursor=pointer]:
+          - /url: /work/helia
+          - generic [ref=e130]:
+            - heading "Helia" [level=4] [ref=e131]
+            - heading "Helia's Launch" [level=3] [ref=e132]
+        - link "Samsung Galaxy A Series" [ref=e133] [cursor=pointer]:
+          - /url: /work/samsung-galaxy-aseries
+          - generic [ref=e137]:
+            - heading "Samsung" [level=4] [ref=e138]
+            - heading "Galaxy A Series" [level=3] [ref=e139]
+        - link "Clim Studio It’s About Time" [ref=e140] [cursor=pointer]:
+          - /url: /work/itsabouttime
+          - generic [ref=e144]:
+            - heading "Clim Studio" [level=4] [ref=e145]
+            - heading "It’s About Time" [level=3] [ref=e146]
+        - link "Clim Studio NOBJECTS" [ref=e147] [cursor=pointer]:
+          - /url: /work/NOBJECTS
+          - generic [ref=e151]:
+            - heading "Clim Studio" [level=4] [ref=e152]
+            - heading "NOBJECTS" [level=3] [ref=e153]
+        - link "Helia Helia's Launch" [ref=e154] [cursor=pointer]:
+          - /url: /work/helia
+          - generic [ref=e158]:
+            - heading "Helia" [level=4] [ref=e159]
+            - heading "Helia's Launch" [level=3] [ref=e160]
+        - link "Samsung Galaxy A Series" [ref=e161] [cursor=pointer]:
+          - /url: /work/samsung-galaxy-aseries
+          - generic [ref=e165]:
+            - heading "Samsung" [level=4] [ref=e166]
+            - heading "Galaxy A Series" [level=3] [ref=e167]
+        - link "Clim Studio It’s About Time" [ref=e168] [cursor=pointer]:
+          - /url: /work/itsabouttime
+          - generic [ref=e172]:
+            - heading "Clim Studio" [level=4] [ref=e173]
+            - heading "It’s About Time" [level=3] [ref=e174]
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - heading "👋 Let’s collaborate." [level=4] [ref=e178]:
+          - generic [ref=e241]: 👋
+          - generic [ref=e242]: Let’s
+          - generic [ref=e243]: collaborate.
+        - link "Contact Us" [ref=e179] [cursor=pointer]:
+          - /url: mailto:hello@studioclim.com?subject=%F0%9F%91%8B%20Hi%20guys!%20Let%E2%80%99s%20Collaborate!
+          - generic [ref=e180]: Contact Us
+          - generic [ref=e181]:
+            - img [ref=e182]
+            - img [ref=e185]
+      - generic [ref=e187]:
+        - heading "Sign up to our Newsletter:" [level=4] [ref=e188]
+        - generic [ref=e189]:
+          - textbox "Your email here" [ref=e190]
+          - button:
+            - img
+            - img
+            - img
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - heading "Follow us" [level=5] [ref=e201]
+          - generic [ref=e202]:
+            - link "Linkedin" [ref=e203] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/80486956/
+              - generic [ref=e204]: Linkedin
+            - link "Instagram" [ref=e205] [cursor=pointer]:
+              - /url: https://www.instagram.com/clim_studio/
+              - generic [ref=e206]: Instagram
+        - generic [ref=e207]:
+          - heading "Write us" [level=5] [ref=e208]
+          - link "newbiz@studioclim.com" [ref=e209] [cursor=pointer]:
+            - /url: mailto:newbiz@studioclim.com
+            - generic [ref=e210]: newbiz@studioclim.com
+      - link [ref=e212] [cursor=pointer]:
+        - /url: /
+        - img [ref=e213]
+      - generic [ref=e227]:
+        - link "Cookies & Privacy" [ref=e228] [cursor=pointer]:
+          - /url: /cookies-privacy-policy
+        - paragraph [ref=e229]: All Rights Reserved © CLIM STUDIO ANIMATION 2026
+        - link "Back To Top" [ref=e230] [cursor=pointer]:
+          - /url: "#app"

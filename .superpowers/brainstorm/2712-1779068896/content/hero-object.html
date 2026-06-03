@@ -1,0 +1,79 @@
+<h2>The object at the centre of the Hero</h2>
+<p class="subtitle">It has to do three jobs at once: <b>be unmistakably The Motion Agency</b>, <b>carry the "contained momentum &rarr; release" story</b>, and <b>reuse what v16 already renders</b>. My recommendation, then the alternatives.</p>
+
+<style>
+  .rec-box{border:1px solid #7db4ff;border-radius:14px;overflow:hidden;margin:10px 0 22px;box-shadow:0 0 0 1px rgba(125,180,255,.2)}
+  .rec-h{background:rgba(125,180,255,.14);padding:11px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#7db4ff;display:flex;justify-content:space-between}
+  .states{display:flex;gap:0}
+  .stcell{flex:1;height:280px;position:relative;border-right:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
+  .stcell:last-child{border-right:0}
+  .stcell .cap{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:monospace;font-size:10px;letter-spacing:.16em;color:#9fc4ff;opacity:.8}
+  .d1{background:radial-gradient(ellipse at 50% 50%,#161320,#060409)}
+  .d2{background:radial-gradient(ellipse at 50% 50%,#241a3c,#080612)}
+  .d3{background:radial-gradient(ellipse at 50% 50%,#3f63b4,#150d28 60%)}
+  /* the M monolith built from 3 bars + 2 diagonals, perspective */
+  .M{position:relative;width:150px;height:170px;transform:perspective(900px) rotateY(-24deg) rotateX(4deg);transform-style:preserve-3d}
+  .bar{position:absolute;border-radius:3px}
+  .leg{width:30px;height:170px;background:linear-gradient(120deg,#5b5570,#13111c)}
+  .legL{left:0}.legR{right:0}
+  .diag{width:28px;height:118px;top:0;background:linear-gradient(120deg,#67617e,#16131f)}
+  .dL{left:34px;transform:rotate(24deg);transform-origin:top center}
+  .dR{right:34px;transform:rotate(-24deg);transform-origin:top center}
+  .veined .bar{background:linear-gradient(120deg,#3a3550,#0c0a14);box-shadow:inset 0 0 12px rgba(120,200,255,.4),0 0 26px rgba(90,166,255,.35)}
+  .veined:after{content:"";position:absolute;inset:-6px;background:
+     linear-gradient(20deg,transparent 46%,rgba(120,200,255,.85) 49%,transparent 52%),
+     linear-gradient(-35deg,transparent 47%,rgba(120,200,255,.6) 49%,transparent 51%);mix-blend-mode:screen}
+  .burst{width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,#eaf3ff,#7db4ff 30%,#2b50a8 55%,transparent 72%);filter:blur(1px);position:relative}
+  .burst:after{content:"";position:absolute;inset:-40px;background:radial-gradient(circle,rgba(125,180,255,.5),transparent 60%);filter:blur(8px)}
+  .alts{display:flex;gap:14px;flex-wrap:wrap}
+  .alt{flex:1;min-width:200px}
+  .alt .av{height:130px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:42px;color:#cdd6e6;margin-bottom:8px}
+  .a-mono{background:radial-gradient(ellipse,#2a2740,#0b0a12)}
+  .a-ast{background:radial-gradient(ellipse,#3a2150,#0b0712)}
+  .a-pure{background:radial-gradient(ellipse,#222,#000)}
+  .alt p{font-size:12px;line-height:1.5;opacity:.85}
+  .alt p b{color:#7db4ff}
+</style>
+
+<div class="rec-box">
+  <div class="rec-h"><span>Recommended &mdash; the "M" Energy Monolith</span><span>reuses v16 MMonument geometry</span></div>
+  <div class="states">
+    <div class="stcell d1">
+      <div class="M"><div class="bar leg legL"></div><div class="bar leg legR"></div><div class="bar diag dL"></div><div class="bar diag dR"></div></div>
+      <div class="cap">A &middot; DORMANT &mdash; graphite "M" monolith, slow rotate</div>
+    </div>
+    <div class="stcell d2">
+      <div class="M veined"><div class="bar leg legL"></div><div class="bar leg legR"></div><div class="bar diag dL"></div><div class="bar diag dR"></div></div>
+      <div class="cap">B &middot; CHARGING &mdash; blue energy veins ignite inside it</div>
+    </div>
+    <div class="stcell d3">
+      <div class="burst"></div>
+      <div class="cap">C &middot; RUPTURE &mdash; the "M" detonates into the manifesto</div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle"><b>What it is:</b> a sculpted, chunky 3D letter <b>"M"</b> &mdash; the Motion Agency mark &mdash; carved from a dark graphite/obsidian material. It rotates slowly (dormant), blue energy fractures spread through it as you scroll (charging), then it <b>ruptures</b> &mdash; the stored energy releases and its particles become the Manifesto text. The object literally performs the line <em>"we release momentum."</em> It evolves v16's existing <code>MMonument.tsx</code> (already a 3D "M") + adds the asteroid-style energy cracks &amp; rupture you liked in /frames. Brand + spectacle + reuses the pipeline.</p>
+
+<span class="label">Alternatives (pick one if you don't want the M)</span>
+<div class="alts" style="margin:8px 0 16px">
+  <div class="alt">
+    <div class="av a-mono">&#9646;</div>
+    <p><b>Abstract monolith</b> &mdash; an Obsidian-style dark crystal slab, no letterform. More mysterious/premium, but generic &mdash; not ownable as TMA.</p>
+  </div>
+  <div class="alt">
+    <div class="av a-ast">&#9679;</div>
+    <p><b>Energy asteroid</b> &mdash; rebuild the Veo planetoid: cracked sphere that detonates. Most spectacle, closest to /frames, but reads sci-fi, not "agency".</p>
+  </div>
+  <div class="alt">
+    <div class="av a-pure">M</div>
+    <p><b>Plain v16 "M"</b> &mdash; keep the existing metallic "M" exactly as-is, no energy/rupture. Lowest effort, least cinematic, weakest story payoff.</p>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="m-monolith" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>The "M" Energy Monolith (recommended)</h3><p>Brand mark + energy cracks + rupture into manifesto. Evolves v16.</p></div></div>
+  <div class="option" data-choice="abstract" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Abstract monolith</h3><p>Obsidian-style slab, no letterform.</p></div></div>
+  <div class="option" data-choice="asteroid" onclick="toggleSelect(this)"><div class="letter">C</div><div class="content"><h3>Energy asteroid</h3><p>Rebuild the Veo planetoid that detonates.</p></div></div>
+  <div class="option" data-choice="plain-m" onclick="toggleSelect(this)"><div class="letter">D</div><div class="content"><h3>Plain v16 "M" as-is</h3><p>No energy, no rupture. Minimal.</p></div></div>
+</div>

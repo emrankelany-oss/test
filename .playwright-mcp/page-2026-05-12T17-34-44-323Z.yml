@@ -1,0 +1,582 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#skip"
+  - banner [ref=e3]:
+    - paragraph [ref=e6]:
+      - text: GSAP is now
+      - link "free for everyone" [ref=e7] [cursor=pointer]:
+        - /url: /pricing
+      - text: ", thanks to Webflow's support!"
+    - generic [ref=e9]:
+      - link "GSAP GSAP" [ref=e10] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]:
+          - img "GSAP" [ref=e12]
+          - img "GSAP" [ref=e14]
+        - img
+        - img
+        - img
+        - img
+      - button "Menu" [ref=e19] [cursor=pointer]:
+        - text: Menu
+        - img [ref=e20]
+  - main:
+    - generic [ref=e25]:
+      - generic [ref=e27]:
+        - heading "Scroll" [level=1] [ref=e29]
+        - generic:
+          - generic:
+            - generic:
+              - img
+          - generic:
+            - img
+        - heading "GSAP allows you to create jaw dropping scroll effects with minimal code for maximum impact." [level=3] [ref=e31]:
+          - img [ref=e33]
+          - paragraph [ref=e35]: GSAP allows you to create jaw dropping scroll effects with minimal code for maximum impact.
+          - img [ref=e37]
+      - generic [ref=e40]:
+        - heading "Scroll Plugins" [level=2] [ref=e41]
+        - paragraph [ref=e42]:
+          - text: Infinitely Flexible,
+          - text: Highly Optimised
+        - paragraph [ref=e43]: Debounced events, pre-calculated intersection points, synced updates and throttled resize recalculations. We tackle performance headaches so you can focus on the fun stuff.
+        - paragraph [ref=e46]: Slide, zoom, morph, draw. Link any GSAP animation to scroll - it’s completely framework agnostic.
+      - generic [ref=e51]:
+        - heading "ScrollTrigger" [level=2] [ref=e52]
+        - paragraph [ref=e53]:
+          - text: Ready, Set,
+          - text: Scroll
+        - paragraph [ref=e54]: Tell stunning and interactive stories. Give any tween or timeline a ScrollTrigger with just one line of code or customise as needed.
+        - code [ref=e57]:
+          - text: "gsap.timeline({"
+          - text: "scrollTrigger: {"
+          - text: "scrub: 1,"
+          - text: "trigger: \".scroll-trigger-ready__worm-wrap\","
+          - text: "start: \"top 90%\","
+          - text: "end: \"bottom 30%\","
+          - text: "},"
+          - text: "});"
+        - generic [ref=e58]:
+          - link "Demos" [ref=e59] [cursor=pointer]:
+            - /url: https://codepen.io/collection/DkvGzg
+            - generic [ref=e60]: Demos
+          - link "Docs" [ref=e62] [cursor=pointer]:
+            - /url: /docs/v3/Plugins/ScrollTrigger
+            - generic [ref=e63]: Docs
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - paragraph [ref=e68]:
+            - text: Start
+            - img [ref=e69]
+          - generic [ref=e72]:
+            - img [ref=e74]
+            - img [ref=e80]
+          - paragraph [ref=e81]:
+            - img [ref=e82]
+            - text: End
+        - generic [ref=e84]:
+          - heading "Pin, Scrub, Debug" [level=2] [ref=e85]:
+            - text: Pin, Scrub,
+            - text: Debug
+          - paragraph [ref=e86]: Pin sections in place, scrub through animations with the scrollbar, and debug easily by enabling visual markers.
+          - code [ref=e89]:
+            - text: "const tl = gsap.timeline({"
+            - text: "scrollTrigger: {"
+            - text: "scrub: 1,"
+            - text: "pin: true,"
+            - text: "trigger: \"#pin-windmill\","
+            - text: "start: \"50% 50%\","
+            - text: "endTrigger: \"#pin-windmill-wrap\","
+            - text: "end: \"bottom 50%\","
+            - text: "},"
+            - text: "});"
+            - text: "tl.to(\"#pin-windmill-svg\", {"
+            - text: "rotateZ: 900,"
+            - text: "});"
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]: Any
+          - img [ref=e97]
+          - generic [ref=e100]: Size
+        - paragraph [ref=e101]: Craft animations for any viewport size with gsap.matchMedia()
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - heading "ScrollSmoother" [level=2] [ref=e104]
+          - paragraph [ref=e107]: It’s like a gentle breeze
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+      - generic [ref=e109]:
+        - paragraph [ref=e112]: Effortlessly guiding your users from one section to another.
+        - generic:
+          - generic:
+            - img
+      - generic [ref=e116]:
+        - heading "It’s smooth like butter" [level=2] [ref=e117]
+        - paragraph [ref=e118]: ScrollSmoother leverages the native scroll mechanics meaning you can deliver a fluid and immersive experience for everyone, no matter the device or user input.
+        - generic [ref=e119]:
+          - link "Demos" [ref=e120] [cursor=pointer]:
+            - /url: https://codepen.io/collection/BNMEYN
+            - generic [ref=e121]: Demos
+          - link "Docs" [ref=e123] [cursor=pointer]:
+            - /url: /docs/v3/Plugins/ScrollSmoother
+            - generic [ref=e124]: Docs
+      - generic [ref=e127]:
+        - generic [ref=e132]:
+          - heading "Create mesmerising effects" [level=2] [ref=e134]:
+            - text: Create
+            - text: mesmerising effects
+          - paragraph [ref=e135]: Add gorgeous parallax and trailing effects by simply adding a data attribute
+          - code [ref=e138]:
+            - text: <div data-speed="0.8"></div>
+            - text: <div data-speed="2.0"></div>
+            - text: <div data-speed="1.2"></div>
+        - generic:
+          - generic:
+            - img
+            - paragraph: "0.8"
+          - generic:
+            - img
+            - paragraph: "2.0"
+          - generic:
+            - img
+            - paragraph: "1.2"
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - heading "Seamlessly integrated" [level=2] [ref=e144]
+          - paragraph [ref=e146]: Get all the capabilities of GSAP and ScrollTrigger with the added benefits of smooth scrolling. With tight integration across the whole ecosystem, even the most complex animations look flawless.
+        - generic [ref=e148]:
+          - generic:
+            - img [ref=e149]
+            - img [ref=e151]
+          - generic:
+            - img [ref=e153]
+            - img [ref=e155]
+          - generic [ref=e158]:
+            - img [ref=e160]
+            - img [ref=e165]
+      - generic [ref=e173]:
+        - generic "Back to Basics with Observer" [ref=e174]:
+          - img [ref=e176]
+          - heading [level=2] [ref=e179]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: B
+              - generic [ref=e182]: a
+              - generic [ref=e183]: c
+              - generic [ref=e184]: k
+            - generic [ref=e185]:
+              - generic [ref=e186]: t
+              - generic [ref=e187]: o
+            - generic [ref=e188]:
+              - generic [ref=e189]: B
+              - generic [ref=e190]: a
+              - generic [ref=e191]: s
+              - generic [ref=e192]: i
+              - generic [ref=e193]: c
+              - generic [ref=e194]: s
+            - generic [ref=e195]:
+              - generic [ref=e196]: w
+              - generic [ref=e197]: i
+              - generic [ref=e198]: t
+              - generic [ref=e199]: h
+            - generic [ref=e200]:
+              - generic [ref=e201]: O
+              - generic [ref=e202]: b
+              - generic [ref=e203]: s
+              - generic [ref=e204]: e
+              - generic [ref=e205]: r
+              - generic [ref=e206]: v
+              - generic [ref=e207]: e
+              - generic [ref=e208]: r
+        - paragraph [ref=e210]: Need more low-level control? Easily detect scroll and other events without wrestling with implementation details.
+        - generic [ref=e211]:
+          - link "Demos" [ref=e212] [cursor=pointer]:
+            - /url: https://codepen.io/collection/KpNYOd
+            - generic [ref=e213]: Demos
+          - link "Docs" [ref=e215] [cursor=pointer]:
+            - /url: /docs/v3/Plugins/Observer
+            - generic [ref=e216]: Docs
+      - generic [ref=e218]:
+        - heading "Buttery Smooth Scrolling With GSAP Scroll Plugins" [level=2] [ref=e220]
+        - list [ref=e223]:
+          - listitem [ref=e224]:
+            - heading "ScrollSmoother" [level=3] [ref=e226]:
+              - img [ref=e228]
+              - paragraph [ref=e230]: ScrollSmoother
+              - img [ref=e232]
+            - img [ref=e235]
+            - heading "The easiest way to make buttery smooth work of scrolling." [level=3] [ref=e241]
+            - link "ScrollSmoother" [ref=e242] [cursor=pointer]:
+              - /url: /docs/v3/Plugins/ScrollSmoother/
+              - generic [ref=e243]: ScrollSmoother
+          - listitem [ref=e244]:
+            - heading "ScrollTrigger" [level=3] [ref=e246]:
+              - img [ref=e248]
+              - paragraph [ref=e250]: ScrollTrigger
+              - img [ref=e252]
+            - img [ref=e255]
+            - heading "Jaw-dropping scroll-based animations with minimal code." [level=3] [ref=e263]
+            - link "ScrollTrigger" [ref=e264] [cursor=pointer]:
+              - /url: /docs/v3/Plugins/ScrollTrigger/
+              - generic [ref=e265]: ScrollTrigger
+          - listitem [ref=e266]:
+            - heading "ScrollTo" [level=3] [ref=e268]:
+              - img [ref=e270]
+              - paragraph [ref=e272]: ScrollTo
+              - img [ref=e274]
+            - img [ref=e277]
+            - heading "Take your users on a wild scroll ride to wherever they need to go." [level=3] [ref=e281]
+            - link "ScrollTo" [ref=e282] [cursor=pointer]:
+              - /url: /docs/v3/Plugins/ScrollToPlugin/
+              - generic [ref=e283]: ScrollTo
+          - listitem [ref=e284]:
+            - heading "Observer" [level=3] [ref=e286]:
+              - img [ref=e288]
+              - paragraph [ref=e290]: Observer
+              - img [ref=e292]
+            - img [ref=e295]
+            - heading "Tell Observer which event types to watch and it will collect delta values." [level=3] [ref=e301]
+            - link "Observer" [ref=e302] [cursor=pointer]:
+              - /url: /docs/v3/Plugins/Observer
+              - generic [ref=e303]: Observer
+        - list [ref=e304]:
+          - listitem [ref=e305]:
+            - link "Get GSAP" [ref=e307] [cursor=pointer]:
+              - /url: /docs/v3/Installation
+              - generic:
+                - generic: Get
+              - generic [ref=e308]:
+                - generic: GSAP
+                - generic [ref=e310]:
+                  - img [ref=e311]
+                  - img [ref=e313]
+      - generic [ref=e316]:
+        - heading "Featured Community Demos" [level=3] [ref=e317]:
+          - img [ref=e319]
+          - paragraph [ref=e321]: Featured Community Demos
+          - img [ref=e323]
+        - list [ref=e326]:
+          - listitem [ref=e327]:
+            - generic [ref=e329]:
+              - generic:
+                - img
+            - generic [ref=e330]:
+              - link "GSAP ScrollSmoother + Three.js" [ref=e331] [cursor=pointer]:
+                - /url: https://codepen.io/cmalven/pen/PoEJvjE
+                - heading "GSAP ScrollSmoother + Three.js" [level=3] [ref=e332]
+              - heading "Malven" [level=3] [ref=e333]:
+                - img [ref=e335]
+                - paragraph [ref=e337]: Malven
+                - img [ref=e339]
+          - listitem [ref=e341]:
+            - generic [ref=e343]:
+              - generic:
+                - img
+            - generic [ref=e344]:
+              - link "Airplanes." [ref=e345] [cursor=pointer]:
+                - /url: https://codepen.io/ste-vg/pen/GRooLza
+                - heading "Airplanes." [level=3] [ref=e346]
+              - heading "Steve Gardner" [level=3] [ref=e347]:
+                - img [ref=e349]
+                - paragraph [ref=e351]: Steve Gardner
+                - img [ref=e353]
+          - listitem [ref=e355]:
+            - generic [ref=e357]:
+              - generic:
+                - img
+            - generic [ref=e358]:
+              - link "On-Scroll Gooey Overlay" [ref=e359] [cursor=pointer]:
+                - /url: https://codepen.io/ksenia-k/pen/NWmMxLg
+                - heading "On-Scroll Gooey Overlay" [level=3] [ref=e360]
+              - heading "Ksenia Kondrashova" [level=3] [ref=e361]:
+                - img [ref=e363]
+                - paragraph [ref=e365]: Ksenia Kondrashova
+                - img [ref=e367]
+          - listitem [ref=e369]:
+            - generic [ref=e371]:
+              - generic:
+                - img
+            - generic [ref=e372]:
+              - link "Disintegration Effect" [ref=e373] [cursor=pointer]:
+                - /url: https://codepen.io/dev_loop/pen/mdVWRMv
+                - heading "Disintegration Effect" [level=3] [ref=e374]
+              - heading "Sikriti Dakua" [level=3] [ref=e375]:
+                - img [ref=e377]
+                - paragraph [ref=e379]: Sikriti Dakua
+                - img [ref=e381]
+          - listitem [ref=e383]:
+            - generic [ref=e385]:
+              - generic:
+                - img
+            - generic [ref=e386]:
+              - link "Infinite Cover Flow" [ref=e387] [cursor=pointer]:
+                - /url: https://codepen.io/jh3y/pen/WNRvqJP
+                - heading "Infinite Cover Flow" [level=3] [ref=e388]
+              - heading "Jhey" [level=3] [ref=e389]:
+                - img [ref=e391]
+                - paragraph [ref=e393]: Jhey
+                - img [ref=e395]
+          - listitem [ref=e397]:
+            - generic [ref=e399]:
+              - generic:
+                - img
+            - generic [ref=e400]:
+              - link "Poster Randomizer" [ref=e401] [cursor=pointer]:
+                - /url: https://codepen.io/vanholtzco/full/VYwRdob/d509fa0b3dfabb3a069fd97d36e4c17c
+                - heading "Poster Randomizer" [level=3] [ref=e402]
+              - heading "Eric Van Holtz" [level=3] [ref=e403]:
+                - img [ref=e405]
+                - paragraph [ref=e407]: Eric Van Holtz
+                - img [ref=e409]
+          - listitem [ref=e411]:
+            - generic [ref=e413]:
+              - generic:
+                - img
+            - generic [ref=e414]:
+              - link "Scroll Through WebGL Tunnel/Tube" [ref=e415] [cursor=pointer]:
+                - /url: https://codepen.io/motionharvest/pen/WNQYJyM
+                - heading "Scroll Through WebGL Tunnel/Tube" [level=3] [ref=e416]
+              - heading "Motion Harvest" [level=3] [ref=e417]:
+                - img [ref=e419]
+                - paragraph [ref=e421]: Motion Harvest
+                - img [ref=e423]
+          - listitem [ref=e425]:
+            - generic [ref=e427]:
+              - generic:
+                - img
+            - generic [ref=e428]:
+              - link "Weird Fishes" [ref=e429] [cursor=pointer]:
+                - /url: https://codepen.io/michellebarker/pen/dyMQYYz
+                - heading "Weird Fishes" [level=3] [ref=e430]
+              - heading "Michelle Barker" [level=3] [ref=e431]:
+                - img [ref=e433]
+                - paragraph [ref=e435]: Michelle Barker
+                - img [ref=e437]
+        - link "Demos on Codepen" [ref=e440] [cursor=pointer]:
+          - /url: https://codepen.io/collection/bNPYOw
+          - generic [ref=e441]: Demos on Codepen
+      - generic [ref=e443]:
+        - heading "Showcase" [level=3] [ref=e445]
+        - generic [ref=e447]:
+          - generic [ref=e448]:
+            - paragraph [ref=e449]:
+              - link "GSAP Showreel 2024" [ref=e450] [cursor=pointer]:
+                - /url: https://www.youtube.com/watch?v=ic-bHSoIUaA
+            - paragraph [ref=e451]:
+              - link [ref=e452] [cursor=pointer]:
+                - /url: https://375.studio/
+                - text: Studio375 /
+            - paragraph [ref=e453]:
+              - link [ref=e454] [cursor=pointer]:
+                - /url: https://maximatherapy.com
+                - text: Maxima Therapy /
+            - paragraph [ref=e455]:
+              - link [ref=e456] [cursor=pointer]:
+                - /url: https://joseph-san.com/
+                - text: Joseph Santamaria - Portfolio /
+            - paragraph [ref=e457]:
+              - link [ref=e458] [cursor=pointer]:
+                - /url: https://www.mersi-architecture.com
+                - text: MERSI - Architecture Studio /
+            - paragraph [ref=e459]:
+              - link [ref=e460] [cursor=pointer]:
+                - /url: https://sanrita.ca/
+                - text: San Rita /
+          - generic [ref=e461]:
+            - paragraph [ref=e462]:
+              - img [ref=e463]
+              - link "Watch Previous Showreels" [ref=e465] [cursor=pointer]:
+                - /url: https://youtube.com/playlist?list=PLLLrVKlAVicLCG0u8WkwLueVU40z0U456&si=FtIszRBdaARjuaAA
+              - img [ref=e466]
+            - paragraph [ref=e468]:
+              - img [ref=e469]
+              - text: ScrollTrigger, SplitText
+              - img [ref=e471]
+            - paragraph [ref=e473]:
+              - img [ref=e474]
+              - text: ScrollTrigger, MotionPath
+              - img [ref=e476]
+            - paragraph [ref=e478]:
+              - img [ref=e479]
+              - text: ScrollTrigger, Observer, SplitText
+              - img [ref=e481]
+            - paragraph [ref=e483]:
+              - img [ref=e484]
+              - text: ScrollTrigger, Flip, SplitText
+              - img [ref=e486]
+            - paragraph [ref=e488]:
+              - img [ref=e489]
+              - text: ScrollTrigger, Observer, MotionPath, SplitText
+              - img [ref=e491]
+          - link "Explore All Showcases" [ref=e493] [cursor=pointer]:
+            - /url: /showcases
+            - generic [ref=e494]: Explore All Showcases
+          - generic [ref=e495]:
+            - button "Previous" [ref=e496] [cursor=pointer]
+            - button "Next" [ref=e498] [cursor=pointer]
+      - generic [ref=e500]:
+        - navigation "Products Navigation" [ref=e503]:
+          - generic [ref=e504]:
+            - heading "GSAP" [level=2] [ref=e505]:
+              - link "GSAP" [ref=e506] [cursor=pointer]:
+                - /url: /
+            - list [ref=e508]:
+              - listitem [ref=e509]:
+                - link "Core" [ref=e510] [cursor=pointer]:
+                  - /url: /core/
+              - listitem [ref=e511]:
+                - link "Docs" [ref=e512] [cursor=pointer]:
+                  - /url: /docs/v3/
+              - listitem [ref=e513]:
+                - link "All Plugins" [ref=e514] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins
+          - generic [ref=e515]:
+            - heading "Scroll" [level=2] [ref=e516]:
+              - link "Scroll" [ref=e517] [cursor=pointer]:
+                - /url: /scroll/
+            - list [ref=e519]:
+              - listitem [ref=e520]:
+                - link "ScrollTrigger" [ref=e521] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/ScrollTrigger
+              - listitem [ref=e522]:
+                - link "ScrollSmoother" [ref=e523] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/ScrollSmoother/
+              - listitem [ref=e524]:
+                - link "ScrollTo" [ref=e525] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/ScrollToPlugin
+          - generic [ref=e526]:
+            - heading "SVG" [level=2] [ref=e527]:
+              - link "SVG" [ref=e528] [cursor=pointer]:
+                - /url: /svg/
+            - list [ref=e530]:
+              - listitem [ref=e531]:
+                - link "DrawSVG" [ref=e532] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/DrawSVGPlugin
+              - listitem [ref=e533]:
+                - link "MorphSVG" [ref=e534] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/MorphSVGPlugin
+              - listitem [ref=e535]:
+                - link "MotionPath" [ref=e536] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/MotionPathPlugin
+              - listitem [ref=e537]:
+                - link "MotionPathHelper" [ref=e538] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/MotionPathHelper/
+          - generic [ref=e539]:
+            - heading "UI" [level=2] [ref=e540]:
+              - link "UI" [ref=e541] [cursor=pointer]:
+                - /url: /ui/
+            - list [ref=e543]:
+              - listitem [ref=e544]:
+                - link "Flip" [ref=e545] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/Flip
+              - listitem [ref=e546]:
+                - link "Draggable" [ref=e547] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/Draggable
+              - listitem [ref=e548]:
+                - link "Inertia" [ref=e549] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/InertiaPlugin
+              - listitem [ref=e550]:
+                - link "Observer" [ref=e551] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/Observer
+          - generic [ref=e552]:
+            - heading "Text" [level=2] [ref=e553]:
+              - link "Text" [ref=e554] [cursor=pointer]:
+                - /url: /text/
+            - list [ref=e556]:
+              - listitem [ref=e557]:
+                - link "SplitText" [ref=e558] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/SplitText
+              - listitem [ref=e559]:
+                - link "ScrambleText" [ref=e560] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/ScrambleTextPlugin
+              - listitem [ref=e561]:
+                - link "Text Replace" [ref=e562] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/TextPlugin
+          - generic [ref=e563]:
+            - heading "Other" [level=2] [ref=e564]:
+              - link "Other" [ref=e565] [cursor=pointer]:
+                - /url: /
+            - list [ref=e567]:
+              - listitem [ref=e568]:
+                - link "Physics2D" [ref=e569] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/Physics2DPlugin
+              - listitem [ref=e570]:
+                - link "PhysicsProps" [ref=e571] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/PhysicsPropsPlugin
+              - listitem [ref=e572]:
+                - link "GSDevTools" [ref=e573] [cursor=pointer]:
+                  - /url: /docs/v3/Plugins/GSDevTools
+        - navigation "Footer Navigation" [ref=e576]:
+          - generic [ref=e578]:
+            - group "Keep in the loop with the GSAP® newsletter." [ref=e579]:
+              - generic [ref=e580]: Keep in the loop with the GSAP® newsletter.
+              - generic [ref=e581]:
+                - generic [ref=e582]: Email *
+                - textbox "Email *" [ref=e583]:
+                  - /placeholder: Email Address
+                - button "Submit" [ref=e584] [cursor=pointer]:
+                  - img [ref=e585]
+            - paragraph
+          - generic [ref=e588]:
+            - generic [ref=e589]:
+              - heading "GSAP" [level=2] [ref=e590]
+              - list [ref=e592]:
+                - listitem [ref=e593]:
+                  - link "Blog" [ref=e594] [cursor=pointer]:
+                    - /url: /blog/
+                - listitem [ref=e595]:
+                  - link "Showcase" [ref=e596] [cursor=pointer]:
+                    - /url: /showcase/
+                - listitem [ref=e597]:
+                  - link "Learn GSAP" [ref=e598] [cursor=pointer]:
+                    - /url: /resources/
+                - listitem [ref=e599]:
+                  - link "GSAP & Webflow" [ref=e600] [cursor=pointer]:
+                    - /url: /pricing
+                - listitem [ref=e601]:
+                  - link "Contact Us" [ref=e602] [cursor=pointer]:
+                    - /url: /community/contact
+            - generic [ref=e603]:
+              - heading "Connect" [level=2] [ref=e604]
+              - list [ref=e606]:
+                - listitem [ref=e607]:
+                  - link "Forums" [ref=e608] [cursor=pointer]:
+                    - /url: /community
+                - listitem [ref=e609]:
+                  - link "Discord" [ref=e610] [cursor=pointer]:
+                    - /url: https://gsap.com/discord/
+                - listitem [ref=e611]:
+                  - link "Codepen" [ref=e612] [cursor=pointer]:
+                    - /url: https://codepen.io/GreenSock
+                - listitem [ref=e613]:
+                  - link "LinkedIn" [ref=e614] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/greensock
+                - listitem [ref=e615]:
+                  - link "Bluesky" [ref=e616] [cursor=pointer]:
+                    - /url: https://bsky.app/profile/gsap-greensock.bsky.social
+                - listitem [ref=e617]:
+                  - link "GitHub" [ref=e618] [cursor=pointer]:
+                    - /url: https://github.com/greensock/GreenSock-JS
+                - listitem [ref=e619]:
+                  - link "X" [ref=e620] [cursor=pointer]:
+                    - /url: https://www.x.com/greensock
+        - generic [ref=e623]:
+          - paragraph [ref=e624]: ©2026 GSAP - A Webflow Product. All rights reserved.
+          - link [ref=e625] [cursor=pointer]:
+            - /url: https://webflow.com/
+            - img [ref=e626]
+          - navigation "Copyright Navigation" [ref=e628]:
+            - list [ref=e629]:
+              - listitem [ref=e630]:
+                - link "Privacy Policy." [ref=e631] [cursor=pointer]:
+                  - /url: /community/privacy-policy/
+              - listitem [ref=e632]:
+                - link "Terms of Use." [ref=e633] [cursor=pointer]:
+                  - /url: /community/terms-of-use/
+  - img [ref=e634]

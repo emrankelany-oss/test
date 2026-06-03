@@ -1,0 +1,201 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic [ref=e596]:
+            - generic [ref=e597]:
+              - text: "002"
+              - text: Factions
+            - heading "One world, two factions. Divided in belief, united in purpose." [level=2] [ref=e599]:
+              - generic [ref=e600]: One world, two factions. Divided in belief,
+              - generic [ref=e601]: united in purpose.
+          - generic [ref=e604]:
+            - generic [ref=e605]:
+              - text: "003"
+              - text: The World
+            - heading "The discovery of Kai, the world's primordial energy source, heralded mankind's Golden Age. Or so they believed." [level=2] [ref=e607]:
+              - generic [ref=e608]: The discovery of Kai, the world's primordial
+              - generic [ref=e609]: energy source, heralded mankind's Golden Age.
+              - generic [ref=e610]: Or so they believed.
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button [ref=e2] [cursor=pointer]:
+                                  - img [ref=e3]
+                                - generic [ref=e5]:
+                                  - button "Project PROJECT" [ref=e321] [cursor=pointer]:
+                                    - generic [ref=e12]:
+                                      - generic [ref=e13]: Project
+                                      - generic [ref=e14]: PROJECT
+                                  - button "The Keep THE KEEP" [ref=e322] [cursor=pointer]:
+                                    - generic [ref=e21]:
+                                      - generic [ref=e22]: The Keep
+                                      - generic [ref=e23]: THE KEEP
+                                  - button "Factions FACTIONS" [ref=e323] [cursor=pointer]:
+                                    - generic [ref=e30]:
+                                      - generic [ref=e31]: Factions
+                                      - generic [ref=e32]: FACTIONS
+                                  - button "The World THE WORLD" [ref=e324] [cursor=pointer]:
+                                    - generic [ref=e39]:
+                                      - generic [ref=e40]: The World
+                                      - generic [ref=e41]: THE WORLD
+                              - generic:
+                                - link:
+                                  - /url: /
+                                  - img
+                                - button [ref=e42] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button [ref=e48] [cursor=pointer]:
+                                  - img [ref=e49]
+                                - generic [ref=e51]:
+                                  - button "Project PROJECT" [ref=e325] [cursor=pointer]:
+                                    - generic [ref=e58]:
+                                      - generic [ref=e59]: Project
+                                      - generic [ref=e60]: PROJECT
+                                  - button "The Keep THE KEEP" [ref=e326] [cursor=pointer]:
+                                    - generic [ref=e67]:
+                                      - generic [ref=e68]: The Keep
+                                      - generic [ref=e69]: THE KEEP
+                                  - button "Factions FACTIONS" [ref=e327] [cursor=pointer]:
+                                    - generic [ref=e76]:
+                                      - generic [ref=e77]: Factions
+                                      - generic [ref=e78]: FACTIONS
+                                  - button "The World THE WORLD" [ref=e328] [cursor=pointer]:
+                                    - generic [ref=e85]:
+                                      - generic [ref=e86]: The World
+                                      - generic [ref=e87]: THE WORLD
+                              - generic:
+                                - link:
+                                  - /url: /
+                                  - img
+                                - button [ref=e88] [cursor=pointer]
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic [ref=e94]:
+                      - generic [ref=e98]:
+                        - generic [ref=e99]: // initializing new files in database kai_53815.jpg audio_log_2018116.wav activate console for access...
+                        - generic [ref=e100]: // INITIALIZING NEW FILES IN DATABASE KAI_53815.JPG AUDIO_LOG_2018116.WAV ACTIVATE CONSOLE FOR ACCESS...
+                      - generic [ref=e102]:
+                        - generic [ref=e108]:
+                          - generic [ref=e109]: Discover More
+                          - generic [ref=e110]: DISCOVER MORE
+                        - generic [ref=e111]:
+                          - generic:
+                            - generic:
+                              - link "Story STORY":
+                                - /url: /
+                                - generic:
+                                  - generic:
+                                    - generic: Story
+                                    - generic: STORY
+                          - link "Journal JOURNAL" [ref=e268] [cursor=pointer]:
+                            - /url: /journal
+                            - generic [ref=e117]:
+                              - generic [ref=e118]: Journal
+                              - generic [ref=e119]: JOURNAL
+                          - link "Media MEDIA" [ref=e269] [cursor=pointer]:
+                            - /url: /media
+                            - generic [ref=e125]:
+                              - generic [ref=e126]: Media
+                              - generic [ref=e127]: MEDIA
+                          - link "Gallery GALLERY" [ref=e270] [cursor=pointer]:
+                            - /url: /gallery
+                            - generic [ref=e133]:
+                              - generic [ref=e134]: Gallery
+                              - generic [ref=e135]: GALLERY
+                          - link "About ABOUT" [ref=e271] [cursor=pointer]:
+                            - /url: /about
+                            - generic [ref=e141]:
+                              - generic [ref=e142]: About
+                              - generic [ref=e143]: ABOUT
+                          - link "Careers CAREERS" [ref=e272] [cursor=pointer]:
+                            - /url: https://kpr.homerun.co/?lang=en
+                            - generic [ref=e148]:
+                              - generic [ref=e149]:
+                                - generic [ref=e150]: Careers
+                                - generic [ref=e151]: CAREERS
+                              - img [ref=e152]
+                      - generic [ref=e156]:
+                        - generic [ref=e162]:
+                          - generic [ref=e163]: Join the Conversation
+                          - generic [ref=e164]: JOIN THE CONVERSATION
+                        - generic [ref=e165]:
+                          - link "Twitter TWITTER" [ref=e273] [cursor=pointer]:
+                            - /url: https://twitter.com/KPRVERSE
+                            - generic [ref=e171]:
+                              - generic [ref=e172]: Twitter
+                              - generic [ref=e173]: TWITTER
+                          - link "Discord DISCORD" [ref=e274] [cursor=pointer]:
+                            - /url: https://discord.com/invite/kpr
+                            - generic [ref=e179]:
+                              - generic [ref=e180]: Discord
+                              - generic [ref=e181]: DISCORD
+                      - generic [ref=e183]:
+                        - generic [ref=e189]:
+                          - generic [ref=e190]: More Details
+                          - generic [ref=e191]: MORE DETAILS
+                        - generic [ref=e192]:
+                          - generic [ref=e193]:
+                            - generic [ref=e194]: Contact us at
+                            - link "hello@kprverse.com HELLO@KPRVERSE.COM" [ref=e308] [cursor=pointer]:
+                              - /url: mailto:hello@kprverse.com
+                              - generic [ref=e200]:
+                                - generic [ref=e201]: hello@kprverse.com
+                                - generic [ref=e202]: HELLO@KPRVERSE.COM
+                          - button "Download Brand Book DOWNLOAD BRAND BOOK" [ref=e309] [cursor=pointer]:
+                            - img [ref=e206]
+                            - generic [ref=e207]:
+                              - img [ref=e209]
+                              - generic [ref=e211]:
+                                - generic [ref=e212]: Download Brand Book
+                                - generic [ref=e213]: DOWNLOAD BRAND BOOK
+                            - link [ref=e214]:
+                              - /url: https://a.storyblok.com/f/165555/x/095e8b5319/kpr_brandbook_v1-0.zip
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img
+                    - generic:
+                      - generic:
+                        - button "EN":
+                          - generic: EN
+                          - img
+                      - generic:
+                        - link "Privacy Policy PRIVACY POLICY" [ref=e310] [cursor=pointer]:
+                          - /url: /legal/privacy-policy
+                          - generic [ref=e219]:
+                            - generic [ref=e220]: Privacy Policy
+                            - generic [ref=e221]: PRIVACY POLICY
+                        - link "Terms of Service TERMS OF SERVICE" [ref=e311] [cursor=pointer]:
+                          - /url: /legal/terms-of-service
+                          - generic [ref=e226]:
+                            - generic [ref=e227]: Terms of Service
+                            - generic [ref=e228]: TERMS OF SERVICE
+                        - link "Legal License LEGAL LICENSE" [ref=e312] [cursor=pointer]:
+                          - /url: /legal/legal-license
+                          - generic [ref=e233]:
+                            - generic [ref=e234]: Legal License
+                            - generic [ref=e235]: LEGAL LICENSE
+                      - generic:
+                        - generic: © 2022
+  - button "SIGN IN" [ref=e259] [cursor=pointer]

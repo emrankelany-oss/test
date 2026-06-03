@@ -1,0 +1,59 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap');
+.pv{--ink:#f3f5f8;--mut:#8b93a0;--cy:#6fd3ff;background:#060708;border-radius:14px;overflow:hidden;color:var(--ink);font-family:'Space Grotesk',ui-sans-serif,system-ui;position:relative}
+.pv .grain{position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.pv .spine{position:absolute;left:46px;top:0;bottom:0;width:1.5px;background:linear-gradient(var(--cy),#2f86d8);box-shadow:0 0 14px rgba(111,211,255,.5);opacity:.9}
+.pv .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.pv .hero{padding:54px 28px 64px 78px}
+.pv .kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--cy)}
+.pv h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(40px,8vw,86px);line-height:1.0;letter-spacing:-.01em;margin:18px 0 0}
+.pv h1 em{font-style:italic;color:var(--cy)}
+.pv .reelrow{display:flex;align-items:flex-end;gap:26px;margin-top:40px}
+.pv .reel{flex:1;height:240px;border-radius:12px;position:relative;overflow:hidden;background:#0d1016;
+  background-image:linear-gradient(180deg,rgba(6,7,8,.15),rgba(6,7,8,.75)),url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1400&q=70');background-size:cover;background-position:center}
+.pv .play{position:absolute;left:24px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;font-size:13px;backdrop-filter:blur(4px)}
+.pv .meta{width:190px;flex:none;font-size:11px;letter-spacing:.16em;color:var(--mut);line-height:2.1;text-transform:uppercase}
+.pv .feat{padding:30px 28px 60px 78px}
+.pv .fitem{position:relative;height:300px;border-radius:14px;overflow:hidden;margin-top:18px}
+.pv .fitem .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.04);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.pv .fitem:hover .img{transform:scale(1.0)}
+.pv .fitem .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,8,.05),rgba(6,7,8,.72))}
+.pv .fitem .cap{position:absolute;left:28px;right:28px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end}
+.pv .fitem .cap h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(28px,4.4vw,56px);line-height:.98;margin:0}
+.pv .fitem .cap .c{font-size:11px;letter-spacing:.18em;color:var(--mut);text-transform:uppercase}
+.pv .f1 .img{background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=70')}
+.pv .f2 .img{background-image:url('https://images.unsplash.com/photo-1620207418302-439b387441b0?auto=format&fit=crop&w=1600&q=70')}
+.pv .dot{position:absolute;left:46px;width:11px;height:11px;border-radius:50%;transform:translateX(-46%);background:#fff;box-shadow:0 0 16px 5px rgba(111,211,255,.85)}
+</style>
+
+<h2>Same structure — premium execution</h2>
+<p class="subtitle">Real media, oversized editorial type (serif + grotesk), grain, cinematic scrims, hover zoom, the filament spine + comet. This is the feel; motion (slow reveals, parallax, hover-to-play, custom cursor) adds the rest.</p>
+
+<div class="pv">
+  <div class="grain"></div>
+  <div class="spine"></div>
+  <div class="dot" style="top:96px"></div>
+
+  <div class="nav"><span>The Motion Agency</span><span>Reel · Work · Studio · Contact</span></div>
+
+  <div class="hero">
+    <div class="kicker">Creative motion studio · GCC</div>
+    <h1>Where strategy<br>meets <em>bold</em><br>storytelling</h1>
+    <div class="reelrow">
+      <div class="reel"><div class="play">▶</div></div>
+      <div class="meta">Showreel 2025<br>Est. 2019<br>Amman · Riyadh<br><span style="color:var(--cy)">↓ scroll</span></div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="kicker">Selected work</div>
+    <div class="fitem f1"><div class="img"></div><div class="scrim"></div>
+      <div class="cap"><h2>Foodics — The Launch Film</h2><div class="c">F&amp;B tech · 2025</div></div>
+    </div>
+    <div class="fitem f2"><div class="img"></div><div class="scrim"></div>
+      <div class="cap"><h2>Zid — Brand in Motion</h2><div class="c">E-commerce · 2025</div></div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:14px">Premium = craft, not copy: cinematic full-bleed media, big serif/grotesk type, depth, slow motion, custom cursor, grain — over your gentle spacing + the filament soul. <strong>Does this feel like the right level?</strong> (If images don't load, that's just your network — the styling still shows the intent.)</p>

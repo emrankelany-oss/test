@@ -1,0 +1,2501 @@
+
+> tma-web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.7:3000
+✓ Ready in 541ms
+
+ GET / 200 in 1538ms (next.js: 487ms, application-code: 1051ms)
+ GET /portfolio-v21 200 in 559ms (next.js: 96ms, application-code: 463ms)
+ GET /portfolio-v22 200 in 391ms (next.js: 83ms, application-code: 308ms)
+ GET /portfolio-v23 200 in 339ms (next.js: 74ms, application-code: 266ms)
+[browser] Invalid scope (components/portfolio-v21/V21Preloader.jsx:204:14)
+[browser] GSAP target null not found. https://gsap.com (components/portfolio-v21/V21Preloader.jsx:204:14)
+ GET /portfolio-v23 200 in 408ms (next.js: 33ms, application-code: 375ms)
+✓ Compiled in 652ms
+ GET /portfolio-v23 200 in 719ms (next.js: 178ms, application-code: 541ms)
+ GET /portfolio-v22 200 in 405ms (next.js: 52ms, application-code: 353ms)
+ GET /portfolio-v23 200 in 404ms (next.js: 126ms, application-code: 278ms)
+ GET /portfolio-v21 200 in 403ms (next.js: 310ms, application-code: 93ms)
+✓ Compiled in 238ms
+ GET /portfolio-v23 200 in 473ms (next.js: 101ms, application-code: 372ms)
+ GET /portfolio-v21 200 in 317ms (next.js: 121ms, application-code: 196ms)
+ GET /portfolio-v22 200 in 317ms (next.js: 221ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 317ms (next.js: 255ms, application-code: 62ms)
+✓ Compiled in 46ms
+ GET /portfolio-v23 200 in 483ms (next.js: 111ms, application-code: 372ms)
+ GET /portfolio-v23 200 in 484ms (next.js: 210ms, application-code: 275ms)
+ GET /portfolio-v21 200 in 239ms (next.js: 113ms, application-code: 126ms)
+ GET /portfolio-v22 200 in 239ms (next.js: 180ms, application-code: 59ms)
+ GET /portfolio-v21 200 in 276ms (next.js: 4ms, application-code: 272ms)
+✓ Compiled in 213ms
+ GET /portfolio-v23 200 in 347ms (next.js: 110ms, application-code: 237ms)
+ GET /portfolio-v22 200 in 344ms (next.js: 172ms, application-code: 172ms)
+ GET /portfolio-v21 200 in 122ms (next.js: 27ms, application-code: 95ms)
+ GET /portfolio-v23 200 in 122ms (next.js: 78ms, application-code: 43ms)
+✓ Compiled in 568ms
+ GET /portfolio-v23 200 in 461ms (next.js: 88ms, application-code: 373ms)
+ GET /portfolio-v22 200 in 462ms (next.js: 157ms, application-code: 305ms)
+ GET /portfolio-v21 200 in 463ms (next.js: 195ms, application-code: 268ms)
+ GET /portfolio-v23 200 in 463ms (next.js: 227ms, application-code: 236ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 6ms, application-code: 189ms)
+ GET /portfolio-v21 200 in 195ms (next.js: 91ms, application-code: 104ms)
+ GET /portfolio-v22 200 in 197ms (next.js: 38ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 71ms (next.js: 13ms, application-code: 58ms)
+✓ Compiled in 40ms
+ GET /portfolio-v22 200 in 549ms (next.js: 97ms, application-code: 452ms)
+ GET /portfolio-v21 200 in 368ms (next.js: 227ms, application-code: 141ms)
+ GET /portfolio-v23 200 in 551ms (next.js: 316ms, application-code: 234ms)
+ GET /portfolio-v23 200 in 369ms (next.js: 286ms, application-code: 82ms)
+✓ Compiled in 90ms
+ GET /portfolio-v23 200 in 367ms (next.js: 182ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 370ms (next.js: 103ms, application-code: 267ms)
+ GET /portfolio-v21 200 in 159ms (next.js: 19ms, application-code: 140ms)
+ GET /portfolio-v22 200 in 158ms (next.js: 117ms, application-code: 41ms)
+✓ Compiled in 98ms
+ GET /portfolio-v22 200 in 488ms (next.js: 97ms, application-code: 391ms)
+ GET /portfolio-v23 200 in 307ms (next.js: 103ms, application-code: 205ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 12ms, application-code: 140ms)
+ GET /portfolio-v21 200 in 144ms (next.js: 69ms, application-code: 75ms)
+✓ Compiled in 238ms
+ GET /portfolio-v23 200 in 521ms (next.js: 170ms, application-code: 351ms)
+ GET /portfolio-v21 200 in 523ms (next.js: 65ms, application-code: 457ms)
+ GET /portfolio-v23 200 in 517ms (next.js: 205ms, application-code: 311ms)
+ GET /portfolio-v22 200 in 517ms (next.js: 247ms, application-code: 270ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 26ms, application-code: 220ms)
+ GET /portfolio-v21 200 in 247ms (next.js: 5ms, application-code: 242ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 46ms, application-code: 200ms)
+ GET /portfolio-v22 200 in 258ms (next.js: 13ms, application-code: 245ms)
+ GET /portfolio-v23 200 in 224ms (next.js: 90ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 225ms (next.js: 44ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 7ms, application-code: 219ms)
+ GET /portfolio-v21 200 in 179ms (next.js: 6ms, application-code: 173ms)
+ GET /portfolio-v21 200 in 178ms (next.js: 64ms, application-code: 114ms)
+ GET /portfolio-v21 200 in 180ms (next.js: 32ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 133ms (next.js: 6ms, application-code: 128ms)
+ GET /portfolio-v23 200 in 166ms (next.js: 32ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 59ms, application-code: 128ms)
+ GET /portfolio-v22 200 in 97ms (next.js: 5ms, application-code: 92ms)
+ GET /portfolio-v22 200 in 65ms (next.js: 37ms, application-code: 28ms)
+ GET /portfolio-v22 200 in 97ms (next.js: 38ms, application-code: 59ms)
+✓ Compiled in 34ms
+ GET /portfolio-v22 200 in 424ms (next.js: 77ms, application-code: 348ms)
+ GET /portfolio-v21 200 in 422ms (next.js: 277ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 425ms (next.js: 198ms, application-code: 227ms)
+ GET /portfolio-v23 200 in 425ms (next.js: 233ms, application-code: 192ms)
+ GET /portfolio-v22 200 in 118ms (next.js: 4ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 118ms (next.js: 30ms, application-code: 88ms)
+ GET /portfolio-v23 200 in 93ms (next.js: 30ms, application-code: 64ms)
+ GET /portfolio-v21 200 in 94ms (next.js: 57ms, application-code: 36ms)
+✓ Compiled in 58ms
+ GET /portfolio-v23 200 in 336ms (next.js: 116ms, application-code: 220ms)
+ GET /portfolio-v21 200 in 156ms (next.js: 21ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 55ms, application-code: 101ms)
+ GET /portfolio-v22 200 in 156ms (next.js: 108ms, application-code: 48ms)
+✓ Compiled in 54ms
+ GET /portfolio-v23 200 in 344ms (next.js: 127ms, application-code: 217ms)
+ GET /portfolio-v22 200 in 343ms (next.js: 202ms, application-code: 141ms)
+ GET /portfolio-v23 200 in 103ms (next.js: 5ms, application-code: 98ms)
+ GET /portfolio-v21 200 in 103ms (next.js: 57ms, application-code: 46ms)
+[browser] Uncaught ReferenceError: isLowRes is not defined
+    at eval (components/portfolio-v23/V23WorkGrid.jsx:47:25)
+    at Array.map (<anonymous>)
+    at V23WorkGrid (components/portfolio-v23/V23WorkGrid.jsx:26:22)
+    at PortfolioV23Page (app\portfolio-v23\page.jsx:34:7)
+  45 |                         aria-hidden="true"
+  46 |                       />
+> 47 |                     ) : isLowRes(p.slug) ? (
+     |                         ^
+  48 |                       <span className="v23-poster" data-letter={p.client?.[0] || ""}>
+  49 |                         <span className="v23-poster-cat">{p.category}</span>
+  50 |                         <span className="v23-poster-name">{p.client}</span>
+✓ Compiled in 40ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /portfolio-v21 200 in 740ms (next.js: 119ms, application-code: 622ms)
+ GET /portfolio-v22 200 in 741ms (next.js: 201ms, application-code: 540ms)
+ GET /portfolio-v23 200 in 513ms (next.js: 72ms, application-code: 441ms)
+ GET /portfolio-v23 200 in 519ms (next.js: 371ms, application-code: 148ms)
+✓ Compiled in 120ms
+✓ Compiled in 23ms
+ GET /portfolio-v23 200 in 103ms (next.js: 6ms, application-code: 97ms)
+✓ Compiled in 159ms
+ GET /portfolio-v22 200 in 495ms (next.js: 132ms, application-code: 363ms)
+ GET /portfolio-v21 200 in 299ms (next.js: 97ms, application-code: 202ms)
+ GET /portfolio-v23 200 in 126ms (next.js: 28ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 126ms (next.js: 74ms, application-code: 52ms)
+✓ Compiled in 87ms
+✓ Compiled in 60ms
+ GET /portfolio-v22 200 in 577ms (next.js: 211ms, application-code: 366ms)
+ GET /portfolio-v23 200 in 581ms (next.js: 114ms, application-code: 466ms)
+ GET /portfolio-v21 200 in 317ms (next.js: 112ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 7ms, application-code: 126ms)
+✓ Compiled in 37ms
+ GET /portfolio-v21 200 in 234ms (next.js: 8ms, application-code: 227ms)
+ GET /portfolio-v23 200 in 300ms (next.js: 4ms, application-code: 296ms)
+ GET /portfolio-v23 200 in 300ms (next.js: 187ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 302ms (next.js: 4ms, application-code: 298ms)
+ GET /portfolio-v23 200 in 314ms (next.js: 106ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 15ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 238ms (next.js: 11ms, application-code: 227ms)
+ GET /portfolio-v23 200 in 305ms (next.js: 11ms, application-code: 294ms)
+ GET /portfolio-v23 200 in 245ms (next.js: 10ms, application-code: 235ms)
+ GET /portfolio-v23 200 in 316ms (next.js: 14ms, application-code: 302ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 5ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 317ms (next.js: 5ms, application-code: 312ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 6ms, application-code: 215ms)
+ GET /portfolio-v23 200 in 278ms (next.js: 7ms, application-code: 271ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 5ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 6ms, application-code: 165ms)
+ GET /portfolio-v23 200 in 427ms (next.js: 7ms, application-code: 421ms)
+ GET /portfolio-v23 200 in 247ms (next.js: 6ms, application-code: 241ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 5ms, application-code: 256ms)
+ GET /portfolio-v23 200 in 256ms (next.js: 7ms, application-code: 249ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 7ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 223ms (next.js: 7ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 289ms (next.js: 9ms, application-code: 280ms)
+ GET /portfolio-v23 200 in 215ms (next.js: 5ms, application-code: 210ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 6ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 213ms (next.js: 5ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 337ms (next.js: 7ms, application-code: 330ms)
+ GET /portfolio-v23 200 in 223ms (next.js: 9ms, application-code: 214ms)
+ GET /portfolio-v23 200 in 112ms (next.js: 6ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 211ms (next.js: 5ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 6ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 295ms (next.js: 7ms, application-code: 288ms)
+ GET /portfolio-v23 200 in 376ms (next.js: 7ms, application-code: 369ms)
+ GET /portfolio-v23 200 in 169ms (next.js: 6ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 196ms (next.js: 6ms, application-code: 190ms)
+ GET /portfolio-v23 200 in 154ms (next.js: 11ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 291ms (next.js: 7ms, application-code: 283ms)
+ GET /portfolio-v23 200 in 241ms (next.js: 6ms, application-code: 235ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 5ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 299ms (next.js: 8ms, application-code: 290ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 5ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 217ms (next.js: 6ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 459ms (next.js: 11ms, application-code: 449ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 5ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 272ms (next.js: 8ms, application-code: 265ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 7ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 362ms (next.js: 9ms, application-code: 353ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 6ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 257ms (next.js: 7ms, application-code: 249ms)
+ GET /portfolio-v23 200 in 154ms (next.js: 8ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 326ms (next.js: 6ms, application-code: 320ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 5ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 314ms (next.js: 12ms, application-code: 301ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 4ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 176ms (next.js: 3ms, application-code: 174ms)
+ GET /portfolio-v23 200 in 471ms (next.js: 7ms, application-code: 464ms)
+ GET /portfolio-v23 200 in 259ms (next.js: 36ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 391ms (next.js: 15ms, application-code: 376ms)
+ GET /portfolio-v23 200 in 257ms (next.js: 4ms, application-code: 253ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 6ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 4ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 261ms (next.js: 6ms, application-code: 254ms)
+ GET /portfolio-v23 200 in 250ms (next.js: 8ms, application-code: 242ms)
+ GET /portfolio-v23 200 in 311ms (next.js: 8ms, application-code: 303ms)
+ GET /portfolio-v23 200 in 274ms (next.js: 6ms, application-code: 267ms)
+✓ Compiled in 228ms
+ GET /portfolio-v23 200 in 454ms (next.js: 7ms, application-code: 447ms)
+ GET /portfolio-v23 200 in 259ms (next.js: 8ms, application-code: 250ms)
+ GET /portfolio-v23 200 in 271ms (next.js: 138ms, application-code: 132ms)
+ GET /portfolio-v23 200 in 239ms (next.js: 11ms, application-code: 228ms)
+ GET /portfolio-v23 200 in 293ms (next.js: 12ms, application-code: 281ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 4ms, application-code: 188ms)
+ GET /portfolio-v23 200 in 133ms (next.js: 7ms, application-code: 126ms)
+ GET /portfolio-v23 200 in 216ms (next.js: 5ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 255ms (next.js: 4ms, application-code: 252ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 5ms, application-code: 159ms)
+✓ Compiled in 66ms
+ GET /portfolio-v23 200 in 336ms (next.js: 23ms, application-code: 312ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 5ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 390ms (next.js: 7ms, application-code: 382ms)
+ GET /portfolio-v23 200 in 199ms (next.js: 4ms, application-code: 195ms)
+✓ Compiled in 203ms
+ GET /portfolio-v21 200 in 442ms (next.js: 202ms, application-code: 240ms)
+ GET /portfolio-v22 200 in 166ms (next.js: 51ms, application-code: 115ms)
+ GET /portfolio-v23 200 in 166ms (next.js: 122ms, application-code: 44ms)
+ GET /portfolio-v21 200 in 276ms (next.js: 4ms, application-code: 272ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 7ms, application-code: 311ms)
+✓ Compiled in 1013ms
+ GET /portfolio-v22 200 in 965ms (next.js: 362ms, application-code: 603ms)
+ GET /portfolio-v21 200 in 987ms (next.js: 646ms, application-code: 340ms)
+ GET /portfolio-v23 200 in 244ms (next.js: 202ms, application-code: 42ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 65ms, application-code: 180ms)
+ GET /portfolio-v21 200 in 241ms (next.js: 4ms, application-code: 236ms)
+ GET /portfolio-v21 200 in 273ms (next.js: 13ms, application-code: 260ms)
+✓ Compiled in 554ms
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+ GET /portfolio-v22 500 in 628ms (next.js: 335ms, application-code: 293ms)
+ GET /portfolio-v21 500 in 625ms (next.js: 578ms, application-code: 46ms)
+ GET /portfolio-v23 500 in 627ms (next.js: 595ms, application-code: 32ms)
+ GET /portfolio-v23 500 in 628ms (next.js: 609ms, application-code: 19ms)
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+ GET /portfolio-v21 500 in 62ms (next.js: 21ms, application-code: 41ms)
+ GET /portfolio-v22 500 in 60ms (next.js: 28ms, application-code: 32ms)
+ GET /portfolio-v23 500 in 61ms (next.js: 39ms, application-code: 22ms)
+ GET /portfolio-v23 500 in 60ms (next.js: 46ms, application-code: 14ms)
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+ GET /portfolio-v21 500 in 53ms (next.js: 17ms, application-code: 36ms)
+ GET /portfolio-v23 500 in 53ms (next.js: 27ms, application-code: 26ms)
+ GET /portfolio-v23 500 in 53ms (next.js: 38ms, application-code: 15ms)
+ GET /portfolio-v22 500 in 47ms (next.js: 32ms, application-code: 15ms)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+ GET /portfolio-v23 500 in 35ms (next.js: 19ms, application-code: 16ms)
+⨯ ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+
+./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  [90m1 |[0m [32m"use client"[0m;
+  [90m2 |[0m [36mimport[0m { useEffect, useRef } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mWORK_GRID[0m, isLowRes } [36mfrom[0m [32m"./projects"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m [36mimport[0m { useIrisRevealAll, useLazyAutoplayVideos } [36mfrom[0m [32m"./useV23Reveal"[0m;
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mV23WorkGrid[0m() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+ GET /portfolio-v21 500 in 44ms (next.js: 23ms, application-code: 21ms)
+ GET /portfolio-v23 500 in 59ms (next.js: 29ms, application-code: 30ms)
+ GET /portfolio-v22 500 in 60ms (next.js: 40ms, application-code: 19ms)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] Uncaught Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+    at <unknown> (Error: (./components/portfolio-v23/V23WorkGrid.jsx:3:1)
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-client] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+[browser] ./components/portfolio-v23/V23WorkGrid.jsx:3:1
+Export isLowRes doesn't exist in target module
+  1 | "use client";
+  2 | import { useEffect, useRef } from "react";
+> 3 | import { WORK_GRID, isLowRes } from "./projects";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useIrisRevealAll, useLazyAutoplayVideos } from "./useV23Reveal";
+  5 |
+  6 | export default function V23WorkGrid() {
+
+The export isLowRes was not found in module [project]/components/portfolio-v23/projects.js [app-ssr] (ecmascript).
+Did you mean to import hasDeckCard?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v23/V23WorkGrid.jsx
+    ./app/portfolio-v23/page.jsx 
+✓ Compiled in 118ms
+⨯ ReferenceError: isLowRes is not defined
+    at <unknown> (components\portfolio-v23\V23WorkGrid.jsx:38:23)
+    at Array.map (<anonymous>)
+    at V23WorkGrid (components\portfolio-v23\V23WorkGrid.jsx:27:22)
+  36 |                   <span className="v23-im">
+  37 |                     {p.video ? (
+> 38 |                       <video
+     |                       ^
+  39 |                         data-lazy
+  40 |                         data-src={p.video}
+  41 |                         poster={p.hero || p.thumb} {
+  digest: '1604630664'
+}
+ GET /portfolio-v21 200 in 453ms (next.js: 328ms, application-code: 125ms)
+⨯ ReferenceError: isLowRes is not defined
+    at <unknown> (components\portfolio-v23\V23WorkGrid.jsx:38:23)
+    at Array.map (<anonymous>)
+    at V23WorkGrid (components\portfolio-v23\V23WorkGrid.jsx:27:22)
+  36 |                   <span className="v23-im">
+  37 |                     {p.video ? (
+> 38 |                       <video
+     |                       ^
+  39 |                         data-lazy
+  40 |                         data-src={p.video}
+  41 |                         poster={p.hero || p.thumb} {
+  digest: '1604630664'
+}
+⨯ ReferenceError: isLowRes is not defined
+    at <unknown> (components\portfolio-v23\V23WorkGrid.jsx:38:23)
+    at Array.map (<anonymous>)
+    at V23WorkGrid (components\portfolio-v23\V23WorkGrid.jsx:27:22)
+  36 |                   <span className="v23-im">
+  37 |                     {p.video ? (
+> 38 |                       <video
+     |                       ^
+  39 |                         data-lazy
+  40 |                         data-src={p.video}
+  41 |                         poster={p.hero || p.thumb} {
+  digest: '1604630664'
+}
+ GET /portfolio-v23 500 in 377ms (next.js: 16ms, application-code: 361ms)
+ GET /portfolio-v21 200 in 341ms (next.js: 105ms, application-code: 236ms)
+ GET /portfolio-v23 500 in 340ms (next.js: 155ms, application-code: 185ms)
+ GET /portfolio-v22 200 in 341ms (next.js: 137ms, application-code: 205ms)
+[browser] Uncaught ReferenceError: isLowRes is not defined
+    at <unknown> (components/portfolio-v23/V23WorkGrid.jsx:38:23)
+    at Array.map (<anonymous>)
+    at V23WorkGrid (components/portfolio-v23/V23WorkGrid.jsx:27:22)
+    at PortfolioV23Page (app\portfolio-v23\page.jsx:34:7)
+  36 |                   <span className="v23-im">
+  37 |                     {p.video ? (
+> 38 |                       <video
+     |                       ^
+  39 |                         data-lazy
+  40 |                         data-src={p.video}
+  41 |                         poster={p.hero || p.thumb}
+✓ Compiled in 51ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /portfolio-v22 200 in 152ms (next.js: 74ms, application-code: 78ms)
+ GET /portfolio-v21 200 in 152ms (next.js: 112ms, application-code: 40ms)
+ GET /portfolio-v23 200 in 498ms (next.js: 107ms, application-code: 391ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 5ms, application-code: 186ms)
+✓ Compiled in 233ms
+ GET /portfolio-v22 200 in 867ms (next.js: 307ms, application-code: 560ms)
+ GET /portfolio-v21 200 in 459ms (next.js: 80ms, application-code: 380ms)
+ GET /portfolio-v23 200 in 460ms (next.js: 262ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 462ms (next.js: 217ms, application-code: 245ms)
+ GET /portfolio-v22 200 in 380ms (next.js: 166ms, application-code: 214ms)
+ GET /portfolio-v21 200 in 236ms (next.js: 8ms, application-code: 229ms)
+ GET /portfolio-v23 200 in 235ms (next.js: 31ms, application-code: 204ms)
+ GET /portfolio-v23 200 in 298ms (next.js: 63ms, application-code: 235ms)
+ GET /portfolio-v22 200 in 293ms (next.js: 9ms, application-code: 284ms)
+ GET /portfolio-v22 200 in 242ms (next.js: 9ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 241ms (next.js: 54ms, application-code: 186ms)
+ GET /portfolio-v22 200 in 241ms (next.js: 85ms, application-code: 156ms)
+ GET /portfolio-v21 200 in 130ms (next.js: 5ms, application-code: 125ms)
+ GET /portfolio-v21 200 in 215ms (next.js: 25ms, application-code: 190ms)
+ GET /portfolio-v21 200 in 247ms (next.js: 4ms, application-code: 243ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 53ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 166ms (next.js: 6ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 26ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 36ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 119ms (next.js: 70ms, application-code: 49ms)
+✓ Compiled in 38ms
+ GET /portfolio-v23 200 in 413ms (next.js: 97ms, application-code: 316ms)
+ GET /portfolio-v22 200 in 413ms (next.js: 167ms, application-code: 246ms)
+ GET /portfolio-v21 200 in 414ms (next.js: 221ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 5ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 28ms, application-code: 128ms)
+ GET /portfolio-v22 200 in 156ms (next.js: 58ms, application-code: 97ms)
+ GET /portfolio-v21 200 in 101ms (next.js: 29ms, application-code: 72ms)
+ GET /portfolio-v23 200 in 43ms (next.js: 3ms, application-code: 40ms)
+✓ Compiled in 91ms
+ GET /portfolio-v23 200 in 266ms (next.js: 5ms, application-code: 261ms)
+✓ Compiled in 28ms
+ GET /portfolio-v23 200 in 110ms (next.js: 7ms, application-code: 103ms)
+✓ Compiled in 172ms
+ GET /portfolio-v23 200 in 681ms (next.js: 315ms, application-code: 366ms)
+ GET /portfolio-v22 200 in 685ms (next.js: 118ms, application-code: 567ms)
+ GET /portfolio-v23 200 in 683ms (next.js: 370ms, application-code: 313ms)
+ GET /portfolio-v21 200 in 686ms (next.js: 190ms, application-code: 496ms)
+ GET /portfolio-v23 200 in 263ms (next.js: 13ms, application-code: 250ms)
+ GET /portfolio-v22 200 in 199ms (next.js: 12ms, application-code: 187ms)
+ GET /portfolio-v21 200 in 198ms (next.js: 92ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 197ms (next.js: 131ms, application-code: 66ms)
+✓ Compiled in 33ms
+ GET /portfolio-v23 200 in 194ms (next.js: 6ms, application-code: 189ms)
+✓ Compiled in 43ms
+ GET /portfolio-v22 200 in 394ms (next.js: 319ms, application-code: 75ms)
+ GET /portfolio-v23 200 in 397ms (next.js: 275ms, application-code: 122ms)
+ GET /portfolio-v21 200 in 399ms (next.js: 133ms, application-code: 267ms)
+ GET /portfolio-v23 200 in 48ms (next.js: 4ms, application-code: 45ms)
+✓ Compiled in 32ms
+ GET /portfolio-v23 200 in 289ms (next.js: 98ms, application-code: 191ms)
+ GET /portfolio-v23 200 in 290ms (next.js: 157ms, application-code: 132ms)
+ GET /portfolio-v21 200 in 104ms (next.js: 26ms, application-code: 78ms)
+ GET /portfolio-v22 200 in 101ms (next.js: 65ms, application-code: 36ms)
+✓ Compiled in 32ms
+ GET /portfolio-v23 200 in 298ms (next.js: 223ms, application-code: 76ms)
+ GET /portfolio-v22 200 in 300ms (next.js: 186ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 302ms (next.js: 104ms, application-code: 198ms)
+ GET /portfolio-v21 200 in 54ms (next.js: 15ms, application-code: 39ms)
+ GET /portfolio-v23 200 in 263ms (next.js: 4ms, application-code: 259ms)
+ GET /portfolio-v23 200 in 269ms (next.js: 144ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 496ms (next.js: 8ms, application-code: 488ms)
+ GET /portfolio-v23 200 in 209ms (next.js: 7ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 180ms (next.js: 6ms, application-code: 174ms)
+ GET /portfolio-v23 200 in 250ms (next.js: 5ms, application-code: 244ms)
+ GET /portfolio-v23 200 in 225ms (next.js: 6ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 362ms (next.js: 8ms, application-code: 354ms)
+ GET /portfolio-v23 200 in 369ms (next.js: 90ms, application-code: 279ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 7ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 8ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 5ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 336ms (next.js: 9ms, application-code: 327ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 5ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 327ms (next.js: 8ms, application-code: 318ms)
+ GET /portfolio-v23 200 in 228ms (next.js: 5ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 5ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 14ms, application-code: 167ms)
+ GET /portfolio-v23 200 in 180ms (next.js: 8ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 148ms (next.js: 3ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 232ms (next.js: 6ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 190ms (next.js: 5ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 239ms (next.js: 7ms, application-code: 232ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 5ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 215ms (next.js: 14ms, application-code: 201ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 8ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 6ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 166ms (next.js: 5ms, application-code: 161ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 5ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 7ms, application-code: 156ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 4ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 67ms, application-code: 141ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 7ms, application-code: 186ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 7ms, application-code: 230ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 4ms, application-code: 155ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 7ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 5ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 5ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 6ms, application-code: 201ms)
+ GET /portfolio-v23 200 in 241ms (next.js: 6ms, application-code: 234ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 7ms, application-code: 230ms)
+ GET /portfolio-v23 200 in 254ms (next.js: 5ms, application-code: 249ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 7ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 242ms (next.js: 5ms, application-code: 237ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 8ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 5ms, application-code: 221ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 6ms, application-code: 120ms)
+ GET /portfolio-v23 200 in 288ms (next.js: 7ms, application-code: 281ms)
+ GET /portfolio-v23 200 in 265ms (next.js: 4ms, application-code: 261ms)
+ GET /portfolio-v23 200 in 210ms (next.js: 7ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 5ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 5ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 238ms (next.js: 4ms, application-code: 234ms)
+ GET /portfolio-v23 200 in 113ms (next.js: 3ms, application-code: 110ms)
+ GET /portfolio-v23 200 in 285ms (next.js: 7ms, application-code: 278ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 4ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 314ms (next.js: 10ms, application-code: 304ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 5ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 217ms (next.js: 5ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 6ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 284ms (next.js: 6ms, application-code: 278ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 8ms, application-code: 155ms)
+ GET /portfolio-v23 200 in 479ms (next.js: 32ms, application-code: 448ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 7ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 5ms, application-code: 156ms)
+ GET /portfolio-v23 200 in 98ms (next.js: 4ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 250ms (next.js: 4ms, application-code: 246ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 5ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 332ms (next.js: 18ms, application-code: 314ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 4ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 249ms (next.js: 7ms, application-code: 242ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 5ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 5ms, application-code: 232ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 4ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 260ms (next.js: 10ms, application-code: 250ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 5ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 4ms, application-code: 128ms)
+ GET /portfolio-v23 200 in 323ms (next.js: 12ms, application-code: 312ms)
+ GET /portfolio-v23 200 in 210ms (next.js: 3ms, application-code: 207ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 5ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 249ms (next.js: 4ms, application-code: 244ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 7ms, application-code: 129ms)
+ GET /portfolio-v23 200 in 232ms (next.js: 6ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 98ms (next.js: 6ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 256ms (next.js: 4ms, application-code: 252ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 5ms, application-code: 174ms)
+ GET /portfolio-v23 200 in 235ms (next.js: 9ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 4ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 280ms (next.js: 26ms, application-code: 255ms)
+ GET /portfolio-v23 200 in 194ms (next.js: 6ms, application-code: 188ms)
+ GET /portfolio-v21 200 in 170ms (next.js: 4ms, application-code: 166ms)
+[browser] Invalid scope (components/portfolio-v21/V21Preloader.jsx:204:14)
+[browser] GSAP target null not found. https://gsap.com (components/portfolio-v21/V21Preloader.jsx:204:14)
+ GET /portfolio-v23 200 in 418ms (next.js: 12ms, application-code: 405ms)
+✓ Compiled in 81ms
+ GET /portfolio-v21 200 in 418ms (next.js: 204ms, application-code: 214ms)
+ GET /portfolio-v22 200 in 164ms (next.js: 41ms, application-code: 123ms)
+ GET /portfolio-v21 200 in 163ms (next.js: 134ms, application-code: 30ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 103ms, application-code: 62ms)
+✓ Compiled in 35ms
+ GET /portfolio-v22 200 in 365ms (next.js: 82ms, application-code: 283ms)
+ GET /portfolio-v21 200 in 367ms (next.js: 197ms, application-code: 170ms)
+ GET /portfolio-v21 200 in 138ms (next.js: 5ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 48ms, application-code: 90ms)
+ GET /portfolio-v21 200 in 143ms (next.js: 2ms, application-code: 141ms)
+ GET /portfolio-v21 200 in 436ms (next.js: 16ms, application-code: 420ms)
+ GET /portfolio-v23 200 in 451ms (next.js: 16ms, application-code: 434ms)
+ GET /portfolio-v23 200 in 167ms (next.js: 7ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 85ms, application-code: 87ms)
+ GET /portfolio-v23 200 in 519ms (next.js: 12ms, application-code: 507ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 6ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 337ms (next.js: 10ms, application-code: 326ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 8ms, application-code: 210ms)
+ GET /portfolio-v23 200 in 250ms (next.js: 12ms, application-code: 238ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 5ms, application-code: 202ms)
+ GET /portfolio-v23 200 in 324ms (next.js: 15ms, application-code: 309ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 4ms, application-code: 171ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 5ms, application-code: 221ms)
+ GET /portfolio-v23 200 in 328ms (next.js: 5ms, application-code: 322ms)
+ GET /portfolio-v23 200 in 255ms (next.js: 7ms, application-code: 248ms)
+ GET /portfolio-v23 200 in 315ms (next.js: 8ms, application-code: 308ms)
+ GET /portfolio-v23 200 in 335ms (next.js: 7ms, application-code: 328ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 8ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 278ms (next.js: 8ms, application-code: 270ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 7ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 6ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 5ms, application-code: 182ms)
+ GET /portfolio-v23 200 in 251ms (next.js: 6ms, application-code: 245ms)
+ GET /portfolio-v23 200 in 145ms (next.js: 7ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 6ms, application-code: 231ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 8ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 276ms (next.js: 5ms, application-code: 270ms)
+ GET /portfolio-v23 200 in 172ms (next.js: 9ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 391ms (next.js: 11ms, application-code: 380ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 7ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 411ms (next.js: 35ms, application-code: 376ms)
+ GET /portfolio-v23 200 in 249ms (next.js: 9ms, application-code: 240ms)
+ GET /portfolio-v23 200 in 283ms (next.js: 6ms, application-code: 277ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 8ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 247ms (next.js: 7ms, application-code: 240ms)
+ GET /portfolio-v23 200 in 270ms (next.js: 6ms, application-code: 265ms)
+ GET /portfolio-v23 200 in 386ms (next.js: 6ms, application-code: 380ms)
+ GET /portfolio-v23 200 in 307ms (next.js: 7ms, application-code: 300ms)
+ GET /portfolio-v23 200 in 167ms (next.js: 3ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 286ms (next.js: 9ms, application-code: 277ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 5ms, application-code: 218ms)
+ GET /portfolio-v23 200 in 464ms (next.js: 13ms, application-code: 452ms)
+ GET /portfolio-v23 200 in 189ms (next.js: 6ms, application-code: 184ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 10ms, application-code: 142ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 7ms, application-code: 205ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 6ms, application-code: 239ms)
+ GET /portfolio-v23 200 in 221ms (next.js: 5ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 5ms, application-code: 115ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 4ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 333ms (next.js: 9ms, application-code: 324ms)
+ GET /portfolio-v23 200 in 183ms (next.js: 5ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 308ms (next.js: 14ms, application-code: 294ms)
+ GET /portfolio-v23 200 in 293ms (next.js: 17ms, application-code: 276ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 7ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 6ms, application-code: 209ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 10ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 386ms (next.js: 29ms, application-code: 357ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 5ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 206ms (next.js: 7ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 213ms (next.js: 7ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 315ms (next.js: 9ms, application-code: 305ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 3ms, application-code: 189ms)
+ GET /portfolio-v23 200 in 136ms (next.js: 3ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 144ms (next.js: 5ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 224ms (next.js: 10ms, application-code: 214ms)
+ GET /portfolio-v23 200 in 290ms (next.js: 6ms, application-code: 284ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 5ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 268ms (next.js: 10ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 7ms, application-code: 167ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 7ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 7ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 3ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 7ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 310ms (next.js: 7ms, application-code: 303ms)
+ GET /portfolio-v23 200 in 342ms (next.js: 10ms, application-code: 332ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 9ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 247ms (next.js: 8ms, application-code: 239ms)
+ GET /portfolio-v23 200 in 99ms (next.js: 4ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 116ms (next.js: 4ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 302ms (next.js: 11ms, application-code: 290ms)
+ GET /portfolio-v23 200 in 270ms (next.js: 8ms, application-code: 262ms)
+ GET /portfolio-v23 200 in 282ms (next.js: 16ms, application-code: 266ms)
+ GET /portfolio-v23 200 in 270ms (next.js: 8ms, application-code: 261ms)
+ GET /portfolio-v23 200 in 170ms (next.js: 6ms, application-code: 165ms)
+ GET /portfolio-v23 200 in 326ms (next.js: 8ms, application-code: 318ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 5ms, application-code: 240ms)
+ GET /portfolio-v23 200 in 117ms (next.js: 5ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 272ms (next.js: 11ms, application-code: 262ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 5ms, application-code: 209ms)
+ GET /portfolio-v23 200 in 287ms (next.js: 4ms, application-code: 283ms)
+ GET /portfolio-v23 200 in 199ms (next.js: 5ms, application-code: 195ms)
+ GET /portfolio-v23 200 in 266ms (next.js: 9ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 334ms (next.js: 9ms, application-code: 324ms)
+✓ Compiled in 486ms
+ GET /portfolio-v23 200 in 1285ms (next.js: 942ms, application-code: 343ms)
+ GET /portfolio-v23 200 in 1290ms (next.js: 1059ms, application-code: 232ms)
+ GET /portfolio-v22 200 in 1340ms (next.js: 697ms, application-code: 643ms)
+ GET /portfolio-v21 200 in 1297ms (next.js: 1120ms, application-code: 177ms)
+✓ Compiled in 49ms
+ GET /portfolio-v22 200 in 466ms (next.js: 140ms, application-code: 326ms)
+ GET /portfolio-v21 200 in 240ms (next.js: 29ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 76ms, application-code: 101ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 132ms, application-code: 45ms)
+✓ Compiled in 91ms
+ GET /portfolio-v23 200 in 340ms (next.js: 9ms, application-code: 331ms)
+ GET /portfolio-v23 200 in 233ms (next.js: 7ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 233ms (next.js: 114ms, application-code: 119ms)
+ GET /portfolio-v23 200 in 280ms (next.js: 10ms, application-code: 270ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 5ms, application-code: 168ms)
+ GET /portfolio-v23 200 in 331ms (next.js: 11ms, application-code: 319ms)
+ GET /portfolio-v23 200 in 209ms (next.js: 6ms, application-code: 204ms)
+ GET /portfolio-v23 200 in 230ms (next.js: 6ms, application-code: 224ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 4ms, application-code: 132ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 11ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 213ms (next.js: 10ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 419ms (next.js: 11ms, application-code: 408ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 6ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 254ms (next.js: 9ms, application-code: 245ms)
+ GET /portfolio-v23 200 in 240ms (next.js: 7ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 236ms (next.js: 9ms, application-code: 227ms)
+ GET /portfolio-v23 200 in 314ms (next.js: 6ms, application-code: 308ms)
+ GET /portfolio-v23 200 in 315ms (next.js: 137ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 274ms (next.js: 8ms, application-code: 265ms)
+ GET /portfolio-v23 200 in 265ms (next.js: 6ms, application-code: 259ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 5ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 7ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 356ms (next.js: 14ms, application-code: 342ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 8ms, application-code: 195ms)
+ GET /portfolio-v23 200 in 343ms (next.js: 9ms, application-code: 334ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 9ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 116ms (next.js: 5ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 335ms (next.js: 10ms, application-code: 325ms)
+ GET /portfolio-v23 200 in 268ms (next.js: 8ms, application-code: 261ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 10ms, application-code: 310ms)
+ GET /portfolio-v23 200 in 298ms (next.js: 13ms, application-code: 285ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 8ms, application-code: 210ms)
+ GET /portfolio-v23 200 in 161ms (next.js: 7ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 5ms, application-code: 174ms)
+ GET /portfolio-v23 200 in 276ms (next.js: 4ms, application-code: 272ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 5ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 278ms (next.js: 10ms, application-code: 269ms)
+ GET /portfolio-v23 200 in 197ms (next.js: 4ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 389ms (next.js: 5ms, application-code: 383ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 8ms, application-code: 177ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 6ms, application-code: 261ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 7ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 320ms (next.js: 7ms, application-code: 313ms)
+ GET /portfolio-v23 200 in 411ms (next.js: 7ms, application-code: 405ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 6ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 244ms (next.js: 33ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 5ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 197ms (next.js: 5ms, application-code: 192ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 7ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 7ms, application-code: 192ms)
+ GET /portfolio-v23 200 in 299ms (next.js: 13ms, application-code: 286ms)
+ GET /portfolio-v23 200 in 229ms (next.js: 5ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 292ms (next.js: 6ms, application-code: 286ms)
+ GET /portfolio-v23 200 in 315ms (next.js: 6ms, application-code: 308ms)
+ GET /portfolio-v23 200 in 295ms (next.js: 6ms, application-code: 289ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 9ms, application-code: 184ms)
+ GET /portfolio-v23 200 in 271ms (next.js: 5ms, application-code: 266ms)
+ GET /portfolio-v23 200 in 174ms (next.js: 6ms, application-code: 168ms)
+ GET /portfolio-v23 200 in 256ms (next.js: 6ms, application-code: 250ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 7ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 257ms (next.js: 10ms, application-code: 247ms)
+ GET /portfolio-v23 200 in 144ms (next.js: 4ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 4ms, application-code: 141ms)
+ GET /portfolio-v23 200 in 421ms (next.js: 9ms, application-code: 412ms)
+ GET /portfolio-v23 200 in 282ms (next.js: 5ms, application-code: 276ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 6ms, application-code: 167ms)
+ GET /portfolio-v23 200 in 211ms (next.js: 7ms, application-code: 204ms)
+ GET /portfolio-v23 200 in 252ms (next.js: 7ms, application-code: 245ms)
+ GET /portfolio-v23 200 in 234ms (next.js: 4ms, application-code: 230ms)
+ GET /portfolio-v23 200 in 388ms (next.js: 6ms, application-code: 382ms)
+ GET /portfolio-v23 200 in 251ms (next.js: 12ms, application-code: 239ms)
+ GET /portfolio-v23 200 in 299ms (next.js: 15ms, application-code: 284ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 6ms, application-code: 165ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 27ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 5ms, application-code: 188ms)
+ GET /portfolio-v23 200 in 412ms (next.js: 16ms, application-code: 396ms)
+ GET /portfolio-v23 200 in 225ms (next.js: 8ms, application-code: 218ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 9ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 293ms (next.js: 10ms, application-code: 283ms)
+ GET /portfolio-v23 200 in 239ms (next.js: 6ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 10ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 199ms (next.js: 8ms, application-code: 192ms)
+ GET /portfolio-v23 200 in 328ms (next.js: 11ms, application-code: 317ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 4ms, application-code: 315ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 8ms, application-code: 238ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 8ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 5ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 119ms (next.js: 3ms, application-code: 116ms)
+ GET /portfolio-v23 200 in 318ms (next.js: 6ms, application-code: 312ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 10ms, application-code: 191ms)
+ GET /portfolio-v23 200 in 274ms (next.js: 6ms, application-code: 268ms)
+✓ Compiled in 355ms
+ GET /portfolio-v23 200 in 588ms (next.js: 271ms, application-code: 317ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 5ms, application-code: 240ms)
+ GET /portfolio-v22 200 in 245ms (next.js: 71ms, application-code: 174ms)
+ GET /portfolio-v21 200 in 211ms (next.js: 137ms, application-code: 74ms)
+ GET /portfolio-v23 200 in 378ms (next.js: 6ms, application-code: 372ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 4ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 95ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 608ms (next.js: 10ms, application-code: 598ms)
+ GET /portfolio-v23 200 in 278ms (next.js: 5ms, application-code: 273ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 9ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 7ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 4ms, application-code: 177ms)
+ GET /portfolio-v23 200 in 407ms (next.js: 115ms, application-code: 292ms)
+ GET /portfolio-v23 200 in 292ms (next.js: 6ms, application-code: 286ms)
+ GET /portfolio-v23 200 in 245ms (next.js: 5ms, application-code: 241ms)
+ GET /portfolio-v23 200 in 269ms (next.js: 8ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 446ms (next.js: 8ms, application-code: 437ms)
+ GET /portfolio-v23 200 in 287ms (next.js: 7ms, application-code: 280ms)
+ GET /portfolio-v23 200 in 353ms (next.js: 9ms, application-code: 344ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 8ms, application-code: 238ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 6ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 115ms, application-code: 104ms)
+ GET /portfolio-v23 200 in 269ms (next.js: 11ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 8ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 283ms (next.js: 7ms, application-code: 276ms)
+ GET /portfolio-v23 200 in 296ms (next.js: 35ms, application-code: 262ms)
+ GET /portfolio-v23 200 in 284ms (next.js: 5ms, application-code: 279ms)
+ GET /portfolio-v23 200 in 194ms (next.js: 8ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 247ms (next.js: 17ms, application-code: 231ms)
+ GET /portfolio-v23 200 in 231ms (next.js: 6ms, application-code: 225ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 6ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 288ms (next.js: 8ms, application-code: 281ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 6ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 6ms, application-code: 201ms)
+ GET /portfolio-v23 200 in 301ms (next.js: 8ms, application-code: 293ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 4ms, application-code: 209ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 82ms, application-code: 137ms)
+ GET /portfolio-v23 200 in 394ms (next.js: 10ms, application-code: 384ms)
+ GET /portfolio-v23 200 in 346ms (next.js: 5ms, application-code: 341ms)
+ GET /portfolio-v23 200 in 265ms (next.js: 8ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 7ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 6ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 145ms (next.js: 9ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 5ms, application-code: 241ms)
+ GET /portfolio-v23 200 in 160ms (next.js: 7ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 259ms (next.js: 26ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 221ms (next.js: 9ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 241ms (next.js: 7ms, application-code: 235ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 12ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 433ms (next.js: 14ms, application-code: 419ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 4ms, application-code: 166ms)
+ GET /portfolio-v23 200 in 161ms (next.js: 7ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 410ms (next.js: 7ms, application-code: 403ms)
+ GET /portfolio-v23 200 in 307ms (next.js: 7ms, application-code: 301ms)
+ GET /portfolio-v23 200 in 180ms (next.js: 7ms, application-code: 173ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 6ms, application-code: 255ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 13ms, application-code: 192ms)
+ GET /portfolio-v23 200 in 263ms (next.js: 5ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 287ms (next.js: 9ms, application-code: 278ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 6ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 229ms (next.js: 6ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 191ms (next.js: 4ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 287ms (next.js: 6ms, application-code: 281ms)
+ GET /portfolio-v23 200 in 261ms (next.js: 5ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 8ms, application-code: 229ms)
+ GET /portfolio-v23 200 in 109ms (next.js: 5ms, application-code: 103ms)
+ GET /portfolio-v23 200 in 136ms (next.js: 3ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 252ms (next.js: 9ms, application-code: 243ms)
+ GET /portfolio-v23 200 in 329ms (next.js: 7ms, application-code: 322ms)
+ GET /portfolio-v23 200 in 249ms (next.js: 8ms, application-code: 242ms)
+ GET /portfolio-v23 200 in 301ms (next.js: 7ms, application-code: 294ms)
+ GET /portfolio-v23 200 in 329ms (next.js: 7ms, application-code: 322ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 8ms, application-code: 132ms)
+ GET /portfolio-v23 200 in 266ms (next.js: 6ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 8ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 169ms (next.js: 8ms, application-code: 162ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 10ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 7ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 272ms (next.js: 6ms, application-code: 266ms)
+ GET /portfolio-v23 200 in 279ms (next.js: 9ms, application-code: 270ms)
+ GET /portfolio-v23 200 in 274ms (next.js: 6ms, application-code: 267ms)
+ GET /portfolio-v23 200 in 141ms (next.js: 10ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 400ms (next.js: 15ms, application-code: 385ms)
+ GET /portfolio-v23 200 in 302ms (next.js: 5ms, application-code: 297ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 3ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 320ms (next.js: 10ms, application-code: 310ms)
+ GET /portfolio-v23 200 in 228ms (next.js: 5ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 248ms (next.js: 4ms, application-code: 245ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 7ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 8ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 189ms (next.js: 10ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 8ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 5ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 243ms (next.js: 7ms, application-code: 236ms)
+ GET /portfolio-v23 200 in 320ms (next.js: 8ms, application-code: 311ms)
+ GET /portfolio-v23 200 in 389ms (next.js: 16ms, application-code: 373ms)
+✓ Compiled in 351ms
+ GET /portfolio-v21 200 in 781ms (next.js: 229ms, application-code: 552ms)
+ GET /portfolio-v23 200 in 452ms (next.js: 297ms, application-code: 155ms)
+ GET /portfolio-v23 200 in 453ms (next.js: 371ms, application-code: 82ms)
+ GET /portfolio-v22 200 in 457ms (next.js: 54ms, application-code: 403ms)
+✓ Compiled in 46ms
+ GET /portfolio-v23 200 in 231ms (next.js: 84ms, application-code: 147ms)
+ GET /portfolio-v22 200 in 105ms (next.js: 15ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 105ms (next.js: 36ms, application-code: 70ms)
+ GET /portfolio-v21 200 in 105ms (next.js: 75ms, application-code: 31ms)
+ GET /portfolio-v23 200 in 217ms (next.js: 7ms, application-code: 210ms)
+ GET /portfolio-v23 200 in 834ms (next.js: 11ms, application-code: 824ms)
+ GET /portfolio-v23 200 in 839ms (next.js: 221ms, application-code: 618ms)
+ GET /portfolio-v23 200 in 1850ms (next.js: 162ms, application-code: 1688ms)
+ GET /portfolio-v23 200 in 1895ms (next.js: 848ms, application-code: 1047ms)
+ GET /portfolio-v23 200 in 952ms (next.js: 130ms, application-code: 822ms)
+ GET /portfolio-v23 200 in 539ms (next.js: 38ms, application-code: 502ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 12ms, application-code: 306ms)
+ GET /portfolio-v23 200 in 1094ms (next.js: 28ms, application-code: 1066ms)
+ GET /portfolio-v23 200 in 665ms (next.js: 44ms, application-code: 621ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 14ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 101ms (next.js: 7ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 5ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 158ms (next.js: 7ms, application-code: 152ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 3ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 628ms (next.js: 21ms, application-code: 606ms)
+ GET /portfolio-v23 200 in 566ms (next.js: 21ms, application-code: 545ms)
+ GET /portfolio-v23 200 in 561ms (next.js: 98ms, application-code: 463ms)
+ GET /portfolio-v23 200 in 1331ms (next.js: 46ms, application-code: 1285ms)
+ GET /portfolio-v23 200 in 1345ms (next.js: 291ms, application-code: 1054ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 7ms, application-code: 205ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 5ms, application-code: 120ms)
+ GET /portfolio-v23 200 in 292ms (next.js: 7ms, application-code: 284ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 7ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 6ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 5ms, application-code: 89ms)
+ GET /portfolio-v23 200 in 82ms (next.js: 5ms, application-code: 77ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 11ms, application-code: 120ms)
+ GET /portfolio-v23 200 in 155ms (next.js: 6ms, application-code: 149ms)
+ GET /portfolio-v23 200 in 194ms (next.js: 58ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 7ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 113ms (next.js: 5ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 8ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 3ms, application-code: 127ms)
+ GET /portfolio-v23 200 in 170ms (next.js: 7ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 7ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 6ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 98ms (next.js: 7ms, application-code: 91ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 4ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 103ms (next.js: 4ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 102ms (next.js: 6ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 4ms, application-code: 184ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 13ms, application-code: 150ms)
+ GET /portfolio-v23 200 in 144ms (next.js: 4ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 356ms (next.js: 14ms, application-code: 342ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 14ms, application-code: 188ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 7ms, application-code: 93ms)
+ GET /portfolio-v23 200 in 158ms (next.js: 6ms, application-code: 152ms)
+ GET /portfolio-v23 200 in 126ms (next.js: 3ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 329ms (next.js: 9ms, application-code: 320ms)
+ GET /portfolio-v23 200 in 157ms (next.js: 3ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 7ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 108ms (next.js: 3ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 6ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 183ms (next.js: 8ms, application-code: 175ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 6ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 6ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 8ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 5ms, application-code: 142ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 16ms, application-code: 230ms)
+ GET /portfolio-v23 200 in 275ms (next.js: 6ms, application-code: 269ms)
+ GET /portfolio-v23 200 in 236ms (next.js: 5ms, application-code: 231ms)
+ GET /portfolio-v23 200 in 145ms (next.js: 7ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 111ms (next.js: 5ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 4ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 4ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 304ms (next.js: 8ms, application-code: 296ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 4ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 279ms (next.js: 8ms, application-code: 272ms)
+ GET /portfolio-v23 200 in 127ms (next.js: 8ms, application-code: 119ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 8ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 102ms (next.js: 7ms, application-code: 95ms)
+ GET /portfolio-v23 200 in 277ms (next.js: 8ms, application-code: 268ms)
+ GET /portfolio-v23 200 in 166ms (next.js: 5ms, application-code: 161ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 7ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 148ms (next.js: 8ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 80ms (next.js: 3ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 79ms (next.js: 2ms, application-code: 77ms)
+ GET /portfolio-v23 200 in 124ms (next.js: 6ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 113ms (next.js: 6ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 113ms (next.js: 5ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 206ms (next.js: 9ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 4ms, application-code: 91ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 5ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 4ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 7ms, application-code: 115ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 4ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 7ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 4ms, application-code: 183ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 5ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 7ms, application-code: 113ms)
+ GET /portfolio-v21 200 in 166ms (next.js: 8ms, application-code: 158ms)
+ GET /portfolio-v21 200 in 161ms (next.js: 3ms, application-code: 158ms)
+ GET /portfolio-v21 200 in 85ms (next.js: 2ms, application-code: 83ms)
+✓ Compiled in 161ms
+ GET /portfolio-v21 200 in 349ms (next.js: 135ms, application-code: 214ms)
+ GET /portfolio-v21 200 in 181ms (next.js: 2ms, application-code: 179ms)
+ GET /portfolio-v22 200 in 181ms (next.js: 42ms, application-code: 139ms)
+ GET /portfolio-v23 200 in 182ms (next.js: 148ms, application-code: 34ms)
+✓ Compiled in 235ms
+ GET /portfolio-v21 200 in 311ms (next.js: 83ms, application-code: 229ms)
+ GET /portfolio-v22 200 in 312ms (next.js: 142ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 25ms, application-code: 121ms)
+ GET /portfolio-v21 200 in 146ms (next.js: 119ms, application-code: 26ms)
+ GET /portfolio-v21 200 in 173ms (next.js: 3ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 403ms (next.js: 5ms, application-code: 398ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 4ms, application-code: 195ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 4ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 240ms (next.js: 21ms, application-code: 218ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 25ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 15ms, application-code: 147ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 9ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 4ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 2ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 6ms, application-code: 196ms)
+ GET /portfolio-v23 200 in 101ms (next.js: 3ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 97ms (next.js: 10ms, application-code: 87ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 4ms, application-code: 149ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 9ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 82ms (next.js: 4ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 85ms (next.js: 4ms, application-code: 81ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 4ms, application-code: 82ms)
+ GET /portfolio-v23 200 in 108ms (next.js: 2ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 6ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 85ms (next.js: 7ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 69ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 6ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 111ms (next.js: 5ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 84ms (next.js: 3ms, application-code: 80ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 3ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 8ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 7ms, application-code: 109ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 5ms, application-code: 168ms)
+ GET /portfolio-v23 200 in 105ms (next.js: 3ms, application-code: 102ms)
+ GET /portfolio-v23 200 in 141ms (next.js: 5ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 87ms (next.js: 3ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 69ms (next.js: 3ms, application-code: 66ms)
+ GET /portfolio-v23 200 in 160ms (next.js: 3ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 5ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 3ms, application-code: 139ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 5ms, application-code: 147ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 3ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 392ms (next.js: 16ms, application-code: 376ms)
+ GET /portfolio-v23 200 in 77ms (next.js: 2ms, application-code: 74ms)
+ GET /portfolio-v23 200 in 124ms (next.js: 8ms, application-code: 115ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 3ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 56ms, application-code: 97ms)
+ GET /portfolio-v23 200 in 285ms (next.js: 11ms, application-code: 274ms)
+ GET /portfolio-v23 200 in 116ms (next.js: 4ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 8ms, application-code: 211ms)
+ GET /portfolio-v23 200 in 233ms (next.js: 7ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 4ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 4ms, application-code: 117ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 5ms, application-code: 116ms)
+ GET /portfolio-v23 200 in 126ms (next.js: 3ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 368ms (next.js: 9ms, application-code: 359ms)
+ GET /portfolio-v23 200 in 136ms (next.js: 6ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 6ms, application-code: 132ms)
+ GET /portfolio-v23 200 in 148ms (next.js: 4ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 110ms (next.js: 4ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 240ms (next.js: 8ms, application-code: 232ms)
+ GET /portfolio-v23 200 in 91ms (next.js: 5ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 4ms, application-code: 214ms)
+ GET /portfolio-v23 200 in 189ms (next.js: 9ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 224ms (next.js: 4ms, application-code: 220ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 3ms, application-code: 137ms)
+ GET /portfolio-v23 200 in 78ms (next.js: 3ms, application-code: 75ms)
+ GET /portfolio-v23 200 in 83ms (next.js: 2ms, application-code: 80ms)
+ GET /portfolio-v23 200 in 93ms (next.js: 4ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 78ms (next.js: 5ms, application-code: 73ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 4ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 116ms (next.js: 4ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 11ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 3ms, application-code: 97ms)
+ GET /portfolio-v23 200 in 182ms (next.js: 5ms, application-code: 176ms)
+ GET /portfolio-v23 200 in 127ms (next.js: 3ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 15ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 4ms, application-code: 91ms)
+ GET /portfolio-v23 200 in 228ms (next.js: 19ms, application-code: 209ms)
+ GET /portfolio-v23 200 in 89ms (next.js: 6ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 5ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 157ms (next.js: 2ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 6ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 99ms (next.js: 7ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 155ms (next.js: 3ms, application-code: 152ms)
+ GET /portfolio-v23 200 in 80ms (next.js: 4ms, application-code: 77ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 10ms, application-code: 190ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 4ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 182ms (next.js: 7ms, application-code: 176ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 2ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 332ms (next.js: 7ms, application-code: 325ms)
+ GET /portfolio-v23 200 in 87ms (next.js: 4ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 80ms (next.js: 4ms, application-code: 76ms)
+ GET /portfolio-v23 200 in 79ms (next.js: 6ms, application-code: 73ms)
+ GET /portfolio-v23 200 in 96ms (next.js: 3ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 8ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 11ms, application-code: 203ms)
+ GET /portfolio-v22 200 in 283ms (next.js: 18ms, application-code: 265ms)
+ GET /portfolio-v21 200 in 254ms (next.js: 16ms, application-code: 239ms)
+✓ Compiled in 484ms
+ GET /portfolio-v21 200 in 1087ms (next.js: 384ms, application-code: 703ms)
+ GET /portfolio-v22 200 in 557ms (next.js: 84ms, application-code: 473ms)
+ GET /portfolio-v23 200 in 399ms (next.js: 268ms, application-code: 131ms)
+✓ Compiled in 40ms
+ GET /portfolio-v21 200 in 215ms (next.js: 189ms, application-code: 26ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 84ms, application-code: 133ms)
+ GET /portfolio-v22 200 in 217ms (next.js: 145ms, application-code: 72ms)
+✓ Compiled in 75ms
+ GET /portfolio-v23 200 in 629ms (next.js: 4ms, application-code: 625ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 67ms, application-code: 67ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 3ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 7ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 3ms, application-code: 316ms)
+ GET /portfolio-v23 200 in 158ms (next.js: 9ms, application-code: 149ms)
+ GET /portfolio-v23 200 in 105ms (next.js: 4ms, application-code: 101ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 8ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 7ms, application-code: 149ms)
+ GET /portfolio-v23 200 in 112ms (next.js: 8ms, application-code: 104ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 4ms, application-code: 191ms)
+ GET /portfolio-v23 200 in 243ms (next.js: 3ms, application-code: 240ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 4ms, application-code: 175ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 8ms, application-code: 127ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 6ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 127ms (next.js: 4ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 169ms (next.js: 6ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 93ms (next.js: 5ms, application-code: 88ms)
+ GET /portfolio-v23 200 in 175ms (next.js: 5ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 5ms, application-code: 175ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 4ms, application-code: 100ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 8ms, application-code: 115ms)
+ GET /portfolio-v23 200 in 99ms (next.js: 5ms, application-code: 95ms)
+ GET /portfolio-v23 200 in 334ms (next.js: 10ms, application-code: 324ms)
+ GET /portfolio-v23 200 in 221ms (next.js: 4ms, application-code: 217ms)
+ GET /portfolio-v23 200 in 105ms (next.js: 7ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 103ms (next.js: 4ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 168ms (next.js: 4ms, application-code: 164ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 3ms, application-code: 117ms)
+ GET /portfolio-v23 200 in 316ms (next.js: 5ms, application-code: 311ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 9ms, application-code: 186ms)
+ GET /portfolio-v23 200 in 67ms (next.js: 3ms, application-code: 64ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 3ms, application-code: 142ms)
+ GET /portfolio-v23 200 in 655ms (next.js: 10ms, application-code: 645ms)
+ GET /portfolio-v23 200 in 457ms (next.js: 11ms, application-code: 447ms)
+ GET /portfolio-v23 200 in 788ms (next.js: 21ms, application-code: 767ms)
+ GET /portfolio-v23 200 in 545ms (next.js: 14ms, application-code: 531ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 11ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 8ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 4ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 199ms (next.js: 5ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 124ms (next.js: 6ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 106ms (next.js: 6ms, application-code: 100ms)
+ GET /portfolio-v23 200 in 128ms (next.js: 4ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 8ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 172ms (next.js: 5ms, application-code: 167ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 4ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 3ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 6ms, application-code: 119ms)
+ GET /portfolio-v23 200 in 327ms (next.js: 10ms, application-code: 317ms)
+ GET /portfolio-v23 200 in 111ms (next.js: 6ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 6ms, application-code: 155ms)
+ GET /portfolio-v23 200 in 147ms (next.js: 3ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 221ms (next.js: 9ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 6ms, application-code: 129ms)
+ GET /portfolio-v23 200 in 263ms (next.js: 5ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 102ms (next.js: 4ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 7ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 145ms (next.js: 5ms, application-code: 139ms)
+ GET /portfolio-v23 200 in 113ms (next.js: 4ms, application-code: 109ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 5ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 4ms, application-code: 77ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 3ms, application-code: 85ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 6ms, application-code: 156ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 9ms, application-code: 253ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 13ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 122ms (next.js: 9ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 5ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 128ms (next.js: 8ms, application-code: 120ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 6ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 111ms (next.js: 4ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 235ms (next.js: 7ms, application-code: 228ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 4ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 252ms (next.js: 10ms, application-code: 242ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 3ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 226ms (next.js: 5ms, application-code: 221ms)
+ GET /portfolio-v23 200 in 72ms (next.js: 3ms, application-code: 68ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 3ms, application-code: 87ms)
+ GET /portfolio-v23 200 in 168ms (next.js: 7ms, application-code: 162ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 7ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 8ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 96ms (next.js: 3ms, application-code: 93ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 8ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 7ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 83ms (next.js: 3ms, application-code: 80ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 6ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 117ms (next.js: 6ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 9ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 7ms, application-code: 186ms)
+ GET /portfolio-v23 200 in 147ms (next.js: 16ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 7ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 189ms (next.js: 8ms, application-code: 181ms)
+✓ Compiled in 138ms
+ GET /portfolio-v23 200 in 269ms (next.js: 139ms, application-code: 129ms)
+ GET /portfolio-v22 200 in 99ms (next.js: 26ms, application-code: 73ms)
+ GET /portfolio-v21 200 in 99ms (next.js: 73ms, application-code: 26ms)
+✓ Compiled in 37ms
+ GET /portfolio-v23 200 in 209ms (next.js: 77ms, application-code: 132ms)
+ GET /portfolio-v22 200 in 210ms (next.js: 138ms, application-code: 72ms)
+ GET /portfolio-v21 200 in 210ms (next.js: 174ms, application-code: 36ms)
+✓ Compiled in 67ms
+✓ Compiled in 37ms
+✓ Compiled in 33ms
+ GET /portfolio-v23 200 in 184ms (next.js: 3ms, application-code: 182ms)
+✓ Compiled in 43ms
+✓ Compiled in 44ms
+ GET /portfolio-v23 200 in 133ms (next.js: 3ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 30ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 390ms (next.js: 22ms, application-code: 368ms)
+ GET /portfolio-v23 200 in 143ms (next.js: 7ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 8ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 3ms, application-code: 101ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 6ms, application-code: 183ms)
+ GET /portfolio-v23 200 in 270ms (next.js: 5ms, application-code: 265ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 7ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 6ms, application-code: 157ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 3ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 348ms (next.js: 11ms, application-code: 337ms)
+ GET /portfolio-v23 200 in 102ms (next.js: 3ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 213ms (next.js: 8ms, application-code: 205ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 5ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 106ms (next.js: 4ms, application-code: 101ms)
+ GET /portfolio-v23 200 in 284ms (next.js: 6ms, application-code: 278ms)
+ GET /portfolio-v23 200 in 402ms (next.js: 5ms, application-code: 397ms)
+ GET /portfolio-v23 200 in 79ms (next.js: 7ms, application-code: 72ms)
+ GET /portfolio-v23 200 in 189ms (next.js: 8ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 107ms (next.js: 7ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 154ms (next.js: 3ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 4ms, application-code: 204ms)
+ GET /portfolio-v23 200 in 116ms (next.js: 3ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 3ms, application-code: 162ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 3ms, application-code: 97ms)
+ GET /portfolio-v23 200 in 91ms (next.js: 8ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 118ms (next.js: 4ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 5ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 4ms, application-code: 91ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 8ms, application-code: 73ms)
+ GET /portfolio-v23 200 in 267ms (next.js: 7ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 7ms, application-code: 79ms)
+ GET /portfolio-v23 200 in 117ms (next.js: 5ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 119ms (next.js: 6ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 4ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 236ms (next.js: 4ms, application-code: 232ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 9ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 146ms (next.js: 3ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 106ms (next.js: 7ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 4ms, application-code: 82ms)
+ GET /portfolio-v23 200 in 191ms (next.js: 6ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 6ms, application-code: 110ms)
+ GET /portfolio-v23 200 in 111ms (next.js: 3ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 8ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 3ms, application-code: 85ms)
+ GET /portfolio-v23 200 in 93ms (next.js: 3ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 107ms (next.js: 3ms, application-code: 104ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 6ms, application-code: 195ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 4ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 249ms (next.js: 8ms, application-code: 241ms)
+ GET /portfolio-v23 200 in 147ms (next.js: 7ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 327ms (next.js: 9ms, application-code: 318ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 4ms, application-code: 116ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 8ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 3ms, application-code: 139ms)
+ GET /portfolio-v23 200 in 190ms (next.js: 4ms, application-code: 186ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 6ms, application-code: 147ms)
+ GET /portfolio-v23 200 in 405ms (next.js: 7ms, application-code: 398ms)
+ GET /portfolio-v23 200 in 332ms (next.js: 10ms, application-code: 323ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 5ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 2ms, application-code: 119ms)
+ GET /portfolio-v23 200 in 157ms (next.js: 6ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 4ms, application-code: 147ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 9ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 4ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 5ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 148ms (next.js: 4ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 12ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 4ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 6ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 6ms, application-code: 158ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 6ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 3ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 224ms (next.js: 11ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 83ms (next.js: 3ms, application-code: 80ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 3ms, application-code: 110ms)
+ GET /portfolio-v23 200 in 143ms (next.js: 6ms, application-code: 137ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 12ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 154ms (next.js: 3ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 423ms (next.js: 8ms, application-code: 414ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 3ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 278ms (next.js: 7ms, application-code: 272ms)
+ GET /portfolio-v23 200 in 176ms (next.js: 6ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 8ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 240ms (next.js: 7ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 4ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 8ms, application-code: 183ms)
+ GET /portfolio-v23 200 in 187ms (next.js: 7ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 151ms (next.js: 5ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 219ms (next.js: 6ms, application-code: 214ms)
+✓ Compiled in 103ms
+ GET /portfolio-v21 200 in 307ms (next.js: 124ms, application-code: 183ms)
+ GET /portfolio-v22 200 in 149ms (next.js: 25ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 118ms, application-code: 32ms)
+✓ Compiled in 39ms
+ GET /portfolio-v23 200 in 182ms (next.js: 72ms, application-code: 110ms)
+ GET /portfolio-v22 200 in 75ms (next.js: 16ms, application-code: 59ms)
+ GET /portfolio-v21 200 in 74ms (next.js: 46ms, application-code: 29ms)
+✓ Compiled in 36ms
+✓ Compiled in 36ms
+✓ Compiled in 30ms
+ GET /portfolio-v23 200 in 604ms (next.js: 11ms, application-code: 592ms)
+ GET /portfolio-v23 200 in 128ms (next.js: 4ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 128ms (next.js: 61ms, application-code: 67ms)
+ GET /portfolio-v23 200 in 168ms (next.js: 7ms, application-code: 161ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 9ms, application-code: 253ms)
+ GET /portfolio-v23 200 in 230ms (next.js: 9ms, application-code: 221ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 4ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 93ms (next.js: 5ms, application-code: 89ms)
+ GET /portfolio-v23 200 in 75ms (next.js: 4ms, application-code: 71ms)
+ GET /portfolio-v23 200 in 266ms (next.js: 4ms, application-code: 262ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 4ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 3ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 3ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 264ms (next.js: 7ms, application-code: 258ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 8ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 7ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 6ms, application-code: 81ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 5ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 110ms (next.js: 4ms, application-code: 106ms)
+ GET /portfolio-v23 200 in 136ms (next.js: 10ms, application-code: 126ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 4ms, application-code: 92ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 3ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 4ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 245ms (next.js: 6ms, application-code: 239ms)
+ GET /portfolio-v23 200 in 108ms (next.js: 3ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 5ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 3ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 9ms, application-code: 112ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 6ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 182ms (next.js: 9ms, application-code: 173ms)
+ GET /portfolio-v23 200 in 101ms (next.js: 4ms, application-code: 97ms)
+ GET /portfolio-v23 200 in 89ms (next.js: 4ms, application-code: 85ms)
+ GET /portfolio-v23 200 in 191ms (next.js: 3ms, application-code: 189ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 4ms, application-code: 77ms)
+ GET /portfolio-v23 200 in 109ms (next.js: 5ms, application-code: 104ms)
+ GET /portfolio-v23 200 in 117ms (next.js: 3ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 91ms (next.js: 4ms, application-code: 88ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 3ms, application-code: 126ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 16ms, application-code: 177ms)
+ GET /portfolio-v23 200 in 96ms (next.js: 6ms, application-code: 89ms)
+ GET /portfolio-v23 200 in 103ms (next.js: 3ms, application-code: 101ms)
+ GET /portfolio-v23 200 in 164ms (next.js: 4ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 83ms (next.js: 2ms, application-code: 81ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 6ms, application-code: 84ms)
+ GET /portfolio-v23 200 in 109ms (next.js: 4ms, application-code: 105ms)
+ GET /portfolio-v23 200 in 87ms (next.js: 7ms, application-code: 81ms)
+ GET /portfolio-v23 200 in 112ms (next.js: 5ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 92ms (next.js: 4ms, application-code: 88ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 5ms, application-code: 89ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 3ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 3ms, application-code: 122ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 7ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 92ms (next.js: 4ms, application-code: 88ms)
+ GET /portfolio-v23 200 in 364ms (next.js: 11ms, application-code: 353ms)
+ GET /portfolio-v23 200 in 92ms (next.js: 6ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 8ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 78ms (next.js: 4ms, application-code: 75ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 5ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 96ms (next.js: 7ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 271ms (next.js: 8ms, application-code: 263ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 7ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 72ms (next.js: 4ms, application-code: 68ms)
+ GET /portfolio-v23 200 in 81ms (next.js: 3ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 122ms (next.js: 5ms, application-code: 117ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 5ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 85ms (next.js: 4ms, application-code: 81ms)
+ GET /portfolio-v23 200 in 176ms (next.js: 9ms, application-code: 167ms)
+ GET /portfolio-v23 200 in 77ms (next.js: 3ms, application-code: 74ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 9ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 3ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 5ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 107ms (next.js: 3ms, application-code: 104ms)
+ GET /portfolio-v23 200 in 425ms (next.js: 9ms, application-code: 416ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 4ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 397ms (next.js: 175ms, application-code: 222ms)
+ GET /portfolio-v23 200 in 269ms (next.js: 5ms, application-code: 264ms)
+ GET /portfolio-v23 200 in 84ms (next.js: 6ms, application-code: 78ms)
+ GET /portfolio-v23 200 in 97ms (next.js: 3ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 105ms (next.js: 3ms, application-code: 102ms)
+ GET /portfolio-v23 200 in 161ms (next.js: 4ms, application-code: 156ms)
+ GET /portfolio-v23 200 in 253ms (next.js: 7ms, application-code: 246ms)
+ GET /portfolio-v23 200 in 99ms (next.js: 3ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 8ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 144ms (next.js: 4ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 4ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 121ms (next.js: 7ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 202ms (next.js: 18ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 106ms (next.js: 3ms, application-code: 103ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 6ms, application-code: 231ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 3ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 7ms, application-code: 127ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 4ms, application-code: 208ms)
+✓ Compiled in 64ms
+✓ Compiled in 85ms
+ GET /portfolio-v23 200 in 271ms (next.js: 143ms, application-code: 127ms)
+ GET /portfolio-v22 200 in 95ms (next.js: 28ms, application-code: 67ms)
+ GET /portfolio-v21 200 in 95ms (next.js: 72ms, application-code: 23ms)
+✓ Compiled in 44ms
+ GET /portfolio-v23 200 in 259ms (next.js: 5ms, application-code: 255ms)
+ GET /portfolio-v23 200 in 138ms (next.js: 4ms, application-code: 134ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 67ms, application-code: 75ms)
+ GET /portfolio-v23 200 in 318ms (next.js: 22ms, application-code: 296ms)
+ GET /portfolio-v23 200 in 153ms (next.js: 13ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 147ms (next.js: 4ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 155ms (next.js: 7ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 127ms (next.js: 5ms, application-code: 122ms)
+ GET /portfolio-v23 200 in 160ms (next.js: 10ms, application-code: 150ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 4ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 196ms (next.js: 6ms, application-code: 190ms)
+ GET /portfolio-v23 200 in 82ms (next.js: 6ms, application-code: 76ms)
+ GET /portfolio-v23 200 in 183ms (next.js: 4ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 64ms, application-code: 122ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 3ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 118ms (next.js: 4ms, application-code: 114ms)
+ GET /portfolio-v23 200 in 97ms (next.js: 3ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 95ms (next.js: 5ms, application-code: 90ms)
+ GET /portfolio-v23 200 in 364ms (next.js: 6ms, application-code: 358ms)
+ GET /portfolio-v23 200 in 101ms (next.js: 5ms, application-code: 96ms)
+ GET /portfolio-v23 200 in 132ms (next.js: 5ms, application-code: 127ms)
+ GET /portfolio-v23 200 in 90ms (next.js: 4ms, application-code: 87ms)
+ GET /portfolio-v23 200 in 310ms (next.js: 13ms, application-code: 297ms)
+ GET /portfolio-v23 200 in 110ms (next.js: 3ms, application-code: 107ms)
+ GET /portfolio-v23 200 in 125ms (next.js: 4ms, application-code: 121ms)
+ GET /portfolio-v23 200 in 79ms (next.js: 3ms, application-code: 76ms)
+ GET /portfolio-v23 200 in 176ms (next.js: 4ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 96ms (next.js: 3ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 79ms (next.js: 4ms, application-code: 74ms)
+ GET /portfolio-v23 200 in 209ms (next.js: 10ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 349ms (next.js: 8ms, application-code: 341ms)
+ GET /portfolio-v23 200 in 98ms (next.js: 3ms, application-code: 95ms)
+ GET /portfolio-v23 200 in 106ms (next.js: 4ms, application-code: 102ms)
+ GET /portfolio-v23 200 in 118ms (next.js: 7ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 120ms (next.js: 4ms, application-code: 116ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 5ms, application-code: 130ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 3ms, application-code: 126ms)
+ GET /portfolio-v23 200 in 231ms (next.js: 9ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 261ms (next.js: 5ms, application-code: 257ms)
+ GET /portfolio-v23 200 in 197ms (next.js: 8ms, application-code: 188ms)
+ GET /portfolio-v23 200 in 183ms (next.js: 4ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 14ms, application-code: 165ms)
+ GET /portfolio-v23 200 in 236ms (next.js: 8ms, application-code: 229ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 8ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 229ms (next.js: 7ms, application-code: 221ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 3ms, application-code: 136ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 5ms, application-code: 94ms)
+ GET /portfolio-v23 200 in 139ms (next.js: 2ms, application-code: 137ms)
+ GET /portfolio-v23 200 in 143ms (next.js: 5ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 3ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 4ms, application-code: 175ms)
+ GET /portfolio-v23 200 in 183ms (next.js: 7ms, application-code: 176ms)
+ GET /portfolio-v23 200 in 283ms (next.js: 3ms, application-code: 280ms)
+ GET /portfolio-v23 200 in 230ms (next.js: 6ms, application-code: 224ms)
+ GET /portfolio-v23 200 in 157ms (next.js: 6ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 141ms (next.js: 8ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 115ms (next.js: 4ms, application-code: 111ms)
+ GET /portfolio-v23 200 in 130ms (next.js: 5ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 5ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 154ms (next.js: 5ms, application-code: 148ms)
+ GET /portfolio-v23 200 in 142ms (next.js: 4ms, application-code: 139ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 3ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 88ms (next.js: 2ms, application-code: 86ms)
+ GET /portfolio-v23 200 in 205ms (next.js: 8ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 136ms (next.js: 3ms, application-code: 133ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 10ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 293ms (next.js: 3ms, application-code: 290ms)
+ GET /portfolio-v23 200 in 86ms (next.js: 3ms, application-code: 83ms)
+ GET /portfolio-v23 200 in 180ms (next.js: 4ms, application-code: 176ms)
+ GET /portfolio-v23 200 in 103ms (next.js: 3ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 152ms (next.js: 6ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 147ms (next.js: 7ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 6ms, application-code: 123ms)
+ GET /portfolio-v23 200 in 239ms (next.js: 15ms, application-code: 224ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 4ms, application-code: 182ms)
+ GET /portfolio-v23 200 in 150ms (next.js: 12ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 98ms (next.js: 26ms, application-code: 72ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 7ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 4ms, application-code: 100ms)
+ GET /portfolio-v23 200 in 295ms (next.js: 6ms, application-code: 288ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 7ms, application-code: 142ms)
+ GET /portfolio-v23 200 in 94ms (next.js: 3ms, application-code: 91ms)
+ GET /portfolio-v23 200 in 141ms (next.js: 3ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 214ms (next.js: 8ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 117ms (next.js: 4ms, application-code: 113ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 7ms, application-code: 171ms)
+ GET /portfolio-v23 200 in 201ms (next.js: 4ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 298ms (next.js: 17ms, application-code: 281ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 5ms, application-code: 117ms)
+ GET /portfolio-v23 200 in 143ms (next.js: 5ms, application-code: 138ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 11ms, application-code: 183ms)
+ GET /portfolio-v23 200 in 243ms (next.js: 7ms, application-code: 237ms)
+✓ Compiled in 226ms
+ GET /portfolio-v23 200 in 313ms (next.js: 150ms, application-code: 163ms)
+ GET /portfolio-v22 200 in 119ms (next.js: 28ms, application-code: 91ms)
+ GET /portfolio-v21 200 in 120ms (next.js: 81ms, application-code: 38ms)
+ GET /portfolio-v23 200 in 407ms (next.js: 6ms, application-code: 401ms)
+ GET /portfolio-v23 200 in 381ms (next.js: 18ms, application-code: 363ms)
+✓ Compiled in 153ms
+ GET /portfolio-v22 200 in 673ms (next.js: 189ms, application-code: 484ms)
+ GET /portfolio-v21 200 in 426ms (next.js: 63ms, application-code: 362ms)
+ GET /portfolio-v23 200 in 424ms (next.js: 280ms, application-code: 144ms)
+ GET /portfolio-v23 200 in 297ms (next.js: 240ms, application-code: 57ms)
+ GET /portfolio-v23 200 in 361ms (next.js: 5ms, application-code: 356ms)
+ GET /portfolio-v23 200 in 361ms (next.js: 252ms, application-code: 109ms)
+ GET /portfolio-v23 200 in 510ms (next.js: 26ms, application-code: 484ms)
+ GET /portfolio-v23 200 in 268ms (next.js: 12ms, application-code: 256ms)
+ GET /portfolio-v23 200 in 207ms (next.js: 7ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 332ms (next.js: 8ms, application-code: 324ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 9ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 250ms (next.js: 13ms, application-code: 238ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 8ms, application-code: 184ms)
+ GET /portfolio-v23 200 in 229ms (next.js: 4ms, application-code: 225ms)
+ GET /portfolio-v23 200 in 400ms (next.js: 6ms, application-code: 393ms)
+ GET /portfolio-v23 200 in 144ms (next.js: 4ms, application-code: 140ms)
+ GET /portfolio-v23 200 in 279ms (next.js: 10ms, application-code: 269ms)
+ GET /portfolio-v23 200 in 137ms (next.js: 7ms, application-code: 131ms)
+ GET /portfolio-v23 200 in 206ms (next.js: 7ms, application-code: 199ms)
+ GET /portfolio-v23 200 in 104ms (next.js: 5ms, application-code: 99ms)
+ GET /portfolio-v23 200 in 228ms (next.js: 3ms, application-code: 225ms)
+ GET /portfolio-v23 200 in 431ms (next.js: 8ms, application-code: 423ms)
+ GET /portfolio-v23 200 in 162ms (next.js: 9ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 227ms (next.js: 5ms, application-code: 223ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 7ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 513ms (next.js: 15ms, application-code: 498ms)
+ GET /portfolio-v23 200 in 188ms (next.js: 8ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 157ms (next.js: 8ms, application-code: 149ms)
+ GET /portfolio-v23 200 in 257ms (next.js: 7ms, application-code: 250ms)
+ GET /portfolio-v23 200 in 204ms (next.js: 7ms, application-code: 197ms)
+ GET /portfolio-v23 200 in 192ms (next.js: 7ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 241ms (next.js: 9ms, application-code: 232ms)
+ GET /portfolio-v23 200 in 227ms (next.js: 7ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 8ms, application-code: 215ms)
+ GET /portfolio-v23 200 in 158ms (next.js: 5ms, application-code: 153ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 9ms, application-code: 176ms)
+ GET /portfolio-v23 200 in 140ms (next.js: 5ms, application-code: 135ms)
+ GET /portfolio-v23 200 in 286ms (next.js: 8ms, application-code: 279ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 4ms, application-code: 196ms)
+ GET /portfolio-v23 200 in 257ms (next.js: 5ms, application-code: 252ms)
+ GET /portfolio-v23 200 in 159ms (next.js: 5ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 279ms (next.js: 6ms, application-code: 274ms)
+ GET /portfolio-v23 200 in 170ms (next.js: 6ms, application-code: 163ms)
+ GET /portfolio-v23 200 in 308ms (next.js: 4ms, application-code: 304ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 7ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 398ms (next.js: 11ms, application-code: 387ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 6ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 242ms (next.js: 5ms, application-code: 237ms)
+ GET /portfolio-v23 200 in 319ms (next.js: 8ms, application-code: 311ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 7ms, application-code: 156ms)
+ GET /portfolio-v23 200 in 586ms (next.js: 5ms, application-code: 582ms)
+ GET /portfolio-v23 200 in 276ms (next.js: 12ms, application-code: 264ms)
+ GET /portfolio-v23 200 in 238ms (next.js: 4ms, application-code: 234ms)
+ GET /portfolio-v23 200 in 460ms (next.js: 10ms, application-code: 450ms)
+ GET /portfolio-v23 200 in 230ms (next.js: 5ms, application-code: 224ms)
+ GET /portfolio-v23 200 in 300ms (next.js: 5ms, application-code: 296ms)
+ GET /portfolio-v23 200 in 466ms (next.js: 11ms, application-code: 455ms)
+ GET /portfolio-v23 200 in 225ms (next.js: 6ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 227ms (next.js: 14ms, application-code: 213ms)
+ GET /portfolio-v23 200 in 222ms (next.js: 3ms, application-code: 218ms)
+ GET /portfolio-v23 200 in 298ms (next.js: 6ms, application-code: 292ms)
+ GET /portfolio-v23 200 in 212ms (next.js: 5ms, application-code: 206ms)
+ GET /portfolio-v23 200 in 355ms (next.js: 12ms, application-code: 342ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 4ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 7ms, application-code: 143ms)
+ GET /portfolio-v23 200 in 196ms (next.js: 10ms, application-code: 185ms)
+ GET /portfolio-v23 200 in 195ms (next.js: 9ms, application-code: 187ms)
+ GET /portfolio-v23 200 in 639ms (next.js: 12ms, application-code: 627ms)
+ GET /portfolio-v23 200 in 211ms (next.js: 6ms, application-code: 205ms)
+ GET /portfolio-v23 200 in 287ms (next.js: 7ms, application-code: 280ms)
+ GET /portfolio-v23 200 in 199ms (next.js: 20ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 196ms (next.js: 17ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 171ms (next.js: 6ms, application-code: 165ms)
+ GET /portfolio-v23 200 in 225ms (next.js: 5ms, application-code: 220ms)
+ GET /portfolio-v23 200 in 677ms (next.js: 62ms, application-code: 615ms)
+ GET /portfolio-v23 200 in 1521ms (next.js: 64ms, application-code: 1456ms)
+ GET /portfolio-v23 200 in 848ms (next.js: 12ms, application-code: 836ms)
+ GET /portfolio-v23 200 in 1258ms (next.js: 46ms, application-code: 1213ms)
+ GET /portfolio-v23 200 in 914ms (next.js: 40ms, application-code: 874ms)
+ GET /portfolio-v23 200 in 911ms (next.js: 25ms, application-code: 886ms)
+ GET /portfolio-v23 200 in 1115ms (next.js: 17ms, application-code: 1098ms)
+ GET /portfolio-v23 200 in 822ms (next.js: 12ms, application-code: 810ms)
+ GET /portfolio-v23 200 in 1757ms (next.js: 38ms, application-code: 1719ms)
+ GET /portfolio-v23 200 in 387ms (next.js: 14ms, application-code: 374ms)
+ GET /portfolio-v23 200 in 253ms (next.js: 14ms, application-code: 238ms)
+ GET /portfolio-v23 200 in 198ms (next.js: 5ms, application-code: 193ms)
+ GET /portfolio-v23 200 in 416ms (next.js: 14ms, application-code: 402ms)
+ GET /portfolio-v23 200 in 193ms (next.js: 5ms, application-code: 188ms)
+ GET /portfolio-v23 200 in 376ms (next.js: 19ms, application-code: 357ms)
+ GET /portfolio-v23 200 in 163ms (next.js: 4ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 258ms (next.js: 5ms, application-code: 253ms)
+ GET /portfolio-v23 200 in 165ms (next.js: 5ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 274ms (next.js: 5ms, application-code: 269ms)
+ GET /portfolio-v23 200 in 167ms (next.js: 6ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 393ms (next.js: 14ms, application-code: 379ms)
+ GET /portfolio-v23 200 in 100ms (next.js: 5ms, application-code: 95ms)
+✓ Compiled in 373ms
+ GET /portfolio-v21 200 in 770ms (next.js: 624ms, application-code: 146ms)
+ GET /portfolio-v23 200 in 779ms (next.js: 432ms, application-code: 347ms)
+ GET /portfolio-v23 200 in 87ms (next.js: 7ms, application-code: 80ms)
+✓ Compiled in 845ms
+ GET /portfolio-v21 200 in 403ms (next.js: 99ms, application-code: 304ms)
+ GET /portfolio-v23 200 in 406ms (next.js: 237ms, application-code: 169ms)
+ GET /portfolio-v21 200 in 118ms (next.js: 20ms, application-code: 98ms)
+ GET /portfolio-v23 200 in 118ms (next.js: 46ms, application-code: 72ms)
+✓ Compiled in 48ms
+ GET /portfolio-v21 200 in 314ms (next.js: 111ms, application-code: 203ms)
+ GET /portfolio-v23 200 in 312ms (next.js: 244ms, application-code: 67ms)
+✓ Compiled in 49ms
+ GET /portfolio-v21 200 in 252ms (next.js: 94ms, application-code: 159ms)
+ GET /portfolio-v23 200 in 114ms (next.js: 81ms, application-code: 33ms)
+✓ Compiled in 28ms
+ GET /portfolio-v21 200 in 247ms (next.js: 78ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 248ms (next.js: 203ms, application-code: 45ms)
+✓ Compiled in 71ms
+ GET /portfolio-v23 200 in 240ms (next.js: 7ms, application-code: 233ms)
+ GET /portfolio-v23 200 in 1054ms (next.js: 44ms, application-code: 1010ms)
+ GET /portfolio-v23 200 in 694ms (next.js: 21ms, application-code: 672ms)
+ GET /portfolio-v23 200 in 2.9s (next.js: 402ms, application-code: 2.5s)
+ GET /portfolio-v23 200 in 1046ms (next.js: 17ms, application-code: 1028ms)
+ GET /portfolio-v23 200 in 750ms (next.js: 54ms, application-code: 696ms)
+ GET /portfolio-v23 200 in 2.2s (next.js: 28ms, application-code: 2.1s)
+ GET /portfolio-v23 200 in 737ms (next.js: 11ms, application-code: 726ms)
+ GET /portfolio-v23 200 in 654ms (next.js: 184ms, application-code: 470ms)
+ GET /portfolio-v23 200 in 895ms (next.js: 31ms, application-code: 864ms)
+ GET /portfolio-v23 200 in 562ms (next.js: 19ms, application-code: 543ms)
+ GET /portfolio-v23 200 in 288ms (next.js: 5ms, application-code: 283ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 6ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 375ms (next.js: 7ms, application-code: 367ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 10ms, application-code: 192ms)
+ GET /portfolio-v23 200 in 295ms (next.js: 4ms, application-code: 291ms)
+ GET /portfolio-v23 200 in 203ms (next.js: 7ms, application-code: 196ms)
+ GET /portfolio-v23 200 in 218ms (next.js: 6ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 254ms (next.js: 11ms, application-code: 243ms)
+ GET /portfolio-v23 200 in 264ms (next.js: 110ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 174ms (next.js: 6ms, application-code: 168ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 5ms, application-code: 180ms)
+ GET /portfolio-v23 200 in 291ms (next.js: 7ms, application-code: 284ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 5ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 161ms (next.js: 7ms, application-code: 154ms)
+ GET /portfolio-v23 200 in 245ms (next.js: 5ms, application-code: 240ms)
+ GET /portfolio-v23 200 in 213ms (next.js: 4ms, application-code: 209ms)
+ GET /portfolio-v23 200 in 307ms (next.js: 6ms, application-code: 301ms)
+ GET /portfolio-v23 200 in 170ms (next.js: 4ms, application-code: 166ms)
+ GET /portfolio-v23 200 in 371ms (next.js: 7ms, application-code: 364ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 6ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 8ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 221ms (next.js: 5ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 133ms (next.js: 4ms, application-code: 128ms)
+ GET /portfolio-v23 200 in 112ms (next.js: 4ms, application-code: 108ms)
+ GET /portfolio-v23 200 in 359ms (next.js: 10ms, application-code: 349ms)
+ GET /portfolio-v23 200 in 227ms (next.js: 10ms, application-code: 217ms)
+ GET /portfolio-v23 200 in 341ms (next.js: 5ms, application-code: 336ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 2ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 447ms (next.js: 10ms, application-code: 437ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 7ms, application-code: 166ms)
+ GET /portfolio-v23 200 in 350ms (next.js: 10ms, application-code: 340ms)
+ GET /portfolio-v23 200 in 134ms (next.js: 4ms, application-code: 129ms)
+ GET /portfolio-v23 200 in 279ms (next.js: 5ms, application-code: 274ms)
+ GET /portfolio-v23 200 in 178ms (next.js: 5ms, application-code: 173ms)
+ GET /portfolio-v23 200 in 265ms (next.js: 5ms, application-code: 260ms)
+ GET /portfolio-v23 200 in 273ms (next.js: 102ms, application-code: 171ms)
+ GET /portfolio-v23 200 in 216ms (next.js: 8ms, application-code: 208ms)
+ GET /portfolio-v23 200 in 135ms (next.js: 3ms, application-code: 132ms)
+ GET /portfolio-v23 200 in 230ms (next.js: 4ms, application-code: 226ms)
+ GET /portfolio-v23 200 in 297ms (next.js: 5ms, application-code: 292ms)
+ GET /portfolio-v23 200 in 186ms (next.js: 5ms, application-code: 181ms)
+ GET /portfolio-v23 200 in 438ms (next.js: 9ms, application-code: 429ms)
+ GET /portfolio-v23 200 in 156ms (next.js: 4ms, application-code: 151ms)
+ GET /portfolio-v23 200 in 262ms (next.js: 10ms, application-code: 252ms)
+ GET /portfolio-v23 200 in 200ms (next.js: 5ms, application-code: 194ms)
+ GET /portfolio-v23 200 in 173ms (next.js: 4ms, application-code: 169ms)
+ GET /portfolio-v23 200 in 260ms (next.js: 8ms, application-code: 251ms)
+ GET /portfolio-v23 200 in 255ms (next.js: 7ms, application-code: 248ms)
+ GET /portfolio-v23 200 in 185ms (next.js: 10ms, application-code: 174ms)
+ GET /portfolio-v23 200 in 237ms (next.js: 8ms, application-code: 230ms)
+ GET /portfolio-v23 200 in 131ms (next.js: 7ms, application-code: 125ms)
+ GET /portfolio-v23 200 in 542ms (next.js: 12ms, application-code: 530ms)
+ GET /portfolio-v23 200 in 129ms (next.js: 5ms, application-code: 124ms)
+ GET /portfolio-v23 200 in 220ms (next.js: 3ms, application-code: 216ms)
+ GET /portfolio-v23 200 in 246ms (next.js: 9ms, application-code: 237ms)
+ GET /portfolio-v23 200 in 182ms (next.js: 3ms, application-code: 179ms)
+ GET /portfolio-v23 200 in 392ms (next.js: 14ms, application-code: 378ms)
+ GET /portfolio-v23 200 in 179ms (next.js: 8ms, application-code: 171ms)
+ GET /portfolio-v23 200 in 550ms (next.js: 7ms, application-code: 543ms)
+ GET /portfolio-v23 200 in 181ms (next.js: 4ms, application-code: 177ms)
+ GET /portfolio-v23 200 in 197ms (next.js: 7ms, application-code: 190ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 4ms, application-code: 172ms)
+ GET /portfolio-v23 200 in 476ms (next.js: 12ms, application-code: 463ms)
+ GET /portfolio-v23 200 in 184ms (next.js: 6ms, application-code: 178ms)
+ GET /portfolio-v23 200 in 402ms (next.js: 12ms, application-code: 390ms)
+ GET /portfolio-v23 200 in 196ms (next.js: 4ms, application-code: 191ms)
+ GET /portfolio-v23 200 in 289ms (next.js: 8ms, application-code: 282ms)
+ GET /portfolio-v23 200 in 149ms (next.js: 5ms, application-code: 145ms)
+ GET /portfolio-v23 200 in 526ms (next.js: 23ms, application-code: 503ms)
+ GET /portfolio-v23 200 in 391ms (next.js: 10ms, application-code: 381ms)
+ GET /portfolio-v23 200 in 215ms (next.js: 4ms, application-code: 212ms)
+ GET /portfolio-v23 200 in 292ms (next.js: 4ms, application-code: 287ms)
+ GET /portfolio-v23 200 in 294ms (next.js: 96ms, application-code: 198ms)
+ GET /portfolio-v23 200 in 294ms (next.js: 7ms, application-code: 287ms)
+ GET /portfolio-v23 200 in 177ms (next.js: 6ms, application-code: 170ms)
+ GET /portfolio-v23 200 in 223ms (next.js: 3ms, application-code: 219ms)
+ GET /portfolio-v23 200 in 123ms (next.js: 5ms, application-code: 118ms)
+ GET /portfolio-v23 200 in 259ms (next.js: 6ms, application-code: 253ms)
+ GET /portfolio-v23 200 in 263ms (next.js: 102ms, application-code: 160ms)
+ GET /portfolio-v23 200 in 445ms (next.js: 9ms, application-code: 436ms)
+ GET /portfolio-v23 200 in 190ms (next.js: 6ms, application-code: 184ms)
+ GET /portfolio-v23 200 in 208ms (next.js: 8ms, application-code: 200ms)
+ GET /portfolio-v23 200 in 446ms (next.js: 9ms, application-code: 437ms)
+ GET /portfolio-v23 200 in 335ms (next.js: 9ms, application-code: 326ms)
+ GET /portfolio-v23 200 in 789ms (next.js: 117ms, application-code: 672ms)

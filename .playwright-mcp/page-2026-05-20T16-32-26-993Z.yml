@@ -1,0 +1,86 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic:
+          - generic: +
+          - generic: ·
+          - generic: +
+          - generic: /
+          - generic: ·
+          - generic: +
+          - generic: ·
+        - generic:
+          - generic: REEL · BOUNDLESS '23
+          - generic: FILM · ZID RIPPLE
+          - generic: STAGE · DIRIYAH
+          - generic: MOTION · LOOP 04
+          - generic: BTS · SHOOT DAY 2
+          - generic: TITLE CARD · 04
+          - generic: PORTRAIT · CEO
+          - generic: PRODUCT · POS
+          - generic: EVENT · KEYNOTE
+          - generic: REEL · BOUNDLESS '22
+          - generic: AERIAL · RIYADH
+          - generic: ID · LOGO LOOP
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: EST.
+            - generic [ref=e37]: "2019"
+          - generic [ref=e38]:
+            - generic [ref=e39]: AMMAN
+            - generic [ref=e40]: ·
+            - generic [ref=e41]: RIYADH
+          - generic [ref=e42]:
+            - generic [ref=e43]: PORTFOLIO
+            - generic [ref=e44]: V18
+        - heading "THE WORK DOES THE TALKING." [level=1] [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e48]: THE
+            - generic [ref=e50]: WORK
+            - generic [ref=e52]: DOES
+            - generic [ref=e54]: THE
+            - generic [ref=e56]: TALKING.
+        - generic [ref=e57]:
+          - paragraph [ref=e58]: A selected reel from the brands we've embedded with — strategy, design, and motion compounded into category leadership across the GCC. Every frame earned. Every result receipt-backed.
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]: 178%
+              - generic [ref=e62]: Client growth
+            - generic [ref=e63]:
+              - generic [ref=e64]: $1B
+              - generic [ref=e65]: Unicorn built
+            - generic [ref=e66]:
+              - generic [ref=e67]: 30+
+              - generic [ref=e68]: Brand partners
+            - generic [ref=e69]:
+              - generic [ref=e70]: 500+
+              - generic [ref=e71]: Businesses created
+      - generic [ref=e72]:
+        - text: Scroll
+        - text: 01 / —
+  - button "Open Next.js Dev Tools" [ref=e79] [cursor=pointer]:
+    - img [ref=e80]
+  - alert [ref=e83]

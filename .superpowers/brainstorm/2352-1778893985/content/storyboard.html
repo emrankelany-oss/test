@@ -1,0 +1,89 @@
+<style>
+  .film{display:flex;flex-direction:column;gap:14px;margin-top:10px}
+  .fr{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
+  .fr .lbl{font:600 12px/1.3 ui-monospace,monospace;color:var(--muted,#9aa)}
+  .scr{position:relative;aspect-ratio:16/8;border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;background:#070709;overflow:hidden}
+  .img{position:absolute;border-radius:6px;background:linear-gradient(150deg,#3a4a7a,#1b6f6f);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+  .imgZ{background:linear-gradient(150deg,#6a3a7a,#2a6fb0)}
+  .mini{position:absolute;border-radius:4px;background:rgba(255,255,255,.06);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+  .panel{position:absolute;right:5%;top:14%;width:42%;height:72%;border-radius:6px;
+    background:rgba(8,8,12,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+    padding:10px;display:flex;flex-direction:column;gap:6px}
+  .panel .h{height:13px;width:78%;background:rgba(255,255,255,.55);border-radius:3px}
+  .panel .t{height:7px;width:92%;background:rgba(255,255,255,.22);border-radius:2px}
+  .panel .m{display:flex;gap:6px;margin-top:6px}
+  .panel .m i{flex:1;height:24px;background:rgba(255,255,255,.12);border-radius:3px;display:block}
+  .panel .cta{margin-top:auto;height:14px;width:45%;background:rgba(255,255,255,.7);border-radius:3px}
+  .cap{font-size:11px;color:var(--muted,#9aa)}
+</style>
+
+<h2>Zoom-Tour storyboard &mdash; sign off the sequence</h2>
+<p class="subtitle">After the Layout-C grid lands, continued scroll runs this scrubbed sequence
+(first 2 projects). Approve, or tell me what to change (panel side, how far it zooms, order, etc.).</p>
+
+<div class="film">
+
+  <div class="fr"><div class="lbl">1<br/>GRID</div>
+    <div class="scr">
+      <div class="img" style="left:4%;top:14%;width:44%;height:60%"></div>
+      <div class="mini" style="left:50%;top:14%;width:46%;height:26%"></div>
+      <div class="mini" style="left:50%;top:44%;width:21%;height:46%"></div>
+      <div class="mini" style="left:73%;top:44%;width:23%;height:34%"></div>
+      <div class="mini" style="left:4%;top:78%;width:44%;height:14%"></div>
+    </div></div>
+
+  <div class="fr"><div class="lbl">2<br/>ZOOM&nbsp;IN&nbsp;1</div>
+    <div class="scr"><div class="img" style="left:18%;top:12%;width:64%;height:76%"></div>
+      <span class="cap" style="position:absolute;left:50%;bottom:6px;transform:translateX(-50%)">Foodics &mdash; Boundless image scaling up</span></div></div>
+
+  <div class="fr"><div class="lbl">3<br/>INSIDE&nbsp;1</div>
+    <div class="scr">
+      <div class="img" style="inset:0;border-radius:10px"></div>
+      <div class="panel">
+        <div class="cap" style="color:rgba(255,255,255,.6)">FOODICS &middot; BOUNDLESS 22&middot;23</div>
+        <div class="h"></div>
+        <div class="t"></div><div class="t" style="width:80%"></div>
+        <div class="m"><i></i><i></i><i></i><i></i></div>
+        <div class="t" style="margin-top:6px;width:88%;opacity:.7"></div>
+        <div class="cta"></div>
+      </div>
+      <span class="cap" style="position:absolute;left:4%;bottom:6px">+35.6% &middot; 32K+ &middot; 35% &middot; $1B &middot; pull-quote &middot; View full case</span>
+    </div></div>
+
+  <div class="fr"><div class="lbl">4<br/>ZOOM&nbsp;OUT</div>
+    <div class="scr"><div class="img" style="left:22%;top:16%;width:56%;height:68%;opacity:.6"></div>
+      <span class="cap" style="position:absolute;left:50%;bottom:6px;transform:translateX(-50%)">pulls back toward grid</span></div></div>
+
+  <div class="fr"><div class="lbl">5<br/>ZOOM&nbsp;IN&nbsp;2</div>
+    <div class="scr"><div class="img imgZ" style="left:18%;top:12%;width:64%;height:76%"></div>
+      <span class="cap" style="position:absolute;left:50%;bottom:6px;transform:translateX(-50%)">Zid &mdash; Ripple 2024 image scaling up</span></div></div>
+
+  <div class="fr"><div class="lbl">6<br/>INSIDE&nbsp;2</div>
+    <div class="scr">
+      <div class="img imgZ" style="inset:0;border-radius:10px"></div>
+      <div class="panel">
+        <div class="cap" style="color:rgba(255,255,255,.6)">ZID &middot; RIPPLE 2024</div>
+        <div class="h"></div>
+        <div class="t"></div><div class="t" style="width:80%"></div>
+        <div class="m"><i></i><i></i><i></i><i></i></div>
+        <div class="t" style="margin-top:6px;width:88%;opacity:.7"></div>
+        <div class="cta"></div>
+      </div>
+      <span class="cap" style="position:absolute;left:4%;bottom:6px">+200% &middot; 12K+ &middot; +50% &middot; 1K+ &middot; pull-quote &middot; View full case</span>
+    </div></div>
+
+  <div class="fr"><div class="lbl">7<br/>OUT&rarr;</div>
+    <div class="scr"><span class="cap" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">zoom out &rarr; page continues to &ldquo;Our Work&rdquo;</span></div></div>
+
+</div>
+
+<div class="options" style="margin-top:18px">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>Approve this sequence</h3>
+      <p>Build V5ZoomTour exactly as storyboarded (first 2 projects, panel on the right, full-bleed zoomed image, real curated case content).</p></div>
+  </div>
+</div>

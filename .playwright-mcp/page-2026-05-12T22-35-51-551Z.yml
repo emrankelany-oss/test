@@ -1,0 +1,244 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic:
+      - img
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]:
+            - generic [ref=e21]: EST.
+            - generic [ref=e22]: "2019"
+          - generic [ref=e23]:
+            - generic [ref=e24]: AMMAN
+            - generic [ref=e25]: ·
+            - generic [ref=e26]: RIYADH
+          - generic [ref=e27]:
+            - generic [ref=e28]: SHOWREEL
+            - generic [ref=e29]: "2025"
+          - generic [ref=e30]:
+            - generic [ref=e31]: PORTFOLIO
+            - generic [ref=e32]: V4
+        - heading "BUILDING CATEGORY LEADERS ACROSS THE GCC." [level=1] [ref=e33]:
+          - generic [ref=e35]: BUILDING
+          - generic [ref=e37]: CATEGORY
+          - generic [ref=e39]: LEADERS
+          - generic [ref=e41]: ACROSS THE
+          - generic [ref=e43]: GCC.
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: We don't pitch campaigns. We embed with B2B brands and turn them into category leaders. Brand strategy, design, GTM and content — under one roof, in lockstep, with ROI at the core.
+          - generic [ref=e46]:
+            - link "View case studies" [ref=e47] [cursor=pointer]:
+              - /url: "#portfolio"
+              - text: View case studies
+              - generic [ref=e48]: ↗
+            - button "Watch showreel" [ref=e49] [cursor=pointer]:
+              - img [ref=e51]
+              - text: Watch showreel
+      - generic [ref=e53]:
+        - generic [ref=e54]: SCROLL
+        - generic [ref=e56]: 01 / 04
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - generic [ref=e60]: 02 / The studio
+        - heading "A motion-design partner that thinks like a founder." [level=2] [ref=e62]:
+          - generic [ref=e224]: A
+          - generic [ref=e226]: motion-design
+          - generic [ref=e228]: partner
+          - generic [ref=e230]: that
+          - generic [ref=e232]: thinks
+          - generic [ref=e234]: like
+          - generic [ref=e236]: a
+          - generic [ref=e238]: founder.
+      - generic [ref=e63]:
+        - blockquote [ref=e64]:
+          - paragraph [ref=e65]: “We don't pitch campaigns. We embed with B2B brands and build them into category leaders.”
+          - generic [ref=e66]: — The Motion Agency — operating principle
+          - paragraph [ref=e67]: “We shaped Foodics' brand reputation and positioning from its early $2M funding stage — today, Foodics stands as a $1B unicorn commanding 35% market share in Saudi Arabia.”
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - generic [ref=e70]: "14"
+            - generic [ref=e71]: Years of practice
+          - listitem [ref=e72]:
+            - generic [ref=e73]: 30+
+            - generic [ref=e74]: Brands shaped
+          - listitem [ref=e75]:
+            - generic [ref=e76]: $1B
+            - generic [ref=e77]: Foodics valuation we helped frame
+          - listitem [ref=e78]:
+            - generic [ref=e79]: 35%
+            - generic [ref=e80]: KSA market share, Foodics
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]: 03 / Selected work
+        - heading "Six projects that became category leaders." [level=2] [ref=e86]:
+          - generic [ref=e240]: Six
+          - generic [ref=e242]: projects
+          - generic [ref=e244]: that
+          - generic [ref=e246]: became
+          - generic [ref=e248]: category
+          - generic [ref=e250]: leaders.
+      - generic [ref=e87]:
+        - link "Foodics — Boundless 22 · 23" [ref=e88] [cursor=pointer]:
+          - /url: /case/foodics-boundless
+          - generic [ref=e89]:
+            - img [ref=e90]
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: "01"
+                - generic [ref=e94]: Foodics
+              - generic [ref=e95]:
+                - heading "Boundless 22 · 23" [level=3] [ref=e96]
+                - paragraph [ref=e97]: Transforming a POS platform into the growth engine of F&B.
+                - list [ref=e98]:
+                  - listitem [ref=e99]: Brand Strategy
+                  - listitem [ref=e100]: Product Launch
+                  - listitem [ref=e101]: Event
+                - generic [ref=e102]:
+                  - emphasis [ref=e103]: +35.6%
+                  - generic [ref=e104]: YoY revenue
+        - link "Zid — Ripple 2024" [ref=e105] [cursor=pointer]:
+          - /url: /case/zid-ripple
+          - generic [ref=e106]:
+            - img [ref=e107]
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - generic [ref=e110]: "02"
+                - generic [ref=e111]: Zid
+              - generic [ref=e112]:
+                - heading "Ripple 2024" [level=3] [ref=e113]
+                - paragraph [ref=e114]: Launching the Total Commerce era for 12K+ merchants.
+                - list [ref=e115]:
+                  - listitem [ref=e116]: Brand Strategy
+                  - listitem [ref=e117]: GTM
+                  - listitem [ref=e118]: Event
+                - generic [ref=e119]:
+                  - emphasis [ref=e120]: +200%
+                  - generic [ref=e121]: YoY growth
+        - link "Foodics — Brand System v3.0" [ref=e122] [cursor=pointer]:
+          - /url: "#gallery"
+          - generic [ref=e123]:
+            - img [ref=e124]
+            - generic [ref=e125]:
+              - generic [ref=e126]:
+                - generic [ref=e127]: "03"
+                - generic [ref=e128]: Foodics
+              - generic [ref=e129]:
+                - heading "Brand System v3.0" [level=3] [ref=e130]
+                - paragraph [ref=e131]: A category-defining identity for the F&B operating system.
+                - list [ref=e132]:
+                  - listitem [ref=e133]: Brand Design
+                  - listitem [ref=e134]: Guidelines
+                  - listitem [ref=e135]: Typography
+                - generic [ref=e136]:
+                  - emphasis [ref=e137]: v3.0
+                  - generic [ref=e138]: Brand manual
+        - link "Zid — Launchpad Series" [ref=e139] [cursor=pointer]:
+          - /url: "#gallery"
+          - generic [ref=e140]:
+            - img [ref=e141]
+            - generic [ref=e142]:
+              - generic [ref=e143]:
+                - generic [ref=e144]: "04"
+                - generic [ref=e145]: Zid
+              - generic [ref=e146]:
+                - heading "Launchpad Series" [level=3] [ref=e147]
+                - paragraph [ref=e148]: We are your launchpad to the stars.
+                - list [ref=e149]:
+                  - listitem [ref=e150]: Web Design
+                  - listitem [ref=e151]: Landing Pages
+                  - listitem [ref=e152]: Copywriting
+                - generic [ref=e153]:
+                  - emphasis [ref=e154]: "3"
+                  - generic [ref=e155]: LP variants live
+        - link "InvoiceQ — Brand Identity v1.0" [ref=e156] [cursor=pointer]:
+          - /url: "#gallery"
+          - generic [ref=e157]:
+            - img [ref=e158]
+            - generic [ref=e159]:
+              - generic [ref=e160]:
+                - generic [ref=e161]: "05"
+                - generic [ref=e162]: InvoiceQ
+              - generic [ref=e163]:
+                - heading "Brand Identity v1.0" [level=3] [ref=e164]
+                - paragraph [ref=e165]: More practical, consistent, and dynamic.
+                - list [ref=e166]:
+                  - listitem [ref=e167]: Brand Design
+                  - listitem [ref=e168]: App UI
+                  - listitem [ref=e169]: Guidelines
+                - generic [ref=e170]:
+                  - emphasis [ref=e171]: B2B
+                  - generic [ref=e172]: SaaS launch
+        - link "Foodics — Vancouver Canada TVC" [ref=e173] [cursor=pointer]:
+          - /url: "#gallery"
+          - generic [ref=e174]:
+            - img [ref=e175]
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]: "06"
+                - generic [ref=e179]: Foodics
+              - generic [ref=e180]:
+                - heading "Vancouver Canada TVC" [level=3] [ref=e181]
+                - paragraph [ref=e182]: Since I installed Foodics, everything has been running in order.
+                - list [ref=e183]:
+                  - listitem [ref=e184]: Campaign
+                  - listitem [ref=e185]: TVC
+                  - listitem [ref=e186]: OOH
+                - generic [ref=e187]:
+                  - emphasis [ref=e188]: OOH
+                  - generic [ref=e189]: + TV at scale
+    - generic [ref=e191]:
+      - generic [ref=e192]: 04 / Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e194]:
+        - generic [ref=e252]: Ready
+        - generic [ref=e254]: to
+        - generic [ref=e256]: build
+        - generic [ref=e258]: the
+        - generic [ref=e260]: next
+        - generic [ref=e262]: category leader?
+      - paragraph [ref=e195]: Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e196]:
+        - link "Book a discovery call" [ref=e197] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e198]: ↗
+        - link "Send a brief" [ref=e199] [cursor=pointer]:
+          - /url: mailto:hello@themotionagency.net
+          - text: Send a brief
+          - generic [ref=e200]: ↗
+      - generic [ref=e201]:
+        - generic [ref=e202]: Amman · Riyadh
+        - generic [ref=e203]: hello@themotionagency.net
+        - generic [ref=e204]: EST. 2019
+    - contentinfo [ref=e205]:
+      - generic [ref=e206]: THE / MOTION / AGENCY
+      - generic [ref=e207]:
+        - generic [ref=e208]: © 2026 The Motion Agency
+        - generic [ref=e209]: themotionagency.net
+        - generic [ref=e210]: info@themotionagency.net
+        - link "LinkedIn" [ref=e212] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e213]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e219] [cursor=pointer]:
+    - img [ref=e220]
+  - alert [ref=e263]

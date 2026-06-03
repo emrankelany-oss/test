@@ -1,0 +1,37 @@
+<h2>The obsidian booster engine — pick the hero plate</h2>
+<p class="subtitle">Same OA relief-lamp technique will be applied: the bright glossy areas become "raised" and the cursor lamp lights them out of the dark. Click your pick, or tell me what to change in the terminal.</p>
+
+<style>
+  .eng{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.eng{grid-template-columns:1fr}}
+  .eng .card{margin:0}
+  .eng .card-image{padding:0;background:#000}
+  .eng img{display:block;width:100%;height:auto;border-radius:6px}
+  .tag{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;border-radius:999px;margin-right:6px;opacity:.8}
+  .good{color:#3fae6a}.warn{color:#c98a2b}
+</style>
+
+<div class="eng">
+  <div class="card" data-choice="engine-a" onclick="toggleSelect(this)">
+    <div class="card-image"><img src="/files/engine-a.jpg" alt="Obsidian engine A"></div>
+    <div class="card-body">
+      <h3>A · Void / dark vignette</h3>
+      <p><span class="tag good">OA-faithful bg</span><span class="tag good">relief-ready</span>
+      Object emerges from a near-black warm vignette — exactly OA's "thing floating in darkness". Dark-on-dark + glossy speculars map cleanly to the height field. My recommendation as the relief source.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="engine-b" onclick="toggleSelect(this)">
+    <div class="card-image"><img src="/files/engine-b.jpg" alt="Obsidian engine B"></div>
+    <div class="card-body">
+      <h3>B · Backlit halo + engraved nozzle</h3>
+      <p><span class="tag good">great surface detail</span><span class="tag warn">bright bg</span>
+      Beautiful engraved cooling grooves (excellent relief detail), but the bright halo would raise the whole background in the height map — needs a masked/darkened backdrop before it drives the shader.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:22px">
+  <p class="label">Also possible — say the word</p>
+  <p class="subtitle">Different engine type (cluster of 3, sci-fi ion thruster), a vertical 9:16 crop for mobile, warmer red-tinted obsidian to match OA exactly, more engraving/relief detail, or a tighter object with more negative space. I can regenerate any direction.</p>
+</div>

@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e6] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e7] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e9] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e10] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e11] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e13]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: EST.
+            - generic [ref=e20]: "2019"
+          - generic [ref=e21]:
+            - generic [ref=e22]: AMMAN
+            - generic [ref=e23]: ·
+            - generic [ref=e24]: RIYADH
+          - generic [ref=e25]:
+            - generic [ref=e26]: SHOWREEL
+            - generic [ref=e27]: "2025"
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - heading "Narrative Meets Design" [level=1] [ref=e30]:
+              - generic [ref=e32]: Narrative
+              - generic [ref=e34]: Meets
+              - generic [ref=e36]: Design
+            - paragraph [ref=e37]:
+              - emphasis [ref=e38]: where vision
+            - link "Play showreel — 2 minutes 58 seconds" [ref=e39] [cursor=pointer]:
+              - /url: "#showreel"
+              - generic [ref=e41]:
+                - generic [ref=e42]: Play showreel
+                - generic [ref=e43]: 02:58
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e47] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e48]:
+              - generic [ref=e49]: Let's talk
+              - generic [ref=e50]: Mohamed Sabha
+              - generic [ref=e51]: Chief Executive Officer
+            - img [ref=e59]
+      - generic [ref=e61]:
+        - text: Scroll
+        - text: 01 / 01
+  - button "Open Next.js Dev Tools" [ref=e68] [cursor=pointer]:
+    - img [ref=e69]

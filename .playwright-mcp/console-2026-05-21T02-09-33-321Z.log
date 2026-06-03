@@ -1,0 +1,5 @@
+[    2288ms] [LOG] false touch @ https://studioclim.com/assets/main.js:0
+[    2293ms] [LOG]  @ https://studioclim.com/assets/main.js:0
+[    5362ms] [WARNING] The resource https://studioclim.com/public/media/loaderin.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://studioclim.com/:0
+[    6854ms] [LOG] [418, -282, -981, -1681, -2381, -3081, -3780, -4480, -5180, -5880, -6579, -7279, -7979, -8678, -9378, -10078, -10778, -11477, -12177, -12877] @ https://studioclim.com/assets/main.js:0
+[    6869ms] [LOG] Sr @ https://studioclim.com/assets/main.js:0

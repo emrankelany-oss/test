@@ -9,7 +9,7 @@ import V20OurWork from "@/components/portfolio-v20/V20OurWork";
 import V20Filament from "@/components/portfolio-v20/V20Filament";
 import V20FlowField from "@/components/portfolio-v20/V20FlowField";
 import V20Cursor from "@/components/portfolio-v20/V20Cursor";
-import V20ProjectDrawer from "@/components/portfolio-v20/V20ProjectDrawer";
+import V20ProjectModal from "@/components/portfolio-v20/V20ProjectModal";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/home/Footer";
 import "@/components/portfolio-v20/v20.css";
@@ -25,7 +25,7 @@ export default function PortfolioV20Page() {
     <main className="v20-page">
       <SmoothScroll />
       <V20Cursor />
-      <V20ProjectDrawer />
+      <V20ProjectModal />
       <V20Preloader />
       <ClientShell enableScrolledNav />
       <Nav />

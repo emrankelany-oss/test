@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import V19Filament from "./V19Filament";
+import { useCallback, useEffect, useRef } from "react";
 
 /* =====================================================================
    V19 — Featured Work
    ---------------------------------------------------------------------
-   Three featured projects in a clean 3-column row. The poster stays
-   static; on hover a small <video> tile follows the cursor with eased
-   inertia (the ref.digital /work pattern). Cards rise in on scroll.
+   Three featured projects in a clean 3-column row.
+
+   Hover model (ported from ref.digital /work): the moment the cursor is
+   anywhere over the grid, EVERY card's video tile turns on. All tiles
+   follow one shared eased cursor in page space, and each tile is clipped
+   to its own card (overflow:hidden). So at the seam between two cards you
+   see the left card's video on the left half and the right card's video
+   on the right half — and the slice fills in as the cursor moves toward
+   one card. Cards also open/close on scroll (clip-path driven by JS).
    ===================================================================== */
 
 const PROJECTS = [
@@ -43,27 +48,189 @@ const PROJECTS = [
 
 export default function V19FeaturedWork() {
   const gridRef = useRef(null);
-  const [inView, setInView] = useState(false);
+  /* Each card registers its media box / tile / video so the parent can
+     drive them all from a single shared-cursor loop. */
+  const itemsRef = useRef([]);
 
+  const register = useCallback((index, refs) => {
+    itemsRef.current[index] = refs;
+  }, []);
+
+  /* ---------- Scroll-linked open/close reveal ----------
+     --reveal : top clip-inset (100% closed -> 0% open) so the media opens
+                bottom->up scrolling down and closes top->down scrolling up.
+     --p      : same 0->1 progress for the caption fade/rise.
+     Wide window + eased target + per-frame damping = slow & smooth. */
   useEffect(() => {
-    const el = gridRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          io.disconnect();
+    const grid = gridRef.current;
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".v19fw-card"));
+    if (!cards.length) return;
+
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      cards.forEach((c) => {
+        c.style.setProperty("--reveal", "0%");
+        c.style.setProperty("--p", "1");
+      });
+      return;
+    }
+
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const state = cards.map(() => ({ cur: 0, target: 0 }));
+    let rafId = 0;
+    let running = false;
+
+    const setProps = (i, p) => {
+      cards[i].style.setProperty("--reveal", `${((1 - p) * 100).toFixed(2)}%`);
+      cards[i].style.setProperty("--p", p.toFixed(3));
+    };
+
+    const computeTargets = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        const offset = i * vh * 0.06; // gentle left->right stagger
+        const start = vh * 0.8 + offset; // card top here -> starts opening
+        const end = vh * 0.22 + offset; // card top here -> fully open
+        let p = (start - rect.top) / (start - end);
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        state[i].target = easeInOutCubic(p);
+      });
+    };
+
+    const tick = () => {
+      let moving = false;
+      for (let i = 0; i < cards.length; i++) {
+        const s = state[i];
+        s.cur += (s.target - s.cur) * 0.07; // damping: lower = smoother/slower
+        if (Math.abs(s.target - s.cur) > 0.0015) moving = true;
+        else s.cur = s.target;
+        setProps(i, s.cur);
+      }
+      if (moving) rafId = requestAnimationFrame(tick);
+      else running = false;
+    };
+
+    const ensureRunning = () => {
+      if (!running) {
+        running = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
+    const onScroll = () => {
+      computeTargets();
+      ensureRunning();
+    };
+
+    // seed: paint each card at its correct target with no entry animation
+    computeTargets();
+    state.forEach((s) => (s.cur = s.target));
+    for (let i = 0; i < cards.length; i++) setProps(i, state[i].cur);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  /* ---------- Section-wide shared-cursor hover ----------
+     One eased cursor drives every tile, so the slices line up at the
+     seam between cards. Active only while the pointer is over the grid. */
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches)
+      return;
+
+    let rawX = 0;
+    let rawY = 0;
+    let easeX = 0;
+    let easeY = 0;
+    let seeded = false;
+    let rafId = 0;
+    let active = false;
+
+    const seed = (e) => {
+      rawX = e.clientX;
+      rawY = e.clientY;
+      if (!seeded) {
+        easeX = rawX;
+        easeY = rawY;
+        seeded = true;
+      }
+    };
+
+    const position = () => {
+      easeX += (rawX - easeX) / 15; // matches ref's easeSlow lerp
+      easeY += (rawY - easeY) / 15;
+      const items = itemsRef.current;
+      for (let i = 0; i < items.length; i++) {
+        const it = items[i];
+        if (!it || !it.media || !it.tile) continue;
+        const rect = it.media.getBoundingClientRect();
+        const tx = easeX - rect.left;
+        const ty = easeY - rect.top;
+        it.tile.style.transform =
+          `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
+      }
+      rafId = requestAnimationFrame(position);
+    };
+
+    const activate = () => {
+      if (active) return;
+      active = true;
+      itemsRef.current.forEach((it) => {
+        if (!it) return;
+        if (it.tile) it.tile.classList.add("is-active");
+        if (it.video) {
+          const p = it.video.play();
+          if (p && typeof p.catch === "function") p.catch(() => {});
         }
-      },
-      { threshold: 0.15 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
+      });
+      rafId = requestAnimationFrame(position);
+    };
+
+    const deactivate = () => {
+      if (!active) return;
+      active = false;
+      cancelAnimationFrame(rafId);
+      itemsRef.current.forEach((it) => {
+        if (!it) return;
+        if (it.tile) it.tile.classList.remove("is-active");
+        if (it.video) {
+          it.video.pause();
+          it.video.currentTime = 0;
+        }
+      });
+    };
+
+    const onEnter = (e) => {
+      seed(e);
+      activate();
+    };
+
+    grid.addEventListener("pointerenter", onEnter);
+    grid.addEventListener("pointermove", seed, { passive: true });
+    grid.addEventListener("pointerleave", deactivate);
+    return () => {
+      cancelAnimationFrame(rafId);
+      grid.removeEventListener("pointerenter", onEnter);
+      grid.removeEventListener("pointermove", seed);
+      grid.removeEventListener("pointerleave", deactivate);
+    };
   }, []);
 
   return (
     <section className="v19fw">
-      <V19Filament />
       <header className="v19fw-header container">
         <span className="v19fw-eyebrow">
           <span className="v19fw-eyebrow-tick" />
@@ -77,12 +244,14 @@ export default function V19FeaturedWork() {
         </p>
       </header>
 
-      <ul
-        ref={gridRef}
-        className={`v19fw-grid container ${inView ? "is-inview" : ""}`}
-      >
+      <ul ref={gridRef} className="v19fw-grid container">
         {PROJECTS.map((project, index) => (
-          <FeaturedCard key={project.slug} project={project} index={index} />
+          <FeaturedCard
+            key={project.slug}
+            project={project}
+            index={index}
+            register={register}
+          />
         ))}
       </ul>
     </section>
@@ -90,85 +259,30 @@ export default function V19FeaturedWork() {
 }
 
 /* ---------- single card ---------- */
-function FeaturedCard({ project, index }) {
-  const cardRef = useRef(null);
+function FeaturedCard({ project, index, register }) {
+  const mediaRef = useRef(null);
   const tileRef = useRef(null);
   const videoRef = useRef(null);
-  /* First cursor position from onMouseEnter, so the rAF loop has a seed
-     before the user moves — prevents a one-frame flash at the corner. */
-  const seedRef = useRef(null);
-  const [hovered, setHovered] = useState(false);
 
-  /* Cursor-trailing tile: runs an rAF only while the card is hovered.
-     Lerp matches ref.digital's easeSlow (target += (raw - target) / 15). */
+  /* Hand the parent this card's media box / tile / video. The parent's
+     shared-cursor loop positions the tile and plays the video. */
   useEffect(() => {
-    if (!hovered) return;
-
-    const card = cardRef.current;
-    const tile = tileRef.current;
-    if (!card || !tile) return;
-
-    const rect = card.getBoundingClientRect();
-    const seed = seedRef.current;
-    const target = seed
-      ? { x: seed.x - rect.left, y: seed.y - rect.top }
-      : { x: rect.width / 2, y: rect.height / 2 };
-    const eased = { x: target.x, y: target.y };
-    tile.style.transform =
-      `translate3d(${eased.x}px, ${eased.y}px, 0) translate(-50%, -50%)`;
-
-    let rafId = 0;
-
-    const onPointerMove = (e) => {
-      const r = card.getBoundingClientRect();
-      target.x = e.clientX - r.left;
-      target.y = e.clientY - r.top;
-    };
-
-    const tick = () => {
-      eased.x += (target.x - eased.x) / 15;   // matches ref's easeSlow lerp
-      eased.y += (target.y - eased.y) / 15;
-      tile.style.transform =
-        `translate3d(${eased.x}px, ${eased.y}px, 0) translate(-50%, -50%)`;
-      rafId = requestAnimationFrame(tick);
-    };
-
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
-    rafId = requestAnimationFrame(tick);
-
-    const v = videoRef.current;
-    if (v) {
-      const p = v.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    }
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("pointermove", onPointerMove);
-      if (v) {
-        v.pause();
-        v.currentTime = 0;
-      }
-      seedRef.current = null;
-    };
-  }, [hovered]);
-
-  const handleEnter = (e) => {
-    seedRef.current = { x: e.clientX, y: e.clientY };
-    setHovered(true);
-  };
+    register(index, {
+      media: mediaRef.current,
+      tile: tileRef.current,
+      video: videoRef.current,
+    });
+    return () => register(index, null);
+  }, [index, register]);
 
   return (
     <li className="v19fw-card" style={{ "--i": index }}>
       <a
-        ref={cardRef}
         href={`#work-${project.slug}`}
         className="v19fw-card-link"
-        onMouseEnter={handleEnter}
-        onMouseLeave={() => setHovered(false)}
         aria-label={`${project.client} — ${project.title}`}
       >
-        <div className="v19fw-card-media">
+        <div ref={mediaRef} className="v19fw-card-media">
           <img
             className="v19fw-card-poster"
             src={project.poster}
@@ -183,12 +297,8 @@ function FeaturedCard({ project, index }) {
             {String(index + 1).padStart(2, "0")}
           </span>
 
-          {/* Cursor-trailing video tile — transform is set by the rAF loop. */}
-          <div
-            ref={tileRef}
-            className={`v19fw-hover-tile ${hovered ? "is-active" : ""}`}
-            aria-hidden="true"
-          >
+          {/* Cursor-trailing video tile — transform set by the parent loop. */}
+          <div ref={tileRef} className="v19fw-hover-tile" aria-hidden="true">
             <video
               ref={videoRef}
               src={project.video}

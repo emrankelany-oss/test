@@ -1,0 +1,528 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: THE MOTION AGENCY
+      - generic [ref=e8]: Booting the studio
+      - generic [ref=e9]:
+        - generic [ref=e10]: "00"
+        - generic [ref=e11]: "%"
+    - navigation:
+      - link "The Motion Agency — home" [ref=e13] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e14]:
+        - link "Portfolio" [ref=e15] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e16] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e17] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e19] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e20] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e21] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: The Motion Agency — Studio Original
+      - heading "Where strategy meets bold storytelling." [level=1] [ref=e26]:
+        - generic [ref=e27]: Where strategy
+        - generic [ref=e28]: meets bold
+        - generic [ref=e29]: storytelling.
+    - generic [ref=e34]:
+      - paragraph [ref=e35]: The Motion Agency — Studio
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - paragraph [ref=e38]:
+            - generic [ref=e39]: Almost a decade of turning
+            - generic [ref=e40]: category noise into bold, ownable
+            - generic [ref=e41]: stories. We are a motion-led
+            - generic [ref=e42]: creative studio — strategy,
+            - generic [ref=e43]: design and production crafted to
+            - generic [ref=e44]: a standard that earns attention.
+          - paragraph [ref=e45]: From early-stage positioning to flagship launch films, we embed with your team end-to-end. Every frame is built to move markets, not just eyeballs — concept, art direction, animation and delivery under one roof.
+          - button "More information" [ref=e46] [cursor=pointer]: More information
+        - generic [ref=e49]: Bold
+    - generic [ref=e50]:
+      - paragraph [ref=e52]: Featured Work
+      - article [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - paragraph [ref=e56]: Foodics — Featured Case
+            - heading "Boundless 2022 / 2023. Launching what's next for F&B." [level=2] [ref=e57]:
+              - generic [ref=e58]: Boundless
+              - generic [ref=e59]: 2022 / 2023.
+              - generic [ref=e60]: Launching
+              - generic [ref=e61]: what's next for
+              - generic [ref=e62]: F&B.
+          - generic [ref=e63]:
+            - paragraph [ref=e64]: We shaped Foodics' brand reputation and positioning from its early $2M funding stage, building a solid strategy and comprehensive brand guidelines that anchored it as the F&B tech leader. We created and executed the flagship Boundless events (2022 & 2023) from scratch, establishing them as premier annual product showcases.
+            - list [ref=e65]:
+              - listitem [ref=e66]:
+                - generic [ref=e67]: +35.6%
+                - generic [ref=e68]: Revenue YoY ($15.4M → $20.8M, 2023→2024)
+              - listitem [ref=e69]:
+                - generic [ref=e70]: 32,000+
+                - generic [ref=e71]: Merchants (up from 8,000)
+              - listitem [ref=e72]:
+                - generic [ref=e73]: 35%
+                - generic [ref=e74]: Saudi market share
+              - listitem [ref=e75]:
+                - generic [ref=e76]: $1B
+                - generic [ref=e77]: Unicorn valuation reached
+        - generic [ref=e78]:
+          - generic [ref=e80]:
+            - button "Play Foodics — Café Spot" [ref=e82] [cursor=pointer]
+            - generic [ref=e85]:
+              - generic [ref=e86]: Café Spot ↗
+              - generic [ref=e87]: TV Commercial
+          - button "View all 7 films" [ref=e88] [cursor=pointer]: View all 7 films
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - button [ref=e93] [cursor=pointer]:
+                - img [ref=e94]
+              - generic [ref=e96]:
+                - generic [ref=e97]: Boundless 2022 ↗
+                - generic [ref=e98]: Event Film
+            - generic [ref=e99]:
+              - button [ref=e101] [cursor=pointer]:
+                - img [ref=e102]
+              - generic [ref=e104]:
+                - generic [ref=e105]: Boundless 2023 ↗
+                - generic [ref=e106]: Event Film
+            - generic [ref=e107]:
+              - button [ref=e109] [cursor=pointer]
+              - generic [ref=e112]:
+                - generic [ref=e113]: Living-Room Spot ↗
+                - generic [ref=e114]: TV Commercial
+            - generic [ref=e115]:
+              - button [ref=e117] [cursor=pointer]
+              - generic [ref=e120]:
+                - generic [ref=e121]: Self-Order Kiosk ↗
+                - generic [ref=e122]: Product Film
+            - generic [ref=e123]:
+              - button [ref=e125] [cursor=pointer]
+              - generic [ref=e128]:
+                - generic [ref=e129]: POS + Printer ↗
+                - generic [ref=e130]: Product Film
+            - generic [ref=e131]:
+              - button [ref=e133] [cursor=pointer]
+              - generic [ref=e136]:
+                - generic [ref=e137]: App — New Version ↗
+                - generic [ref=e138]: Product Film
+      - article [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - paragraph [ref=e142]: Zid — Featured Case
+            - heading "Ripple 2024 — Total Commerce. Launching the Total Commerce era." [level=2] [ref=e143]:
+              - generic [ref=e144]: Ripple 2024 —
+              - generic [ref=e145]: Total
+              - generic [ref=e146]: Commerce.
+              - generic [ref=e147]: Launching the
+              - generic [ref=e148]: Total
+              - generic [ref=e149]: Commerce era.
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: We restructured Zid's marketing department, launched new brand guidelines and a dynamic website, then conceptualised and delivered Ripple 2024 — Zid's first-ever product event — positioning the brand as the leading total commerce platform for merchants. Our work extended to end-to-end campaign execution, from Amazon, Trendyol and Noon integrations to managing all social platforms and high-impact paid materials.
+            - list [ref=e152]:
+              - listitem [ref=e153]:
+                - generic [ref=e154]: 200%
+                - generic [ref=e155]: Brand growth YoY
+              - listitem [ref=e156]:
+                - generic [ref=e157]: +30%
+                - generic [ref=e158]: Active merchants (12,000+ users)
+              - listitem [ref=e159]:
+                - generic [ref=e160]: +50%
+                - generic [ref=e161]: Basket size & conversion lift
+              - listitem [ref=e162]:
+                - generic [ref=e163]: +25%
+                - generic [ref=e164]: GMV growth YoY
+        - generic [ref=e165]:
+          - generic [ref=e167]:
+            - button "Play Zid — Strategy Film" [ref=e169] [cursor=pointer]
+            - generic [ref=e172]:
+              - generic [ref=e173]: Strategy Film ↗
+              - generic [ref=e174]: Brand Film
+          - button "View all 2 films" [ref=e175] [cursor=pointer]: View all 2 films
+          - generic [ref=e178]:
+            - button [ref=e180] [cursor=pointer]:
+              - img [ref=e181]
+            - generic [ref=e183]:
+              - generic [ref=e184]: Ripple 2024 ↗
+              - generic [ref=e185]: Event Film
+    - generic [ref=e187]:
+      - paragraph [ref=e188]: Selected Work — 27 Projects
+      - generic [ref=e189]:
+        - article [ref=e190]:
+          - button "Open Sol — Brand & Ramadan" [ref=e191] [cursor=pointer]:
+            - img "Sol — Brand & Ramadan" [ref=e193]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e194]:
+            - generic [ref=e195]: Sol — Brand & Ramadan ↗
+            - generic [ref=e196]: Social · TVC
+        - article [ref=e197]:
+          - button "Open Salasa — FIFA 2034 + National Day" [ref=e198] [cursor=pointer]:
+            - img "Salasa — FIFA 2034 + National Day" [ref=e200]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e201]:
+            - generic [ref=e202]: Salasa — FIFA 2034 + National Day ↗
+            - generic [ref=e203]: Social
+        - article [ref=e204]:
+          - button "Open LSC — Vision 2034 + WCA" [ref=e205] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e208]:
+            - generic [ref=e209]: LSC — Vision 2034 + WCA ↗
+            - generic [ref=e210]: Social · Industry
+        - article [ref=e211]:
+          - button "Open InvoiceQ — Fintech Identity" [ref=e212] [cursor=pointer]:
+            - img "InvoiceQ — Fintech Identity" [ref=e214]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e215]:
+            - generic [ref=e216]: InvoiceQ — Fintech Identity ↗
+            - generic [ref=e217]: Brand Identity
+        - article [ref=e218]:
+          - button "Open Transform — Brand System" [ref=e219] [cursor=pointer]:
+            - img "Transform — Brand System" [ref=e221]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e222]:
+            - generic [ref=e223]: Transform — Brand System ↗
+            - generic [ref=e224]: Brand Identity
+        - article [ref=e225]:
+          - button "Open Fra'ed International — Identity & Apparel" [ref=e226] [cursor=pointer]:
+            - img "Fra'ed International — Identity & Apparel" [ref=e228]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e229]:
+            - generic [ref=e230]: Fra'ed International — Identity & Apparel ↗
+            - generic [ref=e231]: Brand Identity
+        - article [ref=e232]:
+          - button "Open Burger King — Get Your Krispier Within 5" [ref=e233] [cursor=pointer]:
+            - img "Burger King — Get Your Krispier Within 5" [ref=e235]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e236]:
+            - generic [ref=e237]: Burger King — Get Your Krispier Within 5 ↗
+            - generic [ref=e238]: Campaign
+        - article [ref=e239]:
+          - button "Open LG Saudi — Life's Good" [ref=e240] [cursor=pointer]:
+            - img "LG Saudi — Life's Good" [ref=e242]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e243]:
+            - generic [ref=e244]: LG Saudi — Life's Good ↗
+            - generic [ref=e245]: Brand · Product
+        - article [ref=e246]:
+          - button "Open Vodafone — Global Brand Films" [ref=e247] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e250]:
+            - generic [ref=e251]: Vodafone — Global Brand Films ↗
+            - generic [ref=e252]: Animation · TVC
+        - article [ref=e253]:
+          - button "Open Foodics — Pay at Table" [ref=e254] [cursor=pointer]:
+            - img "Foodics — Pay at Table" [ref=e256]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e257]:
+            - generic [ref=e258]: Foodics — Pay at Table ↗
+            - generic [ref=e259]: Landing Page · Product
+        - article [ref=e260]:
+          - button "Open Foodics — Customer Display Screen" [ref=e261] [cursor=pointer]:
+            - img "Foodics — Customer Display Screen" [ref=e263]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e264]:
+            - generic [ref=e265]: Foodics — Customer Display Screen ↗
+            - generic [ref=e266]: Landing Page · Product
+        - article [ref=e267]:
+          - button "Open Foodics — Egypt Launch — OOH" [ref=e268] [cursor=pointer]:
+            - img "Foodics — Egypt Launch — OOH" [ref=e270]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e271]:
+            - generic [ref=e272]: Foodics — Egypt Launch — OOH ↗
+            - generic [ref=e273]: OOH · Launch
+        - article [ref=e274]:
+          - button "Open Rubicon — Exotic Juice Drinks" [ref=e275] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e278]:
+            - generic [ref=e279]: Rubicon — Exotic Juice Drinks ↗
+            - generic [ref=e280]: TVC · Animation
+        - article [ref=e281]:
+          - button "Open LINC — Credit Card" [ref=e282] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e285]:
+            - generic [ref=e286]: LINC — Credit Card ↗
+            - generic [ref=e287]: Product Film
+        - article [ref=e288]:
+          - button "Open ZainTECH — Drone Surveying & Mapping" [ref=e289] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e292]:
+            - generic [ref=e293]: ZainTECH — Drone Surveying & Mapping ↗
+            - generic [ref=e294]: Technology Film
+        - article [ref=e295]:
+          - button "Open Investcorp Capital — Strategic Capital" [ref=e296] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e299]:
+            - generic [ref=e300]: Investcorp Capital — Strategic Capital ↗
+            - generic [ref=e301]: Brand Film
+        - article [ref=e302]:
+          - button "Open MAWANI — Saudi Ports · Vision 2030" [ref=e303] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e306]:
+            - generic [ref=e307]: MAWANI — Saudi Ports · Vision 2030 ↗
+            - generic [ref=e308]: Corporate Film
+        - article [ref=e309]:
+          - button "Open World Government Summit — Next Generation of Minds" [ref=e310] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e313]:
+            - generic [ref=e314]: World Government Summit — Next Generation of Minds ↗
+            - generic [ref=e315]: Brand Film
+        - article [ref=e316]:
+          - button "Open Family Development Centers — Financial Awareness" [ref=e317] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e320]:
+            - generic [ref=e321]: Family Development Centers — Financial Awareness ↗
+            - generic [ref=e322]: Animation · Explainer
+        - article [ref=e323]:
+          - button "Open Sharjah Data — Smart Government" [ref=e324] [cursor=pointer]:
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e327]:
+            - generic [ref=e328]: Sharjah Data — Smart Government ↗
+            - generic [ref=e329]: Animation · Explainer
+        - article [ref=e330]:
+          - button "Open Vanelli's — Fresh Italian Foods" [ref=e331] [cursor=pointer]:
+            - img "Vanelli's — Fresh Italian Foods" [ref=e333]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e334]:
+            - generic [ref=e335]: Vanelli's — Fresh Italian Foods ↗
+            - generic [ref=e336]: Brand · Social
+        - article [ref=e337]:
+          - button "Open Buffalo Wild Wings — Now Open — KSA" [ref=e338] [cursor=pointer]:
+            - img "Buffalo Wild Wings — Now Open — KSA" [ref=e340]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e341]:
+            - generic [ref=e342]: Buffalo Wild Wings — Now Open — KSA ↗
+            - generic [ref=e343]: Launch · Social
+        - article [ref=e344]:
+          - button "Open AVIS — Car Rental" [ref=e345] [cursor=pointer]:
+            - img "AVIS — Car Rental" [ref=e347]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e348]:
+            - generic [ref=e349]: AVIS — Car Rental ↗
+            - generic [ref=e350]: Brand · Social
+        - article [ref=e351]:
+          - button "Open Mixy — Food Brand" [ref=e352] [cursor=pointer]:
+            - img "Mixy — Food Brand" [ref=e354]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e355]:
+            - generic [ref=e356]: Mixy — Food Brand ↗
+            - generic [ref=e357]: Brand · Social
+        - article [ref=e358]:
+          - button "Open Tawasol — Government Platform" [ref=e359] [cursor=pointer]:
+            - img "Tawasol — Government Platform" [ref=e361]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e362]:
+            - generic [ref=e363]: Tawasol — Government Platform ↗
+            - generic [ref=e364]: Identity · Social
+        - article [ref=e365]:
+          - button "Open Almarai — Fleet & Trade" [ref=e366] [cursor=pointer]:
+            - img "Almarai — Fleet & Trade" [ref=e368]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e369]:
+            - generic [ref=e370]: Almarai — Fleet & Trade ↗
+            - generic [ref=e371]: Brand
+        - article [ref=e372]:
+          - button "Open Electrolux — Thinking of You" [ref=e373] [cursor=pointer]:
+            - img "Electrolux — Thinking of You" [ref=e375]
+            - generic:
+              - generic: View project
+              - generic: →
+          - generic [ref=e376]:
+            - generic [ref=e377]: Electrolux — Thinking of You ↗
+            - generic [ref=e378]: Brand · Product
+    - generic [ref=e379]:
+      - generic [ref=e380]:
+        - heading "More Work" [level=2] [ref=e381]
+        - generic [ref=e383]: Drag
+      - generic [ref=e385]:
+        - button "Play Rubicon — Exotic Juice Drinks" [ref=e386] [cursor=pointer]:
+          - generic [ref=e389]:
+            - generic [ref=e390]: Rubicon
+            - generic [ref=e391]: TVC · Animation
+        - button "Play LINC — Credit Card" [ref=e392] [cursor=pointer]:
+          - generic [ref=e395]:
+            - generic [ref=e396]: LINC
+            - generic [ref=e397]: Product Film
+        - button "Play ZainTECH — Drone Surveying & Mapping" [ref=e398] [cursor=pointer]:
+          - generic [ref=e401]:
+            - generic [ref=e402]: ZainTECH
+            - generic [ref=e403]: Technology Film
+        - button "Play Investcorp Capital — Strategic Capital" [ref=e404] [cursor=pointer]:
+          - generic [ref=e407]:
+            - generic [ref=e408]: Investcorp Capital
+            - generic [ref=e409]: Brand Film
+        - button "Play World Government Summit — Next Generation of Minds" [ref=e410] [cursor=pointer]:
+          - generic [ref=e413]:
+            - generic [ref=e414]: World Government Summit
+            - generic [ref=e415]: Brand Film
+        - button "Play MAWANI — Saudi Ports · Vision 2030" [ref=e416] [cursor=pointer]:
+          - generic [ref=e419]:
+            - generic [ref=e420]: MAWANI
+            - generic [ref=e421]: Corporate Film
+        - button "Play Family Development Centers — Financial Awareness" [ref=e422] [cursor=pointer]:
+          - generic [ref=e425]:
+            - generic [ref=e426]: Family Development Centers
+            - generic [ref=e427]: Animation · Explainer
+        - button "Play Sharjah Data — Smart Government" [ref=e428] [cursor=pointer]:
+          - generic [ref=e431]:
+            - generic [ref=e432]: Sharjah Data
+            - generic [ref=e433]: Animation · Explainer
+        - button "Play Vodafone — Global Brand Films" [ref=e434] [cursor=pointer]:
+          - generic [ref=e437]:
+            - generic [ref=e438]: Vodafone
+            - generic [ref=e439]: Animation · TVC
+        - button "Play LSC — Vision 2034 + WCA" [ref=e440] [cursor=pointer]:
+          - generic [ref=e443]:
+            - generic [ref=e444]: LSC
+            - generic [ref=e445]: Social · Industry
+        - button "Play Rubicon — Exotic Juice Drinks" [ref=e446] [cursor=pointer]:
+          - generic [ref=e449]:
+            - generic [ref=e450]: Rubicon
+            - generic [ref=e451]: TVC · Animation
+        - button "Play LINC — Credit Card" [ref=e452] [cursor=pointer]:
+          - generic [ref=e455]:
+            - generic [ref=e456]: LINC
+            - generic [ref=e457]: Product Film
+        - button "Play ZainTECH — Drone Surveying & Mapping" [ref=e458] [cursor=pointer]:
+          - generic [ref=e461]:
+            - generic [ref=e462]: ZainTECH
+            - generic [ref=e463]: Technology Film
+        - button "Play Investcorp Capital — Strategic Capital" [ref=e464] [cursor=pointer]:
+          - generic [ref=e467]:
+            - generic [ref=e468]: Investcorp Capital
+            - generic [ref=e469]: Brand Film
+        - button "Play World Government Summit — Next Generation of Minds" [ref=e470] [cursor=pointer]:
+          - generic [ref=e473]:
+            - generic [ref=e474]: World Government Summit
+            - generic [ref=e475]: Brand Film
+        - button "Play MAWANI — Saudi Ports · Vision 2030" [ref=e476] [cursor=pointer]:
+          - generic [ref=e479]:
+            - generic [ref=e480]: MAWANI
+            - generic [ref=e481]: Corporate Film
+        - button "Play Family Development Centers — Financial Awareness" [ref=e482] [cursor=pointer]:
+          - generic [ref=e485]:
+            - generic [ref=e486]: Family Development Centers
+            - generic [ref=e487]: Animation · Explainer
+        - button "Play Sharjah Data — Smart Government" [ref=e488] [cursor=pointer]:
+          - generic [ref=e491]:
+            - generic [ref=e492]: Sharjah Data
+            - generic [ref=e493]: Animation · Explainer
+        - button "Play Vodafone — Global Brand Films" [ref=e494] [cursor=pointer]:
+          - generic [ref=e497]:
+            - generic [ref=e498]: Vodafone
+            - generic [ref=e499]: Animation · TVC
+        - button "Play LSC — Vision 2034 + WCA" [ref=e500] [cursor=pointer]:
+          - generic [ref=e503]:
+            - generic [ref=e504]: LSC
+            - generic [ref=e505]: Social · Industry
+    - generic [ref=e507]:
+      - generic [ref=e508]:
+        - generic [ref=e509]: 08 / Contact
+        - generic [ref=e511]:
+          - text: Amman · Riyadh
+          - text: + remote, anywhere.
+      - heading "Let's build bold stories with impact." [level=2] [ref=e512]:
+        - text: Let's build
+        - text: bold stories
+        - text: with impact.
+      - generic [ref=e513]:
+        - generic [ref=e514]:
+          - paragraph [ref=e515]: If you have a brand to launch, a product to position, or a category to define — tell us where you're headed and what's in the way. We'll come back within 48 hours with first thoughts, not a deck of templates.
+          - generic [ref=e516]:
+            - generic [ref=e517]:
+              - generic [ref=e518]: General
+              - link "info@themotionagency.net" [ref=e519] [cursor=pointer]:
+                - /url: mailto:info@themotionagency.net
+            - generic [ref=e520]:
+              - generic [ref=e521]: Press
+              - link "press@themotionagency.net" [ref=e522] [cursor=pointer]:
+                - /url: mailto:press@themotionagency.net
+        - generic [ref=e523]:
+          - textbox "Your name *" [ref=e524]
+          - textbox "Company *" [ref=e525]
+          - textbox "Email *" [ref=e526]
+          - combobox [ref=e527]:
+            - option "What do you need help with? *" [disabled] [selected]
+            - option "Brand strategy & positioning"
+            - option "Brand design & identity"
+            - option "Go-to-market & growth"
+            - option "Event & experience"
+            - option "Content & production"
+            - option "All of the above"
+          - textbox "Tell us where you're headed *" [ref=e528]
+          - textbox [ref=e529]
+          - button "Send brief ↗" [ref=e530] [cursor=pointer]:
+            - text: Send brief
+            - generic [ref=e531]: ↗
+    - generic [ref=e532]:
+      - generic [ref=e533]: THE / MOTION / AGENCY
+      - generic [ref=e534]:
+        - generic [ref=e535]: © 2026 The Motion Agency
+        - generic [ref=e536]: themotionagency.net
+        - generic [ref=e537]: info@themotionagency.net
+        - link "LinkedIn" [ref=e539] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e540]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e546] [cursor=pointer]:
+    - img [ref=e547]
+  - alert [ref=e550]
+  - generic:
+    - generic:
+      - generic: Drag

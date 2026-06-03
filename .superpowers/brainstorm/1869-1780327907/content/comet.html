@@ -1,0 +1,60 @@
+<h2>The comet head — the focal point that carries your eye between sections</h2>
+<p class="subtitle">With the restrained black palette, this glowing tip is the main continuity device. Each demo loops down a line segment. Click the feel you want.</p>
+
+<style>
+  .cdemo{height:240px;background:#060607;border-radius:12px 12px 0 0;position:relative;overflow:hidden}
+  .cline{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);
+    background:linear-gradient(180deg,rgba(111,211,255,.0),rgba(111,211,255,.55))}
+  @keyframes travel{0%{top:-6%}100%{top:106%}}
+  /* A — soft orb */
+  .orb{position:absolute;left:50%;width:13px;height:13px;border-radius:50%;
+    transform:translate(-50%,-50%);background:#eaf8ff;
+    box-shadow:0 0 18px 6px rgba(111,211,255,.85),0 0 36px 14px rgba(111,211,255,.35);
+    animation:travel 3.2s cubic-bezier(.45,0,.55,1) infinite}
+  /* B — comet + tail */
+  .comet{position:absolute;left:50%;width:11px;height:11px;border-radius:50%;
+    transform:translate(-50%,-50%);background:#fff;
+    box-shadow:0 0 16px 5px rgba(111,211,255,.9);
+    animation:travel 3.2s cubic-bezier(.45,0,.55,1) infinite}
+  .comet::after{content:"";position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+    width:3px;height:70px;border-radius:3px;
+    background:linear-gradient(180deg,rgba(111,211,255,.9),rgba(111,211,255,0))}
+  /* C — spark / lens flare */
+  .spark{position:absolute;left:50%;width:7px;height:7px;border-radius:50%;
+    transform:translate(-50%,-50%);background:#fff;
+    box-shadow:0 0 10px 3px rgba(160,230,255,.95);
+    animation:travel 3.2s cubic-bezier(.45,0,.55,1) infinite}
+  .spark::before,.spark::after{content:"";position:absolute;left:50%;top:50%;background:rgba(200,240,255,.9)}
+  .spark::before{width:26px;height:1px;transform:translate(-50%,-50%)}
+  .spark::after{width:1px;height:26px;transform:translate(-50%,-50%)}
+</style>
+
+<div class="cards">
+
+  <div class="card" data-choice="orb" onclick="toggleSelect(this)">
+    <div class="cdemo"><div class="cline"></div><div class="orb"></div></div>
+    <div class="card-body">
+      <h3>A · Soft glow orb</h3>
+      <p>A round bloom, no tail. Calm, premium, unobtrusive — sits beautifully against the matte palette. The "breathing point of light."</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="comet" onclick="toggleSelect(this)">
+    <div class="cdemo"><div class="cline"></div><div class="comet"></div></div>
+    <div class="card-body">
+      <h3>B · Comet + trailing tail</h3>
+      <p>Bright head with a short fading tail along the line behind it. Reads as "motion" most literally — on-brand for a motion agency. Slightly more energetic.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="spark" onclick="toggleSelect(this)">
+    <div class="cdemo"><div class="cline"></div><div class="spark"></div></div>
+    <div class="card-body">
+      <h3>C · Spark / lens-flare</h3>
+      <p>Crisp point with a thin cross-flare. Precise, technical, "engineered light." Sharpest and most futuristic; least soft.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:12px">My lean: <strong>B (comet + tail)</strong> for a <em>motion</em> agency — it literally embodies movement and is the strongest continuity cue. In all three, the glow intensity would react to scroll velocity (faster scroll = brighter), which is your unifying "the world responds to motion" idea.</p>

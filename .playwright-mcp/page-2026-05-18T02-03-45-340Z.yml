@@ -1,0 +1,122 @@
+- generic [ref=e2]:
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - figure [ref=e6]:
+        - img "ImaginePossible" [ref=e7]
+      - figure [ref=e8]:
+        - img "ImaginePossible" [ref=e9]
+      - generic [ref=e10]:
+        - text: Origin
+        - text: Objects
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: Origin Objects are physical items formed within specific places.
+        - paragraph [ref=e13]: Their form results from context, material, and use at the point of origin.
+      - img
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: Principle
+        - paragraph [ref=e17]: Objects are not designed first and placed later.
+        - paragraph [ref=e18]: Objects are not designed first and placed later. They are formed within a place and only leave once complete.
+        - paragraph [ref=e19]: After release, they circulate independently.
+      - img
+    - generic [ref=e20]:
+      - img [ref=e21]
+      - generic [ref=e23]:
+        - figure [ref=e24]:
+          - img "ImaginePossible" [ref=e25]
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - figure:
+          - img "ImaginePossible"
+        - generic [ref=e26]:
+          - figure [ref=e27] [cursor=pointer]:
+            - img "ImaginePossible" [ref=e28]
+          - figure [ref=e29] [cursor=pointer]:
+            - img "ImaginePossible" [ref=e30]
+          - figure [ref=e31] [cursor=pointer]:
+            - img "ImaginePossible" [ref=e32]
+          - figure [ref=e33] [cursor=pointer]:
+            - img "ImaginePossible" [ref=e34]
+        - img
+        - generic [ref=e35]:
+          - img [ref=e36]:
+            - generic [ref=e37]: Object IObject IIIObject VObject VI
+          - img [ref=e38]:
+            - generic [ref=e39]: The Rabbit KeeperThe GuardianThe Fox SpiritThe Elder
+        - button [ref=e40] [cursor=pointer]:
+          - img [ref=e41]
+          - img [ref=e43]
+        - button [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+          - img [ref=e48]
+    - generic [ref=e51]:
+      - figure [ref=e52]:
+        - img "ImaginePossible" [ref=e53]
+      - paragraph [ref=e54]: Each object is tied to a specific place, which defines its origin.
+    - generic [ref=e55]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: No Social Medias
+        - generic [ref=e59]: Independent practice operating across locations.
+        - generic [ref=e60]:
+          - generic [ref=e61]: Operating
+          - generic [ref=e62]: Across
+          - generic [ref=e63]: Locations.
+        - navigation [ref=e64]:
+          - link "Places" [ref=e65] [cursor=pointer]:
+            - /url: /places
+          - link "Objects" [ref=e66] [cursor=pointer]:
+            - /url: /objects
+          - link "About" [ref=e67] [cursor=pointer]:
+            - /url: /about
+          - generic [ref=e68]: Contacts
+          - link "People" [ref=e69] [cursor=pointer]:
+            - /url: /people
+        - generic [ref=e70]: © 2026
+        - generic [ref=e71]: This website is an expression of the ImaginePossible initiative.
+        - link "Website by Fiddle.Digital" [ref=e72] [cursor=pointer]:
+          - /url: https://fiddle.digital
+      - generic [ref=e73]:
+        - link "The Obsidian Assembly" [ref=e74] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e75]: The
+          - generic [ref=e76]: Obsidian
+          - generic [ref=e77]: Assembly
+        - generic [ref=e78]: /
+        - paragraph [ref=e79]:
+          - link "Imagine Possible" [ref=e80] [cursor=pointer]:
+            - /url: /imagine-possible-policy
+          - text: is a design exploration initiative by Fiddle.Digital.
+        - paragraph [ref=e81]: It investigates alternative possibilities across systems, spaces, and objects, using speculative design as a way to question defaults and expand how things might otherwise be formed.
+        - figure [ref=e82]:
+          - img "ImaginePossible" [ref=e83]
+      - figure [ref=e84]:
+        - img "ImaginePossible" [ref=e85]
+  - banner:
+    - generic:
+      - link "The Obsidian Assembly Imagine Possible" [ref=e86] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e87]: The
+        - generic [ref=e88]: Obsidian
+        - generic [ref=e89]: Assembly
+        - generic [ref=e90]: Imagine Possible
+      - link "Places" [ref=e91] [cursor=pointer]:
+        - /url: /places
+        - generic [ref=e92]: Places
+      - link "Objects" [ref=e93]:
+        - /url: /objects
+        - generic [ref=e94]: Objects
+      - button "send request":
+        - generic: send request
+      - button "Menu" [ref=e96] [cursor=pointer]:
+        - generic [ref=e97]: Menu
+  - img
+  - generic:
+    - generic:
+      - generic:
+        - generic: The
+        - generic: Obsidian
+        - generic: Assembly

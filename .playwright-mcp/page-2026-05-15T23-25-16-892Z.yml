@@ -1,0 +1,215 @@
+- generic [active] [ref=e8]:
+  - generic [ref=e9]:
+    - generic:
+      - generic:
+        - generic: TMA · BOOSTER
+        - generic: ● TELEMETRY
+      - generic:
+        - generic: PORTFOLIO
+        - generic: THE MOTION AGENCY
+    - complementary:
+      - generic: CHAPTER
+      - generic: "01"
+      - generic: HERO
+      - generic: SCROLL TO LAUNCH
+    - generic:
+      - generic: SIGNAL · LIVE
+      - generic: 02%
+    - generic:
+      - generic: SCROLL
+    - main [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: THE MOTION AGENCY
+          - generic [ref=e14]: —
+          - generic [ref=e15]: PORTFOLIO · V11
+          - generic [ref=e16]: —
+          - generic [ref=e17]: BOOSTER 001
+        - heading "SCROLL IGNITES THE BOOSTER." [level=1] [ref=e18]:
+          - generic [ref=e19]: SCROLL
+          - generic [ref=e20]: IGNITES
+          - generic [ref=e21]: THE
+          - generic [ref=e22]: BOOSTER.
+        - paragraph [ref=e23]: An evolving cinematic film. The further you scroll, the further the booster carries our work, our numbers, and our voice across the GCC.
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]: SCROLL TO LAUNCH
+            - generic [ref=e28]: 01 / 06
+          - generic [ref=e29]:
+            - generic [ref=e30]: AMMAN · RIYADH
+            - generic [ref=e31]: EST. 2019
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: CHAPTER 02
+          - heading "FEATURED SIGNALS" [level=2] [ref=e35]:
+            - text: FEATURED
+            - emphasis [ref=e36]: SIGNALS
+          - paragraph [ref=e37]: Four launches that turned B2B brands into category leaders. As the booster descends, the work emerges through the smoke.
+        - generic [ref=e38]:
+          - article [ref=e133]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: +35.6%
+              - generic [ref=e137]: YoY revenue
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - generic [ref=e140]: "01"
+                - generic [ref=e141]: Foodics
+              - heading "Transforming a POS platform into the growth engine of F&B." [level=3] [ref=e142]
+              - generic [ref=e143]:
+                - generic [ref=e144]: Brand Strategy
+                - generic [ref=e145]: Product Launch
+                - generic [ref=e146]: Event
+                - generic [ref=e147]: Content
+              - link "OPEN CASE" [ref=e148] [cursor=pointer]:
+                - /url: /case/foodics-boundless
+                - generic [ref=e149]: OPEN CASE
+                - img [ref=e150]
+          - article [ref=e152]:
+            - generic [ref=e154]:
+              - generic [ref=e155]: +200%
+              - generic [ref=e156]: YoY growth
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - generic [ref=e159]: "02"
+                - generic [ref=e160]: Zid
+              - heading "Launching the Total Commerce era for 12K+ merchants." [level=3] [ref=e161]
+              - generic [ref=e162]:
+                - generic [ref=e163]: Brand Strategy
+                - generic [ref=e164]: GTM
+                - generic [ref=e165]: Event
+                - generic [ref=e166]: Content
+              - link "OPEN CASE" [ref=e167] [cursor=pointer]:
+                - /url: /case/zid-ripple
+                - generic [ref=e168]: OPEN CASE
+                - img [ref=e169]
+          - article [ref=e171]:
+            - generic [ref=e173]:
+              - generic [ref=e174]: v3.0
+              - generic [ref=e175]: Brand manual
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]: "03"
+                - generic [ref=e179]: Foodics
+              - heading "A category-defining identity for the F&B operating system." [level=3] [ref=e180]
+              - generic [ref=e181]:
+                - generic [ref=e182]: Brand Design
+                - generic [ref=e183]: Guidelines
+                - generic [ref=e184]: Typography
+              - link "OPEN CASE" [ref=e185] [cursor=pointer]:
+                - /url: "#gallery"
+                - generic [ref=e186]: OPEN CASE
+                - img [ref=e187]
+          - article [ref=e189]:
+            - generic [ref=e191]:
+              - generic [ref=e192]: "3"
+              - generic [ref=e193]: LP variants live
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - generic [ref=e196]: "04"
+                - generic [ref=e197]: Zid
+              - heading "We are your launchpad to the stars." [level=3] [ref=e198]
+              - generic [ref=e199]:
+                - generic [ref=e200]: Web Design
+                - generic [ref=e201]: Landing Pages
+                - generic [ref=e202]: Copywriting
+              - link "OPEN CASE" [ref=e203] [cursor=pointer]:
+                - /url: "#gallery"
+                - generic [ref=e204]: OPEN CASE
+                - img [ref=e205]
+      - generic [ref=e40]:
+        - generic [ref=e41]: CHAPTER 03
+        - heading "THE BODY OF WORK" [level=2] [ref=e42]:
+          - text: THE
+          - emphasis [ref=e43]: BODY OF WORK
+        - paragraph [ref=e44]: Thirty-nine launches across SaaS, F&B, fintech, commerce, and government. Brands. Campaigns. Films. Web. OOH. Production.
+        - generic [ref=e45]: 039 · ACTIVE
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: CHAPTER 04
+          - heading "THE NUMBERS BEHIND THE BOOST." [level=2] [ref=e50]:
+            - text: THE
+            - emphasis [ref=e51]: NUMBERS
+            - text: BEHIND THE BOOST.
+          - paragraph [ref=e52]: Embedded operating partners — not external vendors. The math of compounding category leadership.
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: "01"
+            - generic [ref=e56]:
+              - generic [ref=e57]: $
+              - generic [ref=e58]: "0"
+              - generic [ref=e59]: B
+            - generic [ref=e60]: FOODICS · UNICORN VALUATION
+            - generic [ref=e61]: From $2M seed to unicorn
+          - generic [ref=e62]:
+            - generic [ref=e63]: "02"
+            - generic [ref=e64]:
+              - generic [ref=e65]: +
+              - generic [ref=e66]: "63"
+              - generic [ref=e67]: "%"
+            - generic [ref=e68]: ZID · YOY GROWTH POST-RIPPLE
+            - generic [ref=e69]: 12K+ merchant network
+          - generic [ref=e70]:
+            - generic [ref=e71]: "03"
+            - generic [ref=e72]:
+              - generic [ref=e73]: "11"
+              - generic [ref=e74]: "%"
+            - generic [ref=e75]: KSA · F&B MARKET SHARE
+            - generic [ref=e76]: Category leadership
+          - generic [ref=e77]:
+            - generic [ref=e78]: "04"
+            - generic [ref=e79]:
+              - generic [ref=e80]: "2"
+              - generic [ref=e81]: YRS
+            - generic [ref=e82]: BUILDING CATEGORY LEADERS
+            - generic [ref=e83]: Embedded with B2B brands
+          - generic [ref=e84]:
+            - generic [ref=e85]: "05"
+            - generic [ref=e87]: "12"
+            - generic [ref=e88]: PROJECTS · CASES · CAMPAIGNS
+            - generic [ref=e89]: Across the GCC
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: CHAPTER 05
+          - heading "OPERATING PRINCIPLES" [level=2] [ref=e93]:
+            - text: OPERATING
+            - emphasis [ref=e94]: PRINCIPLES
+        - generic [ref=e95]:
+          - blockquote [ref=e96]:
+            - generic [ref=e97]: 01 / 03
+            - paragraph [ref=e98]: “We don't pitch campaigns. We embed with B2B brands and build them into category leaders.”
+            - generic [ref=e99]:
+              - generic [ref=e100]: —
+              - generic [ref=e101]: The Motion Agency — operating principle
+          - blockquote [ref=e102]:
+            - generic [ref=e103]: 02 / 03
+            - paragraph [ref=e104]: “We shaped Foodics' brand reputation and positioning from its early $2M funding stage — today, Foodics stands as a $1B unicorn commanding 35% market share in Saudi Arabia.”
+            - generic [ref=e105]:
+              - generic [ref=e106]: —
+              - generic [ref=e107]: On the Foodics partnership
+          - blockquote [ref=e108]:
+            - generic [ref=e109]: 03 / 03
+            - paragraph [ref=e110]: “Don't pitch a campaign. Embed an agency. We compound brand equity quarter over quarter — that's why our roster compounds, too.”
+            - generic [ref=e111]:
+              - generic [ref=e112]: —
+              - generic [ref=e113]: The Motion Agency — closing principle
+      - generic [ref=e114]:
+        - generic [ref=e115]: CHAPTER 06
+        - heading "YOUR LAUNCH STARTS HERE." [level=2] [ref=e116]:
+          - generic [ref=e117]: YOUR
+          - generic [ref=e118]: LAUNCH
+          - generic [ref=e119]: STARTS
+          - generic [ref=e120]: HERE.
+        - paragraph [ref=e121]: Embed with the team that built the boosters. Strategy, design, GTM, and content — under one roof, in lockstep, with ROI at the core.
+        - generic [ref=e122]:
+          - link "START A PROJECT" [ref=e123] [cursor=pointer]:
+            - /url: /#contact
+            - generic [ref=e124]: START A PROJECT
+            - img [ref=e125]
+          - link "BACK TO PORTFOLIO V1" [ref=e127] [cursor=pointer]:
+            - /url: /portfolio
+            - generic [ref=e128]: BACK TO PORTFOLIO V1
+        - generic [ref=e129]:
+          - generic [ref=e130]: © THE MOTION AGENCY · EST. 2019
+          - generic [ref=e131]: AMMAN · RIYADH
+          - generic [ref=e132]: SIGNAL · TERMINATED
+  - alert [ref=e7]

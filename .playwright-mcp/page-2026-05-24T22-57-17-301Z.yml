@@ -1,0 +1,501 @@
+- generic [ref=e3]:
+  - img [ref=e17]
+  - banner [ref=e19]:
+    - link [ref=e20] [cursor=pointer]:
+      - /url: /
+      - img
+    - generic [ref=e21]:
+      - link "Work" [ref=e22] [cursor=pointer]:
+        - /url: /work
+        - generic [ref=e24]: Work
+      - link "About" [ref=e25] [cursor=pointer]:
+        - /url: /about
+        - generic [ref=e27]: About
+      - link "Services" [ref=e28] [cursor=pointer]:
+        - /url: /services
+        - generic [ref=e30]: Services
+      - link "Jobs" [ref=e31] [cursor=pointer]:
+        - /url: /jobs
+        - generic [ref=e33]: Jobs
+      - link "Contact" [ref=e34] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e36]: Contact
+    - button "Toggle menu"
+    - navigation [ref=e37]:
+      - generic [ref=e39]:
+        - link "Work" [ref=e40] [cursor=pointer]:
+          - /url: /work
+          - text: Work
+        - link "About" [ref=e42] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Services" [ref=e44] [cursor=pointer]:
+          - /url: /services
+          - text: Services
+        - link "Jobs" [ref=e46] [cursor=pointer]:
+          - /url: /jobs
+          - text: Jobs
+        - link "Contact" [ref=e48] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - heading "Work" [level=2] [ref=e54]
+        - button "Toggle Categories" [ref=e55] [cursor=pointer]:
+          - generic [ref=e58]: Filters
+      - generic [ref=e59]:
+        - button "Show all works":
+          - generic: ALL
+        - button "Show works in Creative Direction category" [ref=e60] [cursor=pointer]:
+          - generic [ref=e61]: Creative Direction
+        - button "Show works in End to End Production category" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]: End to End Production
+        - button "Show works in CG Design & Animation category" [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]: CG Design & Animation
+        - button "Show works in Branding & Product Animation category" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]: Branding & Product Animation
+        - button "Show works in Mix Media category" [ref=e68] [cursor=pointer]:
+          - generic [ref=e69]: Mix Media
+        - button "Show works in Live Action category" [ref=e70] [cursor=pointer]:
+          - generic [ref=e71]: Live Action
+        - button "Show works in Characters category" [ref=e72] [cursor=pointer]:
+          - generic [ref=e73]: Characters
+        - button "Show works in Motion Graphics category" [ref=e74] [cursor=pointer]:
+          - generic [ref=e75]: Motion Graphics
+        - button "Show works in Cell Animation category" [ref=e76] [cursor=pointer]:
+          - generic [ref=e77]: Cell Animation
+        - button "Show works in R&D category" [ref=e78] [cursor=pointer]:
+          - generic [ref=e79]: R&D
+        - button "Show works in Experiences & Digital Art category" [ref=e80] [cursor=pointer]:
+          - generic [ref=e81]: Experiences & Digital Art
+      - generic [ref=e82]:
+        - link "Clim Studio - Studio Original MANIFESTO" [ref=e83] [cursor=pointer]:
+          - /url: /work/manifesto
+          - generic [ref=e89]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e90]
+            - heading "MANIFESTO" [level=3] [ref=e91]
+        - link "Amazon - Social Advertising Amazon's Animated Social Ads" [ref=e92] [cursor=pointer]:
+          - /url: /work/amazon-animation-social-campaign
+          - generic [ref=e98]:
+            - heading "Amazon - Social Advertising" [level=3] [ref=e99]
+            - heading "Amazon's Animated Social Ads" [level=3] [ref=e100]
+        - link "Samsung - Screensavers Galaxy Z Flip & Fold" [ref=e101] [cursor=pointer]:
+          - /url: /work/Galaxy-animation-flip-fold
+          - generic [ref=e107]:
+            - heading "Samsung - Screensavers" [level=3] [ref=e108]
+            - heading "Galaxy Z Flip & Fold" [level=3] [ref=e109]
+        - link "Clim Studio - Studio Original Our New Us!" [ref=e110] [cursor=pointer]:
+          - /url: /work/our-new-us
+          - generic [ref=e116]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e117]
+            - heading "Our New Us!" [level=3] [ref=e118]
+        - link "Roger & Gallet - Social Campaign The Happiness Factory" [ref=e119] [cursor=pointer]:
+          - /url: /work/rogerandgallet
+          - generic [ref=e125]:
+            - heading "Roger & Gallet - Social Campaign" [level=3] [ref=e126]
+            - heading "The Happiness Factory" [level=3] [ref=e127]
+        - link "Clim Studio - Studio Original NOBJECTS" [ref=e128] [cursor=pointer]:
+          - /url: /work/NOBJECTS
+          - generic [ref=e134]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e135]
+            - heading "NOBJECTS" [level=3] [ref=e136]
+        - link "Samsung - Exhibition Newfound Equilibrium" [ref=e137] [cursor=pointer]:
+          - /url: /work/newfound-equilibrium
+          - generic [ref=e143]:
+            - heading "Samsung - Exhibition" [level=3] [ref=e144]
+            - heading "Newfound Equilibrium" [level=3] [ref=e145]
+        - link "Mr. Porter - Social Campaign Mr. Porter" [ref=e146] [cursor=pointer]:
+          - /url: /work/mrporter
+          - generic [ref=e152]:
+            - heading "Mr. Porter - Social Campaign" [level=3] [ref=e153]
+            - heading "Mr. Porter" [level=3] [ref=e154]
+        - link "Helia - Brand-concept film Helia's Launch" [ref=e155] [cursor=pointer]:
+          - /url: /work/helia
+          - generic [ref=e161]:
+            - heading "Helia - Brand-concept film" [level=3] [ref=e162]
+            - heading "Helia's Launch" [level=3] [ref=e163]
+        - link "Samsung - Screensavers Galaxy A Series" [ref=e164] [cursor=pointer]:
+          - /url: /work/samsung-galaxy-aseries
+          - generic [ref=e170]:
+            - heading "Samsung - Screensavers" [level=3] [ref=e171]
+            - heading "Galaxy A Series" [level=3] [ref=e172]
+        - link "Amazon - Commercial Film Amazon Alexa" [ref=e173] [cursor=pointer]:
+          - /url: /work/amazon_mixmedia_animation
+          - generic [ref=e179]:
+            - heading "Amazon - Commercial Film" [level=3] [ref=e180]
+            - heading "Amazon Alexa" [level=3] [ref=e181]
+        - link "Marvin - Corporate Character Marvin" [ref=e182] [cursor=pointer]:
+          - /url: /work/marvin
+          - generic [ref=e188]:
+            - heading "Marvin - Corporate Character" [level=3] [ref=e189]
+            - heading "Marvin" [level=3] [ref=e190]
+        - link "Samsung - Screensavers Samsung Galaxy Vol.2" [ref=e191] [cursor=pointer]:
+          - /url: /work/samsung-galaxy-vol-2
+          - generic [ref=e197]:
+            - heading "Samsung - Screensavers" [level=3] [ref=e198]
+            - heading "Samsung Galaxy Vol.2" [level=3] [ref=e199]
+        - link "Orajel - TV Commercial Orajel" [ref=e200] [cursor=pointer]:
+          - /url: /work/orajel
+          - generic [ref=e206]:
+            - heading "Orajel - TV Commercial" [level=3] [ref=e207]
+            - heading "Orajel" [level=3] [ref=e208]
+        - link "T Mobile - B2B Campaign T Mobile 5G" [ref=e209] [cursor=pointer]:
+          - /url: /work/tmobile5g
+          - generic [ref=e215]:
+            - heading "T Mobile - B2B Campaign" [level=3] [ref=e216]
+            - heading "T Mobile 5G" [level=3] [ref=e217]
+        - link "Artgrid.io - Footage Creation Artgrid Loops Series" [ref=e218] [cursor=pointer]:
+          - /url: /work/artgrid-art-loops
+          - generic [ref=e224]:
+            - heading "Artgrid.io - Footage Creation" [level=3] [ref=e225]
+            - heading "Artgrid Loops Series" [level=3] [ref=e226]
+        - link "Clim Studio - Studio Original It’s About Time" [ref=e227] [cursor=pointer]:
+          - /url: /work/itsabouttime
+          - generic [ref=e233]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e234]
+            - heading "It’s About Time" [level=3] [ref=e235]
+        - link "Artgrid.io - Footage Creation Artgrid Patterns" [ref=e236] [cursor=pointer]:
+          - /url: /work/artgrid-patterns
+          - generic [ref=e242]:
+            - heading "Artgrid.io - Footage Creation" [level=3] [ref=e243]
+            - heading "Artgrid Patterns" [level=3] [ref=e244]
+        - link "Ford - Social Content Ford Money" [ref=e245] [cursor=pointer]:
+          - /url: /work/ford-money
+          - generic [ref=e251]:
+            - heading "Ford - Social Content" [level=3] [ref=e252]
+            - heading "Ford Money" [level=3] [ref=e253]
+        - link "Artgrid.io - Footage Creation Artgrid 5 a Day" [ref=e254] [cursor=pointer]:
+          - /url: /work/artgrid-5aday
+          - generic [ref=e260]:
+            - heading "Artgrid.io - Footage Creation" [level=3] [ref=e261]
+            - heading "Artgrid 5 a Day" [level=3] [ref=e262]
+        - link "Clim Studio - Studio Original See Through" [ref=e263] [cursor=pointer]:
+          - /url: /work/see-through
+          - generic [ref=e269]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e270]
+            - heading "See Through" [level=3] [ref=e271]
+        - link "Logitech - CG character-based system Logitech Lab's Family" [ref=e272] [cursor=pointer]:
+          - /url: /work/logitech
+          - generic [ref=e278]:
+            - heading "Logitech - CG character-based system" [level=3] [ref=e279]
+            - heading "Logitech Lab's Family" [level=3] [ref=e280]
+        - link "Parlé Agro - TV Commercial Frooti Fizz" [ref=e281] [cursor=pointer]:
+          - /url: /work/frooti-fizz
+          - generic [ref=e287]:
+            - heading "Parlé Agro - TV Commercial" [level=3] [ref=e288]
+            - heading "Frooti Fizz" [level=3] [ref=e289]
+        - link "Joko - TV Show Screens Joko TV Show Loops" [ref=e290] [cursor=pointer]:
+          - /url: /work/joko
+          - generic [ref=e296]:
+            - heading "Joko - TV Show Screens" [level=3] [ref=e297]
+            - heading "Joko TV Show Loops" [level=3] [ref=e298]
+        - link "Clim Studio - Studio Original The Quarantine Loops" [ref=e299] [cursor=pointer]:
+          - /url: /work/quarantine-loops
+          - generic [ref=e305]:
+            - heading "Clim Studio - Studio Original" [level=3] [ref=e306]
+            - heading "The Quarantine Loops" [level=3] [ref=e307]
+        - link "Facebook - In-product Content Facebook Life Events" [ref=e308] [cursor=pointer]:
+          - /url: /work/liveevents
+          - generic [ref=e314]:
+            - heading "Facebook - In-product Content" [level=3] [ref=e315]
+            - heading "Facebook Life Events" [level=3] [ref=e316]
+        - link "Iron Mountain - TV Ad Iron Mountain" [ref=e317] [cursor=pointer]:
+          - /url: /work/iron-mountain
+          - generic [ref=e323]:
+            - heading "Iron Mountain - TV Ad" [level=3] [ref=e324]
+            - heading "Iron Mountain" [level=3] [ref=e325]
+        - link "Spotify - Social Campaign Spotify For Artists" [ref=e326] [cursor=pointer]:
+          - /url: /work/spotify-for-artists
+          - generic [ref=e332]:
+            - heading "Spotify - Social Campaign" [level=3] [ref=e333]
+            - heading "Spotify For Artists" [level=3] [ref=e334]
+        - link "Meta - Educational Videos Facebook Factory" [ref=e335] [cursor=pointer]:
+          - /url: /work/facebookfactory
+          - generic [ref=e341]:
+            - heading "Meta - Educational Videos" [level=3] [ref=e342]
+            - heading "Facebook Factory" [level=3] [ref=e343]
+    - generic [ref=e345]:
+      - heading "Archive" [level=3] [ref=e347]
+      - generic [ref=e348]:
+        - article [ref=e349]:
+          - generic [ref=e350]:
+            - generic [ref=e351]:
+              - heading "Christie's Luxury Week" [level=3] [ref=e352]
+              - heading "Christie’s" [level=4] [ref=e353]
+            - paragraph
+            - button [ref=e354] [cursor=pointer]:
+              - img [ref=e355]
+              - img [ref=e358]
+          - generic [ref=e360]:
+            - paragraph [ref=e361]: Christie’s trusted us to create a film to generate awareness for their Private Sales. Luxury-Week auctions offer their most exquisite clients the opportunity to acquire the finest Handbags, Wines, Watches & Jewels.
+            - generic [ref=e362]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e363]:
+          - generic [ref=e364]:
+            - generic [ref=e365]:
+              - heading "Logitech WFH Happy" [level=3] [ref=e366]
+              - heading "Logitech" [level=4] [ref=e367]
+            - paragraph
+            - button [ref=e368] [cursor=pointer]:
+              - img [ref=e369]
+              - img [ref=e372]
+          - generic [ref=e374]:
+            - paragraph [ref=e375]: Our Logitech’s character–based language was a big hit. Logitech rang us again to continue establishing a look and feel for the way they talk about ergonomics.
+            - generic [ref=e376]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e377]:
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - heading "Open – Classrooms" [level=3] [ref=e380]
+              - heading "OpenClassrooms" [level=4] [ref=e381]
+            - paragraph
+            - button [ref=e382] [cursor=pointer]:
+              - img [ref=e383]
+              - img [ref=e386]
+          - generic [ref=e388]:
+            - paragraph [ref=e389]:
+              - text: Corporate Idents.
+              - text: OpenClassrooms, the most recognisable educational digital platform in Europe, reached Clim Studio to create and produce a family of 3 idents with the idea of raising awareness around the apprenticeship scheme for students and employers.
+            - generic [ref=e390]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e391]:
+          - generic [ref=e392]:
+            - generic [ref=e393]:
+              - heading "Victoria" [level=3] [ref=e394]
+              - heading "Victoria Shoes International" [level=4] [ref=e395]
+            - paragraph
+            - button [ref=e396] [cursor=pointer]:
+              - img [ref=e397]
+              - img [ref=e400]
+          - generic [ref=e402]:
+            - paragraph [ref=e403]: A summer-flavored Social Campaign. VICTORIA SHOES came to challenge us with creating beautiful and meaningful content for their social media channels among its millennial feminine worldwide public.
+            - generic [ref=e404]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e405]:
+          - generic [ref=e406]:
+            - generic [ref=e407]:
+              - heading "Truth vs Lies" [level=3] [ref=e408]
+              - heading "Studio Original" [level=4] [ref=e409]
+            - paragraph
+            - button [ref=e410] [cursor=pointer]:
+              - img [ref=e411]
+              - img [ref=e414]
+          - generic [ref=e416]:
+            - paragraph [ref=e417]:
+              - text: A self-initiated short-film.
+              - text: (2019) Touched by the Catalans’ fight for human and democratic rights compounded with the political climate in the UK, USA & Brazil, Clim felt it was necessary to create a film that shines a light upon the post-truth era in which we are all living.
+            - generic [ref=e418]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e419]:
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - heading "Google" [level=3] [ref=e422]
+              - heading "Google" [level=4] [ref=e423]
+            - paragraph
+            - button [ref=e424] [cursor=pointer]:
+              - img [ref=e425]
+              - img [ref=e428]
+          - paragraph [ref=e431]:
+            - text: A Motion Design System.
+            - text: Back in 2012, we were given a full carte-blanche from Google’s Lab team. It was the beginning of what today we call Google Assistant and the guys at Google wanted us to explore how a potential visual and kinetic language could be created and implemented. A Design and Motion exploratory exercise that served as a proof of concept for the in-house team at Google Lab.
+            - text: At that time Clim was one of the halves of “Sebas & Clim”. The motion graphics duo surprised entire audiences with Make it Better, Tiny Story, and the Anicons Library, all of them self-initiated projects that catapulted their career.
+        - article [ref=e433]:
+          - generic [ref=e434]:
+            - generic [ref=e435]:
+              - heading "Tiny Story" [level=3] [ref=e436]
+              - heading "Studio Original" [level=4] [ref=e437]
+            - paragraph
+            - button [ref=e438] [cursor=pointer]:
+              - img [ref=e439]
+              - img [ref=e442]
+          - generic [ref=e444]:
+            - paragraph [ref=e445]:
+              - text: Once upon a time, there was a tiny story with a great soul.
+              - text: Back in 2013. An exploration using a conceptual visual language based on the principles of Graphic Design. A tiny story that collects more than 400k views combined.
+            - generic [ref=e446]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+        - article [ref=e447]:
+          - generic [ref=e448]:
+            - generic [ref=e449]:
+              - heading "Make it Better" [level=3] [ref=e450]
+              - heading "Studio Original" [level=4] [ref=e451]
+            - paragraph
+            - button [ref=e452] [cursor=pointer]:
+              - img [ref=e453]
+              - img [ref=e456]
+          - generic [ref=e458]:
+            - paragraph [ref=e459]:
+              - text: We started pretty big!
+              - text: Back in 2011 our self-initiated animation “Make it Better” went viral in the motion graphics’ community. With more than 2 Million views combined “Make it Better” still one of the most powerful references for kinetic animation.
+            - generic [ref=e460]:
+              - generic:
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+                - generic:
+                  - img "Alt text"
+    - generic [ref=e461]:
+      - generic [ref=e462]:
+        - heading "👋 Let’s collaborate." [level=4] [ref=e464]
+        - link "Contact Us" [ref=e465] [cursor=pointer]:
+          - /url: mailto:hello@studioclim.com?subject=👋 Hi guys! Let’s Collaborate!
+          - generic [ref=e466]: Contact Us
+          - generic [ref=e467]:
+            - img [ref=e468]
+            - img [ref=e471]
+      - generic [ref=e473]:
+        - heading "Sign up to our Newsletter:" [level=4] [ref=e474]
+        - generic [ref=e475]:
+          - textbox "Your email here" [ref=e476]
+          - button [ref=e477] [cursor=pointer]:
+            - img [ref=e478]
+            - img [ref=e481]
+            - img [ref=e483]
+      - generic [ref=e485]:
+        - generic [ref=e486]:
+          - heading "Follow us" [level=5] [ref=e487]
+          - generic [ref=e488]:
+            - link "Linkedin" [ref=e489] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/80486956/
+              - generic [ref=e490]: Linkedin
+            - link "Instagram" [ref=e491] [cursor=pointer]:
+              - /url: https://www.instagram.com/clim_studio/
+              - generic [ref=e492]: Instagram
+        - generic [ref=e493]:
+          - heading "Write us" [level=5] [ref=e494]
+          - link "newbiz@studioclim.com" [ref=e495] [cursor=pointer]:
+            - /url: mailto:newbiz@studioclim.com
+            - generic [ref=e496]: newbiz@studioclim.com
+      - link [ref=e498] [cursor=pointer]:
+        - /url: /
+        - img [ref=e499]
+      - generic [ref=e513]:
+        - link "Cookies & Privacy" [ref=e514] [cursor=pointer]:
+          - /url: /cookies-privacy-policy
+        - paragraph [ref=e515]: All Rights Reserved © CLIM STUDIO ANIMATION 2026
+        - link "Back To Top" [ref=e516] [cursor=pointer]:
+          - /url: "#app"

@@ -1,0 +1,450 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e17]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: 01 / The work
+        - heading "We make moments you can't scroll past." [level=1] [ref=e22]:
+          - text: We make moments
+          - text: you can't scroll past.
+        - paragraph [ref=e23]: Brand systems, films, and product motion for the GCC's most ambitious teams. Built one frame at a time, then handed to the scroll.
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - emphasis [ref=e26]: 30+
+            - text: brands
+          - generic [ref=e27]:
+            - emphasis [ref=e28]: "14"
+            - text: years
+          - generic [ref=e29]:
+            - emphasis [ref=e30]: "1"
+            - text: obsession
+      - generic [ref=e33]: scroll
+    - region "Featured work" [ref=e35]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: 02 / Featured work
+          - heading "A deck of cases." [level=2] [ref=e42]
+          - paragraph [ref=e43]: Four selected projects. Every one shipped, every one measurable. Scroll to deal the next card.
+        - generic "Featured projects" [ref=e44]:
+          - link "Foodics — Boundless 22 · 23" [ref=e45] [cursor=pointer]:
+            - /url: /case/foodics-boundless
+            - img [ref=e46]
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - generic [ref=e50]: "01"
+                - generic [ref=e51]:
+                  - emphasis [ref=e52]: +35.6%
+                  - generic [ref=e53]: YoY revenue
+              - generic [ref=e54]:
+                - generic [ref=e55]: Foodics
+                - generic [ref=e56]: Boundless 22 · 23
+                - generic [ref=e57]: Transforming a POS platform into the growth engine of F&B.
+                - list [ref=e58]:
+                  - listitem [ref=e59]: Brand Strategy
+                  - listitem [ref=e60]: Product Launch
+                  - listitem [ref=e61]: Event
+          - link "Zid — Ripple 2024" [ref=e62] [cursor=pointer]:
+            - /url: /case/zid-ripple
+            - img [ref=e63]
+            - generic [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: "02"
+                - generic [ref=e68]:
+                  - emphasis [ref=e69]: +200%
+                  - generic [ref=e70]: YoY growth
+              - generic [ref=e71]:
+                - generic [ref=e72]: Zid
+                - generic [ref=e73]: Ripple 2024
+                - generic [ref=e74]: Launching the Total Commerce era for 12K+ merchants.
+                - list [ref=e75]:
+                  - listitem [ref=e76]: Brand Strategy
+                  - listitem [ref=e77]: GTM
+                  - listitem [ref=e78]: Event
+          - link "Foodics — Brand System v3.0" [ref=e79] [cursor=pointer]:
+            - /url: "#gallery"
+            - img [ref=e80]
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: "03"
+                - generic [ref=e85]:
+                  - emphasis [ref=e86]: v3.0
+                  - generic [ref=e87]: Brand manual
+              - generic [ref=e88]:
+                - generic [ref=e89]: Foodics
+                - generic [ref=e90]: Brand System v3.0
+                - generic [ref=e91]: A category-defining identity for the F&B operating system.
+                - list [ref=e92]:
+                  - listitem [ref=e93]: Brand Design
+                  - listitem [ref=e94]: Guidelines
+                  - listitem [ref=e95]: Typography
+          - link "Zid — Launchpad Series" [ref=e96] [cursor=pointer]:
+            - /url: "#gallery"
+            - img [ref=e97]
+            - generic [ref=e99]:
+              - generic [ref=e100]:
+                - generic [ref=e101]: "04"
+                - generic [ref=e102]:
+                  - emphasis [ref=e103]: "3"
+                  - generic [ref=e104]: LP variants live
+              - generic [ref=e105]:
+                - generic [ref=e106]: Zid
+                - generic [ref=e107]: Launchpad Series
+                - generic [ref=e108]: We are your launchpad to the stars.
+                - list [ref=e109]:
+                  - listitem [ref=e110]: Web Design
+                  - listitem [ref=e111]: Landing Pages
+                  - listitem [ref=e112]: Copywriting
+        - generic [ref=e113]: 4 featured · scroll
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]: 05 / The work
+        - generic [ref=e119]: Thirty-plus brands.
+        - heading "Hundreds of moments." [level=2] [ref=e120]
+      - tablist [ref=e121]:
+        - tab "All 39" [selected] [ref=e122] [cursor=pointer]:
+          - img [ref=e533]
+          - text: All
+          - generic [ref=e125]: "39"
+        - tab "Brand 8" [ref=e126] [cursor=pointer]:
+          - text: Brand
+          - generic [ref=e128]: "8"
+        - tab "Campaign 5" [ref=e129] [cursor=pointer]:
+          - text: Campaign
+          - generic [ref=e131]: "5"
+        - tab "Event 0" [ref=e132] [cursor=pointer]:
+          - text: Event
+          - generic [ref=e134]: "0"
+        - tab "Social 10" [ref=e135] [cursor=pointer]:
+          - text: Social
+          - generic [ref=e137]: "10"
+        - tab "Web 5" [ref=e138] [cursor=pointer]:
+          - text: Web
+          - generic [ref=e140]: "5"
+        - tab "OOH 1" [ref=e141] [cursor=pointer]:
+          - text: OOH
+          - generic [ref=e143]: "1"
+        - tab "Production 7" [ref=e144] [cursor=pointer]:
+          - text: Production
+          - generic [ref=e146]: "7"
+        - tab "Animation 3" [ref=e147] [cursor=pointer]:
+          - text: Animation
+          - generic [ref=e149]: "3"
+      - generic [ref=e150]:
+        - figure [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]:
+            - img "Multi-brand — Foodics + Zid OOH + Salasa + Sól" [ref=e154]
+            - generic [ref=e156]:
+              - generic [ref=e157]: Multi-brand
+              - generic [ref=e158]: Foodics + Zid OOH + Salasa + Sól
+              - generic [ref=e159]: Social
+        - figure [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]:
+            - img "Foodics — Vancouver Canada — cafe scene" [ref=e163]
+            - generic [ref=e165]:
+              - generic [ref=e166]: Foodics
+              - generic [ref=e167]: Vancouver Canada — cafe scene
+              - generic [ref=e168]: Production
+        - figure [ref=e169] [cursor=pointer]:
+          - generic [ref=e170]:
+            - img "Foodics — Vancouver Canada — fries stand" [ref=e172]
+            - generic [ref=e174]:
+              - generic [ref=e175]: Foodics
+              - generic [ref=e176]: Vancouver Canada — fries stand
+              - generic [ref=e177]: Production
+        - figure [ref=e178] [cursor=pointer]:
+          - generic [ref=e179]:
+            - img "Foodics — OOH billboard collage — Riyadh" [ref=e181]
+            - generic [ref=e183]:
+              - generic [ref=e184]: Foodics
+              - generic [ref=e185]: OOH billboard collage — Riyadh
+              - generic [ref=e186]: OOH
+        - figure [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - img "Foodics — Vancouver TVC — split frame" [ref=e190]
+            - generic [ref=e192]:
+              - generic [ref=e193]: Foodics
+              - generic [ref=e194]: Vancouver TVC — split frame
+              - generic [ref=e195]: Production
+        - figure [ref=e196] [cursor=pointer]:
+          - generic [ref=e197]:
+            - img "Foodics — Pay at Table — landing page" [ref=e199]
+            - generic [ref=e201]:
+              - generic [ref=e202]: Foodics
+              - generic [ref=e203]: Pay at Table — landing page
+              - generic [ref=e204]: Web
+        - figure [ref=e205] [cursor=pointer]:
+          - generic [ref=e206]:
+            - img "Foodics — CDS Customer Display — landing page" [ref=e208]
+            - generic [ref=e210]:
+              - generic [ref=e211]: Foodics
+              - generic [ref=e212]: CDS Customer Display — landing page
+              - generic [ref=e213]: Web
+        - figure [ref=e214] [cursor=pointer]:
+          - generic [ref=e215]:
+            - img "Foodics — POS — 3D product render" [ref=e217]
+            - generic [ref=e219]:
+              - generic [ref=e220]: Foodics
+              - generic [ref=e221]: POS — 3D product render
+              - generic [ref=e222]: Animation
+        - figure [ref=e223] [cursor=pointer]:
+          - generic [ref=e224]:
+            - img "Foodics — Brand System v3.0" [ref=e226]
+            - generic [ref=e228]:
+              - generic [ref=e229]: Foodics
+              - generic [ref=e230]: Brand System v3.0
+              - generic [ref=e231]: Brand
+        - figure [ref=e232] [cursor=pointer]:
+          - generic [ref=e233]:
+            - img "Foodics — Saudi Founding Day + Ramadan" [ref=e235]
+            - generic [ref=e237]:
+              - generic [ref=e238]: Foodics
+              - generic [ref=e239]: Saudi Founding Day + Ramadan
+              - generic [ref=e240]: Social
+        - figure [ref=e241] [cursor=pointer]:
+          - generic [ref=e242]:
+            - img "Foodics — Foodics One · Loyalty · Foodics Man" [ref=e244]
+            - generic [ref=e246]:
+              - generic [ref=e247]: Foodics
+              - generic [ref=e248]: Foodics One · Loyalty · Foodics Man
+              - generic [ref=e249]: Social
+        - figure [ref=e250] [cursor=pointer]:
+          - generic [ref=e251]:
+            - img "Zid — Brand Guidelines + stationery" [ref=e253]
+            - generic [ref=e255]:
+              - generic [ref=e256]: Zid
+              - generic [ref=e257]: Brand Guidelines + stationery
+              - generic [ref=e258]: Brand
+        - figure [ref=e259] [cursor=pointer]:
+          - generic [ref=e260]:
+            - img "Zid — OOH + mobile app + brand system" [ref=e262]
+            - generic [ref=e264]:
+              - generic [ref=e265]: Zid
+              - generic [ref=e266]: OOH + mobile app + brand system
+              - generic [ref=e267]: Brand
+        - figure [ref=e268] [cursor=pointer]:
+          - generic [ref=e269]:
+            - img "Zid — _trace product spotlight" [ref=e271]
+            - generic [ref=e273]:
+              - generic [ref=e274]: Zid
+              - generic [ref=e275]: _trace product spotlight
+              - generic [ref=e276]: Social
+        - figure [ref=e277] [cursor=pointer]:
+          - generic [ref=e278]:
+            - img "Zid — National Day 94 — 40% campaign" [ref=e280]
+            - generic [ref=e282]:
+              - generic [ref=e283]: Zid
+              - generic [ref=e284]: National Day 94 — 40% campaign
+              - generic [ref=e285]: Social
+        - figure [ref=e286] [cursor=pointer]:
+          - generic [ref=e287]:
+            - img "Zid — Cashier — Arabic landing page" [ref=e289]
+            - generic [ref=e291]:
+              - generic [ref=e292]: Zid
+              - generic [ref=e293]: Cashier — Arabic landing page
+              - generic [ref=e294]: Web
+        - figure [ref=e295] [cursor=pointer]:
+          - generic [ref=e296]:
+            - img "Zid — Turn your big idea into a thriving business" [ref=e298]
+            - generic [ref=e300]:
+              - generic [ref=e301]: Zid
+              - generic [ref=e302]: Turn your big idea into a thriving business
+              - generic [ref=e303]: Web
+        - figure [ref=e304] [cursor=pointer]:
+          - generic [ref=e305]:
+            - img "Zid — Launchpad to the stars — LP" [ref=e307]
+            - generic [ref=e309]:
+              - generic [ref=e310]: Zid
+              - generic [ref=e311]: Launchpad to the stars — LP
+              - generic [ref=e312]: Web
+        - figure [ref=e313] [cursor=pointer]:
+          - generic [ref=e314]:
+            - img "Zid — Mobile app TVC frames" [ref=e316]
+            - generic [ref=e318]:
+              - generic [ref=e319]: Zid
+              - generic [ref=e320]: Mobile app TVC frames
+              - generic [ref=e321]: Production
+        - figure [ref=e322] [cursor=pointer]:
+          - generic [ref=e323]:
+            - img "Zid — Purple-room TVC still" [ref=e325]
+            - generic [ref=e327]:
+              - generic [ref=e328]: Zid
+              - generic [ref=e329]: Purple-room TVC still
+              - generic [ref=e330]: Production
+        - figure [ref=e331] [cursor=pointer]:
+          - generic [ref=e332]:
+            - img "InvoiceQ — Brand Identity v1.0 — full system" [ref=e334]
+            - generic [ref=e336]:
+              - generic [ref=e337]: InvoiceQ
+              - generic [ref=e338]: Brand Identity v1.0 — full system
+              - generic [ref=e339]: Brand
+        - figure [ref=e340] [cursor=pointer]:
+          - generic [ref=e341]:
+            - img "FRA'ED International — Niche perfumery — packaging suite" [ref=e343]
+            - generic [ref=e345]:
+              - generic [ref=e346]: FRA'ED International
+              - generic [ref=e347]: Niche perfumery — packaging suite
+              - generic [ref=e348]: Brand
+        - figure [ref=e349] [cursor=pointer]:
+          - generic [ref=e350]:
+            - img "Transform — Humanizing Growth — identity system" [ref=e352]
+            - generic [ref=e354]:
+              - generic [ref=e355]: Transform
+              - generic [ref=e356]: Humanizing Growth — identity system
+              - generic [ref=e357]: Brand
+        - figure [ref=e358] [cursor=pointer]:
+          - generic [ref=e359]:
+            - img "Salasa — World Cup 2034 — host nation" [ref=e361]
+            - generic [ref=e363]:
+              - generic [ref=e364]: Salasa
+              - generic [ref=e365]: World Cup 2034 — host nation
+              - generic [ref=e366]: Social
+        - figure [ref=e367] [cursor=pointer]:
+          - generic [ref=e368]:
+            - img "Salasa — 25+ Shipping Partners — Fulfilled." [ref=e370]
+            - generic [ref=e372]:
+              - generic [ref=e373]: Salasa
+              - generic [ref=e374]: 25+ Shipping Partners — Fulfilled.
+              - generic [ref=e375]: Social
+        - figure [ref=e376] [cursor=pointer]:
+          - generic [ref=e377]:
+            - img "LSC — AI shipping + Ramadan + sector positioning" [ref=e379]
+            - generic [ref=e381]:
+              - generic [ref=e382]: LSC
+              - generic [ref=e383]: AI shipping + Ramadan + sector positioning
+              - generic [ref=e384]: Social
+        - figure [ref=e385] [cursor=pointer]:
+          - generic [ref=e386]:
+            - img "LSC — WCA Dubai — meet the team" [ref=e388]
+            - generic [ref=e390]:
+              - generic [ref=e391]: LSC
+              - generic [ref=e392]: WCA Dubai — meet the team
+              - generic [ref=e393]: Social
+        - figure [ref=e394] [cursor=pointer]:
+          - generic [ref=e395]:
+            - img "Sól — Founding Day · BNPL · Ramadan" [ref=e397]
+            - generic [ref=e399]:
+              - generic [ref=e400]: Sól
+              - generic [ref=e401]: Founding Day · BNPL · Ramadan
+              - generic [ref=e402]: Social
+        - figure [ref=e403] [cursor=pointer]:
+          - generic [ref=e404]:
+            - img "Multi-brand — Gallery — mixed brand work" [ref=e406]
+            - generic [ref=e408]:
+              - generic [ref=e409]: Multi-brand
+              - generic [ref=e410]: Gallery — mixed brand work
+              - generic [ref=e411]: Brand
+        - figure [ref=e412] [cursor=pointer]:
+          - generic [ref=e413]:
+            - img "Multi-brand — BK + Foodics 3D + Sigma Paints + T-GAH-WA + Creative Closets" [ref=e415]
+            - generic [ref=e417]:
+              - generic [ref=e418]: Multi-brand
+              - generic [ref=e419]: BK + Foodics 3D + Sigma Paints + T-GAH-WA + Creative Closets
+              - generic [ref=e420]: Campaign
+        - figure [ref=e421] [cursor=pointer]:
+          - generic [ref=e422]:
+            - img "Multi-brand — BK + LG + Midea + Abu Kass + Batania" [ref=e424]
+            - generic [ref=e426]:
+              - generic [ref=e427]: Multi-brand
+              - generic [ref=e428]: BK + LG + Midea + Abu Kass + Batania
+              - generic [ref=e429]: Campaign
+        - figure [ref=e430] [cursor=pointer]:
+          - generic [ref=e431]:
+            - img "Multi-brand — Vanellis · Entaj · BWW · ALC · M&M Moda" [ref=e433]
+            - generic [ref=e435]:
+              - generic [ref=e436]: Multi-brand
+              - generic [ref=e437]: Vanellis · Entaj · BWW · ALC · M&M Moda
+              - generic [ref=e438]: Campaign
+        - figure [ref=e439] [cursor=pointer]:
+          - generic [ref=e440]:
+            - img "Multi-brand — AVIS · LG · Mixy · Minipolis · Tawasol" [ref=e442]
+            - generic [ref=e444]:
+              - generic [ref=e445]: Multi-brand
+              - generic [ref=e446]: AVIS · LG · Mixy · Minipolis · Tawasol
+              - generic [ref=e447]: Campaign
+        - figure [ref=e448] [cursor=pointer]:
+          - generic [ref=e449]:
+            - img "Multi-brand — Almarai · Electrolux · nxt" [ref=e451]
+            - generic [ref=e453]:
+              - generic [ref=e454]: Multi-brand
+              - generic [ref=e455]: Almarai · Electrolux · nxt
+              - generic [ref=e456]: Brand
+        - figure [ref=e457] [cursor=pointer]:
+          - generic [ref=e458]:
+            - img "Multi-brand — Zain · BAE · McCafé · BK Ramadan" [ref=e460]
+            - generic [ref=e462]:
+              - generic [ref=e463]: Multi-brand
+              - generic [ref=e464]: Zain · BAE · McCafé · BK Ramadan
+              - generic [ref=e465]: Campaign
+        - figure [ref=e466] [cursor=pointer]:
+          - generic [ref=e467]:
+            - img "Multi-brand — Italian restaurant TVC set" [ref=e469]
+            - generic [ref=e471]:
+              - generic [ref=e472]: Multi-brand
+              - generic [ref=e473]: Italian restaurant TVC set
+              - generic [ref=e474]: Production
+        - figure [ref=e475] [cursor=pointer]:
+          - generic [ref=e476]:
+            - img "Vodafone — Production — brand asset work" [ref=e478]
+            - generic [ref=e480]:
+              - generic [ref=e481]: Vodafone
+              - generic [ref=e482]: Production — brand asset work
+              - generic [ref=e483]: Production
+        - figure [ref=e484] [cursor=pointer]:
+          - generic [ref=e485]:
+            - img "TMA Studio — Animation reel — Global key visual" [ref=e487]
+            - generic [ref=e489]:
+              - generic [ref=e490]: TMA Studio
+              - generic [ref=e491]: Animation reel — Global key visual
+              - generic [ref=e492]: Animation
+        - figure [ref=e493] [cursor=pointer]:
+          - generic [ref=e494]:
+            - img "TMA Studio — Animation reel — drummer studio" [ref=e496]
+            - generic [ref=e498]:
+              - generic [ref=e499]: TMA Studio
+              - generic [ref=e500]: Animation reel — drummer studio
+              - generic [ref=e501]: Animation
+    - generic [ref=e504]:
+      - generic [ref=e505]: Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e507]
+      - paragraph [ref=e508]: Let's create something extraordinary together. Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e509]:
+        - link "Book a discovery call ↗" [ref=e510] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e511]: ↗
+        - link "Send a brief ↗" [ref=e512] [cursor=pointer]:
+          - /url: /#contact
+          - text: Send a brief
+          - generic [ref=e513]: ↗
+    - contentinfo [ref=e514]:
+      - generic [ref=e515]: THE / MOTION / AGENCY
+      - generic [ref=e516]:
+        - generic [ref=e517]: © 2026 The Motion Agency
+        - generic [ref=e518]: themotionagency.net
+        - generic [ref=e519]: info@themotionagency.net
+        - link "LinkedIn" [ref=e521] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e522]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e528] [cursor=pointer]:
+    - img [ref=e529]
+  - alert [ref=e541]

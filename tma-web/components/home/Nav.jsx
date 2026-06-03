@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavPortfolioLink from "./NavPortfolioLink";
 
 export default function Nav() {
   return (
@@ -8,8 +9,7 @@ export default function Nav() {
         <img className="nav-logo-img dark" src="/assets/tma-logo-black.png" alt="" />
       </Link>
       <div className="nav-links">
-        <Link href="/portfolio">Portfolio</Link>
-        <Link href="/portfolio-v2" className="nav-v2-link">V2 Lab</Link>
+        <NavPortfolioLink />
         <Link href="/#proof">Case Studies</Link>
         <Link href="/#services">Services</Link>
         <Link href="/#about">About</Link>

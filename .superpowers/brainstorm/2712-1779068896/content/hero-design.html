@@ -1,0 +1,105 @@
+<h2>Section 1 &mdash; HERO &middot; design &amp; how it looks</h2>
+<p class="subtitle">One pinned block (~3.5vh of scroll) that moves through 3 states. Same v16 frame-scrub engine. Confirm this look and I build it; then we move to Section 2.</p>
+
+<style>
+  .kf{display:flex;flex-direction:column;gap:16px;margin:10px 0 22px}
+  .frame{border:1px solid rgba(255,255,255,.16);border-radius:14px;overflow:hidden}
+  .fh{display:flex;justify-content:space-between;padding:9px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1)}
+  .fh .p{color:#7db4ff}
+  .stage{position:relative;height:330px;overflow:hidden}
+  .st1{background:radial-gradient(ellipse 70% 60% at 50% 55%,#1a1322,#070409 70%,#000)}
+  .st2{background:radial-gradient(ellipse 80% 70% at 50% 50%,#2a1a44,#0c0716 60%,#000)}
+  .st3{background:radial-gradient(ellipse 90% 80% at 50% 50%,#3a5fb0,#160e2a 55%,#000)}
+  .nav{position:absolute;top:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 26px;font-family:Georgia,serif;font-size:13px;color:#e9e4d8;opacity:.85}
+  .nav .pill{font-family:monospace;font-size:10px;letter-spacing:.15em;border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:4px 12px}
+  .mono{position:absolute;font-family:monospace;font-size:10px;letter-spacing:.22em;color:#7db4ff;opacity:.75}
+  .serif{position:absolute;left:50%;transform:translateX(-50%);font-family:Georgia,serif;color:#f3ece0;text-align:center;line-height:.92;white-space:nowrap}
+  .mono-l{position:absolute;width:100%;text-align:center;font-family:monospace;font-size:10px;letter-spacing:.3em;color:#9fc4ff}
+  .obj{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);border-radius:14px}
+  .o1{width:120px;height:150px;background:linear-gradient(140deg,#3a3550,#0c0a14);box-shadow:0 0 40px rgba(90,166,255,.15)}
+  .o2{width:210px;height:250px;background:linear-gradient(140deg,#4a4368,#0a0812);box-shadow:0 0 70px rgba(90,166,255,.35);filter:contrast(1.1)}
+  .o3{width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,#cfe2ff,#5aa6ff 40%,#1a2f6b 70%,transparent);filter:blur(2px)}
+  .crack{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:230px;height:250px;background:
+    radial-gradient(circle at 50% 45%,transparent 30%,rgba(90,166,255,.4) 32%,transparent 34%),
+    linear-gradient(25deg,transparent 47%,rgba(120,200,255,.7) 49%,transparent 51%),
+    linear-gradient(-40deg,transparent 47%,rgba(120,200,255,.55) 49%,transparent 51%)}
+  .edge{position:absolute;border:1px solid rgba(255,255,255,.22);border-radius:6px;background:rgba(255,255,255,.05);font-size:9px;color:#bbb;display:flex;align-items:center;justify-content:center;text-align:center}
+  .e1{width:90px;height:120px;left:5%;top:30%;transform:perspective(800px) rotateY(20deg)}
+  .e2{width:80px;height:100px;right:5%;top:38%;transform:perspective(800px) rotateY(-22deg)}
+  .cue{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-family:monospace;font-size:10px;letter-spacing:.3em;color:#9fc4ff;opacity:.7}
+  .spec .pros-cons{margin-top:8px}
+  .spec h4{color:#7db4ff}
+  .ch{display:inline-block;animation:none}
+</style>
+
+<div class="kf">
+
+  <div class="frame">
+    <div class="fh"><span>State A &mdash; entry</span><span class="p">scroll progress 0 &rarr; 0.25</span></div>
+    <div class="stage st1">
+      <div class="nav"><span>The&nbsp;Motion&nbsp;Agency</span><span class="pill">MENU</span></div>
+      <div class="obj o1"></div>
+      <div class="mono" style="left:8%;top:46%">EST. AMMAN<br>&amp; RIYADH</div>
+      <div class="mono" style="right:8%;top:46%;text-align:right">B2B BRAND<br>STUDIO</div>
+      <div class="serif" style="bottom:54px;font-size:50px;letter-spacing:-1px">We don&rsquo;t build brands.</div>
+      <div class="mono-l" style="bottom:34px">[ letters cascade in, left&rarr;right, random jitter ]</div>
+      <div class="cue">SCROLL &darr;</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="fh"><span>State B &mdash; scrub / build</span><span class="p">progress 0.25 &rarr; 0.6</span></div>
+    <div class="stage st2">
+      <div class="nav" style="opacity:.5"><span>The&nbsp;Motion&nbsp;Agency</span><span class="pill">MENU</span></div>
+      <div class="edge e1">Foodics<br>case</div>
+      <div class="edge e2">Zid<br>case</div>
+      <div class="obj o2"></div>
+      <div class="serif" style="top:30px;font-size:34px;opacity:.25;letter-spacing:-1px">We don&rsquo;t build brands.</div>
+      <div class="serif" style="bottom:60px;font-size:58px;letter-spacing:-1px">We release momentum.</div>
+      <div class="mono-l" style="bottom:36px">[ monolith rotates &amp; scales &middot; bg deepens to violet &middot; edge cards drift in, 3D-tilted, different speeds ]</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="fh"><span>State C &mdash; rupture &rarr; hands off to Manifesto</span><span class="p">progress 0.6 &rarr; 1</span></div>
+    <div class="stage st3">
+      <div class="o3"></div>
+      <div class="crack"></div>
+      <div class="serif" style="top:40px;font-size:30px;opacity:.4;letter-spacing:6px;color:#cfe2ff">W E&nbsp;&nbsp;R E L E A S E</div>
+      <div class="mono-l" style="bottom:30px;color:#cfe2ff">[ energy cracks ignite &middot; particle burst + screen-shake &middot; letters scatter &middot; particles carry into the Manifesto words &mdash; NO cut ]</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="spec section">
+  <span class="label">Hero spec (what "good" means here)</span>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>Design language</h4>
+      <ul>
+        <li><b>Type:</b> large editorial <em>serif</em> display for the headline (char-split cascade + jitter); <em>monospace</em> for labels/cues (TMA blue #7db4ff)</li>
+        <li><b>Palette:</b> pure black base, paper-white #f3ece0 type, electric-blue energy #5aa6ff &mdash; one accent only</li>
+        <li><b>Subject:</b> branded 3D monolith (recommend an extruded <b>"M"</b> / monolith hybrid &mdash; on-brand, builds tension, ruptures)</li>
+        <li><b>Layout:</b> centered object, symmetric mono side-labels, headline anchored low (Obsidian proportion)</li>
+        <li><b>Film layer:</b> grain + vignette + blue glow w/ mouse parallax (already in v16)</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>Motion &amp; build</h4>
+      <ul>
+        <li>Pinned ~3.5vh; scroll scrubs the v16 WebP frame sequence (reuse engine)</li>
+        <li>Headline = GSAP SplitText, duration grows w/ char index + random delay</li>
+        <li>Copy beats: "We don't build brands." &rarr; "We release momentum."</li>
+        <li>0.58&ndash;0.7 = rupture band (existing v16 explosion timing)</li>
+        <li>Reduced-motion: jump to final frame, no pin, text just fades in</li>
+        <li>Built as new <b>portfolio-v17</b> route, v16 engine reused (v16 untouched)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:14px">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>This is good &mdash; build the Hero</h3><p>Approve this look. You build Section 1 now, then we review the real thing.</p></div></div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Adjust the design first</h3><p>I'll tell you what to change (subject, type, color, copy, motion) before any code.</p></div></div>
+</div>

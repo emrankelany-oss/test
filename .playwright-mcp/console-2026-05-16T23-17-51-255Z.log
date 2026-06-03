@@ -1,0 +1,310 @@
+[     117ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     157ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   99736ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   99760ms] [LOG] [Fast Refresh] done in 70ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   99863ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   99912ms] [LOG] [Fast Refresh] done in 149ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  105700ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  105713ms] [LOG] [Fast Refresh] done in 50ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  105831ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  105925ms] [LOG] [Fast Refresh] done in 209ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  113859ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  113883ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  113980ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114013ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114055ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114097ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114132ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114173ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114214ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114256ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114294ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114334ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114374ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114412ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114453ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114493ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114533ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114575ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114612ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114652ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114696ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114734ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114773ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114812ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114854ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114893ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114935ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  114973ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115013ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115053ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115093ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115136ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115172ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115212ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115252ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115293ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115333ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115373ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115412ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115453ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115492ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115533ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115574ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115615ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115653ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115694ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115734ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115776ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115812ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115853ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115893ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115936ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  115976ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116014ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116053ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116094ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116136ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116173ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116213ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116253ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116292ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116332ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116372ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116414ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116452ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116492ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116533ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116574ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116617ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116653ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116692ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116732ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116775ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116813ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116853ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116894ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116936ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  116976ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117013ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117054ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117094ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117138ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117173ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117212ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117256ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117296ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117338ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117373ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117415ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117457ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117492ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117533ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117574ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117615ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117656ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117692ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117733ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117775ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117817ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117854ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117896ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117935ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  117978ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118013ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118054ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118095ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118141ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118178ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118215ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118253ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118298ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118335ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118372ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118420ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118507ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118549ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118573ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118612ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118656ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118694ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118740ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118782ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118823ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118866ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118904ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118941ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  118987ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119013ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119054ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119094ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119132ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119177ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119212ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119254ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119296ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119338ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119373ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119414ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119460ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119497ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119540ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119581ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119616ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119658ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119698ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119733ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119775ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119821ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119861ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119896ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)
+[  119933ms] ReferenceError: tel is not defined
+    at V13Preloader.useEffect.check (http://localhost:3000/_next/static/chunks/_00tpop5._.js:234:29)

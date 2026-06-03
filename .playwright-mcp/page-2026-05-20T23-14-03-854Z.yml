@@ -1,0 +1,569 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - link "The Motion Agency — home" [ref=e2] [cursor=pointer]:
+      - /url: /#top
+    - generic [ref=e3]:
+      - link "Portfolio" [ref=e4] [cursor=pointer]:
+        - /url: /portfolio-v18
+      - link "Case Studies" [ref=e5] [cursor=pointer]:
+        - /url: /#proof
+      - link "Services" [ref=e6] [cursor=pointer]:
+        - /url: /#services
+      - link "About" [ref=e7] [cursor=pointer]:
+        - /url: /#about
+      - link "Insights" [ref=e8] [cursor=pointer]:
+        - /url: /#insights
+      - link "Careers" [ref=e9] [cursor=pointer]:
+        - /url: /careers
+    - link "Start a project" [ref=e10] [cursor=pointer]:
+      - /url: /#contact
+      - text: Start a project
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: REEL · BOUNDLESS '23
+      - generic [ref=e17]: FILM · ZID RIPPLE
+      - generic [ref=e18]: STAGE · DIRIYAH
+      - generic [ref=e19]: MOTION · LOOP 04
+      - generic [ref=e20]: BTS · SHOOT DAY 2
+      - generic [ref=e22]: TITLE CARD · 04
+      - generic [ref=e23]: PORTRAIT · CEO
+      - generic [ref=e24]: PRODUCT · POS
+      - generic [ref=e25]: EVENT · KEYNOTE
+      - generic [ref=e27]: REEL · BOUNDLESS '22
+      - generic [ref=e28]: AERIAL · RIYADH
+      - generic [ref=e29]: ID · LOGO LOOP
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: EST.
+          - generic [ref=e35]: "2019"
+        - generic [ref=e36]:
+          - generic [ref=e37]: AMMAN
+          - generic [ref=e38]: ·
+          - generic [ref=e39]: RIYADH
+        - generic [ref=e40]:
+          - generic [ref=e41]: SHOWREEL
+          - generic [ref=e42]: "2025"
+      - heading "WHERE STRATEGY MEETS BOLD STORYTELLING" [level=1] [ref=e43]:
+        - generic [ref=e45]: WHERE
+        - generic [ref=e47]: STRATEGY
+        - generic [ref=e49]: MEETS
+        - generic [ref=e51]: BOLD
+        - generic [ref=e53]: STORYTELLING
+      - generic [ref=e54]:
+        - paragraph [ref=e55]: A creative powerhouse with offices in Amman and Riyadh, delivering bold ideas and meaningful results across the GCC. We don't pitch campaigns — we embed with B2B brands and build them into category leaders.
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: 178%
+            - generic [ref=e59]: Client growth
+          - generic [ref=e60]:
+            - generic [ref=e61]: $1B
+            - generic [ref=e62]: Unicorn built
+          - generic [ref=e63]:
+            - generic [ref=e64]: 30+
+            - generic [ref=e65]: Brand partners
+          - generic [ref=e66]:
+            - generic [ref=e67]: 500+
+            - generic [ref=e68]: Businesses created
+    - generic [ref=e69]:
+      - text: Scroll
+      - text: 01 / 09
+  - generic [ref=e72]:
+    - generic [ref=e73]: BRAND STRATEGY
+    - generic [ref=e75]: BOLD STORYTELLING
+    - generic [ref=e77]: GO-TO-MARKET
+    - generic [ref=e79]: EVENT EXPERIENCE
+    - generic [ref=e81]: PERFORMANCE GROWTH
+    - generic [ref=e83]: CONTENT STUDIO
+    - generic [ref=e85]: AMMAN ↔ RIYADH
+    - generic [ref=e87]: BRAND STRATEGY
+    - generic [ref=e89]: BOLD STORYTELLING
+    - generic [ref=e91]: GO-TO-MARKET
+    - generic [ref=e93]: EVENT EXPERIENCE
+    - generic [ref=e95]: PERFORMANCE GROWTH
+    - generic [ref=e97]: CONTENT STUDIO
+    - generic [ref=e99]: AMMAN ↔ RIYADH
+  - generic [ref=e102]:
+    - generic [ref=e103]:
+      - generic [ref=e104]: 01 / Manifesto
+      - generic [ref=e106]:
+        - text: A creative powerhouse, not
+        - text: a traditional agency.
+      - heading "We don't pitch. We embed. We build." [level=2] [ref=e107]:
+        - text: We don't pitch.
+        - text: We embed.
+        - text: We build.
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - text: ETHOS
+        - text: 01 — Embed deeply
+        - text: 02 — Think strategically
+        - text: 03 — Build with ROI
+        - text: 04 — Move markets
+      - generic [ref=e110]:
+        - paragraph [ref=e111]: Unlike traditional agencies, we immerse ourselves deeply in our clients' businesses. We don't just create campaigns — we become an extension of your team. From understanding your product inside-out to identifying pain points and growth levers, we think strategically, creatively, and with ROI at the core of every project.
+        - paragraph [ref=e112]: Our strength lies in transforming B2B brands into culturally relevant, emotionally engaging, and business-driven experiences. We craft communication that resonates, visuals that convert, and strategies that move markets.
+  - generic [ref=e114]:
+    - generic [ref=e115]: BRAND STRATEGY
+    - generic [ref=e117]: BRAND DESIGN
+    - generic [ref=e119]: GO-TO-MARKET
+    - generic [ref=e121]: GROWTH MARKETING
+    - generic [ref=e123]: EVENT EXPERIENCE
+    - generic [ref=e125]: PRODUCT MARKETING
+    - generic [ref=e127]: SOCIAL & COMMUNITY
+    - generic [ref=e129]: CONTENT STUDIO
+    - generic [ref=e131]: BRAND STRATEGY
+    - generic [ref=e133]: BRAND DESIGN
+    - generic [ref=e135]: GO-TO-MARKET
+    - generic [ref=e137]: GROWTH MARKETING
+    - generic [ref=e139]: EVENT EXPERIENCE
+    - generic [ref=e141]: PRODUCT MARKETING
+    - generic [ref=e143]: SOCIAL & COMMUNITY
+    - generic [ref=e145]: CONTENT STUDIO
+  - generic [ref=e148]:
+    - generic [ref=e149]:
+      - generic [ref=e150]: 02 / Capabilities
+      - generic [ref=e152]:
+        - text: Eight pillars.
+        - text: One growth engine.
+      - heading "What we build." [level=2] [ref=e153]:
+        - text: What we
+        - text: build.
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - generic [ref=e157]: — 01
+          - generic [ref=e158]: Brand Strategy & Positioning
+          - generic [ref=e159]: We uncover crucial insights and craft compelling strategies that set the stage for brand growth, category leadership, and market expansion.
+        - generic [ref=e160]:
+          - generic [ref=e161]: Capability
+          - generic [ref=e162]: ↗
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]: — 02
+          - generic [ref=e166]: Brand Design & Experience
+          - generic [ref=e167]: From identity systems to brand guidelines, we design brands that don't just look great — they build equity, drive consistency, and deliver ROI.
+        - generic [ref=e168]:
+          - generic [ref=e169]: Capability
+          - generic [ref=e170]: ↗
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - generic [ref=e173]: — 03
+          - generic [ref=e174]: Go-to-Market & Growth
+          - generic [ref=e175]: We develop complete GTM blueprints, launch playbooks, and marketing architectures that accelerate adoption and open new markets.
+        - generic [ref=e176]:
+          - generic [ref=e177]: Capability
+          - generic [ref=e178]: ↗
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - generic [ref=e181]: — 04
+          - generic [ref=e182]: Growth Marketing & Reputation
+          - generic [ref=e183]: Performance-driven campaigns that convert, paired with storytelling that puts your brand at the heart of cultural conversations.
+        - generic [ref=e184]:
+          - generic [ref=e185]: Capability
+          - generic [ref=e186]: ↗
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - generic [ref=e189]: — 05
+          - generic [ref=e190]: Event & Experience Marketing
+          - generic [ref=e191]: We bring brands to life through flagship events and immersive experiences that forge deep connections and build industry authority.
+        - generic [ref=e192]:
+          - generic [ref=e193]: Capability
+          - generic [ref=e194]: ↗
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - generic [ref=e197]: — 06
+          - generic [ref=e198]: Product Marketing & Innovation
+          - generic [ref=e199]: From concept to rollout, we help define, position, and launch products — turning big ideas into sales-driving realities.
+        - generic [ref=e200]:
+          - generic [ref=e201]: Capability
+          - generic [ref=e202]: ↗
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e205]: — 07
+          - generic [ref=e206]: Social & Community Building
+          - generic [ref=e207]: Always-on social and community programs that turn audiences into advocates and conversations into category leadership.
+        - generic [ref=e208]:
+          - generic [ref=e209]: Capability
+          - generic [ref=e210]: ↗
+      - generic [ref=e211]:
+        - generic [ref=e212]:
+          - generic [ref=e213]: — 08
+          - generic [ref=e214]: Content Studio & Production
+          - generic [ref=e215]: "Our global content engine covers it all: editorial, film, design, animation, and transcreation — standout campaigns across every channel."
+        - generic [ref=e216]:
+          - generic [ref=e217]: Capability
+          - generic [ref=e218]: ↗
+  - generic [ref=e220]:
+    - generic [ref=e221]:
+      - generic [ref=e222]: 03 / Case studies
+      - generic [ref=e224]:
+        - text: Two stories.
+        - text: One playbook.
+      - heading "Case studies." [level=2] [ref=e225]:
+        - text: Case
+        - text: studies.
+    - article [ref=e226]:
+      - button "Foodics — Boundless BOUNDLESS BOUNDLESS $1B unicorn" [ref=e227] [cursor=pointer]:
+        - img "Foodics — Boundless" [ref=e228]
+        - generic [ref=e229]: BOUNDLESS
+        - generic [ref=e230]: BOUNDLESS
+        - generic [ref=e231]: $1B unicorn
+        - generic:
+          - img
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - generic [ref=e234]: — Case 01
+          - generic [ref=e235]: Foodics
+          - generic [ref=e236]: 2022 — 2023
+        - 'heading "Boundless: launching what''s next for F&B." [level=3] [ref=e237]'
+        - paragraph [ref=e238]: Two flagship product events that turned the stage into a launchpad. We unveiled Foodics Pay, Capital, and the Marketplace — and reframed Foodics from POS provider to the growth engine of the F&B industry.
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - generic [ref=e241]: +35.6%
+            - generic [ref=e242]: YoY revenue '24
+          - generic [ref=e243]:
+            - generic [ref=e244]: 32K+
+            - generic [ref=e245]: Active merchants
+          - generic [ref=e246]:
+            - generic [ref=e247]: 35%
+            - generic [ref=e248]: KSA market share
+        - link "Read case study ↗" [ref=e249] [cursor=pointer]:
+          - /url: /case/foodics-boundless
+          - text: Read case study
+          - generic [ref=e250]: ↗
+    - article [ref=e251]:
+      - button "Zid — Ripple 2024 RIPPLE RIPPLE 200% growth" [ref=e252] [cursor=pointer]:
+        - img "Zid — Ripple 2024" [ref=e253]
+        - generic [ref=e254]: RIPPLE
+        - generic [ref=e255]: RIPPLE
+        - generic [ref=e256]: 200% growth
+        - generic:
+          - img
+      - generic [ref=e257]:
+        - generic [ref=e258]:
+          - generic [ref=e259]: — Case 02
+          - generic [ref=e260]: Zid
+          - generic [ref=e261]: "2024"
+        - 'heading "Ripple: launching the Total Commerce era." [level=3] [ref=e262]'
+        - paragraph [ref=e263]: A flagship moment in Diriyah for 1,000+ merchants. We unveiled Zid's unified Total Commerce platform — e-commerce, social, in-store, and cross-border — and rewired how the region thinks about merchant growth.
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - generic [ref=e266]: +200%
+            - generic [ref=e267]: YoY growth
+          - generic [ref=e268]:
+            - generic [ref=e269]: 12K+
+            - generic [ref=e270]: Active merchants
+          - generic [ref=e271]:
+            - generic [ref=e272]: +50%
+            - generic [ref=e273]: Basket size lift
+        - link "Read case study ↗" [ref=e274] [cursor=pointer]:
+          - /url: /case/zid-ripple
+          - text: Read case study
+          - generic [ref=e275]: ↗
+    - generic [ref=e276]:
+      - link "View the full portfolio ↗" [ref=e277] [cursor=pointer]:
+        - /url: /portfolio
+        - text: View the full portfolio
+        - generic [ref=e278]: ↗
+      - generic [ref=e279]: 30+ brand partners · hundreds of moments
+  - generic [ref=e282]:
+    - generic [ref=e283]:
+      - generic [ref=e284]: 178%
+      - generic [ref=e285]: Avg. client growth
+    - generic [ref=e286]:
+      - generic [ref=e287]: 30+
+      - generic [ref=e288]: Brand partners
+    - generic [ref=e289]:
+      - generic [ref=e290]: 500+
+      - generic [ref=e291]: Businesses created
+    - generic [ref=e292]:
+      - generic [ref=e293]: 29+
+      - generic [ref=e294]: Strategists & makers
+  - generic [ref=e295]:
+    - generic [ref=e297]:
+      - generic [ref=e298]: 04 / Partners
+      - generic [ref=e300]:
+        - text: Brands that bet
+        - text: on bold storytelling.
+      - heading "In good company." [level=2] [ref=e301]:
+        - text: In good
+        - text: company.
+    - generic [ref=e302]:
+      - generic [ref=e304]:
+        - generic "Zid" [ref=e305]:
+          - img "Zid"
+        - generic "Salasa" [ref=e306]:
+          - img "Salasa"
+        - generic "Sol" [ref=e307]:
+          - img "Sol"
+        - generic "Foodics" [ref=e308]:
+          - img "Foodics"
+        - generic "Webook" [ref=e309]:
+          - img "Webook"
+        - generic "Cyberx" [ref=e310]:
+          - img "Cyberx"
+        - generic "Zaintech" [ref=e311]:
+          - img "Zaintech"
+        - generic "Jadwa Investment" [ref=e312]:
+          - img "Jadwa Investment"
+        - generic "LSC" [ref=e313]:
+          - img "LSC"
+        - generic "Ministry of Economy" [ref=e314]:
+          - img "Ministry of Economy"
+        - generic "Flex" [ref=e315]:
+          - img "Flex"
+        - generic "Reflect" [ref=e316]:
+          - img "Reflect"
+        - generic "Zid" [ref=e317]:
+          - img "Zid"
+        - generic "Salasa" [ref=e318]:
+          - img "Salasa"
+        - generic "Sol" [ref=e319]:
+          - img "Sol"
+        - generic "Foodics" [ref=e320]:
+          - img "Foodics"
+        - generic "Webook" [ref=e321]:
+          - img "Webook"
+        - generic "Cyberx" [ref=e322]:
+          - img "Cyberx"
+        - generic "Zaintech" [ref=e323]:
+          - img "Zaintech"
+        - generic "Jadwa Investment" [ref=e324]:
+          - img "Jadwa Investment"
+        - generic "LSC" [ref=e325]:
+          - img "LSC"
+        - generic "Ministry of Economy" [ref=e326]:
+          - img "Ministry of Economy"
+        - generic "Flex" [ref=e327]:
+          - img "Flex"
+        - generic "Reflect" [ref=e328]:
+          - img "Reflect"
+      - generic [ref=e330]:
+        - generic "Arab Bank" [ref=e331]:
+          - img "Arab Bank"
+        - generic "Burger King" [ref=e332]:
+          - img "Burger King"
+        - generic "Electrolux" [ref=e333]:
+          - img "Electrolux"
+        - generic "Aramco" [ref=e334]:
+          - img "Aramco"
+        - generic "Shaker Group" [ref=e335]:
+          - img "Shaker Group"
+        - generic "Alissar" [ref=e336]:
+          - img "Alissar"
+        - generic "Buffalo Wild Wings" [ref=e337]:
+          - img "Buffalo Wild Wings"
+        - generic "Abu Kass" [ref=e338]:
+          - img "Abu Kass"
+        - generic "InvoiceQ" [ref=e339]:
+          - img "InvoiceQ"
+        - generic "Cairo Amman Bank" [ref=e340]:
+          - img "Cairo Amman Bank"
+        - generic "Western Union" [ref=e341]:
+          - img "Western Union"
+        - generic "Bank of Jordan" [ref=e342]:
+          - img "Bank of Jordan"
+        - generic "Arab Bank" [ref=e343]:
+          - img "Arab Bank"
+        - generic "Burger King" [ref=e344]:
+          - img "Burger King"
+        - generic "Electrolux" [ref=e345]:
+          - img "Electrolux"
+        - generic "Aramco" [ref=e346]:
+          - img "Aramco"
+        - generic "Shaker Group" [ref=e347]:
+          - img "Shaker Group"
+        - generic "Alissar" [ref=e348]:
+          - img "Alissar"
+        - generic "Buffalo Wild Wings" [ref=e349]:
+          - img "Buffalo Wild Wings"
+        - generic "Abu Kass" [ref=e350]:
+          - img "Abu Kass"
+        - generic "InvoiceQ" [ref=e351]:
+          - img "InvoiceQ"
+        - generic "Cairo Amman Bank" [ref=e352]:
+          - img "Cairo Amman Bank"
+        - generic "Western Union" [ref=e353]:
+          - img "Western Union"
+        - generic "Bank of Jordan" [ref=e354]:
+          - img "Bank of Jordan"
+  - generic [ref=e356]:
+    - generic [ref=e357]:
+      - generic [ref=e358]: 05 / About
+      - generic [ref=e360]:
+        - text: Amman · Riyadh
+        - text: Built across the GCC.
+      - heading "Strategists & makers." [level=2] [ref=e361]:
+        - text: Strategists
+        - text: "& makers."
+    - generic [ref=e362]:
+      - heading "We become part of your success story." [level=3] [ref=e363]
+      - generic [ref=e364]:
+        - paragraph [ref=e365]: We're a creative powerhouse with offices in Amman and Riyadh, delivering bold ideas and meaningful results across the GCC. We pair strategists, designers, film makers, and growth marketers under one roof — so the brief, the brand, and the business move together.
+        - paragraph [ref=e366]: "We've shaped category leaders like Foodics and Zid from early stage to regional dominance — and the work we make next is built on the same playbook: clarity, confidence, and creativity in motion."
+    - generic [ref=e367]:
+      - generic [ref=e368]:
+        - img "Mohamed Sabha" [ref=e370]
+        - generic [ref=e371]:
+          - generic [ref=e372]: Mohamed Sabha
+          - generic [ref=e373]: Chief Executive Officer
+      - generic [ref=e374]:
+        - img "Omar Knio" [ref=e376]
+        - generic [ref=e377]:
+          - generic [ref=e378]: Omar Knio
+          - generic [ref=e379]: Chief Strategy Officer
+      - generic [ref=e380]:
+        - img "Ahmad Sabha" [ref=e382]
+        - generic [ref=e383]:
+          - generic [ref=e384]: Ahmad Sabha
+          - generic [ref=e385]: General Manager
+      - generic [ref=e386]:
+        - img "Rawan Addas" [ref=e388]
+        - generic [ref=e389]:
+          - generic [ref=e390]: Rawan Addas
+          - generic [ref=e391]: Client Servicing Director
+    - generic [ref=e392]:
+      - generic [ref=e393]:
+        - generic [ref=e394]: — Office 01
+        - generic [ref=e395]: Amman
+        - generic [ref=e396]:
+          - text: Al-Abdali, 432
+          - text: Amman, Jordan
+        - generic [ref=e397]:
+          - generic [ref=e398]: +962 79 924 5366
+          - generic [ref=e399]: +962 79 516 7170
+      - generic [ref=e400]:
+        - generic [ref=e401]: — Office 02
+        - generic [ref=e402]: Riyadh
+        - generic [ref=e403]:
+          - text: Al-Olaya
+          - text: Riyadh, Saudi Arabia
+        - generic [ref=e405]: +966 53 380 6028
+  - generic [ref=e407]:
+    - generic [ref=e408]:
+      - generic [ref=e409]: 06 / Insights
+      - generic [ref=e411]:
+        - text: Field notes from
+        - text: the front lines.
+      - heading "Strategy, in the open." [level=2] [ref=e412]:
+        - text: Strategy,
+        - text: in the open.
+    - generic [ref=e413]:
+      - link "— GTM Apr 2026 Why B2B brands in the GCC win on brand, not on bid. 8 min read ↗" [ref=e414] [cursor=pointer]:
+        - /url: /article/gtm-brand-not-bid
+        - generic [ref=e415]:
+          - generic [ref=e416]:
+            - generic [ref=e417]: — GTM
+            - generic [ref=e418]: Apr 2026
+          - heading "Why B2B brands in the GCC win on brand, not on bid." [level=4] [ref=e419]
+        - generic [ref=e420]:
+          - generic [ref=e421]: 8 min read
+          - generic [ref=e422]: ↗
+      - 'link "— Brand Mar 2026 From POS to platform: lessons from Foodics'' unicorn arc. 12 min read ↗" [ref=e423] [cursor=pointer]':
+        - /url: /article/foodics-platform
+        - generic [ref=e424]:
+          - generic [ref=e425]:
+            - generic [ref=e426]: — Brand
+            - generic [ref=e427]: Mar 2026
+          - 'heading "From POS to platform: lessons from Foodics'' unicorn arc." [level=4] [ref=e428]'
+        - generic [ref=e429]:
+          - generic [ref=e430]: 12 min read
+          - generic [ref=e431]: ↗
+      - link "— Events Feb 2026 How to turn a product launch into a category-defining moment. 6 min read ↗" [ref=e432] [cursor=pointer]:
+        - /url: /article/launch-as-category
+        - generic [ref=e433]:
+          - generic [ref=e434]:
+            - generic [ref=e435]: — Events
+            - generic [ref=e436]: Feb 2026
+          - heading "How to turn a product launch into a category-defining moment." [level=4] [ref=e437]
+        - generic [ref=e438]:
+          - generic [ref=e439]: 6 min read
+          - generic [ref=e440]: ↗
+  - generic [ref=e442]:
+    - generic [ref=e443]:
+      - generic [ref=e444]: 07 / Careers
+      - generic [ref=e446]:
+        - text: Bold ideas, built
+        - text: by bold people.
+    - generic [ref=e447]:
+      - heading "Build the work you want to be known for. known by." [level=3] [ref=e448]:
+        - text: Build the work
+        - text: you want to be
+        - text: known for. known by.
+      - generic [ref=e449]:
+        - link "Senior Brand Strategist Riyadh · Full-time ↗" [ref=e450] [cursor=pointer]:
+          - /url: /careers#senior-brand-strategist
+          - generic [ref=e451]: Senior Brand Strategist
+          - generic [ref=e452]: Riyadh · Full-time
+          - generic [ref=e453]: ↗
+        - link "Art Director Amman · Full-time ↗" [ref=e454] [cursor=pointer]:
+          - /url: /careers#art-director
+          - generic [ref=e455]: Art Director
+          - generic [ref=e456]: Amman · Full-time
+          - generic [ref=e457]: ↗
+        - link "Growth Marketing Lead Riyadh · Full-time ↗" [ref=e458] [cursor=pointer]:
+          - /url: /careers#growth-marketing-lead
+          - generic [ref=e459]: Growth Marketing Lead
+          - generic [ref=e460]: Riyadh · Full-time
+          - generic [ref=e461]: ↗
+        - link "Motion Designer Amman · Full-time ↗" [ref=e462] [cursor=pointer]:
+          - /url: /careers#motion-designer
+          - generic [ref=e463]: Motion Designer
+          - generic [ref=e464]: Amman · Full-time
+          - generic [ref=e465]: ↗
+        - link "Senior Account Director Riyadh · Full-time ↗" [ref=e466] [cursor=pointer]:
+          - /url: /careers#senior-account-director
+          - generic [ref=e467]: Senior Account Director
+          - generic [ref=e468]: Riyadh · Full-time
+          - generic [ref=e469]: ↗
+  - generic [ref=e471]:
+    - generic [ref=e472]:
+      - generic [ref=e473]: 08 / Contact
+      - generic [ref=e475]:
+        - text: Amman · Riyadh
+        - text: + remote, anywhere.
+    - heading "Let's build bold stories with impact." [level=2] [ref=e476]:
+      - text: Let's build
+      - text: bold stories
+      - text: with impact.
+    - generic [ref=e477]:
+      - generic [ref=e478]:
+        - paragraph [ref=e479]: If you have a brand to launch, a product to position, or a category to define — tell us where you're headed and what's in the way. We'll come back within 48 hours with first thoughts, not a deck of templates.
+        - generic [ref=e480]:
+          - generic [ref=e481]:
+            - generic [ref=e482]: General
+            - link "info@themotionagency.net" [ref=e483] [cursor=pointer]:
+              - /url: mailto:info@themotionagency.net
+          - generic [ref=e484]:
+            - generic [ref=e485]: Press
+            - link "press@themotionagency.net" [ref=e486] [cursor=pointer]:
+              - /url: mailto:press@themotionagency.net
+      - generic [ref=e487]:
+        - textbox "Your name *" [ref=e488]
+        - textbox "Company *" [ref=e489]
+        - textbox "Email *" [ref=e490]
+        - combobox [ref=e491]:
+          - option "What do you need help with? *" [disabled] [selected]
+          - option "Brand strategy & positioning"
+          - option "Brand design & identity"
+          - option "Go-to-market & growth"
+          - option "Event & experience"
+          - option "Content & production"
+          - option "All of the above"
+        - textbox "Tell us where you're headed *" [ref=e492]
+        - textbox [ref=e493]
+        - button "Send brief ↗" [ref=e494] [cursor=pointer]:
+          - text: Send brief
+          - generic [ref=e495]: ↗
+  - contentinfo [ref=e496]:
+    - generic [ref=e497]: THE / MOTION / AGENCY
+    - generic [ref=e498]:
+      - generic [ref=e499]: © 2026 The Motion Agency
+      - generic [ref=e500]: themotionagency.net
+      - generic [ref=e501]: info@themotionagency.net
+      - link "LinkedIn" [ref=e503] [cursor=pointer]:
+        - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+      - generic [ref=e504]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e510] [cursor=pointer]:
+    - img [ref=e511]

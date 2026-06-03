@@ -1,0 +1,234 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - img
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: EST.
+            - generic [ref=e20]: "2019"
+          - generic [ref=e21]:
+            - generic [ref=e22]: AMMAN
+            - generic [ref=e23]: ·
+            - generic [ref=e24]: RIYADH
+          - generic [ref=e25]:
+            - generic [ref=e26]: SHOWREEL
+            - generic [ref=e27]: "2025"
+        - heading "CASES WORTH TELLING." [level=1] [ref=e28]:
+          - generic [ref=e30]: CASES
+          - generic [ref=e32]: WORTH
+          - generic [ref=e34]: TELLING.
+      - generic:
+        - generic:
+          - link "Foodics — Boundless 22 · 23" [ref=e86] [cursor=pointer]:
+            - /url: /case/foodics-boundless
+            - generic [ref=e87]:
+              - img [ref=e88]
+              - generic [ref=e89]:
+                - generic [ref=e90]:
+                  - generic [ref=e91]: "01"
+                  - generic [ref=e92]:
+                    - emphasis [ref=e93]: +35.6%
+                    - generic [ref=e94]: YoY revenue
+                - generic [ref=e95]:
+                  - generic [ref=e96]: Foodics
+                  - generic [ref=e97]: Boundless 22 · 23
+                  - generic [ref=e98]: Transforming a POS platform into the growth engine of F&B.
+                  - list [ref=e99]:
+                    - listitem [ref=e100]: Brand Strategy
+                    - listitem [ref=e101]: Product Launch
+                    - listitem [ref=e102]: Event
+          - link "Zid — Ripple 2024" [ref=e103] [cursor=pointer]:
+            - /url: /case/zid-ripple
+            - generic [ref=e104]:
+              - img [ref=e105]
+              - generic [ref=e106]:
+                - generic [ref=e107]:
+                  - generic [ref=e108]: "02"
+                  - generic [ref=e109]:
+                    - emphasis [ref=e110]: +200%
+                    - generic [ref=e111]: YoY growth
+                - generic [ref=e112]:
+                  - generic [ref=e113]: Zid
+                  - generic [ref=e114]: Ripple 2024
+                  - generic [ref=e115]: Launching the Total Commerce era for 12K+ merchants.
+                  - list [ref=e116]:
+                    - listitem [ref=e117]: Brand Strategy
+                    - listitem [ref=e118]: GTM
+                    - listitem [ref=e119]: Event
+          - link "Foodics — Brand System v3.0" [ref=e120] [cursor=pointer]:
+            - /url: "#gallery"
+            - generic [ref=e121]:
+              - img [ref=e122]
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: "03"
+                  - generic [ref=e126]:
+                    - emphasis [ref=e127]: v3.0
+                    - generic [ref=e128]: Brand manual
+                - generic [ref=e129]:
+                  - generic [ref=e130]: Foodics
+                  - generic [ref=e131]: Brand System v3.0
+                  - generic [ref=e132]: A category-defining identity for the F&B operating system.
+                  - list [ref=e133]:
+                    - listitem [ref=e134]: Brand Design
+                    - listitem [ref=e135]: Guidelines
+                    - listitem [ref=e136]: Typography
+          - link "Zid — Launchpad Series" [ref=e137] [cursor=pointer]:
+            - /url: "#gallery"
+            - generic [ref=e138]:
+              - img [ref=e139]
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - generic [ref=e142]: "04"
+                  - generic [ref=e143]:
+                    - emphasis [ref=e144]: "3"
+                    - generic [ref=e145]: LP variants live
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Zid
+                  - generic [ref=e148]: Launchpad Series
+                  - generic [ref=e149]: We are your launchpad to the stars.
+                  - list [ref=e150]:
+                    - listitem [ref=e151]: Web Design
+                    - listitem [ref=e152]: Landing Pages
+                    - listitem [ref=e153]: Copywriting
+          - link "InvoiceQ — Brand Identity v1.0" [ref=e154] [cursor=pointer]:
+            - /url: "#gallery"
+            - generic [ref=e155]:
+              - img [ref=e156]
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: "05"
+                  - generic [ref=e160]:
+                    - emphasis [ref=e161]: B2B
+                    - generic [ref=e162]: SaaS launch
+                - generic [ref=e163]:
+                  - generic [ref=e164]: InvoiceQ
+                  - generic [ref=e165]: Brand Identity v1.0
+                  - generic [ref=e166]: More practical, consistent, and dynamic.
+                  - list [ref=e167]:
+                    - listitem [ref=e168]: Brand Design
+                    - listitem [ref=e169]: App UI
+                    - listitem [ref=e170]: Guidelines
+          - link "Foodics — Vancouver Canada TVC" [ref=e171] [cursor=pointer]:
+            - /url: "#gallery"
+            - generic [ref=e172]:
+              - img [ref=e173]
+              - generic [ref=e174]:
+                - generic [ref=e175]:
+                  - generic [ref=e176]: "06"
+                  - generic [ref=e177]:
+                    - emphasis [ref=e178]: OOH
+                    - generic [ref=e179]: + TV at scale
+                - generic [ref=e180]:
+                  - generic [ref=e181]: Foodics
+                  - generic [ref=e182]: Vancouver Canada TVC
+                  - generic [ref=e183]: Since I installed Foodics, everything has been running in order.
+                  - list [ref=e184]:
+                    - listitem [ref=e185]: Campaign
+                    - listitem [ref=e186]: TVC
+                    - listitem [ref=e187]: OOH
+    - region "All work" [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: Our work
+            - generic [ref=e41]: 39 projects
+            - heading "All work. In motion." [level=2] [ref=e42]:
+              - text: All work.
+              - text: In motion.
+          - tablist [ref=e43]:
+            - tab "All" [selected] [ref=e44] [cursor=pointer]
+            - tab "Brand" [ref=e45] [cursor=pointer]
+            - tab "Campaign" [ref=e46] [cursor=pointer]
+            - tab "Event" [ref=e47] [cursor=pointer]
+            - tab "Social" [ref=e48] [cursor=pointer]
+            - tab "Web" [ref=e49] [cursor=pointer]
+            - tab "OOH" [ref=e50] [cursor=pointer]
+            - tab "Production" [ref=e51] [cursor=pointer]
+            - tab "Animation" [ref=e52] [cursor=pointer]
+        - generic [ref=e54]:
+          - article "Multi-brand — Foodics + Zid OOH + Salasa + Sól" [ref=e189] [cursor=pointer]:
+            - img [ref=e190]
+            - generic [ref=e191]:
+              - generic [ref=e192]: Multi-brand
+              - generic [ref=e193]: Foodics + Zid OOH + Salasa + Sól
+              - generic [ref=e194]: Social
+          - article "Foodics — Vancouver Canada — cafe scene":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Vancouver Canada — cafe scene
+              - generic: Production
+          - article "Foodics — Vancouver Canada — fries stand":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Vancouver Canada — fries stand
+              - generic: Production
+          - article "Foodics — OOH billboard collage — Riyadh":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: OOH billboard collage — Riyadh
+              - generic: OOH
+          - article "Foodics — Vancouver TVC — split frame":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Vancouver TVC — split frame
+              - generic: Production
+          - article "Foodics — Pay at Table — landing page":
+            - img
+            - generic:
+              - generic: Foodics
+              - generic: Pay at Table — landing page
+              - generic: Web
+        - generic: scroll · the stream flows
+    - generic [ref=e57]:
+      - generic [ref=e58]: Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e60]
+      - paragraph [ref=e61]: Let's create something extraordinary together. Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e62]:
+        - link "Book a discovery call ↗" [ref=e63] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e64]: ↗
+        - link "Send a brief ↗" [ref=e65] [cursor=pointer]:
+          - /url: /#contact
+          - text: Send a brief
+          - generic [ref=e66]: ↗
+    - contentinfo [ref=e67]:
+      - generic [ref=e68]: THE / MOTION / AGENCY
+      - generic [ref=e69]:
+        - generic [ref=e70]: © 2026 The Motion Agency
+        - generic [ref=e71]: themotionagency.net
+        - generic [ref=e72]: info@themotionagency.net
+        - link "LinkedIn" [ref=e74] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e75]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e81] [cursor=pointer]:
+    - img [ref=e82]
+  - alert [ref=e195]

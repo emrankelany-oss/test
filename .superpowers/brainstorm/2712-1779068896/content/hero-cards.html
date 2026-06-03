@@ -1,0 +1,62 @@
+<h2>What's inside the Hero edge-cards</h2>
+<p class="subtitle">They are <b>cinematic teasers</b>, not case studies. They drift in tilted, on screen only a few seconds, then "become" the Featured sections lower down. So: one strong image + the bare minimum of text. Readable case detail lives in Section 5/6.</p>
+
+<style>
+  .row{display:flex;gap:22px;flex-wrap:wrap;margin:14px 0 22px}
+  .cardwrap{flex:1;min-width:240px}
+  .cardwrap > .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-bottom:8px}
+  .hcard{border:1px solid rgba(255,255,255,.2);border-radius:10px;overflow:hidden;background:#0c0a12;transform:perspective(1000px) rotateY(-14deg);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 50px rgba(90,166,255,.12)}
+  .hcard .img{height:230px;position:relative;display:flex;align-items:flex-end;padding:14px}
+  .foodics .img{background:linear-gradient(150deg,#4E008E,#330072 60%,#1a0040)}
+  .zid .img{background:linear-gradient(150deg,#1f7ae0,#0a3b8c 60%,#04193f)}
+  .hcard .tag{position:absolute;top:12px;left:14px;font-family:monospace;font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:3px 10px}
+  .hcard .metric{position:absolute;top:12px;right:14px;font-family:monospace;font-size:10px;letter-spacing:.1em;color:#cfe2ff}
+  .hcard .name{font-family:Georgia,serif;font-size:30px;color:#fff;line-height:1}
+  .hcard .name small{display:block;font-family:monospace;font-size:10px;letter-spacing:.2em;opacity:.65;margin-top:7px}
+  .hcard .foot{padding:10px 14px;font-size:11px;opacity:.6;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}
+  .anno{font-size:12px;line-height:1.6;opacity:.9}
+  .anno b{color:#7db4ff}
+  .layers li{margin-bottom:5px}
+</style>
+
+<div class="row">
+  <div class="cardwrap">
+    <div class="lbl">Left edge &mdash; Card 1</div>
+    <div class="hcard foodics">
+      <div class="img">
+        <span class="tag">CASE 01</span>
+        <span class="metric">$2M &rarr; $1B</span>
+        <span class="name">Foodics<small>BOUNDLESS &middot; F&amp;B TECH</small></span>
+      </div>
+      <div class="foot"><span>Brand &middot; Events &middot; GTM</span><span>2020&ndash;24</span></div>
+    </div>
+  </div>
+  <div class="cardwrap">
+    <div class="lbl">Right edge &mdash; Card 2</div>
+    <div class="hcard zid">
+      <div class="img">
+        <span class="tag">CASE 02</span>
+        <span class="metric">+200% YoY</span>
+        <span class="name">Zid<small>RIPPLE &middot; TOTAL COMMERCE</small></span>
+      </div>
+      <div class="foot"><span>Brand &middot; Event &middot; Campaigns</span><span>2024</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="label">Card anatomy &mdash; 4 elements, nothing more</span>
+  <ul class="layers anno">
+    <li><b>1 &middot; The image</b> &mdash; one flagship visual, full-bleed. Uses the real repo assets: <em>public/assets/case-foodics-boundless.png</em> &amp; <em>case-zid-ripple.png</em>. Tinted to the brand color so the card reads even while moving.</li>
+    <li><b>2 &middot; Index tag</b> &mdash; "CASE 01 / 02" mono pill. Signals there's a body of work, builds anticipation.</li>
+    <li><b>3 &middot; The proof metric</b> &mdash; one number only: <em>$2M&rarr;$1B</em>, <em>+200% YoY</em>. This is the hook that makes you keep scrolling.</li>
+    <li><b>4 &middot; Name + caption</b> &mdash; serif client name + tiny mono descriptor (campaign &middot; sector). Footer adds disciplines + year, very low contrast.</li>
+  </ul>
+  <p class="anno" style="margin-top:10px"><b>How many?</b> 2 in the Hero (Foodics + Zid) &mdash; the two deep case studies. They reappear as the Featured sections, so the Hero card literally <em>is</em> the door to that section (the Obsidian "persistent anchor" idea, applied to your work).</p>
+  <p class="anno"><b>Motion:</b> they fly in from the screen edges during State B, 3D-tilted (rotateY ~14&ndash;22&deg;), each at a different parallax speed/depth, slightly blurred at the far depth. They are <em>not</em> clickable in the Hero &mdash; they're a promise; the click happens in Section 5/6.</p>
+</div>
+
+<div class="options" style="margin-top:12px">
+  <div class="option" data-choice="cards-ok" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>Card content is right</h3><p>Image + index + one metric + name. Keep going with the Hero design.</p></div></div>
+  <div class="option" data-choice="cards-change" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Change what's in the cards</h3><p>e.g. more cards, different metric, add a label, make them clickable, etc.</p></div></div>
+</div>

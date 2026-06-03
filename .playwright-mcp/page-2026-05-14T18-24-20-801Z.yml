@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e3] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e4]:
+        - link "Portfolio" [ref=e5] [cursor=pointer]:
+          - /url: /portfolio
+        - link "V2 Lab" [ref=e6] [cursor=pointer]:
+          - /url: /portfolio-v2
+        - link "Case Studies" [ref=e7] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e12] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - region "Field Notes — cover" [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: THE MOTION AGENCY · A FIELD NOTEBOOK
+        - heading "Field Notes — Vol. 01" [level=1] [ref=e17]:
+          - text: Field Notes
+          - generic [ref=e18]: — Vol. 01
+        - paragraph [ref=e19]: AMMAN · RIYADH · 2019 — 2025
+        - generic [ref=e21]:
+          - img [ref=e22]
+          - generic "Studio team — Foodics Boundless" [ref=e25] [cursor=pointer]:
+            - generic [ref=e28]: studio · 2024
+        - paragraph [ref=e29]: turn the page ↓
+    - region "Field note — Foodics" [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: № 01
+            - generic [ref=e35]: CASE STUDY
+          - heading "Foodics — Boundless 22 · 23" [level=2] [ref=e36]:
+            - text: Foodics
+            - generic [ref=e37]: — Boundless 22 · 23
+          - heading "THE BRIEF" [level=3] [ref=e38]
+          - paragraph [ref=e39]: POS provider, evolving into the F&B growth platform. Market still saw them as just a POS.
+          - list "Problems noted" [ref=e40]:
+            - generic "Brief point — Foodics is now payments, lending" [ref=e41] [cursor=pointer]:
+              - img [ref=e43]
+              - paragraph [ref=e49]: Foodics is now payments, lending, data, marketplaces — not just POS.
+            - generic "Brief point — Educate thousands of restaurant" [ref=e50] [cursor=pointer]:
+              - img [ref=e52]
+              - paragraph [ref=e58]: Educate thousands of restaurant operators about new tools.
+            - generic "Brief point — Establish clear market leadershi" [ref=e59] [cursor=pointer]:
+              - img [ref=e61]
+              - paragraph [ref=e67]: Establish clear market leadership as competition tightens.
+            - generic "Brief point — Turn a product reveal into a cat" [ref=e68] [cursor=pointer]:
+              - img [ref=e70]
+              - paragraph [ref=e76]: Turn a product reveal into a category-defining moment.
+          - generic [ref=e77]:
+            - img [ref=e78]
+            - generic [ref=e81]: → The Boundless idea
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: ARTEFACTS
+            - generic [ref=e85]: FOODICS
+          - generic [ref=e86]:
+            - generic "Boundless event hero image" [ref=e87] [cursor=pointer]:
+              - img [ref=e89]
+              - generic [ref=e96]: Boundless · Riyadh
+            - generic "Foodics OOH collage" [ref=e97] [cursor=pointer]:
+              - img [ref=e99]
+              - generic [ref=e106]: OOH wave · Riyadh
+            - generic "$1B" [ref=e107] [cursor=pointer]:
+              - img [ref=e109]
+              - generic [ref=e114]:
+                - generic [ref=e115]: $1B
+                - generic [ref=e116]: unicorn status
+            - generic "Brand palette swatches" [ref=e117] [cursor=pointer]:
+              - img [ref=e119]
+              - generic [ref=e125]:
+                - generic [ref=e126]: PALETTE
+                - generic [ref=e127]:
+                  - generic "#330072" [ref=e128]:
+                    - generic [ref=e129]: "#330072"
+                  - generic "#4E008E" [ref=e130]:
+                    - generic [ref=e131]: "#4E008E"
+                  - generic "#74D1EA" [ref=e132]:
+                    - generic [ref=e133]: "#74D1EA"
+                  - generic "#440099" [ref=e134]:
+                    - generic [ref=e135]: "#440099"
+            - generic "Stage = launchpad. Story = transformation, not POS." [ref=e136] [cursor=pointer]:
+              - img [ref=e138]
+              - paragraph [ref=e144]: Stage = launchpad. Story = transformation, not POS.
+    - region "Field note — Zid" [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - generic [ref=e149]: № 02
+            - generic [ref=e150]: CASE STUDY
+          - heading "Zid — Ripple 2024" [level=2] [ref=e151]:
+            - text: Zid
+            - generic [ref=e152]: — Ripple 2024
+          - heading "THE BRIEF" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Fragmented systems. Scale barriers. A perception gap to close.
+          - list "Problems noted" [ref=e155]:
+            - generic "Brief point — Merchants juggling separate tool" [ref=e156] [cursor=pointer]:
+              - img [ref=e158]
+              - paragraph [ref=e164]: Merchants juggling separate tools for storefront, social, in-store.
+            - generic "Brief point — Logistical inefficiencies cap gr" [ref=e165] [cursor=pointer]:
+              - img [ref=e167]
+              - paragraph [ref=e173]: Logistical inefficiencies cap growth.
+            - generic "Brief point — Zid is the unified Total Commerc" [ref=e174] [cursor=pointer]:
+              - img [ref=e176]
+              - paragraph [ref=e182]: Zid is the unified Total Commerce platform — not a storebuilder.
+            - generic "Brief point — Diriyah + 1,000 merchants + AI-p" [ref=e183] [cursor=pointer]:
+              - img [ref=e185]
+              - paragraph [ref=e191]: Diriyah + 1,000 merchants + AI-powered marketing reveal.
+          - generic [ref=e192]:
+            - img [ref=e193]
+            - generic [ref=e196]: → One dashboard. One era.
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - generic [ref=e199]: ARTEFACTS
+            - generic [ref=e200]: ZID
+          - generic [ref=e201]:
+            - generic "Ripple 2024 hero image" [ref=e202] [cursor=pointer]:
+              - img [ref=e204]
+              - generic [ref=e211]: Ripple · Diriyah · 2024
+            - generic "Zid brand system collage" [ref=e212] [cursor=pointer]:
+              - img [ref=e214]
+              - generic [ref=e221]: Brand system · OOH
+            - generic "+200%" [ref=e222] [cursor=pointer]:
+              - img [ref=e224]
+              - generic [ref=e229]:
+                - generic [ref=e230]: +200%
+                - generic [ref=e231]: YoY growth
+            - generic "Brand palette swatches" [ref=e232] [cursor=pointer]:
+              - img [ref=e234]
+              - generic [ref=e240]:
+                - generic [ref=e241]: PALETTE
+                - generic [ref=e242]:
+                  - generic "#0E1A47" [ref=e243]:
+                    - generic [ref=e244]: "#0E1A47"
+                  - generic "#5B5BFF" [ref=e245]:
+                    - generic [ref=e246]: "#5B5BFF"
+                  - generic "#FF7AAD" [ref=e247]:
+                    - generic [ref=e248]: "#FF7AAD"
+                  - generic "#F5F7FB" [ref=e249]:
+                    - generic [ref=e250]: "#F5F7FB"
+            - generic "Total Commerce. Build one stage. Launch one platform." [ref=e251] [cursor=pointer]:
+              - img [ref=e253]
+              - paragraph [ref=e259]: Total Commerce. Build one stage. Launch one platform.
+    - region "Client roster" [ref=e260]:
+      - generic [ref=e261]:
+        - generic [ref=e262]:
+          - text: SPREAD C
+          - heading "The Roster" [level=2] [ref=e263]
+          - paragraph [ref=e264]:
+            - text: Stickers we've collected along the way.
+            - generic [ref=e265]: 24 brands and counting.
+        - generic [ref=e266]:
+          - img "abu kass" [ref=e268]
+          - img "alissar" [ref=e270]
+          - img "arab bank" [ref=e272]
+          - img "aramco" [ref=e274]
+          - img "bank of jordan" [ref=e276]
+          - img "buffalo wild wings" [ref=e278]
+          - img "burger king" [ref=e280]
+          - img "cairo amman bank" [ref=e282]
+          - img "cyberx" [ref=e284]
+          - img "electrolux" [ref=e286]
+          - img "flex" [ref=e288]
+          - img "foodics" [ref=e290]
+          - img "invoiceq" [ref=e292]
+          - img "jadwa" [ref=e294]
+          - img "lsc" [ref=e296]
+          - img "ministry economy" [ref=e298]
+          - img "reflect" [ref=e300]
+          - img "salasa" [ref=e302]
+          - img "shaker group" [ref=e304]
+          - img "sol" [ref=e306]
+          - img "webook" [ref=e308]
+          - img "western union" [ref=e310]
+          - img "zaintech" [ref=e312]
+          - img "zid" [ref=e314]
+    - region "What's next" [ref=e315]:
+      - generic [ref=e316]:
+        - generic [ref=e317]:
+          - text: FINAL PAGE
+          - heading "What's next?" [level=2] [ref=e318]
+        - paragraph [ref=e326]: Want to write yourself in?
+        - link "Tell us about your project" [ref=e327] [cursor=pointer]:
+          - /url: /#contact
+          - generic [ref=e328]: Tell us about your project
+          - generic [ref=e329]: →
+        - generic [ref=e330]:
+          - generic [ref=e331]: The Motion Agency
+          - generic [ref=e332]: info@themotionagency.net
+          - generic [ref=e333]: Amman · Riyadh
+    - generic [ref=e336]:
+      - generic [ref=e337]: Let's build
+      - heading "Ready to build the next category leader?" [level=2] [ref=e339]
+      - paragraph [ref=e340]: Let's create something extraordinary together. Tell us where you're headed and what's in the way — we'll come back within 48 hours with first thoughts, not a deck of templates.
+      - generic [ref=e341]:
+        - link "Book a discovery call ↗" [ref=e342] [cursor=pointer]:
+          - /url: /#contact
+          - text: Book a discovery call
+          - generic [ref=e343]: ↗
+        - link "Send a brief ↗" [ref=e344] [cursor=pointer]:
+          - /url: /#contact
+          - text: Send a brief
+          - generic [ref=e345]: ↗
+    - contentinfo [ref=e346]:
+      - generic [ref=e347]: THE / MOTION / AGENCY
+      - generic [ref=e348]:
+        - generic [ref=e349]: © 2026 The Motion Agency
+        - generic [ref=e350]: themotionagency.net
+        - generic [ref=e351]: info@themotionagency.net
+        - link "LinkedIn" [ref=e353] [cursor=pointer]:
+          - /url: https://jo.linkedin.com/company/the-motion-agency-inc
+        - generic [ref=e354]: v1.0 — 04 / 2026
+  - button "Open Next.js Dev Tools" [ref=e360] [cursor=pointer]:
+    - img [ref=e361]

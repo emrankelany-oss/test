@@ -1,0 +1,198 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button [ref=e2] [cursor=pointer]:
+                                  - img [ref=e3]
+                                - generic [ref=e5]:
+                                  - button "Project PRfFq" [ref=e6] [cursor=pointer]:
+                                    - generic [ref=e12]:
+                                      - generic [ref=e13]: Project
+                                      - generic [ref=e14]: PRfFq
+                                  - button "The Keep THCJq" [ref=e15] [cursor=pointer]:
+                                    - generic [ref=e21]:
+                                      - generic [ref=e22]: The Keep
+                                      - generic [ref=e23]: THCJq
+                                  - button "Factions FAMZx" [ref=e24] [cursor=pointer]:
+                                    - generic [ref=e30]:
+                                      - generic [ref=e31]: Factions
+                                      - generic [ref=e32]: FAMZx
+                                  - button "The World THTLf" [ref=e33] [cursor=pointer]:
+                                    - generic [ref=e39]:
+                                      - generic [ref=e40]: The World
+                                      - generic [ref=e41]: THTLf
+                              - generic:
+                                - link:
+                                  - /url: /
+                                  - img
+                                - button [ref=e42] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button [ref=e48] [cursor=pointer]:
+                                  - img [ref=e49]
+                                - generic [ref=e51]:
+                                  - button "Project PRRfd" [ref=e52] [cursor=pointer]:
+                                    - generic [ref=e58]:
+                                      - generic [ref=e59]: Project
+                                      - generic [ref=e60]: PRRfd
+                                  - button "The Keep THoHt" [ref=e61] [cursor=pointer]:
+                                    - generic [ref=e67]:
+                                      - generic [ref=e68]: The Keep
+                                      - generic [ref=e69]: THoHt
+                                  - button "Factions FAVvj" [ref=e70] [cursor=pointer]:
+                                    - generic [ref=e76]:
+                                      - generic [ref=e77]: Factions
+                                      - generic [ref=e78]: FAVvj
+                                  - button "The World THWHN" [ref=e79] [cursor=pointer]:
+                                    - generic [ref=e85]:
+                                      - generic [ref=e86]: The World
+                                      - generic [ref=e87]: THWHN
+                              - generic:
+                                - link:
+                                  - /url: /
+                                  - img
+                                - button [ref=e88] [cursor=pointer]
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic [ref=e94]:
+                      - generic [ref=e98]:
+                        - generic [ref=e99]: // initializing new files in database kai_53815.jpg audio_log_2018116.wav activate console for access...
+                        - generic [ref=e100]: // IN
+                      - generic [ref=e102]:
+                        - generic [ref=e108]:
+                          - generic [ref=e109]: Discover More
+                          - generic [ref=e110]: DISjN
+                        - generic [ref=e111]:
+                          - generic:
+                            - generic:
+                              - link "Story STcI":
+                                - /url: /
+                                - generic:
+                                  - generic:
+                                    - generic: Story
+                                    - generic: STcI
+                          - link "Journal JOGb" [ref=e115] [cursor=pointer]:
+                            - /url: /journal
+                            - generic [ref=e117]:
+                              - generic [ref=e118]: Journal
+                              - generic [ref=e119]: JOGb
+                          - link "Media MEqR" [ref=e123] [cursor=pointer]:
+                            - /url: /media
+                            - generic [ref=e125]:
+                              - generic [ref=e126]: Media
+                              - generic [ref=e127]: MEqR
+                          - link "Gallery GACZd" [ref=e131] [cursor=pointer]:
+                            - /url: /gallery
+                            - generic [ref=e133]:
+                              - generic [ref=e134]: Gallery
+                              - generic [ref=e135]: GACZd
+                          - link "About ABMy" [ref=e139] [cursor=pointer]:
+                            - /url: /about
+                            - generic [ref=e141]:
+                              - generic [ref=e142]: About
+                              - generic [ref=e143]: ABMy
+                          - link "Careers CApfR" [ref=e147] [cursor=pointer]:
+                            - /url: https://kpr.homerun.co/?lang=en
+                            - generic [ref=e148]:
+                              - generic [ref=e149]:
+                                - generic [ref=e150]: Careers
+                                - generic [ref=e151]: CApfR
+                              - img [ref=e152]
+                      - generic [ref=e156]:
+                        - generic [ref=e162]:
+                          - generic [ref=e163]: Join the Conversation
+                          - generic [ref=e164]: JOINs
+                        - generic [ref=e165]:
+                          - link "Twitter TWntS" [ref=e169] [cursor=pointer]:
+                            - /url: https://twitter.com/KPRVERSE
+                            - generic [ref=e171]:
+                              - generic [ref=e172]: Twitter
+                              - generic [ref=e173]: TWntS
+                          - link "Discord DIUrG" [ref=e177] [cursor=pointer]:
+                            - /url: https://discord.com/invite/kpr
+                            - generic [ref=e179]:
+                              - generic [ref=e180]: Discord
+                              - generic [ref=e181]: DIUrG
+                      - generic [ref=e183]:
+                        - generic [ref=e189]:
+                          - generic [ref=e190]: More Details
+                          - generic [ref=e191]: MORZT
+                        - generic [ref=e192]:
+                          - generic [ref=e193]:
+                            - generic [ref=e194]: Contact us at
+                            - link "hello@kprverse.com HELwi" [ref=e198] [cursor=pointer]:
+                              - /url: mailto:hello@kprverse.com
+                              - generic [ref=e200]:
+                                - generic [ref=e201]: hello@kprverse.com
+                                - generic [ref=e202]: HELwi
+                          - button "Download Brand Book DOWNLXs" [ref=e203] [cursor=pointer]:
+                            - img [ref=e206]
+                            - generic [ref=e207]:
+                              - img [ref=e209]
+                              - generic [ref=e211]:
+                                - generic [ref=e212]: Download Brand Book
+                                - generic [ref=e213]: DOWNLXs
+                            - link [ref=e214]:
+                              - /url: https://a.storyblok.com/f/165555/x/095e8b5319/kpr_brandbook_v1-0.zip
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img
+                    - generic:
+                      - generic:
+                        - button "EN":
+                          - generic: EN
+                          - img
+                      - generic:
+                        - link "Privacy Policy PRIW" [ref=e218] [cursor=pointer]:
+                          - /url: /legal/privacy-policy
+                          - generic [ref=e219]:
+                            - generic [ref=e220]: Privacy Policy
+                            - generic [ref=e221]: PRIW
+                        - link "Terms of Service TERY" [ref=e225] [cursor=pointer]:
+                          - /url: /legal/terms-of-service
+                          - generic [ref=e226]:
+                            - generic [ref=e227]: Terms of Service
+                            - generic [ref=e228]: TERY
+                        - link "Legal License LEGs" [ref=e232] [cursor=pointer]:
+                          - /url: /legal/legal-license
+                          - generic [ref=e233]:
+                            - generic [ref=e234]: Legal License
+                            - generic [ref=e235]: LEGs
+                      - generic:
+                        - generic: © 2022
+        - generic [ref=e236]:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - generic: LOADING - 66%
+              - generic:
+                - generic:
+                  - generic: HTTPS://KPRVERSE.COM/KPCO/AREA-SCAN/MOUNTAIN/DATA/SECTOR/C/
+          - generic:
+            - generic:
+              - img
+              - button
+              - generic: Click to Enable Sound

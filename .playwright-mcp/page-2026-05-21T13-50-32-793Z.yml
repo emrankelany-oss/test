@@ -1,0 +1,618 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - status "Loading The Motion Agency portfolio" [ref=e3]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e9]: The Motion Agency
+        - generic [ref=e12]: "00"
+    - navigation:
+      - link "The Motion Agency — home" [ref=e13] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e14]:
+        - link "Portfolio" [ref=e15] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e16] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e17] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e19] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e20] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e21] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e23]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: EST.
+            - generic [ref=e30]: "2019"
+          - generic [ref=e31]:
+            - generic [ref=e32]: AMMAN
+            - generic [ref=e33]: ·
+            - generic [ref=e34]: RIYADH
+          - generic [ref=e35]:
+            - generic [ref=e36]: SHOWREEL
+            - generic [ref=e37]: "2025"
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "Narrative where vision Meets Design" [level=1] [ref=e40]:
+              - generic [ref=e42]: Narrative
+              - emphasis [ref=e45]: where vision
+              - generic [ref=e47]: Meets
+              - generic [ref=e49]: Design
+            - link "Play showreel — 2 minutes 58 seconds" [ref=e50] [cursor=pointer]:
+              - /url: "#showreel"
+              - generic [ref=e52]:
+                - generic [ref=e53]: Play showreel
+                - generic [ref=e54]: 02:58
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e58] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e59]:
+              - generic [ref=e60]: Let's talk
+              - generic [ref=e61]: Mohamed Sabha
+              - generic [ref=e62]: Chief Executive Officer
+            - img [ref=e70]
+      - generic [ref=e72]:
+        - text: Scroll
+        - text: 01 / 01
+    - generic [ref=e74]:
+      - generic:
+        - img
+      - generic [ref=e75]:
+        - generic [ref=e76]: Selected work · 2024–25
+        - heading "Featured narratives" [level=2] [ref=e78]:
+          - text: Featured
+          - emphasis [ref=e79]: narratives
+        - paragraph [ref=e80]: Three chapters from this year's reel. Hover to play the cut.
+      - list [ref=e81]:
+        - listitem [ref=e82]:
+          - link "Foodics — Boundless" [ref=e83] [cursor=pointer]:
+            - /url: "#work-foodics-boundless"
+            - generic [ref=e84]:
+              - generic: "01"
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - generic [ref=e87]: Foodics
+                - heading "Boundless" [level=3] [ref=e88]
+              - generic [ref=e89]:
+                - generic [ref=e90]: Hospitality SaaS
+                - generic [ref=e91]: "2025"
+        - listitem [ref=e92]:
+          - link "Zid — Ripple" [ref=e93] [cursor=pointer]:
+            - /url: "#work-zid-ripple"
+            - generic [ref=e94]:
+              - generic: "02"
+            - generic [ref=e95]:
+              - generic [ref=e96]:
+                - generic [ref=e97]: Zid
+                - heading "Ripple" [level=3] [ref=e98]
+              - generic [ref=e99]:
+                - generic [ref=e100]: Commerce Identity
+                - generic [ref=e101]: "2025"
+        - listitem [ref=e102]:
+          - link "Vodafone — Vodafone" [ref=e103] [cursor=pointer]:
+            - /url: "#work-vodafone"
+            - generic [ref=e104]:
+              - generic: "03"
+            - generic [ref=e105]:
+              - generic [ref=e106]:
+                - generic [ref=e107]: Vodafone
+                - heading "Vodafone" [level=3] [ref=e108]
+              - generic [ref=e109]:
+                - generic [ref=e110]: Telecom TVC
+                - generic [ref=e111]: "2024"
+    - region "Our work, on the record" [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - generic [ref=e115]: The Work · Amman & Riyadh
+          - heading "Our work, on the record" [level=2] [ref=e117]:
+            - text: Our
+            - emphasis [ref=e118]: work
+            - text: ", on the record"
+          - paragraph [ref=e119]: A curated exhibition of brand platforms, identity systems, product pages, film and campaigns — drawn straight from the studio's portfolio. Filter by craft, or take the whole reel.
+        - group "Filter work by category" [ref=e120]:
+          - button "All Work" [pressed] [ref=e121] [cursor=pointer]:
+            - text: All Work
+            - generic [ref=e122]: "36"
+          - button "Brand & Identity" [ref=e123] [cursor=pointer]:
+            - text: Brand & Identity
+            - generic [ref=e124]: "08"
+          - button "Web & Product" [ref=e125] [cursor=pointer]:
+            - text: Web & Product
+            - generic [ref=e126]: "05"
+          - button "Production & Film" [ref=e127] [cursor=pointer]:
+            - text: Production & Film
+            - generic [ref=e128]: "07"
+          - button "Motion & 3D" [ref=e129] [cursor=pointer]:
+            - text: Motion & 3D
+            - generic [ref=e130]: "06"
+          - button "Social & Campaigns" [ref=e131] [cursor=pointer]:
+            - text: Social & Campaigns
+            - generic [ref=e132]: "10"
+          - status [ref=e133]: Showing 36 projects.
+        - list [ref=e134]:
+          - listitem [ref=e135]:
+            - link "Foodics — Boundless, Production & Film. View case." [ref=e136] [cursor=pointer]:
+              - /url: /case/foodics-boundless
+              - generic [ref=e137]:
+                - img "Foodics Boundless — flagship F&B product showcase key visual" [ref=e139]
+                - generic [ref=e140]: "01"
+                - generic [ref=e141]: Signature
+                - generic:
+                  - paragraph: Built from the ground up as Foodics' flagship annual stage — turning Boundless 2022 & 2023 into the launchpad for Foodics Pay, Capital and Marketplace, and repositioning a POS provider as the growth engine for F&B.
+                  - generic:
+                    - text: View case
+                    - img
+              - generic [ref=e142]:
+                - generic [ref=e143]:
+                  - generic [ref=e144]: Foodics
+                  - heading "Boundless" [level=3] [ref=e145]
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Brand Platform · Flagship Event
+                  - generic [ref=e148]: "2023"
+          - listitem [ref=e149]:
+            - link "Zid — Ripple 2024, Production & Film. View case." [ref=e150] [cursor=pointer]:
+              - /url: /case/zid-ripple
+              - generic [ref=e151]:
+                - img "Zid Ripple 2024 — Total Commerce launch event key visual" [ref=e153]
+                - generic [ref=e154]: "02"
+                - generic [ref=e155]: Signature
+                - generic:
+                  - paragraph: Zid's first-ever product event in Diriyah. We conceived Ripple as the moment Zid unveiled its Total Commerce platform to 1,000+ merchants — a defining brand moment that helped drive 200% growth.
+                  - generic:
+                    - text: View case
+                    - img
+              - generic [ref=e156]:
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Zid
+                  - heading "Ripple 2024" [level=3] [ref=e159]
+                - generic [ref=e160]:
+                  - generic [ref=e161]: Product Event · Total Commerce
+                  - generic [ref=e162]: "2024"
+          - listitem [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]:
+                - img "Foodics Vancouver TVC — three café owners with the line 'Foodics, your restaurant's system foundation'" [ref=e167]
+                - generic [ref=e168]: "03"
+                - generic [ref=e169]: Signature
+                - generic:
+                  - paragraph: A multi-scene TVC built around the line “Foodics — your restaurant's system foundation,” cast with everyday café and restaurant owners across the Kingdom.
+                  - generic:
+                    - text: Production & Film
+                    - img
+              - generic [ref=e170]:
+                - generic [ref=e171]:
+                  - generic [ref=e172]: Foodics
+                  - heading "Vancouver" [level=3] [ref=e173]
+                - generic [ref=e174]:
+                  - generic [ref=e175]: TVC · Production
+                  - generic [ref=e176]: "2024"
+          - listitem [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]:
+                - img "Foodics brand identity board — logo, IBM Plex Arabic type, colour palette and Foodics Pay app UI" [ref=e181]
+                - generic [ref=e182]: "04"
+                - generic:
+                  - paragraph: The identity system that anchored Foodics as the F&B tech leader — logo, IBM Plex Arabic typography, the deep-purple palette and product UI for Foodics Pay.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - generic [ref=e185]: Foodics
+                  - heading "Brand Guidelines v3.0" [level=3] [ref=e186]
+                - generic [ref=e188]: Identity System
+          - listitem [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - img "Zid brand guidelines — stationery flat-lay with 'Sell Smarter, Sell With Zid' collateral" [ref=e193]
+                - generic [ref=e194]: "05"
+                - generic:
+                  - paragraph: New brand guidelines for Zid, expressed across a full stationery and collateral system around the lines “Sell Smarter, Sell With Zid” and “You Bring The Ambition. We Bring The Magic.”
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - generic [ref=e197]: Zid
+                  - heading "Brand Guidelines" [level=3] [ref=e198]
+                - generic [ref=e200]: Identity System
+          - listitem [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]:
+                - img "Zid identity system — OOH billboard, app storefront mockup and push-notification designs" [ref=e205]
+                - generic [ref=e206]: "06"
+                - generic:
+                  - paragraph: Applying the Zid identity across out-of-home, the storefront app and merchant push notifications.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e207]:
+                - generic [ref=e208]:
+                  - generic [ref=e209]: Zid
+                  - heading "Identity System" [level=3] [ref=e210]
+                - generic [ref=e212]: Stationery & Collateral
+          - listitem [ref=e213]:
+            - generic [ref=e214]:
+              - generic [ref=e215]:
+                - img "InvoiceQ brand identity — checkmark-Q logo, navy and cyan palette, typography and mobile app UI" [ref=e217]
+                - generic [ref=e218]: "07"
+                - generic:
+                  - paragraph: A “more practical, consistent and dynamic” identity for InvoiceQ — the checkmark-Q mark, a navy/cyan Pantone palette and the mobile app UI.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e219]:
+                - generic [ref=e220]:
+                  - generic [ref=e221]: InvoiceQ
+                  - heading "Brand Identity v1.0" [level=3] [ref=e222]
+                - generic [ref=e223]:
+                  - generic [ref=e224]: Identity & App UI
+                  - generic [ref=e225]: "2022"
+          - listitem [ref=e226]:
+            - generic [ref=e227]:
+              - generic [ref=e228]:
+                - img "Transform brand identity — illuminated 3D signage, brand pattern and 'Humanizing Growth' mobile site" [ref=e230]
+                - generic [ref=e231]: "08"
+                - generic:
+                  - paragraph: Identity for an organizational development and leadership coaching brand — the yellow-dot wordmark, a geometric pattern system, illuminated signage and a “Humanizing Growth” mobile site.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e232]:
+                - generic [ref=e233]:
+                  - generic [ref=e234]: Transform
+                  - heading "Transform" [level=3] [ref=e235]
+                - generic [ref=e237]: Identity & Web
+          - listitem [ref=e238]:
+            - generic [ref=e239]:
+              - generic [ref=e240]:
+                - img "FRA'ED International niche perfumery branding — gold seal logo, packaging, shopping bag and apparel" [ref=e242]
+                - generic [ref=e243]: "09"
+                - generic:
+                  - paragraph: Branding for a niche perfumery boutique — the Arabic فرائد wordmark and gold falcon seal carried across packaging, stationery, retail bags and apparel.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e244]:
+                - generic [ref=e245]:
+                  - generic [ref=e246]: FRA'ED International
+                  - heading "FRA'ED International" [level=3] [ref=e247]
+                - generic [ref=e249]: Identity & Packaging
+          - listitem [ref=e250]:
+            - generic [ref=e251]:
+              - generic [ref=e252]:
+                - img "Brand archive plate — Almarai fleet branding, Electrolux collateral, the nxt mark and logo work" [ref=e254]
+                - generic [ref=e255]: "10"
+              - generic [ref=e257]:
+                - generic [ref=e258]: Brand & Identity
+                - heading "Brand & Logo Archive" [level=3] [ref=e259]
+              - generic [ref=e260]: Composite multi-brand deck page — kept as one honest archive plate; brands named are those visible on the plate.
+          - listitem [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]:
+                - img "Brand archive plate — Foodics brand guidelines, InvoiceQ guidelines and Wisdom & Yield signage" [ref=e265]
+                - generic [ref=e266]: "11"
+              - generic [ref=e268]:
+                - generic [ref=e269]: Brand & Identity
+                - heading "Identity Archive" [level=3] [ref=e270]
+              - generic [ref=e271]: Composite multi-brand deck page — kept as one honest archive plate; brands named are those visible on the plate.
+          - listitem [ref=e272]:
+            - generic [ref=e273]:
+              - generic [ref=e274]:
+                - img "Zid Cashier Arabic landing page with product detail panels and storefront mockup" [ref=e276]
+                - generic [ref=e277]: "12"
+                - generic:
+                  - paragraph: Arabic landing page for Zid Cashier built around the promise of “an e-commerce store that pays you back,” with live product-detail panels.
+                  - generic:
+                    - text: Web & Product
+                    - img
+              - generic [ref=e278]:
+                - generic [ref=e279]:
+                  - generic [ref=e280]: Zid
+                  - heading "Zid Cashier Landing" [level=3] [ref=e281]
+                - generic [ref=e283]: Landing Page · UI
+          - listitem [ref=e284]:
+            - generic [ref=e285]:
+              - generic [ref=e286]:
+                - img "Zid English landing page — 'Turn your big idea into a thriving online business'" [ref=e288]
+                - generic [ref=e289]: "13"
+                - generic:
+                  - paragraph: English launch page aimed at first-time merchants — “Turn your big idea into a thriving online business,” with a live order notification.
+                  - generic:
+                    - text: Web & Product
+                    - img
+              - generic [ref=e290]:
+                - generic [ref=e291]:
+                  - generic [ref=e292]: Zid
+                  - heading "Big Idea Launch Page" [level=3] [ref=e293]
+                - generic [ref=e295]: Landing Page · UI
+          - listitem [ref=e296]:
+            - generic [ref=e297]:
+              - generic [ref=e298]:
+                - img "Zid English landing page — 'We are your launchpad to the stars' with a sales dashboard mockup" [ref=e300]
+                - generic [ref=e301]: "14"
+                - generic:
+                  - paragraph: Growth-stage landing page — “We are your launchpad to the stars” — pairing upgrade messaging with a sales-dashboard mockup.
+                  - generic:
+                    - text: Web & Product
+                    - img
+              - generic [ref=e302]:
+                - generic [ref=e303]:
+                  - generic [ref=e304]: Zid
+                  - heading "Launchpad Growth Page" [level=3] [ref=e305]
+                - generic [ref=e307]: Landing Page · UI
+          - listitem [ref=e308]:
+            - generic [ref=e309]:
+              - generic [ref=e310]:
+                - img "Foodics Pay at Table product landing page — 'Zero delay for your customers to pay'" [ref=e312]
+                - generic [ref=e313]: "15"
+                - generic:
+                  - paragraph: Product page for Foodics Pay at Table — “Zero delay for your customers to pay” — letting guests check and settle bills from the table.
+                  - generic:
+                    - text: Web & Product
+                    - img
+              - generic [ref=e314]:
+                - generic [ref=e315]:
+                  - generic [ref=e316]: Foodics
+                  - heading "Pay at Table" [level=3] [ref=e317]
+                - generic [ref=e319]: Product Page · UI
+          - listitem [ref=e320]:
+            - generic [ref=e321]:
+              - generic [ref=e322]:
+                - img "Foodics Customer Display Screen product landing page" [ref=e324]
+                - generic [ref=e325]: "16"
+                - generic:
+                  - paragraph: Product page for the Foodics CDS — a payment-enabled 8-inch customer display that lets guests confirm orders and tap to pay.
+                  - generic:
+                    - text: Web & Product
+                    - img
+              - generic [ref=e326]:
+                - generic [ref=e327]:
+                  - generic [ref=e328]: Foodics
+                  - heading "Customer Display Screen" [level=3] [ref=e329]
+                - generic [ref=e331]: Product Page · UI
+          - listitem [ref=e332]:
+            - generic [ref=e333]:
+              - generic [ref=e334]:
+                - img "Foodics 3D POS terminal product render on a flowing line background" [ref=e336]
+                - generic [ref=e337]: "17"
+                - generic:
+                  - paragraph: A hero 3D product film of the Foodics POS terminal, rendered on the brand's signature flowing-line field.
+                  - generic:
+                    - text: Motion & 3D
+                    - img
+              - generic [ref=e338]:
+                - generic [ref=e339]:
+                  - generic [ref=e340]: Foodics
+                  - heading "3D POS Product Film" [level=3] [ref=e341]
+                - generic [ref=e343]: 3D · Product Animation
+          - listitem [ref=e344]:
+            - generic [ref=e345]:
+              - generic [ref=e346]:
+                - img "Aerial cityscape title-sequence frame with the word 'Global'" [ref=e348]
+                - generic [ref=e349]: "18"
+                - generic:
+                  - paragraph: An aerial-city title sequence frame from the studio's motion reel.
+                  - generic:
+                    - text: Motion & 3D
+                    - img
+              - generic [ref=e350]:
+                - generic [ref=e351]:
+                  - generic [ref=e352]: Motion & 3D
+                  - heading "Global — Title Sequence" [level=3] [ref=e353]
+                - generic [ref=e355]: Motion · Title Sequence
+              - generic [ref=e356]: Client not attributed in the deck — left null rather than guessed.
+          - listitem [ref=e357]:
+            - generic [ref=e358]:
+              - generic [ref=e359]:
+                - img "Stylised 3D living-room set with two characters from an animated production" [ref=e361]
+                - generic [ref=e362]: "19"
+                - generic:
+                  - paragraph: A stylised 3D living-room set built for an animated production sequence.
+                  - generic:
+                    - text: Motion & 3D
+                    - img
+              - generic [ref=e363]:
+                - generic [ref=e364]:
+                  - generic [ref=e365]: Motion & 3D
+                  - heading "3D Animated Set" [level=3] [ref=e366]
+                - generic [ref=e368]: 3D · Set Animation
+              - generic [ref=e369]: Client/brand not legible in the frame — left null rather than guessed.
+          - listitem [ref=e370]:
+            - generic [ref=e371]:
+              - generic [ref=e372]:
+                - img "Studio performance footage frame from the motion reel" [ref=e374]
+                - generic [ref=e375]: "20"
+              - generic [ref=e377]:
+                - generic [ref=e378]: Motion & 3D
+                - heading "Performance Film" [level=3] [ref=e379]
+              - generic [ref=e380]: Client not attributed in the deck — left null rather than guessed.
+          - listitem [ref=e381]:
+            - generic [ref=e382]:
+              - generic [ref=e383]:
+                - img "Three-dimensional hexagon logo reveal frame" [ref=e385]
+                - generic [ref=e386]: "21"
+              - generic [ref=e388]:
+                - generic [ref=e389]: Motion & 3D
+                - heading "3D Logo Reveal" [level=3] [ref=e390]
+              - generic [ref=e391]: Client not attributed in the deck — left null rather than guessed.
+          - listitem [ref=e392]:
+            - generic [ref=e393]:
+              - generic [ref=e394]:
+                - img "Cyan particle-field gradient study frame" [ref=e396]
+                - generic [ref=e397]: "22"
+              - generic [ref=e399]:
+                - generic [ref=e400]: Motion & 3D
+                - heading "Particle System Study" [level=3] [ref=e401]
+              - generic [ref=e402]: Client not attributed in the deck — left null rather than guessed.
+          - listitem [ref=e403]:
+            - generic [ref=e404]:
+              - generic [ref=e405]:
+                - img "Foodics Vancouver out-of-home billboard placements at urban scale" [ref=e407]
+                - generic [ref=e408]: "23"
+                - generic:
+                  - paragraph: Out-of-home rollout for the Vancouver campaign — full-scale urban billboards extending the TVC line into the streets.
+                  - generic:
+                    - text: Production & Film
+                    - img
+              - generic [ref=e409]:
+                - generic [ref=e410]:
+                  - generic [ref=e411]: Foodics
+                  - heading "Vancouver OOH" [level=3] [ref=e412]
+                - generic [ref=e413]:
+                  - generic [ref=e414]: OOH · Campaign
+                  - generic [ref=e415]: "2024"
+          - listitem [ref=e416]:
+            - generic [ref=e417]:
+              - generic [ref=e418]:
+                - img "Zid mobile app TVC frame with phone mockups over a warped grid" [ref=e420]
+                - generic [ref=e421]: "24"
+                - generic:
+                  - paragraph: App-launch film work for Zid, built around the mobile app over a warped grid motif.
+                  - generic:
+                    - text: Production & Film
+                    - img
+              - generic [ref=e422]:
+                - generic [ref=e423]:
+                  - generic [ref=e424]: Zid
+                  - heading "Mobile App TVC" [level=3] [ref=e425]
+                - generic [ref=e427]: TVC · App Launch
+          - listitem [ref=e428]:
+            - generic [ref=e429]:
+              - generic [ref=e430]:
+                - img "Vodafone production still with the brand mark on a dark red background" [ref=e432]
+                - generic [ref=e433]: "25"
+                - generic:
+                  - paragraph: Production work for Vodafone.
+                  - generic:
+                    - text: Production & Film
+                    - img
+              - generic [ref=e434]:
+                - generic [ref=e435]:
+                  - generic [ref=e436]: Vodafone
+                  - heading "Vodafone" [level=3] [ref=e437]
+                - generic [ref=e439]: Production
+              - generic [ref=e440]: Project narrative not included in the deck — description kept minimal rather than invented.
+          - listitem [ref=e441]:
+            - generic [ref=e442]:
+              - generic [ref=e443]:
+                - img "Italian-themed restaurant set built for a food & beverage TVC shoot" [ref=e445]
+                - generic [ref=e446]: "26"
+              - generic [ref=e448]:
+                - generic [ref=e449]: Production & Film
+                - heading "F&B TVC Production" [level=3] [ref=e450]
+              - generic [ref=e451]: Client not clearly attributed on this frame — left null rather than guessed.
+          - listitem [ref=e452]:
+            - generic [ref=e453]:
+              - generic [ref=e454]:
+                - img "Foodics social campaign grid — Founding Day, Ramadan and product launch posts" [ref=e456]
+                - generic [ref=e457]: "27"
+                - generic:
+                  - paragraph: Always-on social for Foodics across Founding Day, Ramadan and product pushes including Foodics One and Foodics Loyalty.
+                  - generic:
+                    - text: Social & Campaigns
+                    - img
+              - generic [ref=e458]:
+                - generic [ref=e459]:
+                  - generic [ref=e460]: Foodics
+                  - heading "Always-On Social" [level=3] [ref=e461]
+                - generic [ref=e463]: Social · Product Campaigns
+          - listitem [ref=e464]:
+            - generic [ref=e465]:
+              - generic [ref=e466]:
+                - img "Zid social campaign grid — National Day 94 offer and Pro package growth posts" [ref=e468]
+                - generic [ref=e469]: "28"
+                - generic:
+                  - paragraph: Social campaign work for Zid spanning the National Day 94 subscription offer and the Pro growth package.
+                  - generic:
+                    - text: Social & Campaigns
+                    - img
+              - generic [ref=e470]:
+                - generic [ref=e471]:
+                  - generic [ref=e472]: Zid
+                  - heading "National Day & Growth" [level=3] [ref=e473]
+                - generic [ref=e475]: Social · Campaigns
+          - listitem [ref=e476]:
+            - generic [ref=e477]:
+              - generic [ref=e478]:
+                - img "Salasa social campaign — World Cup 2034 and fulfilment-scale posts" [ref=e480]
+                - generic [ref=e481]: "29"
+                - generic:
+                  - paragraph: Social storytelling for Salasa — from hosting FIFA World Cup 2034 to fulfilment-scale stats and the “Fulfilled.” line.
+                  - generic:
+                    - text: Social & Campaigns
+                    - img
+              - generic [ref=e482]:
+                - generic [ref=e483]:
+                  - generic [ref=e484]: Salasa
+                  - heading "Returns & Fulfilment" [level=3] [ref=e485]
+                - generic [ref=e487]: Social · Campaigns
+          - listitem [ref=e488]:
+            - generic [ref=e489]:
+              - generic [ref=e490]:
+                - img "LSC logistics social campaign — AI shipping and World Cup 2034 posts" [ref=e492]
+                - generic [ref=e493]: "30"
+              - generic [ref=e495]:
+                - generic [ref=e496]: LSC
+                - heading "Logistics Social" [level=3] [ref=e497]
+          - listitem [ref=e498]:
+            - generic [ref=e499]:
+              - generic [ref=e500]:
+                - img "Sól social campaign — Founding Day and restaurant operations posts" [ref=e502]
+                - generic [ref=e503]: "31"
+              - generic [ref=e505]:
+                - generic [ref=e506]: Sól
+                - heading "Sól Restaurant Social" [level=3] [ref=e507]
+          - listitem [ref=e508]:
+            - generic [ref=e509]:
+              - generic [ref=e510]:
+                - img "Campaign archive plate — Foodics, Zid, Salasa and Sól campaign work" [ref=e512]
+                - generic [ref=e513]: "32"
+              - generic [ref=e515]:
+                - generic [ref=e516]: Social & Campaigns
+                - heading "Selected Campaigns" [level=3] [ref=e517]
+              - generic [ref=e518]: Composite multi-brand deck page — kept as one honest archive plate, not invented per-brand cards.
+          - listitem [ref=e519]:
+            - generic [ref=e520]:
+              - generic [ref=e521]:
+                - img "Campaign archive plate — Burger King, LG, McCafé, Midea, Abu Kass and Batania advertising" [ref=e523]
+                - generic [ref=e524]: "33"
+              - generic [ref=e526]:
+                - generic [ref=e527]: Social & Campaigns
+                - heading "Campaign & OOH Archive" [level=3] [ref=e528]
+              - generic [ref=e529]: Composite multi-brand deck page — kept as one honest archive plate; brands named are those visible on the plate.
+          - listitem [ref=e530]:
+            - generic [ref=e531]:
+              - generic [ref=e532]:
+                - img "Campaign archive plate — a selection of campaign and out-of-home executions" [ref=e534]
+                - generic [ref=e535]: "34"
+              - generic [ref=e537]:
+                - generic [ref=e538]: Social & Campaigns
+                - heading "Campaign Selection" [level=3] [ref=e539]
+              - generic [ref=e540]: Composite multi-brand deck page — kept general; brands not individually re-verified.
+          - listitem [ref=e541]:
+            - generic [ref=e542]:
+              - generic [ref=e543]:
+                - img "Campaign archive plate — brand, retail and out-of-home executions" [ref=e545]
+                - generic [ref=e546]: "35"
+              - generic [ref=e548]:
+                - generic [ref=e549]: Social & Campaigns
+                - heading "Brand & Retail Archive" [level=3] [ref=e550]
+              - generic [ref=e551]: Composite multi-brand deck page — kept general; brands not individually re-verified.
+          - listitem [ref=e552]:
+            - generic [ref=e553]:
+              - generic [ref=e554]:
+                - img "Campaign archive plate — identity and campaign executions" [ref=e556]
+                - generic [ref=e557]: "36"
+              - generic [ref=e559]:
+                - generic [ref=e560]: Social & Campaigns
+                - heading "Identity & Campaign Archive" [level=3] [ref=e561]
+              - generic [ref=e562]: Composite multi-brand deck page — kept general; brands not individually re-verified.
+  - button "Open Next.js Dev Tools" [ref=e568] [cursor=pointer]:
+    - img [ref=e569]
+  - alert [ref=e572]

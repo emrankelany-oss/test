@@ -1,0 +1,686 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e4]:
+        - img
+        - generic [ref=e5]:
+          - generic:
+            - generic: "N"
+            - generic: o
+            - generic: t
+            - generic: h
+            - generic: i
+            - generic: "n"
+            - generic: g
+          - generic:
+            - generic: S
+            - generic: h
+            - generic: o
+            - generic: w
+            - generic: "n"
+          - generic:
+            - generic: F
+            - generic: i
+            - generic: r
+            - generic: s
+            - generic: t
+          - paragraph [ref=e6]:
+            - text: Coordinates
+            - text: Withheld
+          - paragraph [ref=e7]:
+            - text: A Private Assembly
+            - text: for Makers
+          - generic [ref=e8]:
+            - generic [ref=e9]:
+              - generic [ref=e10]: Commitment
+              - generic [ref=e11]: Precedes
+              - generic [ref=e12]: Entry /
+            - button "Seek Admission" [ref=e13] [cursor=pointer]:
+              - generic "Seek Admission" [ref=e14]:
+                - generic [ref=e15]: S S
+                - generic [ref=e16]: e e
+                - generic [ref=e17]: e e
+                - generic [ref=e18]: k k
+                - generic [ref=e19]: A A
+                - generic [ref=e20]: d d
+                - generic [ref=e21]: m m
+                - generic [ref=e22]: i i
+                - generic [ref=e23]: s s
+                - generic [ref=e24]: s s
+                - generic [ref=e25]: i i
+                - generic [ref=e26]: o o
+                - generic [ref=e27]: n n
+          - img "ImaginePossible" [ref=e29]
+          - figure [ref=e32]:
+            - img "ImaginePossible" [ref=e33]
+            - text: P.
+          - figure [ref=e34]:
+            - img "ImaginePossible" [ref=e35]
+            - text: I.
+        - img
+      - generic [ref=e36]:
+        - img
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: E
+            - generic [ref=e40]: x
+            - generic [ref=e41]: p
+            - generic [ref=e42]: l
+            - generic [ref=e43]: o
+            - generic [ref=e44]: r
+            - generic [ref=e45]: e
+          - generic [ref=e46]:
+            - generic [ref=e47]: P
+            - generic [ref=e48]: l
+            - generic [ref=e49]: a
+            - generic [ref=e50]: c
+            - generic [ref=e51]: e
+            - generic [ref=e52]: s
+        - generic:
+          - generic [ref=e53]: Not
+          - generic [ref=e54]: Everything
+          - generic [ref=e55]: is Visible
+        - generic [ref=e59]:
+          - figure [ref=e60]:
+            - img "ImaginePossible" [ref=e61]
+          - figure [ref=e62]:
+            - img "ImaginePossible" [ref=e63]
+          - figure [ref=e64]:
+            - img "ImaginePossible" [ref=e65]
+          - figure [ref=e66]:
+            - img "ImaginePossible" [ref=e67]
+          - figure [ref=e68]:
+            - img "ImaginePossible" [ref=e69]
+          - figure [ref=e70]:
+            - img "ImaginePossible" [ref=e71]
+          - figure [ref=e74]:
+            - img "ImaginePossible" [ref=e75]
+          - generic [ref=e76]:
+            - generic "Silent Room" [ref=e78]:
+              - generic [ref=e79]: S
+              - generic [ref=e80]: i
+              - generic [ref=e81]: l
+              - generic [ref=e82]: e
+              - generic [ref=e83]: "n"
+              - generic [ref=e84]: t
+              - generic [ref=e85]: R
+              - generic [ref=e86]: o
+              - generic [ref=e87]: o
+              - generic [ref=e88]: m
+            - navigation [ref=e89]:
+              - button [ref=e90] [cursor=pointer]:
+                - img [ref=e91]
+                - img [ref=e93]
+              - button [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+                - img [ref=e98]
+              - generic [ref=e101]:
+                - generic [ref=e102]: "4"
+                - generic [ref=e103]: /7
+      - generic [ref=e104]:
+        - figure [ref=e106]:
+          - img "ImaginePossible" [ref=e107]
+        - img [ref=e108]
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: You Won’t
+            - generic [ref=e113]: Find Them
+            - generic [ref=e114]: on a Map
+          - paragraph [ref=e115]:
+            - generic [ref=e116]: These places aren’t broadly
+            - generic [ref=e117]: announced.
+          - paragraph [ref=e118]:
+            - generic [ref=e119]:
+              - text: There are
+              - generic [ref=e120]: "7"
+              - text: in operation at the moment,
+            - generic [ref=e121]: each established within a specific context and
+            - generic [ref=e122]: maintained with discretion. Their presence is
+            - generic [ref=e123]: intentional, shaped by location rather than
+            - generic [ref=e124]: visibility. Access is considered, not assumed.
+          - generic [ref=e125]:
+            - generic [ref=e126]: See if
+            - generic [ref=e127]: Nearby /
+          - button "Seek Admission" [ref=e128] [cursor=pointer]:
+            - generic "Seek Admission" [ref=e129]:
+              - generic [ref=e130]: S S
+              - generic [ref=e131]: e e
+              - generic [ref=e132]: e e
+              - generic [ref=e133]: k k
+              - generic [ref=e134]: A A
+              - generic [ref=e135]: d d
+              - generic [ref=e136]: m m
+              - generic [ref=e137]: i i
+              - generic [ref=e138]: s s
+              - generic [ref=e139]: s s
+              - generic [ref=e140]: i i
+              - generic [ref=e141]: o o
+              - generic [ref=e142]: n n
+        - figure:
+          - img "ImaginePossible"
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - img [ref=e146]
+          - figure [ref=e150]:
+            - img "ImaginePossible" [ref=e151]
+          - figure [ref=e155]:
+            - img "ImaginePossible" [ref=e156]
+          - figure [ref=e159]:
+            - img "ImaginePossible" [ref=e160]
+          - figure [ref=e163]:
+            - img "ImaginePossible" [ref=e164]
+        - generic [ref=e166]:
+          - generic [ref=e168]:
+            - generic [ref=e169]: O
+            - generic [ref=e170]: r
+            - generic [ref=e171]: i
+            - generic [ref=e172]: g
+            - generic [ref=e173]: i
+            - generic [ref=e174]: "n"
+          - generic [ref=e176]:
+            - generic [ref=e177]: O
+            - generic [ref=e178]: b
+            - generic [ref=e179]: j
+            - generic [ref=e180]: e
+            - generic [ref=e181]: c
+            - generic [ref=e182]: t
+            - generic [ref=e183]: s
+        - generic [ref=e185]:
+          - paragraph [ref=e186]:
+            - generic [ref=e187]: These items are formed within
+            - generic [ref=e188]: the places themselves.
+          - paragraph [ref=e189]:
+            - generic [ref=e190]: Each originates on site, shaped
+            - generic [ref=e191]: by material, process, and
+            - generic [ref=e192]: circumstance.
+          - paragraph [ref=e193]:
+            - generic [ref=e194]: Once completed, they leave
+            - generic [ref=e195]: their point of origin and
+            - generic [ref=e196]: circulate independently.
+          - link "Explore Objects" [ref=e198] [cursor=pointer]:
+            - /url: /objects
+            - generic "Explore Objects" [ref=e199]:
+              - generic [ref=e200]: E E
+              - generic [ref=e201]: x x
+              - generic [ref=e202]: p p
+              - generic [ref=e203]: l l
+              - generic [ref=e204]: o o
+              - generic [ref=e205]: r r
+              - generic [ref=e206]: e e
+              - generic [ref=e207]: O O
+              - generic [ref=e208]: b b
+              - generic [ref=e209]: j j
+              - generic [ref=e210]: e e
+              - generic [ref=e211]: c c
+              - generic [ref=e212]: t t
+              - generic [ref=e213]: s s
+          - generic [ref=e214]:
+            - generic [ref=e215]: (V) The Fox Spirit
+            - navigation [ref=e216]:
+              - generic [ref=e219]:
+                - generic [ref=e220]: "1"
+                - generic [ref=e221]: /4
+      - generic [ref=e223]:
+        - figure [ref=e224]:
+          - img "ImaginePossible" [ref=e225]
+        - img [ref=e226]
+        - img [ref=e228]
+      - generic [ref=e231]:
+        - generic [ref=e232]:
+          - generic "Connection" [ref=e233]:
+            - generic [ref=e234]: C
+            - generic [ref=e235]: o
+            - generic [ref=e236]: "n"
+            - generic [ref=e237]: "n"
+            - generic [ref=e238]: e
+            - generic [ref=e239]: c
+            - generic [ref=e240]: t
+            - generic [ref=e241]: i
+            - generic [ref=e242]: o
+            - generic [ref=e243]: "n"
+          - generic [ref=e244]: The
+          - generic [ref=e245]:
+            - generic [ref=e246]: Item Shown
+            - generic [ref=e247]: at Point
+            - generic [ref=e248]: of Origin.
+        - generic [ref=e249]:
+          - paragraph [ref=e250]:
+            - generic [ref=e251]: Places and Items are not
+            - generic [ref=e253]: separate. Each item originates within a specific
+            - generic [ref=e254]: place, shaped by its conditions, materials, and
+            - generic [ref=e255]: use.
+          - paragraph [ref=e256]:
+            - generic [ref=e257]: Once removed, the item continues
+            - generic [ref=e258]: independently, carrying its point of origin
+            - generic [ref=e259]: without representing it directly.
+          - figure [ref=e260]:
+            - img "ImaginePossible" [ref=e261]
+      - generic [ref=e263]:
+        - generic "Updates" [ref=e264]:
+          - generic [ref=e265]: U
+          - generic [ref=e266]: p
+          - generic [ref=e267]: d
+          - generic [ref=e268]: a
+          - generic [ref=e269]: t
+          - generic [ref=e270]: e
+          - generic [ref=e271]: s
+        - generic [ref=e272]: Now Forming
+        - generic [ref=e273] [cursor=pointer]:
+          - figure [ref=e274]:
+            - img "ImaginePossible" [ref=e275]
+          - generic:
+            - img
+        - figure [ref=e277]:
+          - img "ImaginePossible" [ref=e278]
+        - generic [ref=e279] [cursor=pointer]:
+          - figure [ref=e280]:
+            - img "ImaginePossible" [ref=e281]
+          - generic:
+            - img
+        - generic [ref=e282]:
+          - generic "Formation / Process" [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e285]: Formation
+              - generic [ref=e286]: /
+              - generic [ref=e287]: Process
+          - generic "Admission-related" [ref=e288]:
+            - generic [ref=e290]: Admission-related
+        - generic [ref=e291]:
+          - generic "Interior V – Forming" [ref=e292]:
+            - generic [ref=e293]:
+              - generic [ref=e294]: Interior
+              - generic [ref=e295]: V
+              - generic [ref=e296]: –
+              - generic [ref=e297]: Forming
+          - generic "Admission Cycle – Open" [ref=e298]:
+            - generic [ref=e299]:
+              - generic [ref=e300]: Admission
+              - generic [ref=e301]: Cycle
+              - generic [ref=e302]: –
+              - generic [ref=e303]: Open
+        - paragraph [ref=e304]:
+          - generic "Work continues on Interior 05. Conditions are being refined prior to use." [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e307]: Work
+              - generic [ref=e308]: continues
+              - generic [ref=e309]: "on"
+              - generic [ref=e310]: Interior
+              - generic [ref=e311]: "05."
+            - generic [ref=e312]:
+              - generic [ref=e313]: Conditions
+              - generic [ref=e314]: are
+              - generic [ref=e315]: being
+              - generic [ref=e316]: refined
+              - generic [ref=e317]: prior
+              - generic [ref=e318]: to
+            - generic [ref=e320]: use.
+          - generic "A limited admission review period is currently underway." [ref=e321]:
+            - generic [ref=e322]:
+              - generic [ref=e323]: A
+              - generic [ref=e324]: limited
+              - generic [ref=e325]: admission
+              - generic [ref=e326]: review
+              - generic [ref=e327]: period
+              - generic [ref=e328]: is
+            - generic [ref=e329]:
+              - generic [ref=e330]: currently
+              - generic [ref=e331]: underway.
+        - button "Seek Admission" [ref=e334] [cursor=pointer]:
+          - generic "Seek Admission" [ref=e335]:
+            - generic [ref=e336]: S S
+            - generic [ref=e337]: e e
+            - generic [ref=e338]: e e
+            - generic [ref=e339]: k k
+            - generic [ref=e340]: A A
+            - generic [ref=e341]: d d
+            - generic [ref=e342]: m m
+            - generic [ref=e343]: i i
+            - generic [ref=e344]: s s
+            - generic [ref=e345]: s s
+            - generic [ref=e346]: i i
+            - generic [ref=e347]: o o
+            - generic [ref=e348]: n n
+        - generic [ref=e349]:
+          - generic "Admission-related" [ref=e350]:
+            - generic [ref=e352]: Admission-related
+          - generic "System / structural change" [ref=e353]:
+            - generic [ref=e354]:
+              - generic [ref=e355]: System
+              - generic [ref=e356]: /
+              - generic [ref=e357]: structural
+              - generic [ref=e358]: change
+        - generic [ref=e359]:
+          - generic "Admission Cycle – Open" [ref=e360]:
+            - generic [ref=e361]:
+              - generic [ref=e362]: Admission
+              - generic [ref=e363]: Cycle
+              - generic [ref=e364]: –
+              - generic [ref=e365]: Open
+          - generic "Operational Adjustment" [ref=e366]:
+            - generic [ref=e367]:
+              - generic [ref=e368]: Operational
+              - generic [ref=e369]: Adjustment
+        - paragraph [ref=e370]:
+          - generic "A limited admission review period is currently underway." [ref=e371]:
+            - generic [ref=e372]:
+              - generic [ref=e373]: A
+              - generic [ref=e374]: limited
+              - generic [ref=e375]: admission
+              - generic [ref=e376]: review
+              - generic [ref=e377]: period
+              - generic [ref=e378]: is
+            - generic [ref=e379]:
+              - generic [ref=e380]: currently
+              - generic [ref=e381]: underway.
+          - generic "Changes to one location are in progress. No disruption expected." [ref=e382]:
+            - generic [ref=e383]:
+              - generic [ref=e384]: Changes
+              - generic [ref=e385]: to
+              - generic [ref=e386]: one
+              - generic [ref=e387]: location
+              - generic [ref=e388]: are
+              - generic [ref=e389]: in
+            - generic [ref=e390]:
+              - generic [ref=e391]: progress.
+              - generic [ref=e392]: "No"
+              - generic [ref=e393]: disruption
+              - generic [ref=e394]: expected.
+        - button "Seek Admission" [ref=e397] [cursor=pointer]:
+          - generic "Seek Admission" [ref=e398]:
+            - generic [ref=e399]: S S
+            - generic [ref=e400]: e e
+            - generic [ref=e401]: e e
+            - generic [ref=e402]: k k
+            - generic [ref=e403]: A A
+            - generic [ref=e404]: d d
+            - generic [ref=e405]: m m
+            - generic [ref=e406]: i i
+            - generic [ref=e407]: s s
+            - generic [ref=e408]: s s
+            - generic [ref=e409]: i i
+            - generic [ref=e410]: o o
+            - generic [ref=e411]: n n
+        - generic [ref=e412]:
+          - generic "System / structural change" [ref=e413]:
+            - generic [ref=e414]:
+              - generic [ref=e415]: System
+              - generic [ref=e416]: /
+              - generic [ref=e417]: structural
+              - generic [ref=e418]: change
+          - generic "Place status" [ref=e419]:
+            - generic [ref=e420]:
+              - generic [ref=e421]: Place
+              - generic [ref=e422]: status
+        - generic [ref=e423]:
+          - generic "Operational Adjustment" [ref=e424]:
+            - generic [ref=e425]:
+              - generic [ref=e426]: Operational
+              - generic [ref=e427]: Adjustment
+          - generic "Lower Hall – Operational" [ref=e428]:
+            - generic [ref=e429]:
+              - generic [ref=e430]: Lower
+              - generic [ref=e431]: Hall
+              - generic [ref=e432]: –
+              - generic [ref=e433]: Operational
+        - paragraph [ref=e434]:
+          - generic "Changes to one location are in progress. No disruption expected." [ref=e435]:
+            - generic [ref=e436]:
+              - generic [ref=e437]: Changes
+              - generic [ref=e438]: to
+              - generic [ref=e439]: one
+              - generic [ref=e440]: location
+              - generic [ref=e441]: are
+              - generic [ref=e442]: in
+            - generic [ref=e443]:
+              - generic [ref=e444]: progress.
+              - generic [ref=e445]: "No"
+              - generic [ref=e446]: disruption
+              - generic [ref=e447]: expected.
+          - generic "Lower Hall has entered active operation and is now maintained on a regular cycle." [ref=e448]:
+            - generic [ref=e449]:
+              - generic [ref=e450]: Lower
+              - generic [ref=e451]: Hall
+              - generic [ref=e452]: has
+              - generic [ref=e453]: entered
+              - generic [ref=e454]: active
+            - generic [ref=e455]:
+              - generic [ref=e456]: operation
+              - generic [ref=e457]: and
+              - generic [ref=e458]: is
+              - generic [ref=e459]: now
+              - generic [ref=e460]: maintained
+              - generic [ref=e461]: "on"
+              - generic [ref=e462]: a
+            - generic [ref=e463]:
+              - generic [ref=e464]: regular
+              - generic [ref=e465]: cycle.
+        - navigation [ref=e466]:
+          - generic [ref=e468] [cursor=pointer]: "1"
+          - generic [ref=e470] [cursor=pointer]: "2"
+          - generic [ref=e472] [cursor=pointer]: "3"
+          - generic [ref=e474] [cursor=pointer]: "4"
+          - generic [ref=e476] [cursor=pointer]: "5"
+      - generic [ref=e477]:
+        - generic [ref=e478]:
+          - generic [ref=e480]:
+            - generic [ref=e481]: Formed
+            - generic [ref=e482]: by
+            - generic [ref=e483]: People…
+          - generic [ref=e484]: People
+          - figure [ref=e490]:
+            - img "ImaginePossible" [ref=e491]
+          - paragraph [ref=e492]:
+            - generic [ref=e493]: These places and items are shaped by a small
+            - generic [ref=e494]: group of people working across locations and
+            - generic [ref=e495]: disciplines.
+          - paragraph [ref=e496]:
+            - generic [ref=e497]: Their involvement is
+            - generic [ref=e498]: ongoing and
+            - generic [ref=e499]: collaborative.
+        - img
+        - img
+      - generic [ref=e500]:
+        - generic:
+          - figure:
+            - img "ImaginePossible"
+          - figure:
+            - img "ImaginePossible"
+          - figure:
+            - img "ImaginePossible"
+          - figure:
+            - img "ImaginePossible"
+          - figure:
+            - img "ImaginePossible"
+          - figure:
+            - img "ImaginePossible"
+        - img
+        - generic [ref=e502]:
+          - generic [ref=e503]: A
+          - generic [ref=e504]: d
+          - generic [ref=e505]: m
+          - generic [ref=e506]: i
+          - generic [ref=e507]: s
+          - generic [ref=e508]: s
+          - generic [ref=e509]: i
+          - generic [ref=e510]: o
+          - generic [ref=e511]: "n"
+        - generic [ref=e513]:
+          - generic [ref=e514]:
+            - generic [ref=e515]:
+              - generic [ref=e516]: Full
+              - generic [ref=e517]: Name
+            - generic: Nick Harrison
+            - textbox "Full Name" [ref=e518]:
+              - /placeholder: ""
+          - generic [ref=e519]:
+            - generic [ref=e520]:
+              - generic [ref=e521]: Email
+              - generic [ref=e522]: Address
+            - generic: nick-h@gmail.com
+            - textbox "Email Address" [ref=e523]:
+              - /placeholder: ""
+          - generic [ref=e524]:
+            - generic [ref=e525]: Country
+            - generic: Switzerland
+            - textbox "Country" [ref=e526]:
+              - /placeholder: ""
+          - generic [ref=e527]:
+            - generic [ref=e528]: City
+            - generic: Basel
+            - textbox "City" [ref=e529]:
+              - /placeholder: ""
+          - generic [ref=e530]:
+            - generic [ref=e531]:
+              - generic [ref=e532]: Context for
+              - generic [ref=e533]: Admission /
+            - generic: I am an Artist, leaving in…
+            - textbox "Context for Admission /" [ref=e534]:
+              - /placeholder: ""
+          - generic [ref=e535]:
+            - checkbox "I understand that admission is reviewed selectively and responses may take time. Read ImaginePossible Poliy" [ref=e536] [cursor=pointer]
+            - generic [ref=e537]:
+              - text: I understand that admission is reviewed selectively and responses may take time.
+              - link "Read ImaginePossible Poliy" [ref=e538] [cursor=pointer]:
+                - /url: /imagine-possible-policy
+          - button "Submit Admission" [ref=e540] [cursor=pointer]:
+            - generic "Submit Admission" [ref=e541]:
+              - generic [ref=e542]: S S
+              - generic [ref=e543]: u u
+              - generic [ref=e544]: b b
+              - generic [ref=e545]: m m
+              - generic [ref=e546]: i i
+              - generic [ref=e547]: t t
+              - generic [ref=e548]: A A
+              - generic [ref=e549]: d d
+              - generic [ref=e550]: m m
+              - generic [ref=e551]: i i
+              - generic [ref=e552]: s s
+              - generic [ref=e553]: s s
+              - generic [ref=e554]: i i
+              - generic [ref=e555]: o o
+              - generic [ref=e556]: n n
+      - generic [ref=e557]:
+        - generic [ref=e559]:
+          - generic [ref=e560]: No Social Medias
+          - generic [ref=e561]: Independent practice operating across locations.
+          - generic [ref=e562]:
+            - generic [ref=e563]: Operating
+            - generic [ref=e564]: Across
+            - generic [ref=e565]: Locations.
+          - navigation [ref=e566]:
+            - link "Places" [ref=e567] [cursor=pointer]:
+              - /url: /places
+              - generic [ref=e568]: P P
+              - generic [ref=e569]: l l
+              - generic [ref=e570]: a a
+              - generic [ref=e571]: c c
+              - generic [ref=e572]: e e
+              - generic [ref=e573]: s s
+            - link "Objects" [ref=e574] [cursor=pointer]:
+              - /url: /objects
+              - generic [ref=e575]: O O
+              - generic [ref=e576]: b b
+              - generic [ref=e577]: j j
+              - generic [ref=e578]: e e
+              - generic [ref=e579]: c c
+              - generic [ref=e580]: t t
+              - generic [ref=e581]: s s
+            - link "About" [ref=e582] [cursor=pointer]:
+              - /url: /about
+              - generic [ref=e583]: A A
+              - generic [ref=e584]: b b
+              - generic [ref=e585]: o o
+              - generic [ref=e586]: u u
+              - generic [ref=e587]: t t
+            - generic "Contacts" [ref=e588]:
+              - generic [ref=e589]: C C
+              - generic [ref=e590]: o o
+              - generic [ref=e591]: n n
+              - generic [ref=e592]: t t
+              - generic [ref=e593]: a a
+              - generic [ref=e594]: c c
+              - generic [ref=e595]: t t
+              - generic [ref=e596]: s s
+            - link "People" [ref=e597] [cursor=pointer]:
+              - /url: /people
+              - generic [ref=e598]: P P
+              - generic [ref=e599]: e e
+              - generic [ref=e600]: o o
+              - generic [ref=e601]: p p
+              - generic [ref=e602]: l l
+              - generic [ref=e603]: e e
+          - generic [ref=e604]: © 2026
+          - generic [ref=e605]: This website is an expression of the ImaginePossible initiative.
+          - link "Website by Fiddle.Digital" [ref=e606] [cursor=pointer]:
+            - /url: https://fiddle.digital
+        - generic [ref=e607]:
+          - link "The Obsidian Assembly" [ref=e608] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e609]: The
+            - generic [ref=e610]: Obsidian
+            - generic [ref=e611]: Assembly
+          - generic [ref=e612]: /
+          - paragraph [ref=e613]:
+            - link "Imagine Possible" [ref=e614] [cursor=pointer]:
+              - /url: /imagine-possible-policy
+            - text: is a design exploration initiative by Fiddle.Digital.
+          - paragraph [ref=e615]: It investigates alternative possibilities across systems, spaces, and objects, using speculative design as a way to question defaults and expand how things might otherwise be formed.
+          - figure [ref=e616]:
+            - img "ImaginePossible" [ref=e617]
+        - figure [ref=e618]:
+          - img "ImaginePossible" [ref=e619]
+    - banner:
+      - generic:
+        - link "The Obsidian Assembly Imagine Possible" [ref=e620] [cursor=pointer]:
+          - /url: https://obsidianassembly.com
+          - generic [ref=e621]: The
+          - generic [ref=e622]: Obsidian
+          - generic [ref=e623]: Assembly
+          - generic [ref=e624]: Imagine Possible
+        - link "Places" [ref=e625] [cursor=pointer]:
+          - /url: /places
+          - generic "Places" [ref=e626]:
+            - generic [ref=e627]: P P
+            - generic [ref=e628]: l l
+            - generic [ref=e629]: a a
+            - generic [ref=e630]: c c
+            - generic [ref=e631]: e e
+            - generic [ref=e632]: s s
+        - link "Objects" [ref=e633] [cursor=pointer]:
+          - /url: /objects
+          - generic "Objects" [ref=e634]:
+            - generic [ref=e635]: O O
+            - generic [ref=e636]: b b
+            - generic [ref=e637]: j j
+            - generic [ref=e638]: e e
+            - generic [ref=e639]: c c
+            - generic [ref=e640]: t t
+            - generic [ref=e641]: s s
+        - button "send request":
+          - generic "send request":
+            - generic: s s
+            - generic: e e
+            - generic: n n
+            - generic: d d
+            - generic: r r
+            - generic: e e
+            - generic: q q
+            - generic: u u
+            - generic: e e
+            - generic: s s
+            - generic: t t
+        - button "Menu" [ref=e643] [cursor=pointer]:
+          - generic "Menu" [ref=e644]:
+            - generic [ref=e645]: M M
+            - generic [ref=e646]: e e
+            - generic [ref=e647]: n n
+            - generic [ref=e648]: u u
+    - img
+  - generic [ref=e650]:
+    - generic [ref=e651]: Cookies
+    - generic [ref=e652]:
+      - text: This website collects cookies to deliver better user experience and analyze our website traffic and performance; we never collect any personal data.
+      - button "Customize Settings" [ref=e653] [cursor=pointer]
+    - generic [ref=e654]:
+      - button "Accept all" [ref=e655] [cursor=pointer]
+      - button "Reject all" [ref=e656] [cursor=pointer]

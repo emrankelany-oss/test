@@ -1,0 +1,227 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - navigation:
+      - link "The Motion Agency — home" [ref=e14] [cursor=pointer]:
+        - /url: /#top
+      - generic [ref=e15]:
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio-v18
+        - link "Case Studies" [ref=e17] [cursor=pointer]:
+          - /url: /#proof
+        - link "Services" [ref=e18] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /#about
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /#insights
+        - link "Careers" [ref=e21] [cursor=pointer]:
+          - /url: /careers
+      - link "Start a project" [ref=e22] [cursor=pointer]:
+        - /url: /#contact
+        - text: Start a project
+    - generic [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: EST.
+            - generic [ref=e31]: "2019"
+          - generic [ref=e32]:
+            - generic [ref=e33]: AMMAN
+            - generic [ref=e34]: ·
+            - generic [ref=e35]: RIYADH
+          - generic [ref=e36]:
+            - generic [ref=e37]: SHOWREEL
+            - generic [ref=e38]: "2025"
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "Narrative where vision Meets Design" [level=1] [ref=e41]:
+              - generic [ref=e43]: Narrative
+              - emphasis [ref=e46]: where vision
+              - generic [ref=e48]: Meets
+              - generic [ref=e50]: Design
+            - link "Play showreel — 2 minutes 58 seconds" [ref=e51] [cursor=pointer]:
+              - /url: "#showreel"
+              - generic [ref=e53]:
+                - generic [ref=e54]: Play showreel
+                - generic [ref=e55]: 02:58
+          - link "Let's talk Mohamed Sabha Chief Executive Officer" [ref=e59] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e60]:
+              - generic [ref=e61]: Let's talk
+              - generic [ref=e62]: Mohamed Sabha
+              - generic [ref=e63]: Chief Executive Officer
+            - img [ref=e71]
+      - generic [ref=e73]:
+        - text: Scroll
+        - text: 01 / 01
+    - generic [ref=e75]:
+      - generic:
+        - img
+      - generic [ref=e76]:
+        - generic [ref=e77]: Selected work · 2024–25
+        - heading "Featured narratives" [level=2] [ref=e79]:
+          - text: Featured
+          - emphasis [ref=e80]: narratives
+        - paragraph [ref=e81]: Three chapters from this year's reel. Hover to play the cut.
+      - list [ref=e82]:
+        - listitem [ref=e83]:
+          - link "Foodics — Boundless" [ref=e84] [cursor=pointer]:
+            - /url: "#work-foodics-boundless"
+            - generic [ref=e85]:
+              - generic: "01"
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: Foodics
+                - heading "Boundless" [level=3] [ref=e89]
+              - generic [ref=e90]:
+                - generic [ref=e91]: Hospitality SaaS
+                - generic [ref=e92]: "2025"
+        - listitem [ref=e93]:
+          - link "Zid — Ripple" [ref=e94] [cursor=pointer]:
+            - /url: "#work-zid-ripple"
+            - generic [ref=e95]:
+              - generic: "02"
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]: Zid
+                - heading "Ripple" [level=3] [ref=e99]
+              - generic [ref=e100]:
+                - generic [ref=e101]: Commerce Identity
+                - generic [ref=e102]: "2025"
+        - listitem [ref=e103]:
+          - link "Vodafone — Vodafone" [ref=e104] [cursor=pointer]:
+            - /url: "#work-vodafone"
+            - generic [ref=e105]:
+              - generic: "03"
+            - generic [ref=e106]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: Vodafone
+                - heading "Vodafone" [level=3] [ref=e109]
+              - generic [ref=e110]:
+                - generic [ref=e111]: Telecom TVC
+                - generic [ref=e112]: "2024"
+    - region "Our work, on the record" [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]: The Work · Amman & Riyadh
+          - heading "Our work, on the record" [level=2] [ref=e118]:
+            - text: Our
+            - emphasis [ref=e119]: work
+            - text: ", on the record"
+          - paragraph [ref=e120]: A curated exhibition of brand platforms, identity systems, product pages, film and campaigns — drawn straight from the studio's portfolio. Filter by craft, or take the whole reel.
+        - group "Filter work by category" [ref=e121]:
+          - button "All Work" [ref=e122] [cursor=pointer]:
+            - text: All Work
+            - generic [ref=e123]: "33"
+          - button "Brand & Identity" [active] [pressed] [ref=e124] [cursor=pointer]:
+            - text: Brand & Identity
+            - generic [ref=e125]: "06"
+          - button "Web & Product" [ref=e126] [cursor=pointer]:
+            - text: Web & Product
+            - generic [ref=e127]: "05"
+          - button "Production & Film" [ref=e128] [cursor=pointer]:
+            - text: Production & Film
+            - generic [ref=e129]: "07"
+          - button "Motion & 3D" [ref=e130] [cursor=pointer]:
+            - text: Motion & 3D
+            - generic [ref=e131]: "06"
+          - button "Social & Campaigns" [ref=e132] [cursor=pointer]:
+            - text: Social & Campaigns
+            - generic [ref=e133]: "09"
+          - status [ref=e134]: Showing 6 projects.
+        - list [ref=e135]:
+          - listitem [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - img "Foodics brand identity board — logo, IBM Plex Arabic type, colour palette and Foodics Pay app UI" [ref=e182]
+                - generic [ref=e183]: "01"
+                - generic:
+                  - paragraph: The identity system that anchored Foodics as the F&B tech leader — logo, IBM Plex Arabic typography, the deep-purple palette and product UI for Foodics Pay.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e184]:
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Foodics
+                  - heading "Brand Guidelines v3.0" [level=3] [ref=e187]
+                - generic [ref=e189]: Identity System
+          - listitem [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]:
+                - img "Zid brand guidelines — stationery flat-lay with 'Sell Smarter, Sell With Zid' collateral" [ref=e194]
+                - generic [ref=e195]: "02"
+                - generic:
+                  - paragraph: New brand guidelines for Zid, expressed across a full stationery and collateral system around the lines “Sell Smarter, Sell With Zid” and “You Bring The Ambition. We Bring The Magic.”
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e196]:
+                - generic [ref=e197]:
+                  - generic [ref=e198]: Zid
+                  - heading "Brand Guidelines" [level=3] [ref=e199]
+                - generic [ref=e201]: Identity System
+          - listitem [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]:
+                - img "Zid identity system — OOH billboard, app storefront mockup and push-notification designs" [ref=e206]
+                - generic [ref=e207]: "03"
+                - generic:
+                  - paragraph: Applying the Zid identity across out-of-home, the storefront app and merchant push notifications.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e208]:
+                - generic [ref=e209]:
+                  - generic [ref=e210]: Zid
+                  - heading "Identity System" [level=3] [ref=e211]
+                - generic [ref=e213]: Stationery & Collateral
+          - listitem [ref=e214]:
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - img "InvoiceQ brand identity — checkmark-Q logo, navy and cyan palette, typography and mobile app UI" [ref=e218]
+                - generic [ref=e219]: "04"
+                - generic:
+                  - paragraph: A “more practical, consistent and dynamic” identity for InvoiceQ — the checkmark-Q mark, a navy/cyan Pantone palette and the mobile app UI.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e220]:
+                - generic [ref=e221]:
+                  - generic [ref=e222]: InvoiceQ
+                  - heading "Brand Identity v1.0" [level=3] [ref=e223]
+                - generic [ref=e224]:
+                  - generic [ref=e225]: Identity & App UI
+                  - generic [ref=e226]: "2022"
+          - listitem [ref=e227]:
+            - generic [ref=e228]:
+              - generic [ref=e229]:
+                - img "Transform brand identity — illuminated 3D signage, brand pattern and 'Humanizing Growth' mobile site" [ref=e231]
+                - generic [ref=e232]: "05"
+                - generic:
+                  - paragraph: Identity for an organizational development and leadership coaching brand — the yellow-dot wordmark, a geometric pattern system, illuminated signage and a “Humanizing Growth” mobile site.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e233]:
+                - generic [ref=e234]:
+                  - generic [ref=e235]: Transform
+                  - heading "Transform" [level=3] [ref=e236]
+                - generic [ref=e238]: Identity & Web
+          - listitem [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]:
+                - img "FRA'ED International niche perfumery branding — gold seal logo, packaging, shopping bag and apparel" [ref=e243]
+                - generic [ref=e244]: "06"
+                - generic:
+                  - paragraph: Branding for a niche perfumery boutique — the Arabic فرائد wordmark and gold falcon seal carried across packaging, stationery, retail bags and apparel.
+                  - generic:
+                    - text: Brand & Identity
+                    - img
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - generic [ref=e247]: FRA'ED International
+                  - heading "FRA'ED International" [level=3] [ref=e248]
+                - generic [ref=e250]: Identity & Packaging
+  - button "Open Next.js Dev Tools" [ref=e536] [cursor=pointer]:
+    - img [ref=e537]
+  - alert [ref=e540]

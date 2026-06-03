@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MOTION MATTERS — background concepts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050507;
+    color: #e8eef6;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    padding: 28px clamp(16px, 3vw, 40px) 64px;
+  }
+  .head { max-width: 1100px; margin: 0 auto 22px; }
+  .head h1 { font-size: clamp(20px, 2.4vw, 30px); font-weight: 700; letter-spacing: -0.01em; }
+  .head p { color: #8a93a3; margin-top: 8px; font-size: 14px; line-height: 1.5; max-width: 760px; }
+  .grid {
+    display: grid; gap: 18px; max-width: 1100px; margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+  .tile {
+    position: relative; border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: border-color .25s, transform .25s, box-shadow .25s;
+    background: #000;
+  }
+  .tile:hover { transform: translateY(-3px); border-color: rgba(120,200,255,0.45); }
+  .tile.selected { border-color: #6fd3ff; box-shadow: 0 0 0 2px rgba(111,211,255,0.5), 0 18px 50px rgba(0,140,255,0.18); }
+
+  .stage { position: relative; aspect-ratio: 16 / 10; width: 100%; overflow: hidden; background:#000; }
+  .stage canvas, .stage .bglayer { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* shared overlay: faint MOTION MATTERS + mock filament */
+  .overlay { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+  .mm-word {
+    font-weight: 700; letter-spacing: 0.06em;
+    font-size: clamp(15px, 3.4vw, 30px);
+    color: rgba(255,255,255,0.16);
+    text-transform: uppercase;
+  }
+  .filament { position: absolute; inset: 0; }
+  .filament path { fill: none; stroke-width: 2.4; stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(90,180,255,0.55)); }
+
+  .cap { padding: 13px 15px 15px; }
+  .cap .lib { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color:#5fd1ff; font-weight:600; }
+  .cap h3 { font-size: 16px; margin: 5px 0 4px; font-weight:600; }
+  .cap p { font-size: 12.5px; color:#9099a8; line-height: 1.45; }
+  .badge { position:absolute; top:10px; left:10px; z-index:3; font-size:11px; font-weight:700;
+    background: rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.15); color:#cfe8ff;
+    padding:4px 9px; border-radius:20px; backdrop-filter: blur(4px); }
+  .foot { max-width:1100px; margin: 26px auto 0; color:#717b8b; font-size:13px; line-height:1.6; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>Animated background — “MOTION MATTERS” section</h1>
+    <p>Four live concepts, each on the V20 black canvas with a mock cool-blue filament and a faint “MOTION MATTERS” so you can judge legibility. The real filament stays the hero — every option is tuned to sit <em>behind</em> it. Click the one you like (or mix two).</p>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- A -->
+    <div class="tile" data-choice="A" onclick="sel(this)">
+      <div class="badge">A</div>
+      <div class="stage">
+        <div class="bglayer" id="auroraA"></div>
+        <div class="overlay">
+          <svg class="filament" viewBox="0 0 160 100" preserveAspectRatio="none">
+            <defs><linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#9fe0ff"/><stop offset="1" stop-color="#1f6fc0"/></linearGradient></defs>
+            <path d="M0,52 C40,52 55,30 80,30 C105,30 120,66 160,66" stroke="url(#gA)"/>
+          </svg>
+          <span class="mm-word">Motion Matters</span>
+        </div>
+      </div>
+      <div class="cap">
+        <div class="lib">GSAP + CSS</div>
+        <h3>Aurora Drift</h3>
+        <p>Cool volumetric light-cones that breathe and parallax with scroll. Echoes the hero prism, dialed cooler &amp; darker.</p>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="tile" data-choice="B" onclick="sel(this)">
+      <div class="badge">B</div>
+      <div class="stage">
+        <canvas id="cB"></canvas>
+        <div class="overlay">
+          <svg class="filament" viewBox="0 0 160 100" preserveAspectRatio="none">
+            <defs><linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#9fe0ff"/><stop offset="1" stop-color="#1f6fc0"/></linearGradient></defs>
+            <path d="M0,52 C40,52 55,30 80,30 C105,30 120,66 160,66" stroke="url(#gB)"/>
+          </svg>
+          <span class="mm-word">Motion Matters</span>
+        </div>
+      </div>
+      <div class="cap">
+        <div class="lib">Canvas · Lusion-style</div>
+        <h3>Constellation Field</h3>
+        <p>Slow drifting dust motes with faint links that gravitate toward the filament. Adds depth without noise.</p>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="tile" data-choice="C" onclick="sel(this)">
+      <div class="badge">C</div>
+      <div class="stage">
+        <canvas id="cC"></canvas>
+        <div class="overlay">
+          <svg class="filament" viewBox="0 0 160 100" preserveAspectRatio="none">
+            <defs><linearGradient id="gC" x1="0" x2="1"><stop offset="0" stop-color="#9fe0ff"/><stop offset="1" stop-color="#1f6fc0"/></linearGradient></defs>
+            <path d="M0,52 C40,52 55,30 80,30 C105,30 120,66 160,66" stroke="url(#gC)"/>
+          </svg>
+          <span class="mm-word">Motion Matters</span>
+        </div>
+      </div>
+      <div class="cap">
+        <div class="lib">Canvas · flow field</div>
+        <h3>Flow Current</h3>
+        <p>Faint streaklines drift like a current — a literal visual of “motion.” On-theme and hypnotic, very low contrast.</p>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="tile" data-choice="D" onclick="sel(this)">
+      <div class="badge">D</div>
+      <div class="stage">
+        <div class="bglayer" id="gridD"></div>
+        <canvas id="cD"></canvas>
+        <div class="overlay">
+          <svg class="filament" viewBox="0 0 160 100" preserveAspectRatio="none">
+            <defs><linearGradient id="gD" x1="0" x2="1"><stop offset="0" stop-color="#9fe0ff"/><stop offset="1" stop-color="#1f6fc0"/></linearGradient></defs>
+            <path d="M0,52 C40,52 55,30 80,30 C105,30 120,66 160,66" stroke="url(#gD)"/>
+          </svg>
+          <span class="mm-word">Motion Matters</span>
+        </div>
+      </div>
+      <div class="cap">
+        <div class="lib">GSAP · minimal</div>
+        <h3>Spotlight &amp; Grain</h3>
+        <p>A deep radial spotlight sweeps with the pen over a receding perspective grid + film grain. The most restrained / premium.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    Each loops continuously here; in the real section the motion would be tied to scroll progress (via Lenis) so it intensifies as the line draws and settles after the last letter.
+  </div>
+
+<script>
+  function sel(el){
+    document.querySelectorAll('.tile').forEach(t=>t.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  const DPR = Math.min(window.devicePixelRatio||1, 2);
+  function fit(c){ const r=c.getBoundingClientRect(); c.width=r.width*DPR; c.height=r.height*DPR; return r; }
+
+  /* ---------- A: Aurora Drift (CSS-driven cones) ---------- */
+  (function(){
+    const el = document.getElementById('auroraA');
+    el.style.background = '#04060a';
+    el.innerHTML = `
+      <div style="position:absolute;inset:0;overflow:hidden">
+        <div class="cone c1"></div><div class="cone c2"></div><div class="cone c3"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 55%,transparent,rgba(0,0,0,.55))"></div>
+      </div>`;
+    const s = document.createElement('style');
+    s.textContent = `
+      #auroraA .cone{position:absolute;border-radius:50%;mix-blend-mode:screen;filter:blur(34px)}
+      #auroraA .c1{top:-20%;left:-10%;width:70%;height:110%;
+        background:radial-gradient(ellipse 55% 75% at 50% 35%,#1aa0ff 0%,#0a5fd0 30%,rgba(10,60,160,.4) 55%,transparent 75%);
+        opacity:.55;animation:aA 12s ease-in-out infinite}
+      #auroraA .c2{bottom:-25%;right:-12%;width:65%;height:100%;
+        background:radial-gradient(ellipse 50% 70% at 50% 60%,#6fe0ff 0%,#2c79c8 28%,rgba(40,90,180,.35) 55%,transparent 78%);
+        opacity:.45;animation:aB 16s ease-in-out infinite}
+      #auroraA .c3{top:25%;left:35%;width:40%;height:60%;
+        background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(120,90,255,.5),transparent 65%);
+        opacity:.4;animation:aC 14s ease-in-out infinite}
+      @keyframes aA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-4%) scale(1.08)}}
+      @keyframes aB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,3%) scale(1.1)}}
+      @keyframes aC{0%,100%{transform:translate(0,0) scale(1);opacity:.3}50%{transform:translate(3%,-3%) scale(1.15);opacity:.5}}`;
+    document.head.appendChild(s);
+  })();
+
+  /* ---------- B: Constellation Field ---------- */
+  (function(){
+    const c=document.getElementById('cB'),x=c.getContext('2d');let r=fit(c);
+    const N=46,P=[];for(let i=0;i<N;i++)P.push({x:Math.random()*r.width,y:Math.random()*r.height,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,s:Math.random()*1.6+.5});
+    function loop(){
+      r={width:c.width,height:c.height};x.clearRect(0,0,c.width,c.height);
+      for(const p of P){p.x+=p.vx*DPR;p.y+=p.vy*DPR;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;}
+      for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){const a=P[i],b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<90*DPR){x.strokeStyle='rgba(110,200,255,'+(0.16*(1-d/(90*DPR)))+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}
+      for(const p of P){x.fillStyle='rgba(170,220,255,.7)';x.beginPath();x.arc(p.x,p.y,p.s*DPR,0,7);x.fill();}
+      requestAnimationFrame(loop);
+    }
+    new ResizeObserver(()=>fit(c)).observe(c);loop();
+  })();
+
+  /* ---------- C: Flow Current ---------- */
+  (function(){
+    const c=document.getElementById('cC'),x=c.getContext('2d');let r=fit(c);
+    const M=70,P=[];function spawn(){return{x:Math.random()*c.width,y:Math.random()*c.height,life:Math.random()*120}}
+    for(let i=0;i<M;i++)P.push(spawn());
+    let t=0;
+    function field(px,py){return Math.sin(py*0.012+t*0.6)*0.8+Math.cos(px*0.008-t*0.3)*0.5;}
+    function loop(){
+      t+=0.006;x.fillStyle='rgba(4,6,10,0.10)';x.fillRect(0,0,c.width,c.height);
+      for(const p of P){const a=field(p.x,p.y);const nx=p.x+Math.cos(a)*1.6*DPR,ny=p.y+Math.sin(a)*1.6*DPR;
+        x.strokeStyle='rgba(95,185,255,0.22)';x.lineWidth=1.1*DPR;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();
+        p.x=nx;p.y=ny;p.life--;if(p.life<0||p.x<0||p.x>c.width||p.y<0||p.y>c.height)Object.assign(p,spawn());}
+      requestAnimationFrame(loop);
+    }
+    new ResizeObserver(()=>{fit(c);x.fillStyle='#04060a';x.fillRect(0,0,c.width,c.height);}).observe(c);
+    x.fillStyle='#04060a';x.fillRect(0,0,c.width,c.height);loop();
+  })();
+
+  /* ---------- D: Spotlight + grain + perspective grid ---------- */
+  (function(){
+    const g=document.getElementById('gridD');
+    g.style.background='#05070b';
+    g.innerHTML=`<div style="position:absolute;inset:0;background-image:
+        linear-gradient(rgba(120,180,255,.10) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(120,180,255,.10) 1px,transparent 1px);
+        background-size:46px 46px;transform:perspective(420px) rotateX(58deg) translateY(18%) scale(1.6);
+        transform-origin:50% 100%;mask:linear-gradient(transparent,#000 60%);-webkit-mask:linear-gradient(transparent,#000 60%)"></div>
+      <div id="spotD" style="position:absolute;inset:0"></div>`;
+    const spot=document.getElementById('spotD');
+    function set(p){spot.style.background='radial-gradient(circle 38% at '+p+'% 42%,rgba(70,150,255,.28),transparent 60%)';}
+    let d=0;(function sw(){d+=0.012;set(50+Math.sin(d)*34);requestAnimationFrame(sw);})();
+    // grain
+    const c=document.getElementById('cD'),x=c.getContext('2d');fit(c);
+    function grain(){const id=x.createImageData(c.width,c.height),b=id.data;for(let i=0;i<b.length;i+=4){const v=Math.random()*255;b[i]=b[i+1]=b[i+2]=v;b[i+3]=10;}x.putImageData(id,0,0);requestAnimationFrame(grain);}
+    new ResizeObserver(()=>fit(c)).observe(c);grain();
+  })();
+</script>
+</body>
+</html>

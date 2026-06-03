@@ -1,0 +1,6 @@
+- generic [active] [ref=e1]:
+  - status "Loading The Motion Agency" [ref=e3]:
+    - generic [ref=e8]: "02"
+  - button "Open Next.js Dev Tools" [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - alert [ref=e18]

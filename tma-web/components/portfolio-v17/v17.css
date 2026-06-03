@@ -1,0 +1,837 @@
+/* ============================================================
+   PORTFOLIO V17 — Hero (Section 1)
+   Reuses the home design tokens (--display / --mono / --pad)
+   and the home "prism" field, recentred and made interactive.
+   ============================================================ */
+
+.v17-page {
+  background: #000;
+}
+
+.v17-root {
+  position: relative;
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.v17-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  isolation: isolate;
+}
+
+/* ---- prism field ---- */
+.v17-prism {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* SVG filter defs holder — present but takes no space */
+.v17-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+/* the colour field that the water filter distorts (grain/vignette excluded) */
+.v17-prism-fluid {
+  position: absolute;
+  inset: 0;
+  filter: url(#v17-water);
+  will-change: filter;
+}
+.v17-cone {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.v17-cone--blue {
+  top: -26%;
+  left: -6%;
+  width: 70vw;
+  height: 95vh;
+  background:
+    radial-gradient(ellipse 55% 80% at 48% 28%, #00b3ff 0%, #0084ff 18%, #0046d8 38%, rgba(0, 40, 140, 0.45) 60%, transparent 78%),
+    radial-gradient(ellipse 30% 60% at 52% 18%, rgba(120, 200, 255, 0.85) 0%, rgba(40, 120, 255, 0.4) 35%, transparent 70%);
+  filter: blur(72px) saturate(1.25);
+  opacity: 0.9;
+  transform: rotate(-12deg)
+    translate3d(calc(var(--px, 0) * 1px), calc(var(--py, 0) * 1px), 0);
+}
+.v17-cone--warm {
+  bottom: -22%;
+  right: -12%;
+  width: 62vw;
+  height: 80vh;
+  background:
+    radial-gradient(ellipse 45% 65% at 62% 72%, #ffffff 0%, #ffe070 8%, #ff9a1f 18%, #ff3b1f 32%, #d6005a 48%, rgba(140, 0, 180, 0.5) 65%, transparent 82%),
+    radial-gradient(ellipse 35% 55% at 78% 76%, rgba(0, 220, 255, 0.5) 0%, rgba(0, 140, 220, 0.22) 30%, transparent 65%);
+  filter: blur(66px) saturate(1.35);
+  opacity: 0.85;
+  transform: rotate(8deg)
+    translate3d(calc(var(--px, 0) * 1px), calc(var(--py, 0) * 1px), 0);
+}
+.v17-cone--rim {
+  top: 34%;
+  left: 38%;
+  width: 32vw;
+  height: 42vh;
+  background: radial-gradient(
+    ellipse 50% 70% at 50% 50%,
+    rgba(255, 40, 140, 0.45) 0%,
+    rgba(180, 40, 255, 0.26) 30%,
+    transparent 65%
+  );
+  filter: blur(80px);
+  opacity: 0.6;
+  transform: translate3d(
+    calc(var(--px, 0) * 1px),
+    calc(var(--py, 0) * 1px),
+    0
+  );
+}
+.v17-grain {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+}
+/* centred vignette so the title reads against the colour */
+.v17-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+/* ---- meta row ---- */
+.v17-meta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px var(--pad);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* ---- title ---- */
+.v17-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: min(1080px, 90vw);
+  padding: 0 var(--pad);
+  text-align: center;
+}
+.v17-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(30px, 5.9vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #fff;
+  will-change: transform, opacity;
+}
+.v17-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.v17-word > span {
+  display: inline-block;
+}
+.v17-ital {
+  font-style: italic;
+  font-weight: 800;
+  text-transform: none;
+  font-family: var(--display);
+  /* slightly looser so the lowercase italic line breathes against the caps */
+  letter-spacing: -0.01em;
+}
+/* per-character split (entrance + scroll disperse).
+   Words are inline-block so they never break mid-word; characters animate
+   inside; spaces remain plain text nodes so lines wrap between words. */
+.v17-cword {
+  display: inline-block;
+  white-space: nowrap;
+}
+.v17-char {
+  display: inline-block;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* ---- featured cards ---- */
+.v17-cards {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.v17-card-wrap {
+  position: absolute;
+  width: clamp(132px, 10.5vw, 188px);
+  aspect-ratio: 3 / 4;
+  will-change: transform;
+}
+.v17-card-wrap--foodics {
+  left: clamp(16px, 3.5vw, 72px);
+  top: 17%;
+}
+.v17-card-wrap--zid {
+  right: clamp(16px, 3.5vw, 72px);
+  bottom: 13%;
+}
+.v17-card {
+  pointer-events: auto;
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background-size: cover, cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55),
+    0 0 50px rgba(90, 166, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  overflow: hidden;
+  will-change: transform;
+}
+.v17-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+.v17-card-top,
+.v17-card-foot {
+  position: relative;
+  z-index: 1;
+}
+.v17-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.v17-card-idx {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.v17-card-metric {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #cfe2ff;
+  font-weight: 500;
+}
+.v17-card-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.v17-card-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(18px, 1.5vw, 26px);
+  color: #fff;
+  line-height: 1;
+}
+.v17-card-cap {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- scroll cue ---- */
+.v17-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.v17-scroll-line {
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.v17-scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: v17-tick 2s ease-in-out infinite;
+}
+@keyframes v17-tick {
+  0% {
+    transform: translateX(-100%);
+  }
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ============================================================
+   SECTION 2 — FEATURED CAROUSEL
+   ============================================================ */
+.v17-featured {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(180deg, #060409 0%, #0a0712 55%, #07060d 100%);
+}
+.v17-fx-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* head row */
+.v17-fx-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px var(--pad);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.v17-fx-count {
+  color: #fff;
+}
+
+/* scatter layer */
+.v17-scatter {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+.v17-fxcard {
+  position: absolute;
+  inset: 0;
+  margin: auto; /* centred origin; GSAP x/y offsets from here */
+  width: clamp(300px, 44vw, 880px);
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-size: cover;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.58);
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+.v17-fxcard-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.v17-fxcard-tint {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+.v17-fxcard--logo .v17-fxcard-media {
+  background-size: min(46%, 240px) auto;
+  background-repeat: no-repeat;
+  background-position: center 44%;
+}
+.v17-fxcard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+.v17-fxcard.is-focus {
+  border-color: rgba(125, 180, 255, 0.55);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(125, 180, 255, 0.35), 0 0 60px rgba(90, 166, 255, 0.18);
+}
+.v17-fxcard-foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 14px;
+}
+.v17-fxcard-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(16px, 1.4vw, 24px);
+  color: #fff;
+}
+.v17-fxcard-metric {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #cfe2ff;
+}
+
+/* arrows */
+.v17-fx-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 70;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.v17-fx-arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #7db4ff;
+}
+.v17-fx-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+/* centred pair over the focused card (Obsidian reference) */
+.v17-fx-arrow--prev {
+  left: 50%;
+  margin-left: -68px;
+}
+.v17-fx-arrow--next {
+  left: 50%;
+  margin-left: 12px;
+}
+
+/* zoom layer — "enter the project's world" */
+.v17-zoom {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  background-size: cover;
+}
+.v17-zoom-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.v17-zoom-media--logo {
+  background-size: min(38vw, 420px) auto;
+  background-repeat: no-repeat;
+  background-position: center 38%;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.v17-zoom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.45) 42%,
+    transparent 70%
+  );
+}
+.v17-zoom-info {
+  position: absolute;
+  left: var(--pad);
+  bottom: clamp(48px, 9vh, 110px);
+  z-index: 1;
+  max-width: min(560px, 80vw);
+}
+.v17-zoom-sector {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7db4ff;
+}
+.v17-zoom-name {
+  margin: 10px 0 14px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(40px, 7vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.v17-zoom-story {
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-size: clamp(15px, 1.4vw, 20px);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+.v17-zoom-stats {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+}
+.v17-zoom-stats li {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #fff;
+  padding-left: 14px;
+  position: relative;
+}
+.v17-zoom-stats li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7db4ff;
+  transform: translateY(-50%);
+}
+.v17-zoom-disc {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- reduced motion / static fallback ---- */
+.v17-featured.is-static {
+  height: auto;
+}
+.is-static .v17-fx-stage {
+  position: relative;
+  inset: auto;
+  min-height: auto;
+  padding: 90px var(--pad) 80px;
+}
+.is-static .v17-fx-head {
+  position: static;
+  padding: 0 0 28px;
+}
+.is-static .v17-scatter {
+  position: static;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.is-static .v17-fxcard {
+  position: relative;
+  inset: auto;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.is-static .v17-fx-arrow,
+.is-static .v17-zoom {
+  display: none;
+}
+
+/* ============================================================
+   PRELOADER — prism bloom
+   ============================================================ */
+.v17-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000; /* opaque from SSR — no flash of the hero */
+}
+.v17-pre-bloom {
+  position: absolute;
+  width: min(120vw, 1100px);
+  height: min(120vw, 1100px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(120, 200, 255, 0.95) 0%,
+    rgba(0, 132, 255, 0.7) 22%,
+    rgba(0, 70, 216, 0.45) 40%,
+    rgba(214, 0, 90, 0.35) 60%,
+    rgba(140, 0, 180, 0.18) 75%,
+    transparent 85%
+  );
+  filter: blur(46px) saturate(1.25);
+  mix-blend-mode: screen;
+  opacity: 0; /* initial — gsap takes over */
+  transform: scale(0.18);
+}
+.v17-pre-mark {
+  position: relative;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: clamp(11px, 1.1vw, 14px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #fff;
+  text-indent: 0.42em;
+  opacity: 0; /* initial — gsap takes over */
+}
+
+/* ============================================================
+   Reduced motion / coarse pointer
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .v17-preloader {
+    display: none;
+  }
+  .v17-prism-fluid {
+    filter: none;
+  }
+  .v17-scroll-line::after {
+    animation: none;
+  }
+  .v17-cone {
+    transform: none;
+  }
+  .v17-cone--blue {
+    transform: rotate(-12deg);
+  }
+  .v17-cone--warm {
+    transform: rotate(8deg);
+  }
+}
+
+/* ============================================================
+   CONNECTED JOURNEY — one tall track + sticky persistent stage
+   ============================================================ */
+.v17-journey {
+  position: relative;
+  height: 880vh;
+  background: #000;
+}
+.v17-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+.v17-stage .v17-hero-inner { z-index: 4; }
+.v17-stage .v17-meta { z-index: 5; }
+.v17-stage .v17-scroll { z-index: 5; }
+.v17-cardlayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.v17-cardlayer .v17-fxcard { pointer-events: auto; }
+.v17-stage .v17-fx-head { z-index: 6; }
+.v17-stage .v17-fx-arrow { z-index: 7; }
+.v17-stage .v17-zoom-info { z-index: 90; }
+
+/* reduced-motion / static fallback for the journey */
+.v17-journey.is-static { height: auto; }
+.is-static .v17-stage {
+  position: relative;
+  height: auto;
+  display: block;
+  padding: 90px var(--pad);
+}
+.is-static .v17-prism,
+.is-static .v17-scroll,
+.is-static .v17-fx-arrow { display: none; }
+.is-static .v17-hero-inner { margin-bottom: 56px; }
+.is-static .v17-cardlayer {
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.is-static .v17-fxcard {
+  position: relative;
+  inset: auto;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.is-static .v17-zoom-info {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin-top: 32px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ============================================================
+   SUCTION HAND-OFF + SECTION 3 — WHITE TEXT WALL
+   ============================================================ */
+/* the white section that rises from the bottom; curved top = suction edge */
+.v17-suck {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.v17-suck-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  display: block;
+}
+.v17-suck-edge path {
+  fill: #ffffff;
+}
+.v17-suck-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(12vh - 1px);
+  bottom: -2px;
+  background: #ffffff;
+}
+
+.v17-textwall {
+  position: relative;
+  background: #ffffff;
+  color: #0b0b0c;
+  /* tight top so the section begins right as you scroll in (no dead white) */
+  padding: clamp(56px, 8vh, 96px) var(--pad) clamp(110px, 18vh, 200px);
+  display: flex;
+  justify-content: center;
+}
+.v17-tw-inner {
+  width: 100%;
+  max-width: 1180px;
+}
+.v17-tw-kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #9a9a93;
+  margin-bottom: clamp(40px, 7vh, 90px);
+}
+.v17-tw-head {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(30px, 5vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #0b0b0c;
+}
+.v17-tw-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.v17-tw-line > span {
+  display: block;
+  will-change: transform;
+}
+/* dim the connective lines so the punch lines lead — premium rhythm */
+.v17-tw-line:nth-child(1) > span,
+.v17-tw-line:nth-child(5) > span {
+  color: #b4b4ad;
+}
+.v17-tw-foot {
+  margin: clamp(56px, 9vh, 120px) 0 0;
+  max-width: 720px;
+  font-family: var(--display);
+  font-size: clamp(15px, 1.5vw, 21px);
+  line-height: 1.5;
+  color: #6f6f68;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v17-suck { display: none; }
+  .v17-tw-line > span { transform: none !important; }
+}

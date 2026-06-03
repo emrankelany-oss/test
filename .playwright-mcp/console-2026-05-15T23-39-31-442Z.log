@@ -1,0 +1,183 @@
+[     283ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     343ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    6782ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    6934ms] [LOG] [Fast Refresh] done in 263ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    7056ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    7084ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   32070ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   32143ms] [LOG] [Fast Refresh] done in 173ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   32277ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   32316ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   33409ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   33439ms] [LOG] [Fast Refresh] done in 131ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   33579ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   33615ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   39252ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   39279ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   47293ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   47350ms] [LOG] [Fast Refresh] done in 162ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   47491ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   47532ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   56191ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   56286ms] [LOG] [Fast Refresh] done in 199ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   56417ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   56455ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  286057ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  286145ms] [LOG] [Fast Refresh] done in 199ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  293147ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  293236ms] [LOG] [Fast Refresh] done in 194ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  302399ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  302442ms] [LOG] [Fast Refresh] done in 157ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  608072ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  608273ms] [LOG] [Fast Refresh] done in 96ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  648745ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  648780ms] [LOG] [Fast Refresh] done in 94ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  679618ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  679685ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  679937ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  680188ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  680228ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  680344ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  680561ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[  680563ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/portfolio-v5?_rsc=7pmxk:0
+[  680647ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/portfolio-v5:0
+[  680853ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[  680934ms] [ERROR] Refused to execute script from 'http://localhost:3000/_next/static/development/_clientMiddlewareManifest.js' because its MIME type ('application/json') is not executable, and strict MIME type checking is enabled. @ http://localhost:3000/portfolio-v5:0
+[  680942ms] Error: ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx
+
+
+    at <unknown> (Error: ./components/portfolio-v5/V5Preloader.jsx:132:11)
+    at Object.getCompilationErrors (file://C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\node_modules\next\dist\server\dev\hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file://C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\node_modules\next\dist\server\lib\dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file://C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\node_modules\next\dist\server\dev\next-dev-server.js:719:42)
+    at DevServer.findPageComponents (file://C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\node_modules\next\dist\server\dev\next-dev-server.js:689:43)
+    at async DevServer.renderErrorToResponseImpl (file://C:\Users\Pc\Downloads\the-motion-agency-web-main\tma-web\node_modules\next\dist\server\base-server.js:1745:26)
+[  680943ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[  680948ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[  680985ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[  681046ms] [ERROR] ./components/portfolio-v5/V5Preloader.jsx:132:11
+the name `cleanupMotion` is defined multiple times
+  130 |       }, 200);
+  131 |
+> 132 |       var cleanupMotion = () => {
+      |           ^^^^^^^^^^^^^
+  133 |         v && v.removeEventListener("timeupdate", onTime);
+  134 |         window.clearInterval(fallback);
+  135 |       };
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./components/portfolio-v5/V5Preloader.jsx
+    ./app/portfolio-v5/page.jsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[  681101ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[  685667ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[  685876ms] [LOG] [Fast Refresh] done in 17ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[  686192ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  686248ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
