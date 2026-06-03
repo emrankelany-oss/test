@@ -323,8 +323,7 @@ html.v23-loading { overflow: hidden; }
 
 /* brand-logo tiles (wide wordmarks): show whole logo, never crop */
 .v23-im-contain .v23-im { clip-path: ellipse(var(--mask, 75%) var(--mask, 75%) at 50% 50%); }
-.v23-im-contain .v23-im img { object-fit: contain; transform: none !important; }
-.v23-el-open.v23-im-contain:hover .v23-im img { transform: scale(1.04) !important; }
+.v23-im-contain .v23-im img { object-fit: contain; } /* keep logos uncropped; dual-layer transforms still apply */
 
 /* ---- work cards open the project modal (premium hover) ------------------- */
 .v23-el-open {
@@ -355,18 +354,16 @@ html.v23-loading { overflow: hidden; }
 }
 /* `.v23-dl` is the hover trigger — used by work cards, the More Work carousel
    cards, and the featured film cells. */
-.v23-dl:not(.v23-im-contain):hover .v23-im-h,
-.v23-dl:not(.v23-im-contain):focus-visible .v23-im-h { filter: blur(14px); }
-.v23-dl:not(.v23-im-contain):hover .v23-im-h img,
-.v23-dl:not(.v23-im-contain):hover .v23-im-h video { transform: scale(1.2); }
-.v23-dl:not(.v23-im-contain):hover .v23-im-hv,
-.v23-dl:not(.v23-im-contain):focus-visible .v23-im-hv {
+.v23-dl:hover .v23-im-h,
+.v23-dl:focus-visible .v23-im-h { filter: blur(14px); }
+.v23-dl:hover .v23-im-h img,
+.v23-dl:hover .v23-im-h video { transform: scale(1.2); }
+.v23-dl:hover .v23-im-hv,
+.v23-dl:focus-visible .v23-im-hv {
   clip-path: ellipse(50% 35% at 50% 50%); transform: rotate(150deg);
 }
-.v23-dl:not(.v23-im-contain):hover .v23-im-hv img,
-.v23-dl:not(.v23-im-contain):hover .v23-im-hv video { transform: rotate(-150deg); }
-.v23-im-contain .v23-im-hv { display: none; } /* keep logo tiles clean */
-.v23-dl.v23-im-contain:hover .v23-im-h img { transform: scale(1.03); }
+.v23-dl:hover .v23-im-hv img,
+.v23-dl:hover .v23-im-hv video { transform: rotate(-150deg); }
 /* play badge sits above both layers */
 .v23-dl .v23-play { z-index: 3; }
 
