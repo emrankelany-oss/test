@@ -37,7 +37,13 @@ export default function V23Carousel() {
 
     let half = track.scrollWidth / 2;
     const wrapX = gsap.utils.wrap(-half, 0);
-    const render = (x) => gsap.set(track, { x: wrapX(x) });
+    let pos = 0;
+    const render = () => gsap.set(track, { x: wrapX(pos) });
+
+    const SPEED = 110; // px/sec — marquee drift
+    const DIR = 1; // +1 = cards travel left → right
+    let hovering = false; // pause while a card is hovered
+    let visible = true; // pause when the section is off-screen
 
     const drag = Draggable.create(proxy, {
       type: "x",
@@ -51,22 +57,45 @@ export default function V23Carousel() {
         document.documentElement.classList.remove("v23-dragging");
       },
       onDrag() {
-        render(this.x);
+        pos = this.x;
+        render();
       },
       onThrowUpdate() {
-        render(this.x);
+        pos = this.x;
+        render();
       },
     })[0];
 
+    // continuous auto-scroll — paused on hover, while dragging/throwing, or off-screen
+    const tick = (time, dt) => {
+      if (hovering || !visible || drag.isPressed || drag.isThrowing) return;
+      pos += (SPEED * DIR * dt) / 1000;
+      gsap.set(proxy, { x: pos }); // keep Draggable in sync so a grab continues seamlessly
+      render();
+    };
+    gsap.ticker.add(tick);
+
+    // pause when hovering any card
+    const onOver = (e) => { if (e.target.closest?.(".v23-card")) hovering = true; };
+    const onOut = (e) => { const to = e.relatedTarget; if (!to || !to.closest?.(".v23-card")) hovering = false; };
+    track.addEventListener("pointerover", onOver);
+    track.addEventListener("pointerout", onOut);
+
+    // pause the drift while the section is scrolled out of view
+    const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0 });
+    io.observe(track);
+
     track.dataset.v23Drag = "ready";
 
-    const onResize = () => {
-      half = track.scrollWidth / 2;
-    };
+    const onResize = () => { half = track.scrollWidth / 2; };
     window.addEventListener("resize", onResize);
 
     return () => {
       window.removeEventListener("resize", onResize);
+      track.removeEventListener("pointerover", onOver);
+      track.removeEventListener("pointerout", onOut);
+      io.disconnect();
+      gsap.ticker.remove(tick);
       document.documentElement.classList.remove("v23-dragging");
       drag && drag.kill();
     };
