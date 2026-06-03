@@ -324,33 +324,30 @@ html.v23-loading { overflow: hidden; }
   position: relative; border-radius: 6px; overflow: hidden;
   transform: translateZ(0); transition: transform .7s var(--ease), box-shadow .7s var(--ease);
 }
-.v23-im img, .v23-im video { transition: transform 1.1s cubic-bezier(.16,1,.3,1), filter .6s var(--ease); }
-/* media eases up toward the cursor + zooms; the whole card lifts with a soft shadow */
-.v23-el-open:hover { transform: translateY(-7px); box-shadow: 0 36px 70px -28px rgba(0,0,0,.85); }
-.v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { transform: translate(var(--xM), var(--yM)) scale(1.09); }
+/* base media (direct children of .v23-im) — recedes (blur + dim) on hover */
+.v23-im > img, .v23-im > video { transition: filter .65s var(--ease), transform 1s var(--ease); }
+.v23-el-open:hover { transform: translateY(-6px); box-shadow: 0 36px 70px -28px rgba(0,0,0,.85); }
+.v23-el-open:not(.v23-im-contain):hover .v23-im > img, .v23-el-open:not(.v23-im-contain):hover .v23-im > video { filter: blur(7px) brightness(.86); }
 
-/* dual-layer reveal — our take on Clim's two-layer hover, but the second layer
-   blooms as a CIRCLE from the cursor (not a centred ellipse) and grades the
-   media vivid + TMA-blue instead of blurring. */
+/* dual-layer reveal (near Clim): a second take irises open from the centre
+   while its inner image slow-zooms — eased on cubic-bezier(.55,0,.1,1). */
 .v23-im-hv {
-  position: absolute; inset: 0; pointer-events: none; z-index: 2;
-  /* whisper of brand blue only at the bloom's leading edge */
-  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), transparent 52%, rgba(111,211,255,.24) 74%, rgba(43,107,255,.16) 100%);
-  mix-blend-mode: screen;
-  /* the real effect: the media punches in vivid + bright inside the bloom */
-  -webkit-backdrop-filter: saturate(1.65) brightness(1.1) contrast(1.06);
-  backdrop-filter: saturate(1.65) brightness(1.1) contrast(1.06);
-  clip-path: circle(0% at var(--mx, 50%) var(--my, 50%));
-  transition: clip-path .8s cubic-bezier(.55, 0, .1, 1);
+  position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+  clip-path: ellipse(0% 0% at 50% 50%);
+  transition: clip-path 1s cubic-bezier(.55, 0, .1, 1);
 }
-.v23-el-open:hover .v23-im-hv { clip-path: circle(160% at var(--mx, 50%) var(--my, 50%)); }
-/* base media recedes slightly while the vivid layer takes over */
-.v23-el-open:hover .v23-im img, .v23-el-open:hover .v23-im video { filter: brightness(.93) saturate(.92); }
+.v23-im-hv img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.14); filter: brightness(1.06) saturate(1.14);
+  transition: transform 1.4s cubic-bezier(.55, 0, .1, 1);
+}
+.v23-el-open:hover .v23-im-hv { clip-path: ellipse(82% 82% at 50% 50%); }
+.v23-el-open:hover .v23-im-hv img { transform: scale(1.02); }
 .v23-im-contain .v23-im-hv { display: none; } /* keep logo tiles clean */
 
 /* gradient scrim fades in from the bottom */
 .v23-el-scrim {
-  position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; z-index: 3;
   background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.12) 42%, transparent 70%);
   transition: opacity .6s var(--ease);
 }
@@ -358,7 +355,7 @@ html.v23-loading { overflow: hidden; }
 
 /* "View project →" CTA rises in from below */
 .v23-el-cta {
-  position: absolute; left: clamp(14px, 1.4vw, 22px); bottom: clamp(14px, 1.4vw, 22px);
+  position: absolute; left: clamp(14px, 1.4vw, 22px); bottom: clamp(14px, 1.4vw, 22px); z-index: 4;
   display: inline-flex; align-items: center; gap: 12px; pointer-events: none;
   padding: 11px 8px 11px 18px; border-radius: 999px;
   background: rgba(255,255,255,.14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
