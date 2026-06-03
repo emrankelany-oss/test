@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { STATEMENT } from "./projects";
 import { useLineReveal } from "./useV23Reveal";
 
@@ -7,7 +7,21 @@ export default function V23Statement() {
   const [open, setOpen] = useState(false);
   const leadRef = useRef(null);
   const moreRef = useRef(null);
+  const panelVidRef = useRef(null);
   useLineReveal(leadRef, { start: "top 88%" });
+
+  // play the studio-motion panel video only while it's on screen
+  useEffect(() => {
+    const v = panelVidRef.current;
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver(
+      ([en]) => { if (en.isIntersecting) v.play?.().catch(() => {}); else v.pause?.(); },
+      { threshold: 0.15 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
 
   const toggle = () => {
     const next = !open;
@@ -50,7 +64,17 @@ export default function V23Statement() {
           </div>
 
           <div className="v23-panel" data-cursor="blob" aria-hidden="true">
-            <span className="v23-panel-word">{STATEMENT.panelWord}</span>
+            <video
+              ref={panelVidRef}
+              className="v23-panel-media"
+              src="/assets/v23/studio-motion.mp4"
+              poster="/assets/v23/studio-motion.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
           </div>
         </div>
       </div>

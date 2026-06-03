@@ -146,6 +146,7 @@ body.v23-has-cursor.v23-dragging { cursor: none; }
   background: var(--v23-panel); color: var(--v23-panel-ink);
   display: flex; align-items: center; justify-content: center;
 }
+.v23-panel-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .v23-panel-word {
   font-size: clamp(64px, 13vw, 230px); line-height: .8; font-weight: 500; letter-spacing: -0.03em;
   transform: rotate(-8deg); will-change: transform;

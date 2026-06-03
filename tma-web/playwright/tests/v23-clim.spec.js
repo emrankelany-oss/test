@@ -25,7 +25,7 @@ test.describe("V23 — Clim-mechanics landing", () => {
       (els) => els.map((e) => e.getAttribute("data-v23-section"))
     );
     expect(sections).toEqual(["hero", "statement", "featured", "work", "related"]);
-    await expect(page.locator(".v23-panel-word")).toHaveText(/.+/);
+    await expect(page.locator(".v23-panel-media")).toHaveAttribute("src", /studio-motion/);
   });
 
   test("featured section presents Foodics & Zid as multi-media case blocks", async ({ page }) => {
