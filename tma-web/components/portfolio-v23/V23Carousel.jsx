@@ -125,14 +125,22 @@ export default function V23Carousel() {
               if (p.video) openFilm({ kind: "video", src: p.video, poster: p.hero || p.thumb, title: p.title, client: p.client });
             }}
           >
-            <div className="v23-card-media">
+            <div className="v23-card-media v23-dl">
               {p.video ? (
                 <>
-                  <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
+                  <span className="v23-im-h">
+                    <video src={p.video} poster={p.hero || p.thumb} muted loop playsInline preload="metadata" aria-hidden="true" />
+                  </span>
+                  <span className="v23-im-hv">
+                    <img src={p.hero || p.thumb} alt="" loading="lazy" />
+                  </span>
                   <span className="v23-play" aria-hidden="true" />
                 </>
               ) : (
-                <img src={p.hero || p.thumb} alt="" loading="lazy" />
+                <>
+                  <span className="v23-im-h"><img src={p.hero || p.thumb} alt="" loading="lazy" /></span>
+                  <span className="v23-im-hv"><img src={p.hero || p.thumb} alt="" loading="lazy" /></span>
+                </>
               )}
             </div>
             <div className="v23-card-meta">

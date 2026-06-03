@@ -31,7 +31,7 @@ export default function V23WorkGrid() {
               <article key={p.slug} className={`v23-el v23-el-${cell.span}`}>
                 <button
                   type="button"
-                  className={`v23-el-media v23-el-open${fit ? " v23-im-contain" : ""}`}
+                  className={`v23-el-media v23-el-open v23-dl${fit ? " v23-im-contain" : ""}`}
                   style={{ aspectRatio: cell.ratio, ...(fit ? { background: fit } : null) }}
                   onClick={(e) => openProject(p.slug, e.currentTarget)}
                   aria-label={`Open ${p.client} — ${p.title}`}

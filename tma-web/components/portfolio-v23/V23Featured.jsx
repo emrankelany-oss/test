@@ -19,24 +19,27 @@ function MediaCell({ m, client, lazy = true }) {
     <div className="v23-el-media" style={{ aspectRatio: m.ratio }}>
       <button
         type="button"
-        className="v23-im v23-im-play"
+        className="v23-im v23-im-play v23-dl"
         onClick={() => openFilm(filmOf(m, client))}
         aria-label={`Play ${client} — ${m.title}`}
         data-cursor="blob"
         data-cursor-label="Play"
       >
-        {m.kind === "youtube" ? (
-          <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
-        ) : (
-          <video
-            {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
-            poster={m.poster}
-            muted
-            loop
-            playsInline
-            aria-hidden="true"
-          />
-        )}
+        <span className="v23-im-h">
+          {m.kind === "youtube" ? (
+            <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
+          ) : (
+            <video
+              {...(lazy ? { "data-lazy": true, "data-src": m.src, preload: "none" } : { src: m.src, autoPlay: true, preload: "metadata" })}
+              poster={m.poster}
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+            />
+          )}
+        </span>
+        <span className="v23-im-hv"><img src={m.poster} alt="" loading="lazy" /></span>
         <span className="v23-play" aria-hidden="true" />
       </button>
     </div>
@@ -175,17 +178,20 @@ function MediaCellLead({ m, client, mediaRef }) {
       <button
         type="button"
         ref={mediaRef}
-        className="v23-im v23-im-play"
+        className="v23-im v23-im-play v23-dl"
         onClick={() => openFilm(filmOf(m, client))}
         aria-label={`Play ${client} — ${m.title}`}
         data-cursor="blob"
         data-cursor-label="Play"
       >
-        {m.kind === "youtube" ? (
-          <img src={m.poster} alt={`${client} — ${m.title}`} />
-        ) : (
-          <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
-        )}
+        <span className="v23-im-h">
+          {m.kind === "youtube" ? (
+            <img src={m.poster} alt={`${client} — ${m.title}`} />
+          ) : (
+            <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+          )}
+        </span>
+        <span className="v23-im-hv"><img src={m.poster} alt="" loading="lazy" /></span>
         <span className="v23-play" aria-hidden="true" />
       </button>
     </div>
