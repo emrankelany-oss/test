@@ -1,0 +1,104 @@
+/* ============================================================================
+   PORTFOLIO V24 — Final version. Brand prismatic gradient + Montserrat.
+   Black canvas, white type, bold titles. Scoped under .v24-page.
+   ========================================================================== */
+.v24-page {
+  --v24-black: #000000;
+  --v24-ink: #ffffff;
+  --v24-dim: #9aa0aa;
+  --v24-blue: #0033a0;
+  --v24-red: #d22730;
+  --v24-beige: #d7d2c4;
+  /* spectrum stops (brand hero gradient) */
+  --v24-s1: #02146c; --v24-s2: #033da2; --v24-s3: #027eca;
+  --v24-s4: #24c3db; --v24-s5: #4dd4c8; --v24-s6: #f8e557;
+  --v24-s7: #f5a422; --v24-s8: #da210c; --v24-s9: #c41e5a;
+  --v24-pad: clamp(20px, 5.6vw, 120px);
+  --v24-gut: clamp(16px, 3vw, 56px);
+  --ease: cubic-bezier(0.55, 0, 0.1, 1);
+  --font-title: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+
+  position: relative;
+  background: var(--v24-black);
+  color: var(--v24-ink);
+  font-family: var(--font-title);
+}
+
+/* lock scroll while preloader runs */
+html.v24-loading { overflow: hidden; }
+
+/* ── typography ─────────────────────────────────────────────────────────── */
+.v24-title { font-weight: 900; letter-spacing: -0.02em; line-height: 0.98; margin: 0; }
+.v24-subtitle { font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+.v24-body { font-weight: 500; line-height: 1.5; color: var(--v24-dim); }
+.v24-eyebrow {
+  font-weight: 700; font-size: 12px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--v24-dim); margin: 0;
+}
+
+/* ── layout shells ──────────────────────────────────────────────────────── */
+.v24-section { position: relative; z-index: 1; padding: clamp(64px, 12vh, 160px) var(--v24-pad); }
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.v24-hero { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; gap: clamp(28px, 5vh, 64px); }
+.v24-hero-title { font-size: clamp(40px, 8.5vw, 132px); max-width: 16ch; }
+.v24-hero-media { width: 100%; aspect-ratio: 16 / 8; border-radius: 14px; overflow: hidden; }
+.v24-hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── stats band ─────────────────────────────────────────────────────────── */
+.v24-statsband { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--v24-gut); border-top: 1px solid #1b1b1b; border-bottom: 1px solid #1b1b1b; padding: clamp(28px,5vh,56px) 0; }
+.v24-stat-metric { font-size: clamp(34px, 5vw, 72px); font-weight: 900; letter-spacing: -0.03em; }
+.v24-stat-label { font-size: 13px; font-weight: 700; color: var(--v24-dim); margin-top: 6px; }
+
+/* ── category group ─────────────────────────────────────────────────────── */
+.v24-cat { padding-top: clamp(48px, 9vh, 120px); }
+.v24-cat-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: clamp(28px, 5vh, 56px); }
+.v24-cat-label { font-size: clamp(24px, 4vw, 52px); font-weight: 900; letter-spacing: -0.02em; }
+.v24-cat-count { font-size: 14px; font-weight: 700; color: var(--v24-dim); }
+.v24-rows { display: flex; flex-direction: column; gap: clamp(48px, 9vh, 120px); }
+
+/* ── work row (50/50) ───────────────────────────────────────────────────── */
+.v24-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v24-gut); align-items: center; }
+.v24-row.media-right .v24-row-media { order: 2; }
+.v24-row-media { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #0a0a0a; }
+.v24-row-media video, .v24-row-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v24-row-info { display: flex; flex-direction: column; gap: 16px; }
+.v24-row-client { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--v24-s4); }
+.v24-row-title { font-size: clamp(24px, 3.4vw, 46px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.02; }
+.v24-row-desc { font-size: clamp(14px, 1.1vw, 17px); font-weight: 500; line-height: 1.55; color: var(--v24-dim); max-width: 52ch; }
+.v24-row-stats { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 28px; margin-top: 8px; }
+.v24-rs-metric { font-size: clamp(22px, 2.4vw, 34px); font-weight: 900; letter-spacing: -0.02em; }
+.v24-rs-label { font-size: 12px; font-weight: 700; color: var(--v24-dim); margin-top: 4px; }
+
+/* ── Ken-Burns for stills ───────────────────────────────────────────────── */
+.v24-kenburns { animation: v24kb 18s ease-in-out infinite alternate; transform-origin: center; }
+@keyframes v24kb { from { transform: scale(1.0); } to { transform: scale(1.12) translate(2%, -2%); } }
+
+/* ── reveal (bidirectional fade) ────────────────────────────────────────── */
+.v24-rv { opacity: 0; transform: translateY(24px); will-change: opacity, transform; }
+
+/* ── gradient field ─────────────────────────────────────────────────────── */
+.v24-gradient-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.v24-gradient-field canvas { width: 100%; height: 100%; display: block; mix-blend-mode: screen; }
+.v24-gradient-field::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 120% at 50% 40%, transparent 55%, rgba(0,0,0,0.55) 100%); }
+
+/* ── preloader (ported from V23, v24-namespaced) ────────────────────────── */
+.v24-preloader { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; background: #000; }
+.v24-pl-stage { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.v24-pl-logo { width: clamp(220px, 36vw, 520px); height: auto; }
+.v24-logo-stroke { fill: none; stroke: #fff; stroke-width: 2; }
+.v24-preloader.is-filled .v24-logo-stroke { fill: #fff; transition: fill 0.5s ease; }
+.v24-pl-count { font-weight: 900; font-size: 14px; letter-spacing: 0.1em; color: var(--v24-dim); }
+.v24-pl-count i { font-style: normal; opacity: 0.6; }
+
+/* ── responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .v24-row { grid-template-columns: 1fr; }
+  .v24-row.media-right .v24-row-media { order: 0; }
+  .v24-statsband { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v24-rv { opacity: 1 !important; transform: none !important; }
+  .v24-kenburns { animation: none; }
+}
