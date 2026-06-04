@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import V24Media from "./V24Media";
 import { statsFor, mediaFor, descFor } from "./data";
 import { useV24Reveal } from "./useV24Reveal";
@@ -12,7 +12,7 @@ export default function V24WorkRow({ project, index }) {
   useV24Reveal(infoRef);
   useV24Reveal(mediaRef);
 
-  const media = mediaFor(project);
+  const media = useMemo(() => mediaFor(project), [project]);
   const stats = statsFor(project);
   const mediaRight = index % 2 === 1;
 

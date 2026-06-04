@@ -61,17 +61,18 @@ export default function V24GradientField() {
       ctx.restore();
     };
 
-    let raf = 0, t = 0;
-    const frame = () => {
-      t += 1 / 60;
+    let raf = 0, t = 0, t0 = 0;
+    const frame = (now) => {
+      if (!t0) t0 = now || 0;
+      t = ((now || 0) - t0) / 1000; // seconds since first frame
       ctx.clearRect(0, 0, W, H);
       drawBeam(t);
       blob(t, 0.0, ["#027eca", "#24c3db"]);
       blob(t, 2.4, ["#da210c", "#f5a422"]);
       if (!reduce) raf = requestAnimationFrame(frame);
     };
-    frame();
-    if (reduce) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(frame);
+    if (reduce) { cancelAnimationFrame(raf); frame(0); }
 
     const onVis = () => {
       if (document.hidden) cancelAnimationFrame(raf);
