@@ -10,9 +10,9 @@ export default function V24Hero() {
 
   return (
     <section className="v24-section v24-hero" data-v24-section="hero">
-      <p className="v24-eyebrow">The Motion Agency — Final Showcase</p>
+      <p className="v24-eyebrow">The Motion Agency — Riyadh · Amman</p>
       <h1 ref={titleRef} className="v24-title v24-hero-title v24-rv">
-        Where strategy meets bold storytelling.
+        We don't just design — we bring brands into motion.
       </h1>
       <div ref={mediaRef} className="v24-hero-media v24-rv">
         <video poster="/assets/v5/slide8-poster.jpg" autoPlay muted loop playsInline aria-hidden="true">
