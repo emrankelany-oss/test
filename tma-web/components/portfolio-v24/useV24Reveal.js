@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 // Fade-up on enter, fade-down on leave (bidirectional, scroll-scrubbed).
 // Subtle: opacity 0->1, y 24px->0. Reduced-motion shows content immediately.
