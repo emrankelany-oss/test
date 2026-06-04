@@ -58,7 +58,12 @@ function FeaturedBlock({ data }) {
         const ims = panel.querySelectorAll(".v24-im");
         gsap.fromTo(ims, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out", stagger: 0.08 });
       }
-      const onEnd = () => { panel.style.height = "auto"; ScrollTrigger.refresh(); panel.removeEventListener("transitionend", onEnd); };
+      const onEnd = (e) => {
+        if (e.target !== panel || e.propertyName !== "height") return;
+        panel.style.height = "auto";
+        ScrollTrigger.refresh();
+        panel.removeEventListener("transitionend", onEnd);
+      };
       panel.addEventListener("transitionend", onEnd);
     } else {
       panel.style.height = `${panel.scrollHeight}px`;
