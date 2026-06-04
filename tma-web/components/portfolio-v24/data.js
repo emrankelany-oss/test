@@ -46,7 +46,7 @@ function buildFeatured(slug) {
     }
     return { kind: "video", src: f.src, poster: f.poster, title: f.title, group: f.group, ...box };
   });
-  return { slug, client: project.client, title: project.title, tagline: project.tagline, intro: project.intro, results: project.results || [], media };
+  return { slug, client: project.client, title: project.title, tagline: project.tagline, intro: project.intro, results: project.results || [], solution: project.solution || [], media };
 }
 
 export const FEATURED = FEATURED_SLUGS.map(buildFeatured).filter(Boolean);

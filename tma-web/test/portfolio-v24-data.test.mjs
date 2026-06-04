@@ -72,6 +72,12 @@ test("FEATURED: foodics has 7 films, zid 2; each media has poster + src|youtubeI
   assert.ok(f.results.some((r) => /35\.6%/.test(r.metric)), "foodics real KPI present");
 });
 
+test("FEATURED entries carry a solution array", () => {
+  for (const f of FEATURED) assert.ok(Array.isArray(f.solution));
+  const foodics = FEATURED.find((x) => x.slug === "foodics-boundless");
+  assert.ok(foodics.solution.length >= 1);
+});
+
 test("GALAXY_STOPS: >=10 hex colors", () => {
   assert.ok(GALAXY_STOPS.length >= 10);
   for (const c of GALAXY_STOPS) assert.match(c, /^#[0-9A-Fa-f]{6}$/);

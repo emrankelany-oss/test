@@ -119,14 +119,17 @@ html.v24-loading { overflow: hidden; }
 /* ── featured film sections (Foodics / Zid) ─────────────────────────────── */
 .v24-featured { display: flex; flex-direction: column; gap: clamp(72px, 12vh, 160px); }
 .v24-feat { display: flex; flex-direction: column; gap: clamp(20px, 3.5vh, 44px); }
-.v24-feat-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--v24-gut); align-items: end; }
-.v24-feat-title { font-size: clamp(28px, 4.6vw, 64px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.0; margin: 0; max-width: 18ch; }
-.v24-feat-intro { font-size: clamp(14px, 1.1vw, 17px); font-weight: 500; line-height: 1.6; color: var(--v24-dim); margin: 0 0 18px; max-width: 56ch; }
+.v24-feat-head { display: flex; flex-direction: column; gap: 10px; }
+.v24-feat-title { font-size: clamp(28px, 4.6vw, 64px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.0; margin: 0; max-width: 22ch; }
+
+.v24-feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v24-gut); align-items: center; }
+.v24-feat-media { display: flex; flex-direction: column; }
+.v24-feat-side { display: flex; flex-direction: column; gap: clamp(18px, 2.4vw, 30px); }
+.v24-feat-intro { font-size: clamp(14px, 1.15vw, 18px); font-weight: 500; line-height: 1.6; color: var(--v24-dim); margin: 0; max-width: 52ch; }
 .v24-feat-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; }
-.v24-feat-stats .m { display: block; font-size: clamp(22px, 2.6vw, 38px); font-weight: 900; letter-spacing: -0.02em; }
+.v24-feat-stats .m { display: block; font-size: clamp(24px, 3vw, 44px); font-weight: 900; letter-spacing: -0.02em; }
 .v24-feat-stats .l { display: block; font-size: 12px; font-weight: 700; color: var(--v24-dim); margin-top: 4px; }
 
-.v24-feat-lead { border-radius: 14px; }
 .v24-el-cap { display: flex; justify-content: space-between; gap: 12px; padding: 10px 2px 0; font-size: 12px; font-weight: 700; }
 .v24-el-cap .c { color: var(--v24-dim); }
 
@@ -142,19 +145,37 @@ html.v24-loading { overflow: hidden; }
 .v24-more-ic { width: 16px; height: 16px; position: relative; }
 .v24-more-ic::before, .v24-more-ic::after { content: ""; position: absolute; background: #fff; left: 50%; top: 50%; }
 .v24-more-ic::before { width: 14px; height: 2px; transform: translate(-50%, -50%); }
-.v24-more-ic::after { width: 2px; height: 14px; transform: translate(-50%, -50%); transition: transform 0.3s ease; }
-.v24-feat.is-open .v24-more-ic::after { transform: translate(-50%, -50%) scaleY(0); }
+.v24-more-ic::after { width: 2px; height: 14px; transform: translate(-50%, -50%); }
 
-.v24-feat-rest { height: 0; overflow: hidden; transition: height 0.6s var(--ease); }
-.v24-els { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--v24-gut); padding-top: clamp(20px, 4vh, 40px); }
-.v24-el { grid-column: span 2; }
-.v24-el-1 { grid-column: span 4; }
-.v24-el-2 { grid-column: span 2; }
+/* films modal — all films, each a 50/50 row */
+.v24-films { position: fixed; inset: 0; z-index: 9500; display: grid; place-items: center; padding: clamp(12px, 3vw, 48px); }
+.v24-films-scrim { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(2,4,12,0.85); backdrop-filter: blur(8px); cursor: pointer; }
+.v24-films-frame { position: relative; width: min(1200px, 94vw); max-height: 90vh; overflow-y: auto; border-radius: 16px; background: #07090f; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 120px rgba(0,0,0,0.6); padding: clamp(20px, 3vw, 44px); animation: v24filmrise 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+.v24-films-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; position: sticky; top: 0; padding-bottom: clamp(18px, 3vh, 32px); }
+.v24-films-title { font-size: clamp(24px, 3.4vw, 44px); font-weight: 900; letter-spacing: -0.02em; margin: 4px 0 0; }
+.v24-films-close { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px; cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
+.v24-films-close:hover { transform: scale(1.06); background: rgba(255,255,255,0.12); }
+.v24-films-list { display: flex; flex-direction: column; gap: clamp(28px, 5vh, 56px); }
+.v24-films-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v24-gut); align-items: center; }
+.v24-films-row.alt .v24-films-media { order: 2; }
+.v24-films-media { position: relative; width: 100%; border: 0; padding: 0; margin: 0; border-radius: 12px; overflow: hidden; background: #0a0a0a; cursor: pointer; }
+.v24-films-media video, .v24-films-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v24-films-info { display: flex; flex-direction: column; gap: 10px; }
+.v24-films-group { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--v24-s4, #24c3db); }
+.v24-films-ftitle { font-size: clamp(18px, 2vw, 28px); font-weight: 900; letter-spacing: -0.01em; line-height: 1.05; margin: 0; }
+.v24-films-desc { font-size: 14px; font-weight: 500; line-height: 1.55; color: var(--v24-dim); margin: 0; max-width: 50ch; }
+.v24-films-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 6px 0 0; padding: 0; }
+.v24-films-stats .m { display: block; font-size: clamp(18px, 1.8vw, 26px); font-weight: 900; letter-spacing: -0.01em; }
+.v24-films-stats .l { display: block; font-size: 10px; font-weight: 700; color: var(--v24-dim); margin-top: 2px; }
+
 @media (max-width: 860px) {
-  .v24-feat-head { grid-template-columns: 1fr; }
-  .v24-els { grid-template-columns: 1fr; }
-  .v24-el, .v24-el-1, .v24-el-2 { grid-column: auto; }
+  .v24-feat-head { }
+  .v24-feat-grid { grid-template-columns: 1fr; }
+  .v24-feat-stats { grid-template-columns: repeat(2, 1fr); }
+  .v24-films-row { grid-template-columns: 1fr; }
+  .v24-films-row.alt .v24-films-media { order: 0; }
 }
+@media (prefers-reduced-motion: reduce) { .v24-films-frame { animation: none; } }
 /* ── work grid (asymmetric editorial, premium) ─────────────────────────── */
 .v24-wgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--v24-gut); }
 .v24-wcell-4 { grid-column: span 4; }

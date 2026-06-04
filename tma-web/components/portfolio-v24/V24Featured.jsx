@@ -1,12 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 import { FEATURED } from "./data";
 import { useV24Reveal } from "./useV24Reveal";
 import { openFilm } from "./useV24Lightbox";
-
-if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
+import { openFilms } from "./useV24FilmsModal";
 
 const filmOf = (m, client) =>
   m.kind === "youtube"
@@ -46,87 +43,41 @@ function FilmCell({ m, client, lead = false }) {
 }
 
 function FeaturedBlock({ data }) {
-  const [open, setOpen] = useState(false);
   const titleRef = useRef(null);
-  const leadRef = useRef(null);
-  const restRef = useRef(null);
+  const gridRef = useRef(null);
   useV24Reveal(titleRef, { start: "top 90%", end: "top 62%" });
-  useV24Reveal(leadRef, { start: "top 88%", end: "top 58%" });
+  useV24Reveal(gridRef, { start: "top 88%", end: "top 56%" });
 
   const leadIndex = Math.max(0, data.media.findIndex((m) => m.kind === "video"));
   const lead = data.media[leadIndex] || data.media[0];
-  const rest = data.media.filter((_, i) => i !== leadIndex);
-
-  const toggle = () => {
-    const next = !open;
-    setOpen(next);
-    const panel = restRef.current;
-    if (!panel) return;
-    if (next) {
-      panel.style.height = `${panel.scrollHeight}px`;
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!reduce) {
-        const ims = panel.querySelectorAll(".v24-im");
-        gsap.fromTo(ims, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out", stagger: 0.08 });
-      }
-      const onEnd = (e) => {
-        if (e.target !== panel || e.propertyName !== "height") return;
-        panel.style.height = "auto";
-        ScrollTrigger.refresh();
-        panel.removeEventListener("transitionend", onEnd);
-      };
-      panel.addEventListener("transitionend", onEnd);
-    } else {
-      panel.style.height = `${panel.scrollHeight}px`;
-      requestAnimationFrame(() => { panel.style.height = "0px"; });
-      ScrollTrigger.refresh();
-    }
-  };
 
   return (
-    <article className={`v24-feat${open ? " is-open" : ""}`} data-v24-featured={data.slug}>
+    <article className="v24-feat" data-v24-featured={data.slug}>
       <header className="v24-feat-head">
-        <div className="v24-feat-headl">
-          <p className="v24-eyebrow">{data.client} — Featured Case</p>
-          <h2 ref={titleRef} className="v24-feat-title v24-rv">
-            {data.title}. {data.tagline}.
-          </h2>
-        </div>
-        <div className="v24-feat-meta">
-          {data.intro ? <p className="v24-feat-intro">{data.intro}</p> : null}
-          {data.results?.length ? (
-            <ul className="v24-feat-stats">
-              {data.results.slice(0, 4).map((r, i) => (
-                <li key={i}><span className="m">{r.metric}</span><span className="l">{r.label}</span></li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
+        <p className="v24-eyebrow">{data.client} — Featured Case</p>
+        <h2 ref={titleRef} className="v24-feat-title v24-rv">{data.title}. {data.tagline}.</h2>
       </header>
 
-      <div className="v24-feat-lead v24-rv" ref={leadRef}>
-        <FilmCell m={lead} client={data.client} lead />
-        <div className="v24-el-cap"><span className="t">{lead.title}</span><span className="c">{lead.group}</span></div>
-      </div>
-
-      {rest.length ? (
-        <>
-          <button type="button" className="v24-more-bt" data-magnetic data-cursor="blob" aria-expanded={open} onClick={toggle}>
-            <span className="v24-more-ic" aria-hidden="true" />
-            {open ? "Hide films" : `View all ${data.media.length} films`}
-          </button>
-          <div className="v24-feat-rest" ref={restRef} aria-hidden={!open}>
-            <div className="v24-els">
-              {rest.map((m, i) => (
-                <div key={i} className={`v24-el v24-el-${m.span || 2}`}>
-                  <FilmCell m={m} client={data.client} />
-                  <div className="v24-el-cap"><span className="t">{m.title}</span><span className="c">{m.group}</span></div>
-                </div>
+      <div className="v24-feat-grid v24-rv" ref={gridRef}>
+        <div className="v24-feat-media">
+          <FilmCell m={lead} client={data.client} lead />
+          <div className="v24-el-cap"><span className="t">{lead.title}</span><span className="c">{lead.group}</span></div>
+        </div>
+        <div className="v24-feat-side">
+          {data.intro ? <p className="v24-feat-intro">{data.intro}</p> : null}
+          {data.results?.length ? (
+            <dl className="v24-feat-stats">
+              {data.results.slice(0, 4).map((r, i) => (
+                <div key={i}><dd className="m">{r.metric}</dd><dt className="l">{r.label}</dt></div>
               ))}
-            </div>
-          </div>
-        </>
-      ) : null}
+            </dl>
+          ) : null}
+          <button type="button" className="v24-more-bt" data-magnetic data-cursor="blob" onClick={() => openFilms(data)}>
+            <span className="v24-more-ic" aria-hidden="true" />
+            View all {data.media.length} films
+          </button>
+        </div>
+      </div>
     </article>
   );
 }

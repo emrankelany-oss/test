@@ -10,6 +10,7 @@ import V24Hero from "@/components/portfolio-v24/V24Hero";
 import V24StatsBand from "@/components/portfolio-v24/V24StatsBand";
 import V24Featured from "@/components/portfolio-v24/V24Featured";
 import V24VideoLightbox from "@/components/portfolio-v24/V24VideoLightbox";
+import V24FilmsModal from "@/components/portfolio-v24/V24FilmsModal";
 import V24Categories from "@/components/portfolio-v24/V24Categories";
 import "@/components/portfolio-v24/v24.css";
 
@@ -27,6 +28,7 @@ export default function PortfolioV24Page() {
       <SmoothScroll />
       <V23Cursor />
       <V24VideoLightbox />
+      <V24FilmsModal />
       <ClientShell enableScrolledNav />
       <Nav />
       <V24Hero />
