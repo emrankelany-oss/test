@@ -77,10 +77,9 @@ export function statsFor(project) {
   if (Array.isArray(project.results) && project.results.length) {
     return project.results.slice(0, 4);
   }
-  const stats = [
-    { metric: project.year, label: "Year" },
-    { metric: project.category, label: "Discipline" },
-  ];
+  const stats = [];
+  if (project.year) stats.push({ metric: project.year, label: "Year" });
+  if (project.category) stats.push({ metric: project.category, label: "Discipline" });
   if (Array.isArray(project.services) && project.services.length) {
     stats.push({ metric: String(project.services.length), label: "Services" });
   }

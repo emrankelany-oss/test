@@ -45,6 +45,14 @@ test("statsFor: a non-case-study returns factual meta stats", () => {
   assert.ok(!s.some((x) => /%/.test(x.metric)));
 });
 
+test("statsFor: missing-year project never emits an undefined metric", () => {
+  for (const p of Object.values(PROJECTS_BY_SLUG)) {
+    const s = statsFor(p);
+    assert.ok(s.every((x) => x.metric !== undefined && x.metric !== null && x.metric !== ""),
+      `undefined/empty metric for ${p.slug}`);
+  }
+});
+
 test("mediaFor: flagship with a film returns video; still otherwise returns image", () => {
   const v = mediaFor(PROJECTS_BY_SLUG["foodics-boundless"]);
   assert.equal(v.type, "video");
