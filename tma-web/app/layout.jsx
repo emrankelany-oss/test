@@ -1,4 +1,4 @@
-import { Inter_Tight, JetBrains_Mono, Caveat, Space_Grotesk } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono, Caveat, Space_Grotesk, Montserrat } from "next/font/google";
 import MasksSprite from "@/components/portfolio/MasksSprite";
 import "./globals.css";
 
@@ -31,6 +31,15 @@ const caveat = Caveat({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-caveat",
+});
+
+// Montserrat is the Gotham substitute for V24 (final version). Black/ExtraBold
+// titles, Bold/SemiBold sub-text, Medium body. Scoped under .v24-page in CSS.
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 export const metadata = {
@@ -78,7 +87,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable} ${caveat.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable} ${caveat.variable} ${spaceGrotesk.variable} ${montserrat.variable}`}>
       <body>
         <MasksSprite />
         {children}
