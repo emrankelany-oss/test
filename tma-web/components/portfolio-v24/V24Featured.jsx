@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FEATURED } from "./data";
@@ -14,6 +14,17 @@ const filmOf = (m, client) =>
     : { kind: "video", src: m.src, poster: m.poster, title: m.title, client };
 
 function FilmCell({ m, client, lead = false }) {
+  const vidRef = useRef(null);
+  useEffect(() => {
+    const v = vidRef.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); },
+      { threshold: 0.15 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
   return (
     <button
       type="button"
@@ -27,7 +38,7 @@ function FilmCell({ m, client, lead = false }) {
       {m.kind === "youtube" ? (
         <img src={m.poster} alt={`${client} — ${m.title}`} loading="lazy" />
       ) : (
-        <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+        <video ref={vidRef} src={m.src} poster={m.poster} muted loop playsInline preload="metadata" aria-hidden="true" />
       )}
       <span className="v24-play" aria-hidden="true" />
     </button>
