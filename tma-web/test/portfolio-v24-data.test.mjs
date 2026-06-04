@@ -6,6 +6,10 @@ import {
   statsFor,
   mediaFor,
   worksFor,
+  FEATURED,
+  GALAXY_STOPS,
+  hasVideo,
+  FEATURED_SLUGS,
 } from "../components/portfolio-v24/data.js";
 import { PROJECTS_BY_SLUG } from "../components/portfolio-v20/projects.js";
 
@@ -18,11 +22,13 @@ test("CATEGORIES: ordered, non-empty, unique keys", () => {
   }
 });
 
-test("every project lands in exactly one category (no drops, no dupes)", () => {
+test("taxonomy excludes featured; 27 others land in exactly one category", () => {
   const all = CATEGORIES.flatMap((c) => worksFor(c).map((w) => w.slug));
-  const slugs = Object.keys(PROJECTS_BY_SLUG);
-  assert.equal(new Set(all).size, all.length, "no project appears twice");
-  for (const s of slugs) assert.ok(all.includes(s), `missing ${s}`);
+  assert.equal(new Set(all).size, all.length, "no dupes");
+  for (const s of FEATURED_SLUGS) assert.ok(!all.includes(s), `${s} excluded from categories`);
+  const expected = Object.keys(PROJECTS_BY_SLUG).filter((s) => !FEATURED_SLUGS.includes(s));
+  for (const s of expected) assert.ok(all.includes(s), `missing ${s}`);
+  assert.equal(all.length, expected.length);
 });
 
 test("AGENCY_STATS holds the four deck numbers", () => {
@@ -53,11 +59,29 @@ test("statsFor: missing-year project never emits an undefined metric", () => {
   }
 });
 
-test("mediaFor: flagship with a film returns video; still otherwise returns image", () => {
-  const v = mediaFor(PROJECTS_BY_SLUG["foodics-boundless"]);
-  assert.equal(v.type, "video");
-  assert.ok(v.src && v.poster);
+test("FEATURED: foodics has 7 films, zid 2; each media has poster + src|youtubeId", () => {
+  assert.equal(FEATURED.length, 2);
+  const f = FEATURED.find((x) => x.slug === "foodics-boundless");
+  const z = FEATURED.find((x) => x.slug === "zid-ripple");
+  assert.equal(f.media.length, 7);
+  assert.equal(z.media.length, 2);
+  for (const m of [...f.media, ...z.media]) {
+    assert.ok(m.poster, "poster present");
+    assert.ok(m.src || m.youtubeId, "src or youtubeId present");
+  }
+  assert.ok(f.results.some((r) => /35\.6%/.test(r.metric)), "foodics real KPI present");
+});
+
+test("GALAXY_STOPS: >=10 hex colors", () => {
+  assert.ok(GALAXY_STOPS.length >= 10);
+  for (const c of GALAXY_STOPS) assert.match(c, /^#[0-9A-Fa-f]{6}$/);
+});
+
+test("mediaFor: video project returns video; image-only returns image", () => {
+  const v = mediaFor(PROJECTS_BY_SLUG["rubicon-exotic"]);
+  assert.equal(v.type, "video"); assert.ok(/media16/.test(v.src));
+  assert.ok(hasVideo(PROJECTS_BY_SLUG["rubicon-exotic"]));
   const i = mediaFor(PROJECTS_BY_SLUG["sol-brand"]);
-  assert.equal(i.type, "image");
-  assert.ok(i.src);
+  assert.equal(i.type, "image"); assert.ok(i.src);
+  assert.ok(!hasVideo(PROJECTS_BY_SLUG["sol-brand"]));
 });
