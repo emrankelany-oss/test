@@ -103,3 +103,15 @@ html.v24-loading { overflow: hidden; }
   .v24-rv { opacity: 1 !important; transform: none !important; }
   .v24-kenburns { animation: none; }
 }
+
+/* ── video lightbox ─────────────────────────────────────────────────────── */
+.v24-film { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: clamp(16px, 4vw, 64px); }
+.v24-film-scrim { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(2, 4, 12, 0.82); backdrop-filter: blur(8px); cursor: pointer; }
+.v24-film-frame { position: relative; width: min(1100px, 92vw); max-height: 86vh; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 40px 120px rgba(0,0,0,0.6); animation: v24filmrise 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes v24filmrise { from { opacity: 0; transform: translateY(24px) scale(0.98); } to { opacity: 1; transform: none; } }
+.v24-film-media { width: 100%; height: 100%; border: 0; display: block; object-fit: contain; background: #000; }
+.v24-film-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.45); color: #fff; font-size: 16px; cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
+.v24-film-close:hover { transform: scale(1.06); background: rgba(0,0,0,0.7); }
+.v24-film-title { position: absolute; left: 16px; bottom: 12px; margin: 0; font-weight: 800; font-size: 14px; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+.v24-film-title .c { font-weight: 700; opacity: 0.7; margin-right: 8px; }
+@media (prefers-reduced-motion: reduce) { .v24-film-frame { animation: none; } }
