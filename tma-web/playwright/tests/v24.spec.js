@@ -1,58 +1,82 @@
 import { test, expect } from "@playwright/test";
 
-const skipPreloader = (page) =>
-  page.addInitScript(() => { window.__V24_SKIP_PRELOADER = true; });
+const skip = (page) => page.addInitScript(() => { window.__V24_SKIP_PRELOADER = true; });
 
-test("hero renders the headline and eyebrow", async ({ page }) => {
-  await skipPreloader(page);
+test("hero shows the new headline", async ({ page }) => {
+  await skip(page);
   await page.goto("/portfolio-v24");
   await expect(page.locator(".v24-hero")).toBeVisible();
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(/storytelling/i);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/motion/i);
 });
 
-test("agency stats band shows the four real numbers", async ({ page }) => {
-  await skipPreloader(page);
+test("agency stats band shows the four numbers", async ({ page }) => {
+  await skip(page);
   await page.goto("/portfolio-v24");
-  const metrics = page.locator(".v24-statsband .v24-stat-metric");
-  await expect(metrics).toHaveCount(4);
-  await expect(metrics.nth(0)).toHaveText("178%");
+  const m = page.locator(".v24-statsband .v24-stat-metric");
+  await expect(m).toHaveCount(4);
+  await expect(m.nth(0)).toHaveText("178%");
 });
 
 test("gradient field canvas mounts", async ({ page }) => {
-  await skipPreloader(page);
+  await skip(page);
   await page.goto("/portfolio-v24");
   await expect(page.locator(".v24-gradient-field canvas")).toBeAttached();
 });
 
-test("every category group renders rows; rows are 50/50 with media + stats", async ({ page }) => {
-  await skipPreloader(page);
+test("two featured sections (Foodics, Zid) with real KPIs and a lead film", async ({ page }) => {
+  await skip(page);
   await page.goto("/portfolio-v24");
-  const groups = page.locator(".v24-cat");
-  await expect(groups.first()).toBeAttached();
-  const rows = page.locator(".v24-row");
-  expect(await rows.count()).toBeGreaterThanOrEqual(20);
-  const first = rows.first();
-  await expect(first.locator(".v24-row-media video, .v24-row-media img")).toHaveCount(1);
-  expect(await first.locator(".v24-rs-metric").count()).toBeGreaterThanOrEqual(3);
+  const feats = page.locator(".v24-feat");
+  await expect(feats).toHaveCount(2);
+  const foodics = feats.first();
+  await expect(foodics).toContainText(/Foodics/i);
+  await expect(foodics.locator(".v24-feat-stats")).toContainText(/35\.6%|32,000\+|\$1B/);
+  await expect(foodics.locator(".v24-feat-lead video")).toHaveCount(1);
 });
 
-test("Foodics row shows a real KPI", async ({ page }) => {
-  await skipPreloader(page);
+test("clicking a featured film opens the lightbox; ESC closes it", async ({ page }) => {
+  await skip(page);
   await page.goto("/portfolio-v24");
-  await expect(page.locator(".v24-row", { hasText: "Boundless" }).first()).toContainText(/35\.6%|32,000\+|\$1B/);
+  await page.locator(".v24-feat .v24-im-play").first().click();
+  await expect(page.locator(".v24-film")).toBeVisible();
+  await expect(page.locator(".v24-film-media")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".v24-film")).toHaveCount(0);
 });
 
-test("reveal: a deep row becomes visible after scrolling to it", async ({ page }) => {
-  await skipPreloader(page);
+test("'View all films' expands the rest on Foodics", async ({ page }) => {
+  await skip(page);
   await page.goto("/portfolio-v24");
-  const row = page.locator(".v24-row .v24-row-info").nth(6);
-  await row.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(500);
-  const opacity = await row.evaluate((el) => parseFloat(getComputedStyle(el).opacity));
-  expect(opacity).toBeGreaterThan(0.5);
+  const foodics = page.locator(".v24-feat").first();
+  const btn = foodics.locator(".v24-more-bt");
+  await expect(btn).toContainText(/view all/i);
+  const rest = foodics.locator(".v24-feat-rest");
+  const before = await rest.evaluate((el) => el.getBoundingClientRect().height);
+  await btn.click();
+  await page.waitForTimeout(800);
+  const after = await rest.evaluate((el) => el.getBoundingClientRect().height);
+  expect(after).toBeGreaterThan(before + 50);
 });
 
-test("preloader runs and reveals the page (no skip)", async ({ page }) => {
+test("category groups render the rest; no Foodics/Zid work cards", async ({ page }) => {
+  await skip(page);
+  await page.goto("/portfolio-v24");
+  const cats = page.locator(".v24-cat");
+  expect(await cats.count()).toBeGreaterThanOrEqual(3);
+  const cards = page.locator(".v24-wcard");
+  expect(await cards.count()).toBeGreaterThanOrEqual(20);
+});
+
+test("a work-grid video card opens the lightbox on click", async ({ page }) => {
+  await skip(page);
+  await page.goto("/portfolio-v24");
+  const vid = page.locator(".v24-wcard.is-video .v24-wcard-media").first();
+  await vid.scrollIntoViewIfNeeded();
+  await vid.click();
+  await expect(page.locator(".v24-film")).toBeVisible();
+});
+
+test("preloader runs and reveals (no skip)", async ({ page }) => {
   await page.goto("/portfolio-v24");
   await expect(page.locator(".v24-preloader")).toBeVisible();
   await expect(page.locator(".v24-preloader")).toHaveCount(0, { timeout: 16000 });
