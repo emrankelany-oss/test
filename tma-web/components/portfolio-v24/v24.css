@@ -87,6 +87,7 @@ html.v24-loading { overflow: hidden; }
 .v24-pl-stage { display: flex; flex-direction: column; align-items: center; gap: 22px; }
 .v24-pl-logo { width: clamp(220px, 36vw, 520px); height: auto; }
 .v24-logo-stroke { fill: none; stroke: #fff; stroke-width: 2; }
+.v24-logo-fill { fill: #fff; }
 .v24-preloader.is-filled .v24-logo-stroke { fill: #fff; transition: fill 0.5s ease; }
 .v24-pl-count { font-weight: 900; font-size: 14px; letter-spacing: 0.1em; color: var(--v24-dim); }
 .v24-pl-count i { font-style: normal; opacity: 0.6; }
