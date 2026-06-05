@@ -42,13 +42,15 @@ test("statsFor: Foodics returns real KPIs", () => {
   assert.ok(s.some((x) => /35\.6%/.test(x.metric)));
 });
 
-test("statsFor: a non-case-study returns factual meta stats", () => {
-  const p = PROJECTS_BY_SLUG["sol-brand"];
-  const s = statsFor(p);
-  assert.ok(s.length >= 3);
-  assert.ok(s.some((x) => x.metric === p.year), "year present");
-  assert.ok(s.some((x) => x.metric === p.category), "category present");
-  assert.ok(!s.some((x) => /%/.test(x.metric)));
+test("statsFor: every non-case-study returns a UNIFORM pair (Discipline + Services)", () => {
+  const FEATURED_SLUGS = new Set(["foodics-boundless", "zid-ripple"]);
+  for (const p of Object.values(PROJECTS_BY_SLUG)) {
+    if (FEATURED_SLUGS.has(p.slug) || (Array.isArray(p.results) && p.results.length)) continue;
+    const s = statsFor(p);
+    assert.equal(s.length, 2, `${p.slug} should have exactly 2 stats`);
+    assert.deepEqual(s.map((x) => x.label), ["Discipline", "Services"], `${p.slug} labels`);
+    assert.ok(!s.some((x) => /%/.test(x.metric)));
+  }
 });
 
 test("statsFor: missing-year project never emits an undefined metric", () => {

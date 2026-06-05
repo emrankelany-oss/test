@@ -13,10 +13,13 @@ export const AGENCY_STATS = [
   { metric: "29+", label: "Team & experience" },
 ];
 
-// Slide-7 (brand guidelines) gradient palette — a galaxy/nebula spread.
+// Exact brand iridescent-glass palette, median-cut quantized straight from the
+// official "Fluidity" blob (_slide10_img2.png) — the true vivid colours in the
+// order they read across the blob: electric blue → blue → cyan → bright cyan →
+// mint → white-yellow highlight → orange → red → deep red → wine/magenta.
 export const GALAXY_STOPS = [
-  "#184DE2", "#2667A9", "#5666C6", "#4D45AE", "#6A4193", "#743D8D",
-  "#903877", "#C43945", "#E94021", "#E87440", "#DDAB84", "#1A7B84",
+  "#042886", "#034B98", "#0368AD", "#168FBB", "#11B2D5", "#10DFEF",
+  "#A7E2DC", "#F6F6CE", "#E55D3B", "#E1151E", "#940C1C", "#42132C",
 ];
 
 // ── Featured deep studies (Foodics / Zid) ───────────────────────────────────
@@ -115,18 +118,16 @@ export function worksFor(category) {
 // ── Per-work stats ────────────────────────────────────────────────────────
 export function statsFor(project) {
   if (Array.isArray(project.results) && project.results.length) {
-    return project.results.slice(0, 4);
+    return project.results.slice(0, 4); // featured cases keep their real KPIs
   }
-  const stats = [];
-  if (project.year) stats.push({ metric: project.year, label: "Year" });
-  if (project.category) stats.push({ metric: project.category, label: "Discipline" });
-  if (Array.isArray(project.services) && project.services.length) {
-    stats.push({ metric: String(project.services.length), label: "Services" });
-  }
-  if (Array.isArray(project.gallery) && project.gallery.length) {
-    stats.push({ metric: String(project.gallery.length), label: "Deliverables" });
-  }
-  return stats;
+  // Every grid work shows the SAME two universally-present fields, in the same
+  // order, so the cards stay uniform (year exists on <half the works; category
+  // and services exist on all 27).
+  const services = Array.isArray(project.services) ? project.services.length : 0;
+  return [
+    { metric: project.category || "Creative", label: "Discipline" },
+    { metric: services ? String(services) : "—", label: "Services" },
+  ];
 }
 
 // ── Per-work media ──────────────────────────────────────────────────────────

@@ -1,0 +1,37 @@
+/* Throwaway preview page for the 4 V24 background-gradient options. */
+.go-page { position: relative; min-height: 100vh; background: #05060a; color: #fff;
+  font-family: var(--display), system-ui, sans-serif; }
+
+.go-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.go-bg canvas { width: 100%; height: 100%; display: block; mix-blend-mode: screen; }
+.go-bg-bold canvas { mix-blend-mode: normal; }
+
+/* parallax bands */
+.go-band { position: absolute; left: -20%; width: 140%; height: 44vh;
+  filter: blur(60px); opacity: 0.6; mix-blend-mode: screen; will-change: transform; }
+
+/* hue wash */
+.go-wash-layer { position: absolute; left: -10%; right: -10%; top: 0; height: 300%;
+  background: var(--grad); filter: blur(40px); opacity: 0.62; mix-blend-mode: screen;
+  transform: translateY(calc(var(--p, 0) * -66.6%)); will-change: transform; }
+
+/* toolbar */
+.go-toolbar { position: fixed; top: 16px; right: 16px; z-index: 20; display: flex; gap: 8px;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16); flex-wrap: wrap; max-width: calc(100vw - 32px); }
+.go-btn { padding: 9px 15px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
+  background: transparent; color: #fff; font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+  cursor: pointer; transition: background 0.2s ease, color 0.2s ease; white-space: nowrap; }
+.go-btn:hover { background: rgba(255,255,255,0.12); }
+.go-btn.is-on { background: #fff; color: #000; }
+
+/* scrollable content so the motion is visible */
+.go-content { position: relative; z-index: 1; }
+.go-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 0 8vw; }
+.go-kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; margin: 0; }
+.go-hero h1 { font-size: clamp(32px, 6.5vw, 96px); font-weight: 900; letter-spacing: -0.02em; line-height: 0.98; margin: 0; max-width: 16ch; }
+.go-hero p { font-size: 15px; font-weight: 500; opacity: 0.75; margin: 0; max-width: 50ch; }
+.go-sec { min-height: 86vh; display: flex; align-items: center; padding: 0 8vw; border-top: 1px solid rgba(255,255,255,0.08); }
+.go-sec h2 { font-size: clamp(24px, 4vw, 56px); font-weight: 800; letter-spacing: -0.01em; opacity: 0.88; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) { .go-band, .go-wash-layer { transition: none; } }

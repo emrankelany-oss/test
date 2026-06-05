@@ -25,10 +25,16 @@ export default function V24GradientField() {
     resize();
     window.addEventListener("resize", resize);
 
-    let scrollN = 0;
+    // Cache scroll position here (in the passive scroll handler) so the rAF
+    // render loop never reads layout-dependent geometry. Reading window.scrollY
+    // inside frame() forces a synchronous full-document layout every frame —
+    // catastrophic during the preloader reveal when the whole page first lays
+    // out, which starved GSAP's main-thread logo flight and caused the snap.
+    let scrollN = 0, curY = window.scrollY;
     const onScroll = () => {
+      curY = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      scrollN = max > 0 ? window.scrollY / max : 0;
+      scrollN = max > 0 ? curY / max : 0;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -86,12 +92,12 @@ export default function V24GradientField() {
       ctx.restore();
     };
 
-    let raf = 0, last = 0, phase = 0, vel = 0, lastY = window.scrollY;
+    let raf = 0, last = 0, phase = 0, vel = 0, lastY = curY;
     const frame = (now) => {
       now = now || 0;
       const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
       last = now;
-      const y = window.scrollY;
+      const y = curY; // cached in onScroll — never force layout in the render loop
       vel = vel * 0.88 + Math.abs(y - lastY); lastY = y;
       const swim = 1 + Math.min(vel * 0.04, 2.2); // scroll velocity accelerates the drift
       phase += dt * swim;

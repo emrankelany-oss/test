@@ -12,7 +12,8 @@ export default function V24Hero() {
     <section className="v24-section v24-hero" data-v24-section="hero">
       <p className="v24-eyebrow">The Motion Agency — Riyadh · Amman</p>
       <h1 ref={titleRef} className="v24-title v24-hero-title v24-rv">
-        We don't just design — we bring brands into motion.
+        We don't just design. We bring brands into{" "}
+        <em className="v24-ital">motion</em>.
       </h1>
       <div ref={mediaRef} className="v24-hero-media v24-rv">
         <video poster="/assets/v5/slide8-poster.jpg" autoPlay muted loop playsInline aria-hidden="true">

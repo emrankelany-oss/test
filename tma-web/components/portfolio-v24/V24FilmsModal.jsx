@@ -21,13 +21,12 @@ export default function V24FilmsModal() {
   }, [data, close]);
 
   if (!data || typeof document === "undefined") return null;
-  const solution = data.solution && data.solution.length ? data.solution : (data.intro ? [data.intro] : []);
-  const whatWeDid = (i) => (solution.length ? solution[i % solution.length] : "");
+  const kpis = data.results?.slice(0, 4) || [];
 
   return createPortal(
     <div className="v24-films" role="dialog" aria-modal="true" aria-label={`${data.client} — all films`}>
       <button className="v24-films-scrim" aria-label="Close" onClick={close} />
-      <div className="v24-films-frame">
+      <div className="v24-films-frame" data-lenis-prevent>
         <header className="v24-films-head">
           <div>
             <p className="v24-eyebrow">{data.client} — Case Study</p>
@@ -35,36 +34,43 @@ export default function V24FilmsModal() {
           </div>
           <button className="v24-films-close" onClick={close} aria-label="Close">✕</button>
         </header>
-        <div className="v24-films-list">
+
+        {(data.intro || kpis.length) ? (
+          <div className="v24-films-summary">
+            {data.intro ? <p className="v24-films-intro">{data.intro}</p> : <span />}
+            {kpis.length ? (
+              <dl className="v24-films-kpis">
+                {kpis.map((r, i) => (
+                  <div key={i}><dd className="m">{r.metric}</dd><dt className="l">{r.label}</dt></div>
+                ))}
+              </dl>
+            ) : null}
+          </div>
+        ) : null}
+
+        <h3 className="v24-films-subhead">{data.media.length} films in this case</h3>
+        <div className="v24-films-grid">
           {data.media.map((m, i) => (
-            <article key={i} className={`v24-films-row${i % 2 === 1 ? " alt" : ""}`}>
-              <button
-                type="button"
-                className="v24-films-media v24-im-play"
-                style={{ aspectRatio: "16 / 9" }}
-                onClick={() => openFilm(filmOf(m, data.client))}
-                aria-label={`Play ${data.client} — ${m.title}`}
-              >
+            <button
+              key={i}
+              type="button"
+              className="v24-films-tile v24-im-play"
+              onClick={() => openFilm(filmOf(m, data.client))}
+              aria-label={`Play ${data.client} — ${m.title}`}
+            >
+              <span className="v24-films-thumb" style={{ aspectRatio: "16 / 9" }}>
                 {m.kind === "youtube" ? (
                   <img src={m.poster} alt={`${data.client} — ${m.title}`} loading="lazy" />
                 ) : (
                   <video src={m.src} poster={m.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
                 )}
                 <span className="v24-play" aria-hidden="true" />
-              </button>
-              <div className="v24-films-info">
-                <span className="v24-films-group">{m.group}</span>
-                <h3 className="v24-films-ftitle">{m.title}</h3>
-                {whatWeDid(i) ? <p className="v24-films-desc">{whatWeDid(i)}</p> : null}
-                {data.results?.length ? (
-                  <dl className="v24-films-stats">
-                    {data.results.slice(0, 4).map((r, k) => (
-                      <div key={k}><dd className="m">{r.metric}</dd><dt className="l">{r.label}</dt></div>
-                    ))}
-                  </dl>
-                ) : null}
-              </div>
-            </article>
+              </span>
+              <span className="v24-films-cap">
+                {m.group ? <span className="v24-films-group">{m.group}</span> : null}
+                <span className="v24-films-ftitle">{m.title}</span>
+              </span>
+            </button>
           ))}
         </div>
       </div>

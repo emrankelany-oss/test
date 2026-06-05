@@ -10,6 +10,21 @@ const filmOf = (m, client) =>
     ? { kind: "youtube", youtubeId: m.youtubeId, title: m.title, client, poster: m.poster }
     : { kind: "video", src: m.src, poster: m.poster, title: m.title, client };
 
+// One italic accent word per featured case (the home/brand "MEETS" treatment).
+const ACCENT = { "foodics-boundless": "next", "zid-ripple": "era" };
+
+// Wrap a single word in the title with the italic accent, keep the rest plain.
+function withAccent(text, word) {
+  if (!word) return text;
+  const i = text.toLowerCase().indexOf(word.toLowerCase());
+  if (i < 0) return text;
+  return [
+    text.slice(0, i),
+    <em key="ital" className="v24-ital">{text.slice(i, i + word.length)}</em>,
+    text.slice(i + word.length),
+  ];
+}
+
 function FilmCell({ m, client, lead = false }) {
   const vidRef = useRef(null);
   useEffect(() => {
@@ -26,7 +41,7 @@ function FilmCell({ m, client, lead = false }) {
     <button
       type="button"
       className="v24-im v24-im-play"
-      style={{ aspectRatio: m.ratio || (lead ? "16 / 9" : "4 / 5") }}
+      style={{ aspectRatio: lead ? "16 / 9" : (m.ratio || "4 / 5") }}
       onClick={() => openFilm(filmOf(m, client))}
       aria-label={`Play ${client} — ${m.title}`}
       data-cursor="blob"
@@ -55,7 +70,7 @@ function FeaturedBlock({ data }) {
     <article className="v24-feat" data-v24-featured={data.slug}>
       <header className="v24-feat-head">
         <p className="v24-eyebrow">{data.client} — Featured Case</p>
-        <h2 ref={titleRef} className="v24-feat-title v24-rv">{data.title}. {data.tagline}.</h2>
+        <h2 ref={titleRef} className="v24-feat-title v24-rv">{data.title}. {withAccent(data.tagline, ACCENT[data.slug])}.</h2>
       </header>
 
       <div className="v24-feat-grid v24-rv" ref={gridRef}>
