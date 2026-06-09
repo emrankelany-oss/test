@@ -1,0 +1,545 @@
+/* ============================================================================
+   PORTFOLIO V26 — IMPACT BBDO /work grid, rebuilt in TMA's brand.
+   6-col editorial grid · hand-placed zig-zag modules · category filter.
+   Black canvas, white type, brand-spectrum accents. Scoped under .v26-page.
+   ========================================================================== */
+.v26-page {
+  /* ── TMA Brand Guidelines V2 ────────────────────────────────────────────
+     Colors: Blue (Pantone 286 C), Black, Red (Pantone 1795 C), Beige (7527 C).
+     Font: Gotham (Black/Ultra/Bold/Book) — Montserrat is the free substitute. */
+  --v26-black: #000000;
+  --v26-ink: #ffffff;
+  --v26-dim: #8f8a7e;             /* warm grey biased toward brand beige         */
+  --v26-line: rgba(255, 255, 255, 0.14);
+  --v26-blue: #0033a0;            /* Pantone 286 C — primary brand blue          */
+  --v26-red: #d2232a;             /* Pantone 1795 C — energetic accent           */
+  --v26-beige: #d7d2c4;           /* Pantone 7527 C — warm light                 */
+  --v26-accent: var(--v26-blue);  /* brand blue drives hover (consistent w/ homepage) */
+  --v26-font: "Gotham", var(--font-montserrat), "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --v26-pad: var(--pad);
+  --v26-col-gap: 20px;            /* source values                              */
+  --v26-row-gap: 32px;
+  --v26-row-tall: clamp(132px, 16vw, 240px);   /* source ~243px @1440           */
+  --v26-row-short: clamp(96px, 11vw, 158px);   /* source ~158px @1440           */
+  --v26-radius: 16px;
+  --ease-zoom: cubic-bezier(0.4, 0, 0.2, 1);   /* source image-zoom ease        */
+  --ease: cubic-bezier(0.55, 0, 0.1, 1);
+
+  position: relative;
+  background: var(--v26-black);
+  color: var(--v26-ink);
+  font-family: var(--v26-font);   /* brand font (Gotham → Montserrat) */
+  overflow-x: hidden;
+}
+
+.v26-section { position: relative; z-index: 1; padding: clamp(56px, 9vh, 132px) var(--v26-pad); }
+
+/* ── Contact CTA: keep the site's display font, not the v26 grid font ──────────
+   .v26-page sets font-family on the whole page, which otherwise cascades into
+   the shared Contact section and changes its type. Restore the original. */
+.v26-page .contact,
+.v26-page .contact-headline { font-family: var(--display); }
+/* "BOLD STORIES" stays in the same bold sans, just obliqued — the global .ital
+   rule would otherwise force a serif italic. */
+.v26-page .contact-headline .ital { font-family: var(--display); font-style: italic; font-weight: 800; }
+
+/* ── Footer wordmark: keep the site's display font, not the v26 grid font. The
+   Montserrat fallback is wider, so at 22vw it overflowed and clipped "THE / MO…"
+   instead of bleeding off like the original. var(--display) restores it. ───── */
+.v26-page .footer-mega { font-family: var(--display); }
+
+/* ── V23 cursor is portaled to <body>; v26 doesn't load v23.css, so without a
+   position it renders static and stretches the page (white space under the
+   footer). Fixing it pulls it out of flow and removes the gap. ─────────────── */
+.v23-cursor { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 14px; height: 14px; }
+/* v26 doesn't use the "Drag"/blob cursor affordances; without v23.css their
+   hide rules are absent, so the "Drag" label trails the pointer. Remove them. */
+.v23-cursor-pill, .v23-cursor-blob { display: none !important; }
+
+.v26-eyebrow {
+  font-family: var(--v26-font); font-weight: 700; font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--v26-dim); margin: 0 0 18px;
+}
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.v26-hero { padding-top: clamp(120px, 20vh, 220px); padding-bottom: clamp(20px, 3vh, 44px); }
+.v26-hero-title-wrap {
+  margin: 0; display: block; overflow: hidden;       /* the rise clip-mask */
+  line-height: 0.82;
+}
+.v26-hero-title {
+  display: inline-block;
+  font-weight: 900;
+  font-size: clamp(64px, 13vw, 190px);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  color: #ffffff;                 /* plain white, over the brand gradient backdrop */
+  transform: translateY(108%);
+  animation: v26-rise 1s var(--ease) 0.12s forwards;
+}
+@keyframes v26-rise { to { transform: translateY(0); } }
+.v26-hero-intro {
+  margin: clamp(20px, 3vh, 40px) 0 0; max-width: 52ch;
+  font-weight: 500; font-size: clamp(15px, 1.5vw, 20px); line-height: 1.5; color: var(--v26-ink);
+}
+/* Hero copy is all white (eyebrow + intro), per request. */
+.v26-hero .v26-eyebrow { color: var(--v26-ink); }
+
+/* ── "Subtle Aurora" brand backdrop ─────────────────────────────────────────
+   Three soft, heavily-blurred radial glows in the exact TMA brand palette:
+     A = Brand Blue  #0033a0   (deep, professional – top-left)
+     B = Brand Red   #d2232a   (energetic, warm – bottom-right)
+     C = Brand Beige #d7d2c4   (warm amber accent – bottom-left)
+   Screen-blended at low opacity (~18 %) so they whisper, not shout.
+   Each orb parallaxes at a different speed (driven by --sp = scrollY)
+   to create gentle depth. The overall effect is a living, breathing aurora.
+
+   ── REVERT: to restore the previous look, replace this whole block with:
+   ── glow-a: #0a93c4→#033a8e, 58vw, left:-12vw, top:6vh, speed -0.10
+   ── glow-b: #ff7a12→#e21320→#c7247f, 52vw, right:-10vw, top:34vh, speed -0.05
+   ── remove glow-c entirely, set opacity back to 0.22
+   ────────────────────────────────────────────────────────────────────────── */
+.v26-backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.v26-glow {
+  position: absolute; border-radius: 50%;
+  filter: blur(120px); opacity: 0.18; mix-blend-mode: screen; will-change: transform;
+}
+
+/* Brand Blue orb — large, top-left, slowest drift */
+.v26-glow-a {
+  width: 62vw; height: 62vw; left: -14vw; top: -4vh;
+  background: radial-gradient(circle at 50% 50%,
+    #1a5fcc 0%,          /* lighter blue core for subtle glow */
+    #0033a0 38%,          /* brand blue mid                     */
+    #001d5e 62%,          /* deep navy edge                     */
+    transparent 75%);
+  transform: translate3d(0, calc(var(--sp, 0) * -0.06px), 0);
+}
+
+/* Brand Red orb — bottom-right, medium drift */
+.v26-glow-b {
+  width: 50vw; height: 50vw; right: -8vw; top: 40vh;
+  background: radial-gradient(circle at 50% 50%,
+    #e8453e 0%,           /* warm red core                      */
+    #d2232a 36%,          /* brand red mid                      */
+    #8a1018 60%,          /* deep crimson edge                  */
+    transparent 78%);
+  transform: translate3d(0, calc(var(--sp, 0) * -0.10px), 0);
+}
+
+/* Warm Beige/Amber accent — bottom-left, fastest drift for parallax depth */
+.v26-glow-c {
+  width: 38vw; height: 38vw; left: 8vw; bottom: -6vh;
+  background: radial-gradient(circle at 50% 50%,
+    #e8d9c0 0%,           /* warm beige core                    */
+    #d7d2c4 40%,          /* brand beige mid                    */
+    #a89a84 64%,          /* muted sand edge                    */
+    transparent 80%);
+  opacity: 0.10;          /* beige is lighter, so keep it even more subtle */
+  transform: translate3d(0, calc(var(--sp, 0) * -0.15px), 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v26-glow { transform: none !important; }
+}
+
+/* ── filter bar (filter-pill-state-transition) ─────────────────────────────── */
+.v26-work { padding-top: clamp(24px, 4vh, 48px); }
+.v26-filter {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: clamp(28px, 4vh, 48px);
+  padding-bottom: 22px; border-bottom: 1px solid var(--v26-line);
+}
+.v26-pill {
+  font-family: var(--v26-font); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--v26-ink); background: transparent;
+  border: 1px solid var(--v26-line); border-radius: 999px;
+  padding: 9px 18px; transition: color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+}
+.v26-pill:hover { color: var(--v26-ink); border-color: rgba(255,255,255,0.4); }
+.v26-pill.is-active { color: #06121a; background: var(--v26-ink); border-color: var(--v26-ink); }
+
+/* ── the grid (6-col, hand-placed cells, two-tier rows) ────────────────────── */
+.v26-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  /* Cycle the implicit row heights tall,tall,tall,tall,short,short — one cycle
+     per 6-row module — so squares sit shorter than the wides, like the source. */
+  grid-auto-rows: var(--v26-row-tall) var(--v26-row-tall) var(--v26-row-tall) var(--v26-row-tall) var(--v26-row-short) var(--v26-row-short);
+  column-gap: var(--v26-col-gap);
+  row-gap: var(--v26-row-gap);
+  transition: opacity 0.3s var(--ease);
+}
+.v26-grid.is-swapping { opacity: 0; }
+
+/* ── card ──────────────────────────────────────────────────────────────────── */
+.v26-card {
+  position: relative; min-width: 0;
+  align-self: stretch;        /* fill the full grid-row span so same-end-row cards bottom-align */
+  /* 2-row grid: media fills (1fr), caption is its natural height flush below.
+     Deterministic — no flex space-distribution gap — so every caption sits the
+     SAME distance above the card bottom, and same-end-row cards caption-align. */
+  display: grid; grid-template-rows: 1fr auto;
+  /* Reveal is OPACITY-ONLY (no transform): cards never move from their exact
+     grid cell, so captions of same-end-row cards are always perfectly aligned
+     regardless of reveal timing. GSAP scrubs the opacity (V26WorkGrid), so no
+     CSS transition here — it would lag the scroll-scrubbed fade. */
+  opacity: 0;
+}
+.v26-card.is-in { opacity: 1; }
+.v26-card-media {
+  position: relative; min-height: 0; height: 100%;   /* FILL the 1fr row (don't size to the image), so the caption sits flush at the card bottom on every card → same-end-row captions align */
+  overflow: hidden; border-radius: var(--v26-radius);
+  background: #0c0e12;
+}
+.v26-card-media img,
+.v26-card-media video {
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+  transition: transform 800ms var(--ease-zoom);
+}
+.v26-card:hover .v26-card-media img,
+.v26-card:hover .v26-card-media video { transform: scale(1.25); }
+
+/* play affordance on video tiles */
+.v26-play {
+  position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: transform .3s var(--ease), background .3s var(--ease);
+}
+.v26-play::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0;
+  border-left: 11px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+  transform: translateX(2px);
+}
+.v26-card.is-video:hover .v26-play { transform: scale(1.12); background: var(--v26-accent); }
+
+/* Caption below the media — IDENTICAL structure on every card (title · thin
+   rule · client + discipline) so the whole grid stays consistent. flex-shrink:0
+   keeps it a fixed block at the bottom of the cell; the media takes the rest. */
+.v26-card-caption { flex: 0 0 auto; padding: 13px 2px 0; }
+.v26-card-title {
+  margin: 0; font-weight: 700; letter-spacing: -0.01em; line-height: 1.12;
+  font-size: clamp(17px, 1.4vw, 21px);
+  /* single line on every card → every caption is the same height → captions of
+     cards sharing a bottom row stay on one line. Long titles ellipsize. */
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .3s var(--ease);
+}
+.v26-underline {
+  display: block; height: 1px; width: 100%; margin-top: 9px; background: var(--v26-line);
+  transition: height .3s var(--ease), background .3s var(--ease);
+}
+.v26-card-sub {
+  display: flex; flex-wrap: nowrap; align-items: baseline; gap: 6px 12px;
+  margin: 9px 0 0; overflow: hidden;
+  font-family: var(--v26-font); font-weight: 600; font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.v26-card-sub > span { overflow: hidden; text-overflow: ellipsis; }
+.v26-card-client { color: var(--v26-ink); }
+.v26-card-cat { color: var(--v26-dim); }
+.v26-card-cat::before { content: "·"; margin-right: 10px; color: var(--v26-dim); }
+
+.v26-card:hover .v26-card-title { color: var(--v26-ink); }
+.v26-card:hover .v26-underline { height: 2px; background: var(--v26-ink); }
+.v26-card:hover .v26-card-client { color: var(--v26-ink); }
+
+/* ── spotlight: dim/desaturate non-hovered siblings (featured-grid-spotlight) ── */
+@media (hover: hover) {
+  .v26-grid:has(.v26-card:hover) .v26-card:not(:hover) {
+    opacity: 0.5; filter: saturate(0.7);
+    transition: opacity .4s var(--ease), filter .4s var(--ease);
+  }
+}
+
+/* ── responsive: collapse to a single stacked column like the source ───────── */
+@media screen and (max-width: 860px) {
+  .v26-grid {
+    display: flex; flex-direction: column; gap: 28px;
+    grid-auto-rows: auto;
+  }
+  .v26-card { grid-column: auto !important; grid-row: auto !important; }
+  .v26-card-media { aspect-ratio: 4 / 3; }
+  .v26-card.v26-fp-hero .v26-card-media { aspect-ratio: 4 / 5; } /* taller hero on mobile */
+}
+
+/* ── reduced motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .v26-hero-title { animation: none; transform: none; }
+  .v26-card { opacity: 1; transform: none; transition: none; }
+  .v26-card-media img, .v26-card-media video { transition: none; }
+  .v26-card:hover .v26-card-media img, .v26-card:hover .v26-card-media video { transform: none; }
+}
+
+/* ── Modal (v26 Project View) ────────────────────────────────────────────────── */
+.v26-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.v26-modal.is-active {
+  pointer-events: auto;
+}
+
+.v26-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.v26-modal.is-active .v26-modal-backdrop {
+  opacity: 1;
+}
+
+.v26-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  margin: auto;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
+}
+
+.v26-modal.is-active .v26-modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.v26-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.v26-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.v26-modal-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.v26-modal-inner {
+  padding: 64px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.v26-modal-inner::-webkit-scrollbar {
+  width: 8px;
+}
+.v26-modal-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+.v26-modal-inner::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.v26-modal-header {
+  margin-bottom: 48px;
+  max-width: 800px;
+}
+
+.v26-modal-client {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.v26-modal-title {
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.v26-modal-cat {
+  font-size: 16px;
+  color: #0033a0;
+}
+
+.v26-modal-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+.v26-modal-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.v26-modal-intro {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.v26-modal-section h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.v26-modal-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+}
+
+.v26-modal-section li {
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.v26-modal-section li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #0033a0;
+}
+
+.v26-modal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.v26-stat-card {
+  border-left: 2px solid #0033a0;
+  padding-left: 24px;
+}
+
+.v26-stat-metric {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.v26-stat-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.v26-modal-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.v26-modal-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #222;
+}
+
+@media (max-width: 1024px) {
+  .v26-modal-body {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .v26-modal-content {
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+  .v26-modal-inner {
+    padding: 32px 24px;
+  }
+  .v26-modal-title {
+    font-size: 36px;
+  }
+  .v26-modal-intro {
+    font-size: 20px;
+  }
+  .v26-stat-metric {
+    font-size: 36px;
+  }
+}
+
+/* ── Modal Videos ────────────────────────────────────────────────────────────── */
+.v26-modal-video-wrapper {
+  margin-bottom: 24px;
+}
+
+/* Video opens at the top of the modal; separate it from the header below. */
+.v26-modal-gallery-top {
+  margin-bottom: 40px;
+}
+
+.v26-modal-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #000;
+  margin-bottom: 12px;
+}
+
+.v26-video-caption {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  margin: 0;
+}
+
+.v26-video-group {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}

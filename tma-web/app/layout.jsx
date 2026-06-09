@@ -1,4 +1,4 @@
-import { Inter_Tight, JetBrains_Mono, Caveat, Space_Grotesk } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono, Caveat, Space_Grotesk, Montserrat } from "next/font/google";
 import MasksSprite from "@/components/portfolio/MasksSprite";
 import "./globals.css";
 
@@ -14,6 +14,15 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
   display: "swap",
   variable: "--font-jetbrains-mono",
+});
+
+// Montserrat is the closest free geometric match to the brand font (Gotham).
+// Scoped to V26 via --font-montserrat (CSS prefers real "Gotham" if installed).
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 // Space Grotesk is the display voice for V12 (Launch Sequence). Scoped under
@@ -78,7 +87,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable} ${caveat.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable} ${caveat.variable} ${spaceGrotesk.variable} ${montserrat.variable}`}>
       <body>
         <MasksSprite />
         {children}

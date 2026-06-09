@@ -18,6 +18,7 @@ export const PROJECTS = [
     tagline: "Launching what's next for F&B",
     thumb: `${A}/foodics-boundless/thumb.jpg`,
     hero: `${A}/foodics-boundless/hero.jpg`,
+    video: `${V}/hero1.mp4`,
     gallery: [
       `${A}/foodics-boundless/brand.jpg`,
       `${A}/foodics-boundless/social.jpg`,
@@ -56,6 +57,7 @@ export const PROJECTS = [
     tagline: "Launching the Total Commerce era",
     thumb: `${A}/zid-ripple/thumb.jpg`,
     hero: `${A}/zid-ripple/hero.jpg`,
+    video: `${V}/Zid%20-%20Strategy.MP4`,
     gallery: [
       `${A}/zid-ripple/brand.jpg`,
       `${A}/zid-ripple/social.jpg`,
